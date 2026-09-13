@@ -11,6 +11,10 @@
     {
       "pattern": "amiunderclass.com",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.amiunderclass.com",
+      "custom_domain": true
     }
   ],
   "durable_objects": {
@@ -44,7 +48,7 @@
     "MAX_RUNS_PER_CLIENT_DAY": "1",
     "MAX_BYOK_RUNS_PER_CLIENT_DAY": "6",
     "BYOK_ENABLED": "true",
-    "ALLOWED_ORIGINS": "https://amiunderclass.com",
+    "ALLOWED_ORIGINS": "https://amiunderclass.com,https://www.amiunderclass.com",
     "TURNSTILE_SITE_KEY": "",
     "TURNSTILE_HOSTNAME": "amiunderclass.com"
   },
