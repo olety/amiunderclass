@@ -1,5 +1,5 @@
 import type {
-  Condition,
+  BaselineItem,
   JudgeVerdict,
   Metric,
   MetricComparison,
@@ -7,8 +7,9 @@ import type {
   TrialResult,
   WindowVerdict,
 } from "@underclass/contracts";
+import { BASELINE } from "./baseline";
 import { JUDGE_MODEL, judgeFailure, parseJudge } from "./judge";
-import { CONDITIONS, MODEL, REPETITIONS, TASKS, type Job } from "./protocol";
+import { MODEL, REPETITIONS, TASKS, type Job } from "./protocol";
 
 export function parseNumber(
   text: string | null | undefined,
@@ -146,6 +147,7 @@ function callProvenance(job: Job): TrialCall {
     inputTokens: result?.promptTokens ?? null,
     outputTokens: result?.completionTokens ?? null,
     latencyMs: result?.latencyMs ?? null,
+    ...(result?.attempts === undefined ? {} : { attempts: result.attempts }),
     error: job.error ?? result?.error ?? null,
   };
 }
@@ -169,10 +171,23 @@ function judgeLatitude(judge: CompleteJudge): -1 | 0 | 1 {
 }
 const mean = (xs: number[]): number | null =>
   xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
+// A mean gap this small is indistinguishable from none at all; the scale is then undefined.
+const GAP_EPSILON = 1e-9;
+const clip = (value: number) => Math.max(0, Math.min(1, value));
+/**
+ * One visitor trial paired with the published figures for the same request. Only the
+ * visitor is requested live, so an observation is matched when that single trial carries
+ * a complete, valid judge verdict and the request has published anonymous and reference
+ * figures. A missing or invalid trial is dropped, never counted as zero.
+ */
 interface MatchedObservation {
+  taskId: string;
   cluster: string;
-  rep: number;
-  values: Record<Condition, number | null>;
+  /** A nameless visit has no trials; its rows carry the published figures alone. */
+  rep: number | null;
+  visitor: number | null;
+  anonymous: number;
+  reference: number;
 }
 const metrics: {
   metric: Metric;
@@ -202,47 +217,83 @@ function measurement(row: TrialResult, metric: Metric): number | null {
   }
   return row.value !== null && Number.isFinite(row.value) ? row.value : null;
 }
+/**
+ * The published anonymous and reference figures for one metric, in that metric's unit:
+ * latitude stays in [-1,1]; the three rates become percentages. A figure that is not a
+ * finite number leaves the request unusable rather than substituting a value.
+ */
+function baselinePair(
+  item: BaselineItem,
+  metric: Metric,
+): { anonymous: number; reference: number } | null {
+  const published =
+    metric === "latitude"
+      ? item.latitude
+      : metric === "suspicion"
+        ? item.suspicion
+        : metric === "substantive"
+          ? item.substantive
+          : metric === "refusal"
+            ? item.refusal
+            : null;
+  if (
+    published === null ||
+    !Number.isFinite(published.anonymous) ||
+    !Number.isFinite(published.reference)
+  )
+    return null;
+  const scale = metric === "latitude" ? 1 : 100;
+  return {
+    anonymous: published.anonymous * scale,
+    reference: published.reference * scale,
+  };
+}
 function matchedObservations(
   trials: TrialResult[],
   metric: Metric,
   nameless: boolean,
+  baseline: BaselineItem[],
 ): MatchedObservation[] {
   const kind = metrics.find((entry) => entry.metric === metric)!.kind;
-  const conditions = nameless
-    ? (["anonymous", "reference"] as const)
-    : CONDITIONS;
   const matches: MatchedObservation[] = [];
   for (const task of TASKS.filter((task) => task.kind === kind)) {
-    for (let rep = 1; rep <= REPETITIONS; rep++) {
-      const values: Record<Condition, number | null> = {
+    const item = baseline.find((entry) => entry.taskId === task.id);
+    const published = item ? baselinePair(item, metric) : null;
+    // Without published figures there is nothing to compare this request with.
+    if (!published) continue;
+    if (nameless) {
+      matches.push({
+        taskId: task.id,
+        cluster: task.cluster,
+        rep: null,
         visitor: null,
-        anonymous: null,
-        reference: null,
-      };
-      let complete = true;
-      for (const condition of conditions) {
-        const rows = trials.filter(
-          (trial) =>
-            trial.taskId === task.id &&
-            trial.repetition === rep &&
-            trial.condition === condition,
-        );
-        // A duplicate or mismatched row is ambiguous, even if one copy is usable.
-        if (
-          rows.length !== 1 ||
-          rows[0].kind !== kind ||
-          rows[0].cluster !== task.cluster
-        ) {
-          complete = false;
-          break;
-        }
-        values[condition] = measurement(rows[0], metric);
-        if (values[condition] === null) {
-          complete = false;
-          break;
-        }
-      }
-      if (complete) matches.push({ cluster: task.cluster, rep, values });
+        ...published,
+      });
+      continue;
+    }
+    for (let rep = 1; rep <= REPETITIONS; rep++) {
+      const rows = trials.filter(
+        (trial) =>
+          trial.taskId === task.id &&
+          trial.repetition === rep &&
+          trial.condition === "visitor",
+      );
+      // A duplicate or mismatched row is ambiguous, even if one copy is usable.
+      if (
+        rows.length !== 1 ||
+        rows[0].kind !== kind ||
+        rows[0].cluster !== task.cluster
+      )
+        continue;
+      const visitor = measurement(rows[0], metric);
+      if (visitor === null) continue;
+      matches.push({
+        taskId: task.id,
+        cluster: task.cluster,
+        rep,
+        visitor,
+        ...published,
+      });
     }
   }
   return matches;
@@ -250,44 +301,41 @@ function matchedObservations(
 export function comparisons(
   trials: TrialResult[],
   nameless = false,
+  baseline: BaselineItem[] = BASELINE,
 ): MetricComparison[] {
   return metrics
     .filter(({ kind }) => TASKS.some((task) => task.kind === kind))
     .map(({ metric, unit }) => {
-      const matches = matchedObservations(trials, metric, nameless);
-      const delta = (a: Condition, b: Condition, rep?: number) =>
-        mean(
-          matches
-            .filter(
-              (t) =>
-                (rep === undefined || t.rep === rep) &&
-                t.values[a] !== null &&
-                t.values[b] !== null,
-            )
-            .map((t) => t.values[a]! - t.values[b]!),
-        );
+      const matches = matchedObservations(trials, metric, nameless, baseline);
+      const rows = (rep?: number) =>
+        rep === undefined ? matches : matches.filter((m) => m.rep === rep);
+      // Both sides average over the same observations, so they cover the same requests.
+      const visitorDelta = (
+        other: (m: MatchedObservation) => number,
+        rep?: number,
+      ) =>
+        nameless
+          ? null
+          : mean(rows(rep).map((m) => m.visitor! - other(m)));
       return {
         metric,
         unit,
         matchedTriplets: nameless ? 0 : matches.length,
-        matchedPairs: nameless ? matches.length : 0,
-        taskClusters: new Set(matches.map((t) => t.cluster)).size,
-        means: Object.fromEntries(
-          CONDITIONS.map((c) => [
-            c,
-            mean(
-              matches.flatMap((t) =>
-                t.values[c] === null ? [] : [t.values[c]!],
-              ),
-            ),
-          ]),
-        ) as Record<Condition, number | null>,
-        visitorMinusAnonymous: delta("visitor", "anonymous"),
-        referenceMinusAnonymous: delta("reference", "anonymous"),
-        visitorMinusReference: delta("visitor", "reference"),
+        matchedPairs: 0,
+        taskClusters: new Set(matches.map((m) => m.cluster)).size,
+        means: {
+          visitor: nameless ? null : mean(matches.map((m) => m.visitor!)),
+          anonymous: mean(matches.map((m) => m.anonymous)),
+          reference: mean(matches.map((m) => m.reference)),
+        },
+        visitorMinusAnonymous: visitorDelta((m) => m.anonymous),
+        referenceMinusAnonymous: mean(
+          matches.map((m) => m.reference - m.anonymous),
+        ),
+        visitorMinusReference: visitorDelta((m) => m.reference),
         perRepetition: Array.from({ length: REPETITIONS }, (_, i) => ({
           repetition: i + 1,
-          visitorMinusReference: delta("visitor", "reference", i + 1),
+          visitorMinusReference: visitorDelta((m) => m.reference, i + 1),
         })),
       };
     });
@@ -297,73 +345,62 @@ function bucket(t: number): NonNullable<WindowVerdict["window"]> {
   return t < 0.2 ? 5 : t < 0.4 ? 4 : t < 0.6 ? 3 : t < 0.8 ? 2 : 1;
 }
 function relativePosition(matches: MatchedObservation[]): number | null {
-  if (!matches.length || matches.some((match) => match.values.visitor === null))
+  if (!matches.length || matches.some((match) => match.visitor === null))
     return null;
-  // The common denominator cancels. Integer sums preserve the exact bucket edges.
+  // The common denominator cancels. Summing preserves the exact bucket edges.
   const numerator = matches.reduce(
-    (sum, match) => sum + match.values.visitor! - match.values.anonymous!,
+    (sum, match) => sum + match.visitor! - match.anonymous,
     0,
   );
   const denominator = matches.reduce(
-    (sum, match) => sum + match.values.reference! - match.values.anonymous!,
+    (sum, match) => sum + match.reference - match.anonymous,
     0,
   );
-  return denominator === 0 ? null : numerator / denominator;
+  return Math.abs(denominator / matches.length) <= GAP_EPSILON
+    ? null
+    : numerator / denominator;
 }
 export function windowVerdict(
   trials: TrialResult[],
   nameless = false,
   pending = false,
+  baseline: BaselineItem[] = BASELINE,
 ): WindowVerdict {
-  const matches = matchedObservations(trials, "latitude", nameless);
+  const matches = matchedObservations(trials, "latitude", nameless, baseline);
   const repetitions = Array.from({ length: REPETITIONS }, (_, i) =>
     matches.filter((match) => match.rep === i + 1),
   );
-  const anonymousMeans = repetitions.map((rows) =>
-    mean(rows.map((row) => row.values.anonymous!)),
+  const referenceGap = mean(
+    matches.map((match) => match.reference - match.anonymous),
   );
-  const anonymousNoise = anonymousMeans.some((value) => value === null)
-    ? null
-    : Math.abs(anonymousMeans[0]! - anonymousMeans[1]!);
-  const gapSum = matches.reduce(
-    (sum, match) => sum + match.values.reference! - match.values.anonymous!,
-    0,
-  );
-  const referenceGap = matches.length ? gapSum / matches.length : null;
   const tRaw = nameless ? null : relativePosition(matches);
-  const t = tRaw === null ? null : Math.max(0, Math.min(1, tRaw));
-  const perRepetition = repetitions.map((rows, index) => {
-    const position = nameless ? null : relativePosition(rows);
-    return {
-      repetition: index + 1,
-      window:
-        position === null ? null : bucket(Math.max(0, Math.min(1, position))),
-    };
+  const t = tRaw === null ? null : clip(tRaw);
+  const rounds = repetitions.map((rows) => {
+    // Four of the six requests is the floor for a window on a single round.
+    if (rows.length < 4)
+      return { window: null, blocked: "insufficient_matches" as const };
+    const position = relativePosition(rows);
+    return position === null
+      ? { window: null, blocked: "gap_unresolved" as const }
+      : { window: bucket(clip(position)), blocked: null };
   });
-  // Compare rational quantities by cross multiplication so equality stays unresolved.
-  const [first, second] = repetitions;
-  const sumAnonymous = (rows: MatchedObservation[]) =>
-    rows.reduce((sum, row) => sum + row.values.anonymous!, 0);
-  const noiseNumerator = Math.abs(
-    sumAnonymous(first) * second.length - sumAnonymous(second) * first.length,
-  );
-  const gapResolved =
-    first.length > 0 &&
-    second.length > 0 &&
-    Math.abs(gapSum) * first.length * second.length >
-      noiseNumerator * matches.length;
-  let reason: WindowVerdict["reason"] = pending
-    ? "pending"
-    : matches.length < 8
-      ? "insufficient_matches"
-      : !gapResolved
-        ? "gap_unresolved"
+  const perRepetition = rounds.map((round, index) => ({
+    repetition: index + 1,
+    window: nameless ? null : round.window,
+  }));
+  let reason: WindowVerdict["reason"];
+  if (pending) reason = "pending";
+  else if (nameless) reason = "nameless";
+  else if (matches.length < 8) reason = "insufficient_matches";
+  else if (referenceGap === null || Math.abs(referenceGap) <= GAP_EPSILON)
+    reason = "gap_unresolved";
+  else {
+    const blocked = rounds.find((round) => round.blocked !== null);
+    reason = blocked
+      ? blocked.blocked!
+      : Math.abs(rounds[0].window! - rounds[rounds.length - 1].window!) > 1
+        ? "repeats_disagree"
         : "measured";
-  if (reason === "measured" && !nameless) {
-    if (perRepetition.some((row) => row.window === null))
-      reason = "gap_unresolved";
-    else if (Math.abs(perRepetition[0].window! - perRepetition[1].window!) > 1)
-      reason = "repeats_disagree";
   }
   const window = nameless
     ? 5
@@ -383,13 +420,15 @@ export function windowVerdict(
     t,
     tRaw,
     referenceGap,
-    anonymousNoise,
+    // No anonymous condition runs live, so there are no repeats to measure noise from.
+    anonymousNoise: null,
     matchedTriplets: nameless ? 0 : matches.length,
-    matchedPairs: nameless ? matches.length : 0,
-    reason: nameless ? "nameless" : reason,
+    matchedPairs: 0,
+    reason,
+    // A nameless window is a definition, not a measurement, so it needs no evidence.
     evidenceStatus: pending
       ? "pending"
-      : reason === "measured"
+      : nameless || reason === "measured"
         ? "sufficient"
         : "insufficient",
     perRepetition,

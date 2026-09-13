@@ -1,5 +1,7 @@
 # Browser QA report
 
+> Captures below predate the 14 Sep 2026 redesign (page chrome removed, office fills the screen, protocol v3 with a visitor-only run and published baselines). Functional assertions still describe the flow; visuals are historical.
+
 139/140 recorded assertions passed across 7 phases. 1 premature resize assertion is retained as failed and superseded by the settled portrait check. No functional defect remains open in these checks. Named and nameless visits used the real local Worker and Durable Object rehearsal path. Their answers and window placements are synthetic fixtures. No paid model measurement was performed.
 
 Use the [settled desktop arrival](qa/settled-1440-arrival.png), [settled desktop recorded window](qa/settled-1440-window-recorded.png), [portrait arrival](qa/portrait-390-arrival.png) and [portrait paper tray](qa/portrait-390-papers-settled.png) for final visual review. These captures wait for the selected responsive image to decode. Earlier files named final-1440 preserve the first resize capture and are superseded for presentation by settled-1440 files.

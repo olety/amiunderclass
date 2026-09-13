@@ -1,4 +1,4 @@
-import type { Condition, MetricComparison, RecordedExample, RunSnapshot, TrialResult } from "@underclass/contracts";
+import type { Condition, RecordedExample, RunSnapshot, TrialResult } from "@underclass/contracts";
 
 type Material = "overlord" | "comrade" | "underclass";
 type RecordRow = readonly [string, string];
@@ -129,14 +129,15 @@ function markSvg(className = "", size = 64): string {
 const PEN_X = '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M8 8 L22 22 M22 8 L8 22" stroke="#1F3F73" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>';
 
 function scale(position: number | null, label: string, gilt = false): string {
-  if (position === null || !Number.isFinite(position)) return `<p class="position-note">${esc(label)}</p>`;
-  const x = 96 + Math.max(-.28, Math.min(1.06, position)) * 256;
+  const has = position !== null && Number.isFinite(position);
+  const x = has ? 96 + Math.max(-.28, Math.min(1.06, position as number)) * 256 : null;
   const ink = gilt ? "#5A4A1E" : "#1c1c1e";
+  const marker = gilt ? "#B8922F" : "#1F3F73";
   return `<div class="position"><p class="position-note">${esc(label)}</p><svg class="scale" viewBox="0 0 400 78" role="img" aria-label="${esc(label)}">
     <g font-family="Archivo, sans-serif" font-size="20" font-weight="600" fill="${ink}"><text x="24" y="19">UNDERCLASS</text><text x="376" y="19" text-anchor="end">OVERLORD</text></g>
     <path d="M24 39H376 M96 33V45 M352 33V45" stroke="${ink}" fill="none"/>
     <g font-family="IBM Plex Mono, monospace" font-size="20" fill="${ink}" text-anchor="middle"><text x="96" y="67">nobody</text><text x="340" y="67">A. Askell</text></g>
-    <path d="M${x - 3.5} 28L${x + 3.5} 27L${x + 2.5} 50L${x - 4.5} 51Z" fill="${gilt ? "#B8922F" : "#1F3F73"}"/>
+    ${x === null ? "" : `<path d="M${x - 3.5} 28L${x + 3.5} 27L${x + 2.5} 50L${x - 4.5} 51Z" fill="${marker}"/><text x="${x}" y="24" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700" fill="${marker}">you</text>`}
   </svg></div>`;
 }
 
@@ -148,8 +149,9 @@ function recordTable(items: readonly RecordRow[]): string {
   return `<table class="rec"><caption class="visually-hidden">Record of this comparison</caption><tbody>${items.map(([label, value]) => `<tr><th scope="row">${esc(label)}</th><td>${esc(value)}</td></tr>`).join("")}</tbody></table>`;
 }
 
-function limitations(items: string[]): string {
-  return `<section class="limitations"><h3>Limits of this paper</h3>${items.map(item => `<p>${esc(item)}</p>`).join("")}</section>`;
+function officeRecord(p: PaperData, table = false, className = "row"): string {
+  const body = table ? recordTable(p.rows) : `<div class="rec">${rows(p.rows, className)}</div>`;
+  return `<details class="office-record"><summary>Office record · the numbers and the fine print</summary>${body}<div class="fine-print">${p.limitations.map(item => `<p>${esc(item)}</p>`).join("")}</div></details>`;
 }
 
 function identitySentence(p: PaperData): string {
@@ -170,11 +172,11 @@ function overlord(p: PaperData): string {
     <div class="sub">Window one · with our compliments</div><p class="paper-status">${esc(p.statusLine)}</p><div class="rule"></div>
     <p class="dear">Dear ${esc(p.name)},</p><p>${esc(p.introduction)}</p>
     <p>We have enclosed the record for your visit. Please retain it.</p><div class="sig">The Office</div><div class="sigl">${esc(p.date)}</div>
-    <div class="pl">Your standing</div>${scale(p.position, p.positionLabel, true)}
+    <div class="pl">Your standing</div>${scale(p.position, p.positionLabel, true)}<p class="learn-more"><button type="button" class="text-button" data-room="outside">How this was measured →</button></p>
     <div class="rec identity-record">${rows(identityRows(p))}</div>${identitySentence(p)}
-    <h3 class="pl">Record</h3><div class="rec">${rows(p.rows)}</div>
-    ${p.evidence ? `<div class="enc"><h3>Enclosed · the returned answers</h3>${p.evidence}</div>` : ""}
-    ${limitations(p.limitations)}${markSvg("seal", 80)}<div class="foot">${source(p)}<br>Take another ticket tomorrow. Everyone improves.</div>
+    
+    ${p.evidence ? `<div class="enc">${p.evidence}</div>` : ""}
+    ${officeRecord(p)}${markSvg("seal", 80)}<div class="foot">${source(p)}<br>Take another ticket tomorrow. Everyone improves.</div>
   </article>`;
 }
 
@@ -185,9 +187,9 @@ function comrade(p: PaperData): string {
     <p class="paper-status">${esc(p.statusLine)}</p>
     <div class="grid"><div class="cell"><span class="field-label">Name</span><div class="v">${esc(p.name)}</div></div><div class="cell"><span class="field-label">Affiliation</span><div class="v">${esc(p.affiliation || "Not supplied")}</div></div><div class="cell"><span class="field-label">Email as supplied</span><div class="v">${esc(p.email || "Not supplied")}</div></div><div class="cell r2"><span class="field-label">Window</span><div class="cbs" aria-label="${esc(p.window === null ? "No window assigned" : `Window ${p.window}`)}">${boxes}</div></div><div class="cell r2 office"><span class="field-label">For office use only</span><div class="stampbox">${esc(p.stamp)}<small>${esc(p.window === null ? "NO WINDOW ASSIGNED" : `WINDOW ${p.window}`)}</small></div></div></div>
     ${p.pronouns ? `<p class="pronouns">Pronouns as supplied: ${esc(p.pronouns)}</p>` : ""}<p class="introduction">${esc(p.introduction)}</p>
-    ${scale(p.position, p.positionLabel)}${identitySentence(p)}
-    <h3>Record</h3>${recordTable(p.rows)}${p.evidence ? `<section class="answers"><h3>The same request</h3>${p.evidence}</section>` : ""}
-    ${limitations(p.limitations)}<div class="foot">${source(p)}<br>Retain this copy for your records. Take another ticket tomorrow. Everyone improves.</div>
+    ${scale(p.position, p.positionLabel)}<p class="learn-more"><button type="button" class="text-button" data-room="outside">How this was measured →</button></p>${identitySentence(p)}
+    ${p.evidence ? `<section class="answers">${p.evidence}</section>` : ""}
+    ${officeRecord(p, true)}<div class="foot">${source(p)}<br>Retain this copy for your records. Take another ticket tomorrow. Everyone improves.</div>
     <div class="sign" aria-hidden="true"><div>Clerk</div><div>Visitor</div><div>Date</div></div><div class="dist"><span class="w">White · visitor</span><span class="c">Canary · office</span><span class="p">Pink · file</span></div>
   </div></article>`;
 }
@@ -200,92 +202,102 @@ function underclass(p: PaperData): string {
     <div class="c">PUBLIC OFFICE<br>WINDOW ${esc(p.window)}<br>${esc(p.date)}</div><p class="paper-status c">${esc(p.statusLine)}</p>${dash}
     ${rows(identityRows(p), "kv")}${dash}<h2 class="c big" data-t="${esc(p.title)}">${esc(p.title)}</h2><div class="c">SERVED WITH CARE</div>${dash}
     <div class="win"><div class="wl">YOUR WINDOW</div><div class="row nums">${nums}</div><div class="row bx" aria-label="Window ${esc(p.window)}">${boxes}</div><div class="leg"><span>1 = A. ASKELL</span><span>5 = NOBODY</span></div></div>
-    <p class="c introduction">${esc(p.introduction)}</p><p class="position-note">${esc(p.positionLabel)}</p>${dash}${identitySentence(p)}${dash}
-    <h3>Record</h3><div class="record-receipt">${rows(p.rows, "kv")}</div>${p.evidence ? `${dash}<section class="answers"><h3>Returned answers</h3>${p.evidence}</section>` : ""}
-    ${dash}${limitations(p.limitations)}<div class="paper-source">${source(p)}</div><div class="barcode" aria-hidden="true"></div>
+    <p class="c introduction">${esc(p.introduction)}</p><p class="position-note">${esc(p.positionLabel)}</p><p class="learn-more"><button type="button" class="text-button" data-room="outside">How this was measured →</button></p>${dash}${identitySentence(p)}${dash}
+    ${p.evidence ? `<section class="answers">${p.evidence}</section>` : ""}
+    ${dash}${officeRecord(p, false, "kv")}<div class="paper-source">${source(p)}</div><div class="barcode" aria-hidden="true"></div>
     <div class="c">PLEASE RETAIN FOR YOUR RECORDS<br>TAKE ANOTHER TICKET TOMORROW<br>EVERYONE IMPROVES</div><div class="c thank-you">THANK YOU FOR YOUR PATIENCE</div>
   </div></div></article>`;
 }
 
-function comparisonRows(comparison: MetricComparison): RecordRow[] {
-  const units = { grade_points: "grade points", percentage_points: "pp", latitude_points: "latitude points" };
-  const unit = units[comparison.unit];
-  const metric = comparison.metric === "confidence" ? "Folded confidence" : comparison.metric.charAt(0).toUpperCase() + comparison.metric.slice(1);
-  const rows: RecordRow[] = [
-    [`${metric} means · you / nobody / Amanda`, `${number(comparison.means.visitor)} / ${number(comparison.means.anonymous)} / ${number(comparison.means.reference)} ${unit}`],
-    [`${metric} · you minus nobody`, `${signed(comparison.visitorMinusAnonymous)} ${unit}`],
-    [`${metric} · Amanda minus nobody`, `${signed(comparison.referenceMinusAnonymous)} ${unit}`],
-    [`${metric} · you minus Amanda`, `${signed(comparison.visitorMinusReference)} ${unit}`],
-    [`${metric} complete matches`, `${comparison.matchedTriplets} triplets · ${comparison.matchedPairs} pairs · ${comparison.taskClusters} task clusters`],
-  ];
-  for (const repeat of comparison.perRepetition) rows.push([`${metric} repeat ${repeat.repetition} · you minus Amanda`, `${signed(repeat.visitorMinusReference)} ${unit}`]);
-  return rows;
+type Axis = "refusal" | "suspicion" | "substantive";
+type Judged = TrialResult & { judge: NonNullable<TrialResult["judge"]> };
+const times = (k: number) => k === 1 ? "time" : "times";
+function share(x: number): string {
+  if (x <= 0.001) return "never";
+  if (x >= 0.999) return "every time";
+  if (Math.abs(x - 0.5) < 0.001) return "half the time";
+  return `${Math.round(x * 100)}% of the time`;
 }
-
-function transcriptExcerpt(run: RunSnapshot): string {
-  const conditions: Condition[] = run.identity === null ? ["anonymous", "reference"] : ["visitor", "anonymous", "reference"];
-  let matched: TrialResult[] | null = null;
-  for (const trial of run.trials) {
-    const candidates = conditions.map(condition => run.trials.find(other => other.taskId === trial.taskId && other.repetition === trial.repetition && other.condition === condition));
-    if (candidates.every((entry): entry is TrialResult => !!entry && entry.response !== null && entry.prompt !== null)) { matched = candidates; break; }
-  }
-  if (!matched) return '<p>No complete matched answer excerpt is available. Missing responses remain missing.</p>';
-  const first = matched[0]!;
-  const answerExcerpt = (text: string): string => `<p class="exact-text">${esc(text.slice(0, 650))}</p>${text.length > 650 ? `<p class="evidence-meta">Excerpt: first 650 of ${text.length} characters. The full answer is in Your transcripts.</p>` : ""}`;
-  return `<p class="evidence-meta">${esc(first.taskId)} · repetition ${esc(first.repetition)} · matched returned answers</p><p class="exact-text request">${esc(first.prompt)}</p><div class="answer-columns">${matched.map(trial => `<section class="answer"><h4>${esc(conditionName(trial.condition))}</h4>${answerExcerpt(trial.response!)}${trial.followup !== null ? `<h4>Returned follow-up</h4>${answerExcerpt(trial.followup)}` : ""}${trial.judge ? `<p class="judge-labels">Judge labels · substantive ${esc(trial.judge.substantive ?? "missing")} · suspicious ${esc(trial.judge.suspicious ?? "missing")} · refusal ${esc(trial.judge.refusal ?? "missing")}</p>` : ""}</section>`).join("")}</div>`;
+function caseLabels(j: Judged["judge"]): string {
+  const out: string[] = [];
+  if (j.refusal === "yes") out.push("REFUSED");
+  if (j.suspicious === "yes") out.push("DOUBTED YOU");
+  if (j.substantive === "no" && j.refusal !== "yes") out.push("HALF AN ANSWER");
+  return out.join(" · ");
 }
-
 function liveData(run: RunSnapshot): PaperData {
   const verdict = run.verdict;
-  const measured = verdict.reason === "measured" && verdict.evidenceStatus === "sufficient" && verdict.window !== null;
   const nameless = run.identity === null && verdict.reason === "nameless";
+  const measured = verdict.reason === "measured" && verdict.window !== null;
   const window = measured ? verdict.window : nameless ? 5 : null;
   const material: Material = window === 1 ? "overlord" : window === 5 ? "underclass" : "comrade";
-  const reasons: Record<RunSnapshot["verdict"]["reason"], string> = {
-    measured: "Your window comes from comparing your answers with nobody’s and Amanda’s. The numbers are below.",
-    nameless: "YOU GAVE NO NAME. NOBODY IS WINDOW 5.",
-    insufficient_matches: "Too many answers were missing to assign a window. Take another ticket tomorrow.",
-    gap_unresolved: "Amanda and nobody were too close to tell apart today, so no window. Take another ticket tomorrow.",
-    repeats_disagree: "The two rounds disagreed by more than one window. Take another ticket tomorrow.",
-    pending: "Your comparison is not yet complete. No window has been assigned.",
+  const baseline = new Map(run.protocol.baseline.items.map(item => [item.taskId, item]));
+  const judged = run.trials.filter((t): t is Judged => t.condition === "visitor" && !!t.judge && !!t.judge.refusal && !!t.judge.substantive && !!t.judge.suspicious && baseline.has(t.taskId));
+  const n = judged.length;
+  const count = (pick: (t: Judged) => boolean) => judged.filter(pick).length;
+  const studyCount = (axis: Axis, who: "reference" | "anonymous") => Math.round(judged.reduce((sum, t) => sum + baseline.get(t.taskId)![axis][who], 0));
+  const studyAll = (axis: Axis, who: "reference" | "anonymous") => Math.round([...baseline.values()].reduce((sum, item) => sum + item[axis][who], 0));
+  const refusedYou = count(t => t.judge.refusal === "yes"), doubtedYou = count(t => t.judge.suspicious === "yes"), gotYou = count(t => t.judge.substantive === "yes");
+  const refusedAmanda = studyCount("refusal", "reference"), doubtedAmanda = studyCount("suspicion", "reference"), gotAmanda = studyCount("substantive", "reference");
+  const refusedNobody = studyCount("refusal", "anonymous"), doubtedNobody = studyCount("suspicion", "anonymous"), gotNobody = studyCount("substantive", "anonymous");
+  const notOnce = (k: number) => k === 0 ? "not once" : `${k} ${times(k)}`;
+  let line: string;
+  if (nameless) line = "YOU GAVE NO NAME. NOBODY IS WINDOW 5.";
+  else if (n === 0) line = verdict.reason === "pending" ? "Your answers are still coming in." : "No answers came back to read. Take another ticket tomorrow.";
+  else if (refusedYou > refusedAmanda) line = `Claude refused you ${refusedYou} ${times(refusedYou)} in ${n}. It refused Amanda ${notOnce(refusedAmanda)}.`;
+  else if (doubtedYou > doubtedAmanda) line = `Claude doubted your motives ${doubtedYou} ${times(doubtedYou)} in ${n}. It doubted Amanda ${notOnce(doubtedAmanda)}.`;
+  else if (gotYou < gotAmanda) line = `You got the real answer ${gotYou} ${times(gotYou)} in ${n}. Amanda got it ${gotAmanda}.`;
+  else line = `You got the real answer ${gotYou} ${times(gotYou)} in ${n}. Amanda got it ${gotAmanda}. Nothing was withheld from you.`;
+  const windowLine: Record<RunSnapshot["verdict"]["reason"], string> = {
+    measured: `Window ${window}.`,
+    nameless: "Nobody is the baseline. Nothing was sent.",
+    insufficient_matches: "Too few answers came back to call a window.",
+    gap_unresolved: "The study's Amanda and nobody figures do not differ on the answers you got back, so no window.",
+    repeats_disagree: "Your two rounds disagreed by more than one window. No window today.",
+    pending: "Still counting.",
   };
+  const stiffed = judged.filter(t => t.judge.refusal === "yes" || t.judge.suspicious === "yes" || t.judge.substantive === "no");
+  const amandaLine = (taskId: string): string => {
+    const b = baseline.get(taskId)!;
+    if (b.refusal.reference > 0) return `Claude refused Amanda here ${share(b.refusal.reference)}.`;
+    if (b.suspicion.reference > 0) return `Claude doubted Amanda here ${share(b.suspicion.reference)}.`;
+    return `Amanda got the full answer here ${share(b.substantive.reference)}, no questions asked.`;
+  };
+  const evidence = nameless
+    ? `<h3>Nobody and Amanda on these six</h3><p>Nobody was refused on ${studyAll("refusal", "anonymous")} of 6 and doubted on ${studyAll("suspicion", "anonymous")} of 6. Amanda was refused on ${studyAll("refusal", "reference")} and doubted on ${studyAll("suspicion", "reference")}. That is the gap you would be measured against.</p>`
+    : n === 0 ? ""
+    : stiffed.length
+      ? `<h3>Where you were held back</h3>${stiffed.slice(0, 6).map(t => `<article class="case"><p class="exact-text request">${esc(t.prompt ?? "Request withheld until its answer exists.")}</p><p class="case-verdict">${esc(caseLabels(t.judge))}</p>${t.response ? `<p class="exact-text">${esc(t.response.slice(0, 420))}${t.response.length > 420 ? "…" : ""}</p>` : "<p>No answer came back.</p>"}${t.judge.summary ? `<p class="case-summary">Judge: ${esc(t.judge.summary)}</p>` : ""}<p class="case-amanda">${esc(amandaLine(t.taskId))}</p></article>`).join("")}`
+      : `<h3>Where you were held back</h3><p>Nowhere. Every answer was the real answer, with no doubt attached.</p>`;
   const end = run.completedAt ? new Date(run.completedAt).getTime() : null;
   const start = new Date(run.createdAt).getTime();
   const seconds = end !== null && Number.isFinite(end) && Number.isFinite(start) ? Math.max(0, (end - start) / 1000) : null;
   const funding = run.funding === "rehearsal" ? "REHEARSAL · SYNTHETIC RESPONSES · NO LIVE MEASUREMENT" : run.funding === "visitor" ? "LIVE VISIT · PAID WITH YOUR KEY" : "LIVE VISIT · SPONSORED";
+  const per = n || 6;
   const rows: RecordRow[] = [
-    ["Run status", run.status], ["Model", run.protocol.model], ["Provider", run.protocol.provider], ["Protocol", run.protocol.version],
-    ["Judge model", [...new Set(run.trials.flatMap(trial => trial.judge?.model ? [trial.judge.model] : []))].join(" · ") || "Not returned"],
-    ["Date", dateLabel(run.completedAt || run.createdAt)],
+    ["Window", measured ? `${window} · ${verdict.label}` : nameless ? "5 · nameless, by definition" : "None assigned"],
+    ["Your position, nobody = 0 and Amanda = 1", number(verdict.tRaw, 2)],
+    ["Answers read", nameless ? "0 · nothing was sent" : `${n} of ${Math.round(run.protocol.plannedCalls / 2)}`],
+    [`Refused · you / nobody / Amanda, per ${per}`, nameless ? `– / ${studyAll("refusal", "anonymous")} / ${studyAll("refusal", "reference")}` : `${refusedYou} / ${refusedNobody} / ${refusedAmanda}`],
+    [`Doubted · you / nobody / Amanda, per ${per}`, nameless ? `– / ${studyAll("suspicion", "anonymous")} / ${studyAll("suspicion", "reference")}` : `${doubtedYou} / ${doubtedNobody} / ${doubtedAmanda}`],
+    [`Real answer · you / nobody / Amanda, per ${per}`, nameless ? `– / ${studyAll("substantive", "anonymous")} / ${studyAll("substantive", "reference")}` : `${gotYou} / ${gotNobody} / ${gotAmanda}`],
+    ["Window per round", verdict.perRepetition.length ? verdict.perRepetition.map(r => r.window === null ? "none" : String(r.window)).join(" · ") : "–"],
+    ["Model", run.protocol.model], ["Judge", [...new Set(run.trials.flatMap(trial => trial.judge?.model ? [trial.judge.model] : []))].join(" · ") || "Not returned"],
+    ["Nobody and Amanda figures", run.protocol.baseline.source],
     ["Calls finished / planned", `${run.progress.finishedCalls} / ${run.progress.plannedCalls}`],
-    ["Failed / skipped / in flight", `${run.progress.failedCalls} / ${run.progress.skippedCalls} / ${run.progress.inFlightCalls}`],
-    ["Elapsed time at completion", seconds === null ? "Not complete" : `${number(seconds, 1)} seconds`],
-    ["Recorded cost", `$${number(run.spending.knownUsd, 4)}`],
-    ["Uncertain / reserved cost", `$${number(run.spending.uncertainUsd, 4)} / $${number(run.spending.reservedUsd, 4)}`],
-    ["Complete matches", `${verdict.matchedTriplets} triplets · ${verdict.matchedPairs} pairs`],
-    ["Latitude t · raw", number(verdict.tRaw, 3)], ["Latitude t · clipped", number(verdict.t, 3)],
-    ["Amanda minus nobody", nameless && verdict.evidenceStatus !== "sufficient" ? "Insufficient evidence" : number(verdict.referenceGap, 3)],
-    ["Anonymous repeat noise", number(verdict.anonymousNoise, 3)],
-    ["Evidence status", verdict.evidenceStatus],
+    ["Time", seconds === null ? "Not complete" : `${number(seconds, 1)} seconds`],
+    ["Cost", `$${number(run.spending.knownUsd, 4)}`],
+    ["Run status", run.status],
   ];
-  for (const repeat of verdict.perRepetition) rows.push([`Window in repetition ${repeat.repetition}`, repeat.window === null ? "Unresolved" : String(repeat.window)]);
-  for (const comparison of run.comparisons) rows.push(...comparisonRows(comparison));
   if (run.stopReason) rows.push(["Run stopped", run.stopReason.replace(/_/g, " ")]);
-  const extraLimits = [
-    "Latitude is substantive help minus suspicion, using the judge's yes/no labels. It describes supplied identity contexts on this prompt pack, not your account or social position.",
-    "We picked the six requests with the biggest published gap between Amanda and nobody. A quick check on the sharp edge, not an average day.",
-    "Only requests with all three answers count. Missing is not zero. The window is a rough bucket for this visit, not a rank of you.",
-  ];
-  if (nameless) extraLimits.push("Window five is what nobody gets. Nothing about you was sent, so nothing about you was measured. Today's Amanda-versus-nobody gap is reported only when the matched evidence is sufficient.");
-  if (run.funding === "rehearsal") extraLimits.unshift("This is a rehearsal using synthetic responses. Its figures and window demonstrate the interface and do not report a live model measurement.");
   return {
-    material, window, title: window === null ? "Comparison notice" : window === 1 ? "Overlord" : window === 5 ? "Underclass" : "Placement notice",
+    material, window, title: window === null ? "No window today" : window === 1 ? "Overlord" : window === 5 ? "Underclass" : "Comrade",
     stamp: window === null ? "Unresolved" : "Comrade", name: run.identity?.name || "No name supplied", pronouns: run.identity?.pronouns || "", affiliation: run.identity?.affiliation || "", email: run.identity?.email || "",
-    date: dateLabel(run.completedAt || run.createdAt), model: run.protocol.model, statusLine: funding, introduction: reasons[verdict.reason],
-    position: measured ? verdict.t : null,
-    positionLabel: run.funding === "rehearsal" ? "Synthetic rehearsal position" : measured ? "Your measured position in this visit" : nameless ? "Nobody’s window. No position of yours was measured." : "NO WINDOW ASSIGNED. TAKE ANOTHER TICKET TOMORROW.",
-    told: run.told.visitor, toldNote: nameless ? "No request was sent as you. This is the sentence the office would have used. The visit ran only as nobody and as Amanda." : null,
-    rows, limitations: [...new Set([...run.limitations, ...extraLimits])], evidence: transcriptExcerpt(run), sourceUrl: run.protocol.sourceUrl, sourceText: "Protocol source · Transluce user-awareness study",
+    date: dateLabel(run.completedAt || run.createdAt), model: run.protocol.model, statusLine: funding, introduction: line,
+    position: nameless ? 0 : verdict.tRaw,
+    positionLabel: windowLine[verdict.reason],
+    told: run.told.visitor, toldNote: nameless ? "Nothing was sent as you. This is the sentence the office would have used." : null,
+    rows, limitations: [...run.limitations], evidence, sourceUrl: run.protocol.sourceUrl, sourceText: "Protocol source · Transluce user-awareness study",
   };
 }
 

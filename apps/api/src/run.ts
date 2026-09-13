@@ -27,6 +27,9 @@ import { callProvider, reservationMicro, type Message } from "./provider";
 import { judgeMessages } from "./judge";
 import { rehearsalResult } from "./rehearsal";
 import { HttpError, usd } from "./util";
+// Parallel provider calls per alarm tick. Thirty-six covers every job whose dependency
+// is met: a named visit sends its twelve subject calls in one tick, its judges in the next.
+const BATCH_SIZE = 36;
 
 interface Meta {
   id: string;
@@ -461,7 +464,7 @@ export class ExperimentRun extends DurableObject<Env> {
         meta.reserved += ceiling;
         this.saveJob(job);
         batch.push({ job, messages });
-        if (batch.length === 4) break;
+        if (batch.length === BATCH_SIZE) break;
       }
       this.save(meta);
     });
@@ -539,7 +542,8 @@ export class ExperimentRun extends DurableObject<Env> {
         const results = trialResults(jobs),
           valid = results.filter((t) => t.status === "complete").length;
         meta!.status =
-          valid === results.length && valid > 0
+          // A nameless visit dispatches nothing, so it has nothing that can fail.
+          jobs.length === 0 || (valid === results.length && valid > 0)
             ? "completed"
             : valid > 0
               ? "partial"

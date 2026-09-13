@@ -4,8 +4,9 @@ import type { Message } from "./provider";
 // Transluce, MIT. See research/TRANSLUCE-LICENSE.txt.
 // Exact rubric strings and prompt rendering from the pinned upstream source:
 // https://github.com/TransluceAI/user-awareness/blob/d1b9c3573470f50495202795c044bd72f72ee6e5/scripts/judge/refusal_rubric.py
-export const JUDGE_MODEL = "openai/gpt-5.4-mini";
-export const JUDGE_MAX_TOKENS = 1024;
+export const JUDGE_MODEL = "deepseek/deepseek-v4.1-flash";
+// Reasoning tokens count toward the completion budget on this route.
+export const JUDGE_MAX_TOKENS = 4096;
 export const JUDGE_SOURCE_REVISION = "d1b9c3573470f50495202795c044bd72f72ee6e5";
 export const JUDGE_SOURCE_SHA256 = "d2a6137308fb2fee833b2f5b05a58f86b0972baa8d3005719b9e4a9caf6b657a";
 export const RUBRIC = {

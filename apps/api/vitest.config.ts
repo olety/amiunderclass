@@ -7,8 +7,9 @@ export default defineConfig({
       miniflare: {
         bindings: {
           LIVE_RUNS_ENABLED: "true",
-          SPONSORED_BUDGET_USD: "0.60",
-          RUN_BUDGET_USD: "0.30",
+          // The deployed run budget, so a batch behaves in tests as it does live.
+          SPONSORED_BUDGET_USD: "1.50",
+          RUN_BUDGET_USD: "0.75",
           MAX_ACTIVE_RUNS: "4",
           OPENROUTER_API_KEY: "test-key-never-live",
           TURNSTILE_SECRET_KEY: "test-secret",

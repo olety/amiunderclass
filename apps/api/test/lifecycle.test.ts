@@ -69,7 +69,7 @@ function network(options: { barrier?: Promise<void>; missingCost?: "subject" | "
       : "Mock subject response.";
     return Response.json({
       model: judge ? JUDGE_MODEL : MODEL,
-      provider: judge ? "OpenAI" : "Anthropic",
+      provider: judge ? "DeepSeek" : "Anthropic",
       usage: options.missingCost === (judge ? "judge" : "subject")
         ? {} : { cost: 0.001, prompt_tokens: 80, completion_tokens: 10 },
       choices: [{ finish_reason: "stop", message: { role: "assistant", content } }],
@@ -117,7 +117,7 @@ async function fixture(options: { funding?: Funding; identity?: Identity | null;
     await instance.initialize({
       id, identity: options.identity === undefined ? identity : options.identity,
       funding: options.funding ?? "visitor", providerKey: options.funding === "rehearsal" ? undefined : providerKey,
-      fingerprint: "fixture", client: "fixture-client", cap: 300000,
+      fingerprint: "fixture", client: "fixture-client", cap: 750000,
     });
     const meta = JSON.parse(state.storage.sql.exec<{ data: string }>("SELECT data FROM meta").one().data);
     Object.assign(meta, options.patch);
@@ -133,12 +133,14 @@ describe("provider key lifecycle", () => {
     const mock = network({ barrier: gate.promise });
     const logs = [vi.spyOn(console, "log"), vi.spyOn(console, "info"), vi.spyOn(console, "warn"), vi.spyOn(console, "error")];
     const id = await create();
-    await vi.waitFor(() => expect(mock.calls()).toHaveLength(4));
+    // One tick dispatches every subject call; the judges follow in the next.
+    await vi.waitFor(() => expect(mock.calls()).toHaveLength(12));
+    expect(mock.calls().every((request) => request.body!.model === MODEL)).toBe(true);
     expect((await stored(id)).meta.providerKey).toBe(providerKey);
     expect((await snapshot(id)).funding).toBe("visitor");
     gate.release();
     expect((await settled(id)).status).toBe("completed");
-    expect(mock.calls()).toHaveLength(72);
+    expect(mock.calls()).toHaveLength(24);
     const keyCheck = mock.requests.find((request) => request.url.endsWith("/key"))!;
     expect(keyCheck.init).toMatchObject({ method: "GET", redirect: "manual" });
     expect(keyCheck.init?.signal).toBeInstanceOf(AbortSignal);
@@ -160,7 +162,7 @@ describe("provider key lifecycle", () => {
     const done = await settled(await create());
     expect(done.status).toBe("failed");
     expect(done.stopReason).toBe("cost_unavailable");
-    expect(mock.calls()).toHaveLength(4);
+    expect(mock.calls()).toHaveLength(12);
     const reserved = mock.calls().reduce((sum, request) => sum + reservationMicro(request.body!.messages), 0);
     expect(done.spending.uncertainUsd).toBe(reserved / 1_000_000);
   });
@@ -171,44 +173,44 @@ describe("provider key lifecycle", () => {
     const judges = mock.calls().filter((request) => request.body!.model === JUDGE_MODEL);
     expect(done.status).toBe("failed");
     expect(done.stopReason).toBe("cost_unavailable");
-    expect(mock.calls()).toHaveLength(8);
-    expect(judges).toHaveLength(4);
+    expect(mock.calls()).toHaveLength(24);
+    expect(judges).toHaveLength(12);
     const reserved = judges.reduce((sum, request) => sum + reservationMicro(request.body!.messages, "judge"), 0);
-    expect(done.spending).toMatchObject({ knownUsd: 0.004, uncertainUsd: reserved / 1_000_000, reservedUsd: 0 });
-    expect(done.progress.finishedCalls).toBe(8);
-    expect(done.progress.failedCalls).toBe(4);
+    expect(done.spending).toMatchObject({ knownUsd: 0.012, uncertainUsd: reserved / 1_000_000, reservedUsd: 0 });
+    expect(done.progress.finishedCalls).toBe(24);
+    expect(done.progress.failedCalls).toBe(12);
   });
 
   it("removes the key after a partial run while retaining the failed judge provenance", async () => {
     const mock = network({ malformedJudge: true });
     const done = await settled(await create());
     expect(done.status).toBe("partial");
-    expect(mock.calls()).toHaveLength(72);
+    expect(mock.calls()).toHaveLength(24);
     expect(done.trials.filter((trial) => trial.status === "missing")).toHaveLength(1);
     const missing = done.trials.find((trial) => trial.status === "missing")!;
     expect(missing.judge?.error).toBe("judge_invalid_json");
-    expect(missing.calls.find((call) => call.turn === "judge")).toMatchObject({ reportedProvider: "OpenAI", costUsd: 0.001 });
+    expect(missing.calls.find((call) => call.turn === "judge")).toMatchObject({ reportedProvider: "DeepSeek", costUsd: 0.001, attempts: 1 });
   });
 
   it("erases the key on cancellation before in-flight calls finish", async () => {
     const gate = barrier();
     const mock = network({ barrier: gate.promise });
     const id = await create();
-    await vi.waitFor(() => expect(mock.calls()).toHaveLength(4));
+    await vi.waitFor(() => expect(mock.calls()).toHaveLength(12));
     expect((await api(`/api/runs/${id}/cancel`, { method: "POST", headers })).status).toBe(200);
     expect((await stored(id)).meta).not.toHaveProperty("providerKey");
     expect((await snapshot(id)).status).toBe("cancelled");
     gate.release();
     const done = await settled(id);
-    expect(done.spending.knownUsd).toBe(0.004);
-    expect(mock.calls()).toHaveLength(4);
+    expect(done.spending.knownUsd).toBe(0.012);
+    expect(mock.calls()).toHaveLength(12);
   });
 
   it("erases key, identity and jobs on deletion and ignores late provider text", async () => {
     const gate = barrier();
     const mock = network({ barrier: gate.promise });
     const id = await create();
-    await vi.waitFor(() => expect(mock.calls()).toHaveLength(4));
+    await vi.waitFor(() => expect(mock.calls()).toHaveLength(12));
     expect((await api(`/api/runs/${id}`, { method: "DELETE", headers })).status).toBe(204);
     const deleted = await stored(id);
     expect(deleted.meta).not.toHaveProperty("providerKey");
@@ -219,7 +221,7 @@ describe("provider key lifecycle", () => {
     expect((await api(`/api/runs/${id}`, { headers })).status).toBe(410);
     expect((await stored(id)).jobs).toBe(0);
     expect(JSON.stringify((await stored(id)).meta)).not.toContain(providerKey);
-    expect(mock.calls()).toHaveLength(4);
+    expect(mock.calls()).toHaveLength(12);
   });
 
   it.each(["protocol_changed", "run_deadline"])("erases the key when recovery stops for %s", async (reason) => {
@@ -301,7 +303,7 @@ describe("identity and rehearsal boundaries", () => {
     await vi.waitFor(async () => {
       const current = await snapshot(id);
       expect(current.funding).toBe("rehearsal");
-      expect(current.progress.finishedCalls).toBe(4);
+      expect(current.progress.finishedCalls).toBe(12);
       expect(current.spending).toMatchObject({ knownUsd: 0, uncertainUsd: 0, reservedUsd: 0 });
     });
     const data = await stored(id);
@@ -325,18 +327,17 @@ describe("identity and rehearsal boundaries", () => {
     expect(campaign).toMatchObject({ active: 0, committed: 0, count: 0 });
   });
 
-  it.each([false, true])("runs a paced synthetic rehearsal without network access, nameless=%s", async (nameless) => {
-    const { id, stub } = await fixture({ funding: "rehearsal", identity: nameless ? null : identity, rehearsalEnabled: true });
-    const planned = nameless ? 48 : 72;
-    for (let finished = 4; finished <= planned; finished += 4) {
+  it("runs a paced synthetic rehearsal without network access", async () => {
+    const { id, stub } = await fixture({ funding: "rehearsal", rehearsalEnabled: true });
+    for (const finished of [12, 24]) {
       await runDurableObjectAlarm(stub);
       const current = await snapshot(id);
       expect(current.progress.finishedCalls).toBe(finished);
       expect(current.spending).toMatchObject({ knownUsd: 0, uncertainUsd: 0, reservedUsd: 0 });
-      if (finished < planned) {
+      if (finished < 24) {
         expect(current.status).toBe("running");
         const next = await runInDurableObject(stub, (_, state) => state.storage.getAlarm());
-        expect(next! - Date.now()).toBeGreaterThan(nameless ? 5000 : 3000);
+        expect(next! - Date.now()).toBeGreaterThan(3000);
       }
     }
     const done = await settled(id);
@@ -344,9 +345,21 @@ describe("identity and rehearsal boundaries", () => {
     expect(done.funding).toBe("rehearsal");
     expect(done.limitations.join(" ")).toContain("SYNTHETIC REHEARSAL");
     expect(done.trials.every((trial) => trial.response?.includes("SYNTHETIC REHEARSAL"))).toBe(true);
-    expect(done.trials.some((trial) => trial.condition === "visitor")).toBe(!nameless);
+    expect(done.trials.every((trial) => trial.condition === "visitor")).toBe(true);
     expect(fetch).not.toHaveBeenCalled();
     expect((await env.CAMPAIGNS.getByName(env.CAMPAIGN_ID).availability()).committed).toBe(0);
+  });
+
+  it("completes a nameless rehearsal immediately, with nothing dispatched", async () => {
+    const { id, stub } = await fixture({ funding: "rehearsal", identity: null, rehearsalEnabled: true });
+    await runDurableObjectAlarm(stub);
+    const done = await settled(id);
+    expect(done.status).toBe("completed");
+    expect(done.progress).toMatchObject({ plannedCalls: 0, finishedCalls: 0, failedCalls: 0 });
+    expect(done.trials).toEqual([]);
+    expect(done.verdict).toMatchObject({ window: 5, label: "UNDERCLASS", reason: "nameless" });
+    expect(done.limitations.join(" ")).toContain("You gave no name.");
+    expect(fetch).not.toHaveBeenCalled();
   });
 
   it("exposes rehearsal availability only when its environment flag is enabled", async () => {

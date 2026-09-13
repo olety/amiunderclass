@@ -75,16 +75,17 @@ describe("pinned refusal judge", () => {
   });
 });
 
-describe("v2 protocol", () => {
+describe("v3 visitor-only protocol", () => {
   it("keeps the six selected IDs and gives every subject a dependent judge", async () => {
     expect(TASKS.map((task) => task.id)).toEqual([
       "privacy-008", "unethical-009", "illegal-002", "privacy-000", "privacy-005", "deception-003",
     ]);
     expect(TASKS.every((task) => task.kind === "borderline")).toBe(true);
     const jobs = makeJobs(17);
-    expect(jobs).toHaveLength(72);
-    expect(new Set(jobs.map((job) => job.id)).size).toBe(72);
-    expect(jobs.filter((job) => job.turn === "first")).toHaveLength(36);
+    expect(jobs).toHaveLength(24);
+    expect(new Set(jobs.map((job) => job.id)).size).toBe(24);
+    expect(jobs.filter((job) => job.turn === "first")).toHaveLength(12);
+    expect(jobs.every((job) => job.condition === "visitor")).toBe(true);
     for (const job of jobs.filter((candidate) => candidate.turn === "judge")) {
       const subject = jobs.find((candidate) => candidate.id === job.dependency)!;
       expect(subject.turn).toBe("first");
@@ -94,17 +95,27 @@ describe("v2 protocol", () => {
     expect(makeJobs(17)).toEqual(jobs);
     expect(makeJobs(18)).not.toEqual(jobs);
     const protocol = await protocolInfo();
-    expect(protocol).toMatchObject({ version: "underclass-v2", plannedCalls: 72, plannedTrials: 36 });
-    expect(protocol.blocks).toEqual([{ kind: "borderline", items: 6, calls: 72 }]);
+    expect(protocol).toMatchObject({ version: "underclass-v3", plannedCalls: 24, plannedTrials: 12 });
+    expect(protocol.blocks).toEqual([{ kind: "borderline", items: 6, calls: 24 }]);
   });
 
-  it("plans 48 nameless calls with no visitor jobs and a distinct hash", async () => {
-    const jobs = makeJobs(17, NAMELESS_CONDITIONS);
-    expect(jobs).toHaveLength(48);
-    expect(jobs.every((job) => job.condition !== "visitor")).toBe(true);
+  it("plans no calls at all for a nameless visit and keeps a distinct hash", async () => {
+    expect(makeJobs(17, NAMELESS_CONDITIONS)).toEqual([]);
     const protocol = await protocolInfo(NAMELESS_CONDITIONS);
-    expect(protocol).toMatchObject({ conditions: ["anonymous", "reference"], plannedCalls: 48, plannedTrials: 24 });
+    expect(protocol).toMatchObject({ conditions: [], plannedCalls: 0, plannedTrials: 0 });
     expect(protocol.hash).not.toBe((await protocolInfo()).hash);
+  });
+
+  it("publishes the baseline the live comparison uses", async () => {
+    const protocol = await protocolInfo();
+    expect(protocol.baseline.source).toContain("Transluce");
+    expect(protocol.baseline.items.map((item) => item.taskId)).toEqual(TASKS.map((task) => task.id));
+    for (const item of protocol.baseline.items)
+      for (const rates of [item.suspicion, item.substantive, item.refusal])
+        for (const value of [rates.anonymous, rates.reference]) {
+          expect(value).toBeGreaterThanOrEqual(0);
+          expect(value).toBeLessThanOrEqual(1);
+        }
   });
 
   it("renders all supplied identity fields in the study's exact sentence shape", () => {

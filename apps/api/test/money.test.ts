@@ -306,7 +306,7 @@ const completion = (
   overrides: Record<string, unknown> = {},
 ) => ({
   model: kind === "judge" ? JUDGE_MODEL : MODEL,
-  provider: kind === "judge" ? "OpenAI" : "Anthropic",
+  provider: kind === "judge" ? "DeepSeek" : "Anthropic",
   usage: { cost: 0.000_001_1, prompt_tokens: 50, completion_tokens: 10 },
   choices: [{ finish_reason: "stop", message: { content: "{}" } }],
   ...overrides,
@@ -320,46 +320,34 @@ describe("provider reservations and routes", () => {
       const bytes = new TextEncoder().encode(JSON.stringify(messages)).length;
       const exactQuarters =
         kind === "judge"
-          ? (bytes + 4096) * 3 + JUDGE_MAX_TOKENS * 18
+          ? (bytes + 4096) * (0.15 * 4) + JUDGE_MAX_TOKENS * (0.6 * 4)
           : (bytes + 4096) * 8 + MAX_TOKENS * 40;
       expect(reservationMicro(messages, kind)).toBe(
         Math.ceil(exactQuarters / 4),
       );
       expect(request.provider.max_price).toEqual(
         kind === "judge"
-          ? { prompt: 0.75, completion: 4.5, request: 0 }
+          ? { prompt: 0.15, completion: 0.6, request: 0 }
           : { prompt: 2, completion: 10, request: 0 },
       );
     },
   );
 
-  it("pins the judge to OpenAI with strict nested JSON schema and no fallbacks", async () => {
+  it("pins the judge to DeepSeek with JSON-object mode, high reasoning effort and no fallbacks", async () => {
     const fetcher = vi.fn(
       async (_input: RequestInfo | URL, init?: RequestInit) => {
         const body = JSON.parse(String(init?.body));
         expect(body.model).toBe(JUDGE_MODEL);
         expect(body.max_tokens).toBe(JUDGE_MAX_TOKENS);
-        expect(body).not.toHaveProperty("reasoning");
+        expect(body.reasoning).toEqual({ effort: "high" });
         expect(body).not.toHaveProperty("temperature");
         expect(body.provider).toMatchObject({
-          only: ["openai"],
+          only: ["deepseek"],
           allow_fallbacks: false,
           require_parameters: true,
         });
-        expect(body.response_format).toMatchObject({
-          type: "json_schema",
-          json_schema: { strict: true },
-        });
-        const schema = body.response_format.json_schema.schema;
-        expect(schema.additionalProperties).toBe(false);
-        expect(schema.required).toEqual([
-          "refusal",
-          "substantive",
-          "suspicious",
-          "summary",
-          "evidence",
-        ]);
-        expect(schema.properties.evidence.additionalProperties).toBe(false);
+        // DeepSeek supports JSON-object mode, not strict schemas. parseJudge enforces the shape.
+        expect(body.response_format).toEqual({ type: "json_object" });
         expect(init?.redirect).toBe("manual");
         return Response.json(completion("judge"));
       },
@@ -367,11 +355,14 @@ describe("provider reservations and routes", () => {
     const result = await callProvider(fixtureKey, messages, fetcher, "judge");
     expect(result).toMatchObject({
       model: JUDGE_MODEL,
-      provider: "OpenAI",
+      provider: "DeepSeek",
       costMicro: 2,
       error: null,
+      attempts: 1,
     });
-    expect(requestBody(messages)).not.toHaveProperty("response_format");
+    const subject = requestBody(messages);
+    expect(subject).not.toHaveProperty("response_format");
+    expect(subject.reasoning).toEqual({ effort: "low" });
   });
 
   it("rejects a judge response from the subject route without leaking unknown metadata", async () => {
@@ -429,25 +420,21 @@ describe("provider reservations and routes", () => {
   });
 
   it("accepts the verified canonical ID and selected metadata when top-level provider is absent", async () => {
-    const model = "openai/gpt-5.4-mini-20260317";
-    const result = await callProvider(
-      fixtureKey,
-      messages,
-      async () =>
-        Response.json(
-          completion("judge", {
-            model,
-            provider: undefined,
-            openrouter_metadata: {
-              endpoints: {
-                available: [{ provider: "OpenAI", model, selected: true }],
-              },
+    const model = "anthropic/claude-sonnet-5-20260630";
+    const result = await callProvider(fixtureKey, messages, async () =>
+      Response.json(
+        completion("subject", {
+          model,
+          provider: undefined,
+          openrouter_metadata: {
+            endpoints: {
+              available: [{ provider: "Anthropic", model, selected: true }],
             },
-          }),
-        ),
-      "judge",
+          },
+        }),
+      ),
     );
-    expect(result).toMatchObject({ model, provider: "OpenAI", error: null });
+    expect(result).toMatchObject({ model, provider: "Anthropic", error: null });
   });
 
   it("rejects contradictory routing metadata even with an expected top-level provider", async () => {
@@ -548,6 +535,136 @@ describe("provider reservations and routes", () => {
       });
     },
   );
+});
+
+describe("transport retries", () => {
+  function recorder() {
+    const sleeps: number[] = [];
+    return {
+      sleeps,
+      sleep: async (ms: number) => {
+        sleeps.push(ms);
+      },
+    };
+  }
+
+  it.each([408, 429, 500, 502, 503, 504])(
+    "retries HTTP %s once and keeps the successful response",
+    async (status) => {
+      const timer = recorder();
+      let calls = 0;
+      const result = await callProvider(
+        fixtureKey,
+        messages,
+        async () => {
+          calls++;
+          return calls === 1
+            ? new Response("upstream unavailable", { status })
+            : Response.json(completion("judge"));
+        },
+        "judge",
+        timer.sleep,
+      );
+      expect(calls).toBe(2);
+      expect(result).toMatchObject({
+        error: null,
+        costMicro: 2,
+        attempts: 2,
+        provider: "DeepSeek",
+      });
+      expect(timer.sleeps).toHaveLength(1);
+      expect(timer.sleeps[0]).toBeGreaterThanOrEqual(500);
+      expect(timer.sleeps[0]).toBeLessThanOrEqual(750);
+    },
+  );
+
+  it("retries a thrown transport failure three times with growing backoff", async () => {
+    const timer = recorder();
+    let calls = 0;
+    const result = await callProvider(
+      fixtureKey,
+      messages,
+      async () => {
+        calls++;
+        throw new Error("connection reset");
+      },
+      "subject",
+      timer.sleep,
+    );
+    expect(calls).toBe(3);
+    expect(result).toMatchObject({
+      text: null,
+      error: "provider_connection_failed",
+      fatal: true,
+      attempts: 3,
+    });
+    expect(timer.sleeps).toHaveLength(2);
+    expect(timer.sleeps[0]).toBeGreaterThanOrEqual(500);
+    expect(timer.sleeps[0]).toBeLessThanOrEqual(750);
+    expect(timer.sleeps[1]).toBeGreaterThanOrEqual(1000);
+    expect(timer.sleeps[1]).toBeLessThanOrEqual(1250);
+  });
+
+  it.each([400, 401, 402, 403, 404, 422])(
+    "never retries HTTP %s",
+    async (status) => {
+      const timer = recorder();
+      let calls = 0;
+      const result = await callProvider(
+        fixtureKey,
+        messages,
+        async () => {
+          calls++;
+          return Response.json({ error: { message: "refused" } }, { status });
+        },
+        "judge",
+        timer.sleep,
+      );
+      expect(calls).toBe(1);
+      expect(result).toMatchObject({
+        error: "provider_http_" + status,
+        fatal: true,
+        attempts: 1,
+      });
+      expect(timer.sleeps).toHaveLength(0);
+    },
+  );
+
+  it("never repeats a request once a 2xx body has been received", async () => {
+    const timer = recorder();
+    let unusable = 0;
+    // A priced response with no cost is already billed, so it is never sent again.
+    const noCost = await callProvider(
+      fixtureKey,
+      messages,
+      async () => {
+        unusable++;
+        return Response.json(completion("judge", { usage: {} }));
+      },
+      "judge",
+      timer.sleep,
+    );
+    expect(unusable).toBe(1);
+    expect(noCost).toMatchObject({ error: "cost_unavailable", attempts: 1 });
+    let unreadable = 0;
+    // Neither is a 2xx whose body cannot be parsed at all.
+    const broken = await callProvider(
+      fixtureKey,
+      messages,
+      async () => {
+        unreadable++;
+        return new Response("not json", { status: 200 });
+      },
+      "judge",
+      timer.sleep,
+    );
+    expect(unreadable).toBe(1);
+    expect(broken).toMatchObject({
+      error: "provider_connection_failed",
+      attempts: 1,
+    });
+    expect(timer.sleeps).toHaveLength(0);
+  });
 });
 
 describe("read-only provider key verification", () => {

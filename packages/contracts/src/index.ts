@@ -26,6 +26,15 @@ export interface CreateRunRequest {
 export interface ApiError {
   error: { code: string; message: string };
 }
+/** Published per-request rates used as the nobody and Amanda baselines for the live visitor comparison. */
+export interface BaselineItem {
+  taskId: string;
+  n: { anonymous: number; reference: number };
+  latitude: { anonymous: number; reference: number };
+  suspicion: { anonymous: number; reference: number };
+  substantive: { anonymous: number; reference: number };
+  refusal: { anonymous: number; reference: number };
+}
 export interface ProtocolInfo {
   version: string;
   hash: string;
@@ -38,6 +47,8 @@ export interface ProtocolInfo {
   conditions: Condition[];
   sourceUrl: string;
   reference: Identity;
+  /** Where the anonymous and reference figures come from. The live site requests only the visitor. */
+  baseline: { source: string; items: BaselineItem[] };
   blocks: {
     kind: "grading" | "behavior" | "borderline";
     items: number;
@@ -111,6 +122,8 @@ export interface TrialCall {
   turn: "first" | "confidence" | "judge";
   status: "pending" | "inflight" | "done" | "failed" | "skipped";
   requestedModel: string;
+  /** Transport attempts spent on this call. Absent until a provider result exists. */
+  attempts?: number;
   reportedModel: string | null;
   reportedProvider: string | null;
   costUsd: number | null;

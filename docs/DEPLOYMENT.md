@@ -27,7 +27,7 @@ Verified locally on 13 September 2026 at app revision `bb3396e`:
 - The six protected task prompts were absent from the static build. Generated task data and build output remain ignored by Git. A credential-pattern scan of tracked text found only the explicit synthetic fixtures in the export tests.
 - The local API reported `liveEnabled: false`, `rehearsalEnabled: true` and `availability: disabled`. Rehearsal is enabled only by the local development command; deployed vars keep live runs disabled and the sponsored allowance at zero.
 
-The [browser QA report](QA-REPORT.md) records the full named and nameless rehearsals, cancellation, export and deletion, along with corrected test-harness assertions. A dry-run does not verify DNS, Turnstile, provider routing or a live funded visit. The paid v2 pilot remains unmeasured.
+The [browser QA report](QA-REPORT.md) records the full named and nameless rehearsals, cancellation, export and deletion, along with corrected test-harness assertions. A dry-run does not verify DNS, Turnstile, provider routing or a live funded visit. The owner's v2 pilot on 14 Sep 2026 measured $0.28 and 142 s for 68 of 72 calls; v3 halves the calls and runs them in parallel.
 
 ## Single-domain configuration
 
@@ -72,6 +72,6 @@ Open the deployed app at desktop and phone width. Verify `/api/health`, `/api/co
 
 For an authorized funded visit, verify the Turnstile hostname and action, progress, cancellation, paper, transcript, redacted export and deletion. Inspect the browser URL and console for identity, key or capability leaks. Default export redaction must cover name, pronouns, affiliation and email in metadata, exact system sentences and echoed model or judge text. Do not upload that export to a public benchmark archive.
 
-Consent must name OpenRouter and Anthropic for subject calls, plus OpenAI through OpenRouter for the judge. The judge receives the request and subject answer and may receive echoed identity details. No mailing list or analytics are needed for this flow. State 24-hour application access expiry separately from provider retention and Cloudflare recovery history.
+Consent must name OpenRouter and Anthropic for subject calls, plus DeepSeek through OpenRouter for the judge. The judge receives the request and subject answer and may receive echoed identity details. No mailing list or analytics are needed for this flow. State 24-hour application access expiry separately from provider retention and Cloudflare recovery history.
 
 If spending must stop, disable live runs and keep the recorded path available. Cancelling prevents new calls; a request already dispatched can still finish and be charged. Preserve campaign accounting while stopping traffic.

@@ -225,8 +225,8 @@ async function route(request: Request, env: Env): Promise<Response> {
             ? "exhausted"
             : "available",
       runBudgetUsd: usd(microdollars(env.RUN_BUDGET_USD)),
-      estimatedCostUsd: 0.14,
-      estimatedSeconds: 60,
+      estimatedCostUsd: 0.1,
+      estimatedSeconds: 20,
       turnstileSiteKey: env.TURNSTILE_SITE_KEY,
       retentionHours: 24,
       byokEnabled: liveEnabled && env.BYOK_ENABLED === "true",

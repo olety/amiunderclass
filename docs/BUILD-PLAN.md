@@ -1,5 +1,7 @@
 # Underclass? — build plan for Codex subagents (Astra, reasoning ultra)
 
+> Superseded in part on 14 Sep 2026 after the first real visit: protocol v3 requests only the visitor (12 Sonnet calls + 12 judge calls, all parallel, retries), takes nobody's and Amanda's figures from the study's published per-item verdicts, uses `deepseek/deepseek-v4.1-flash` as judge, and prints a one-line result paper. The page chrome was removed; the office fills the screen. See `docs/API.md` and `README.md` for what is live.
+
 Written 13 Sep 2026 14:30 JST. Hackyard Yard #2 closes **14 Sep 03:00 JST (13 Sep 18:00 UTC)**. About twelve working hours. Freeze at 02:00 JST.
 
 Read first, in this order: `design/DESIGN-LOCK.md` (binding), `docs/API.md`, `AGENTS.md`. The lock overrides `design/CLAUDE-FRONTEND-BRIEF.md` wherever they differ (there is no hostess character; the world is the office).

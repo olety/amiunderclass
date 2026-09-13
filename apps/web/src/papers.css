@@ -91,7 +91,7 @@
   .uc-papers .form .dist .w::before{background:#fff} .uc-papers .form .dist .c::before{background:#F6E8A4} .uc-papers .form .dist .p::before{background:#F2CFCB}
 
   /* ================= UNDERCLASS · the thermal receipt ================= */
-  .uc-papers .rcpt{width:306px;max-width:100%;transform:rotate(1.6deg);filter:drop-shadow(0 10px 14px rgba(0,0,0,.26));font-family:var(--m);font-weight:400;font-size:11.5px;line-height:1.45;color:#3f3c36}
+  .uc-papers .rcpt{width:595px;max-width:100%;transform:rotate(1.6deg);filter:drop-shadow(0 10px 14px rgba(0,0,0,.26));font-family:var(--m);font-weight:400;font-size:11.5px;line-height:1.45;color:#3f3c36}
   .uc-papers .rp{position:relative;background:#E4DCC7;padding:40px 20px 54px;
       clip-path:polygon(0 1.6%,6% .4%,11% 2.1%,17% .9%,24% 2.4%,30% .6%,37% 1.8%,44% .2%,51% 2.2%,58% 1%,65% 2.6%,72% .8%,79% 2%,86% .5%,93% 1.9%,100% .9%,
                         100% 95.4%,97% 97.6%,92% 99.6%,88% 97.2%,81% 100%,74% 98%,68% 99.4%,61% 97%,54% 99.8%,47% 98.3%,40% 100%,33% 97.4%,26% 99.2%,19% 97.8%,12% 100%,6% 98.1%,0 99.3%)}
@@ -224,3 +224,27 @@
   .uc-papers .paper, .uc-papers .form .sheet { box-shadow: none; filter: none; transform: none; }
   .uc-papers .form .cp { display: none; }
 }
+
+/* Results paper: the case list and the collapsed office record. */
+.uc-papers .introduction{font-size:20px;font-weight:600;line-height:1.3}
+.uc-papers .office-record{margin-top:18px;border-top:1px solid #0002;padding-top:8px}
+.uc-papers .office-record>summary{cursor:pointer;font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:8px 0;min-height:44px;display:flex;align-items:center}
+.uc-papers .fine-print p{font-size:11px;line-height:1.5;opacity:.8;margin:6px 0}
+.uc-papers .case{margin:14px 0;padding:10px 12px;border-left:3px solid #1F3F73;background:#0000000a}
+.uc-papers .case .request{font-weight:600}
+.uc-papers .case-verdict{font-family:var(--m);font-size:11px;letter-spacing:.08em;color:#8b1e1e;margin:4px 0}
+.uc-papers .case-summary,.uc-papers .case-amanda{font-size:12px;margin:6px 0 0}
+.uc-papers .case-amanda{font-style:italic}
+
+.uc-papers .learn-more{margin:2px 0 10px}.uc-papers .learn-more .text-button{font-size:12px;padding:6px 0;min-height:0;font-family:var(--g)}
+
+/* Wide receipt (595px): rules span the paper, the window row reads as a ruler. */
+.uc-papers .rp .dash{height:0;font-size:0;line-height:0;margin:14px 0;border-top:2px dashed #8f8a7d;overflow:visible}
+.uc-papers .rp .win{margin:14px auto 10px;width:100%;max-width:440px}
+.uc-papers .rp .win .wl{font-size:11px;letter-spacing:.16em;margin-bottom:8px}
+.uc-papers .rp .win .row{justify-content:space-between;gap:0}
+.uc-papers .rp .win .row span{width:44px;font-size:13px}
+.uc-papers .rp .win .bx b{width:36px;height:36px;margin:0 auto;border-width:2px}
+.uc-papers .rp .win .leg{width:100%;margin-top:8px;font-size:11px;letter-spacing:.06em}
+.uc-papers .rp .introduction{font-size:18px;line-height:1.3;margin:18px 0 8px;text-align:left}
+.uc-papers .rp .barcode{max-width:320px;margin-left:auto;margin-right:auto}

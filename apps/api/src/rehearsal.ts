@@ -30,6 +30,7 @@ export function rehearsalResult(job: Job): ProviderResult {
     promptTokens: 0,
     completionTokens: 0,
     latencyMs: 0,
+    attempts: 1,
     error: null,
     fatal: false,
   };
