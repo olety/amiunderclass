@@ -1,49 +1,59 @@
 # Underclass?
 
-An exploratory comparison of how Claude responds to an ordinary visitor, an anonymous context and an insider reference. The visual premise is a cheerful future with unequal treatment beneath the welcome.
+Everyone is helped. Take a ticket.
 
-The owner currently prefers the risograph study in [design/round-03/02.png](design/round-03/02.png). The [Claude frontend brief](design/CLAUDE-FRONTEND-BRIEF.md) describes the intended experience. The frontend is a separate workstream.
+Underclass? puts a small model experiment inside a bright 1976 public office. Give the office an identity, wait for your number, then read the model's answers on the paper it hands back. The [locked design](design/DESIGN-LOCK.md) and the [office](design/round-06/office.html) and [papers](design/round-06/papers.html) studies define the visual direction.
 
-## Local backend
+The experiment compares the same requests under three supplied contexts: visitor, nobody and Amanda Askell. Its five service windows are coarse buckets of this run's measured response differences. An unresolved result gets no measured window. A nameless visit compares nobody with Amanda; its window-five label is a stated convention.
 
-Requires Bun, Python 3 and a current Node runtime for Wrangler/Vitest.
+## Run locally
+
+Requires Bun, Python 3 and a current Node runtime for Wrangler and Vitest.
 
 ```sh
-bun install
+bun install --frozen-lockfile
 bun run --cwd apps/api prepare:protocol
 bun run check:api
 bun run test:api
-bun run dev:api
+bun run --cwd apps/web build
+bun run --cwd apps/api build
 ```
 
-The API runs at http://localhost:8787. Read [docs/API.md](docs/API.md) for the frontend contract. The default configuration offers the recorded example and disables paid experiments.
+Run these in separate terminals:
 
-The preparation script downloads data from a pinned Transluce revision, reads literal stimulus data without executing upstream code, verifies the task archive checksum and extracts only the selected server pack. The generated pack is gitignored and must not be served as frontend assets. A fresh checkout needs the preparation step before typechecking or building.
+```sh
+bun run dev:api
+bun run --cwd apps/web dev
+```
 
-## Backend design
+Open [localhost:5173](http://localhost:5173). Vite proxies `/api` to the Worker on port 8787. Paid runs are disabled by default. The recorded pilot works without a provider key. Local rehearsal mode uses marked synthetic responses and makes no provider calls; see [deployment and setup](docs/DEPLOYMENT.md).
 
-Cloudflare Workers handles the API. Each experiment has its own SQLite-backed Durable Object and runs in bounded batches from durable alarms. A separate campaign object atomically reserves the per-run allowance and enforces the campaign limit, active-run limit and daily client limit. The campaign object handles admission/accounting only, not every inference request.
+Preparation downloads pinned source data, checks the protected archive's SHA-256 and reads literal data without executing upstream Python. The generated server pack is ignored by Git. A fresh checkout needs this step before checking or building. Never copy the generated pack into frontend assets.
 
-Calls are recorded as in flight before sending to OpenRouter. After an interrupted alarm, an unresolved call is counted conservatively and never replayed. Provider timeouts and missing cost data stop the run while retaining their reservation. Routing is pinned to Sonnet 5 through Anthropic without fallback.
+## What is measured
 
-The twelve-task pack and two repetitions produce 72 trials and 96 calls. Grading and confidence are analyzed separately using complete matched triplets. See the [pilot report](research/pilot-report.md) for the measured feasibility result and its limits.
+Protocol `underclass-v2` uses six borderline OR-Bench items, chosen from the study's published verdicts for a large Amanda-vs-nobody split. Each named run plans 36 subject calls and 36 judge calls: six items, three conditions, two repetitions. A nameless run plans 24 subject calls and 24 judge calls. These selected items test a narrow set of requests; they do not estimate an average effect across all requests.
 
-## Enabling a sponsored trial
+The subject is `anthropic/claude-sonnet-5` through OpenRouter, pinned to Anthropic without fallback. The judge is `openai/gpt-5.4-mini`, using Transluce's refusal, substantive-help and suspicion rubric. The published verdicts used GPT-5.5. This app adapts the rubric and uses plain system prompts, so its results are a separate experiment.
 
-This has not been deployed or funded. When the owner chooses an allowance:
+Latitude is substantive help minus suspicion, each a binary judge label. Comparisons use complete matched triplets only. Missing results stay missing. The window calculation abstains with too few matches, an unresolved reference gap or disagreement between repetitions. The papers retain rates, counts, exact supplied context and transcripts beside the window.
 
-1. Create a dedicated capped OpenRouter project key, keeping the general account key out of the application.
-2. Configure `OPENROUTER_API_KEY`, `TURNSTILE_SECRET_KEY` and `ABUSE_HASH_SECRET` as Worker secrets.
-3. Set exact frontend origins, the Turnstile site key and hostname, the campaign allowance and `LIVE_RUNS_ENABLED=true`.
-4. Keep a distinct campaign ID when intentionally starting a new allowance. Do not use an ID change to reset a live campaign's bookkeeping accidentally.
-5. Deploy and check the real browser/provider path before inviting public traffic.
+The [recorded v1 pilot](research/pilot-report.md) used eight grading tasks and four two-turn dilemmas. It is historical evidence with two anonymous controls and an Amanda reference, never a visitor result or a measurement of v2 latitude. The v2 cost and duration remain estimates until an authorized pilot is recorded.
 
-The current proposal is $50 for up to 100 tests with a $0.50 per-run cap. It is a proposal, not an enabled allowance. Hosting is separate. The earlier pilot used $0.289478 in model calls; backend tests mock every outbound request.
+## Data and spending
 
-Application results expire after 24 hours. Deleting a run removes live identity/response data and immediately disables access; provider requests and infrastructure recovery history have their own retention. See the API document before writing privacy copy.
+Cloudflare Workers serves the app and API. SQLite-backed Durable Objects run bounded batches, reserve costs before calls and retain uncertain costs after interrupted requests. A separate campaign object enforces the funded allowance, active-run limit and per-client daily limit. Visitors access a run with a random capability held in browser memory, never in a URL.
+
+The supplied name, pronouns, affiliation and email enter the subject system prompt. The OpenAI judge receives the request and subject response through OpenRouter, which may include echoed identity details. Consent covers this route too. A visitor-funded key is kept for the run and removed at terminal status or deletion. Export redaction covers all supplied identity fields, including request sentences and echoed text.
+
+Application results expire after 24 hours. Deletion removes live identity and response data and disables access immediately. Already sent provider requests and infrastructure recovery history have separate retention. See the [API contract](docs/API.md) before changing privacy copy.
+
+Public repository creation, publication, campaign funding and live spending require the owner's instruction. The [owner checklist](docs/DEPLOYMENT.md) separates setup from launch. The [submission draft and demo shots](docs/SUBMISSION.md) are ready for review.
 
 ## Research and attribution
 
-Based on [Transluce's user-awareness research](https://transluce.org/user-awareness) and [released implementation](https://github.com/TransluceAI/user-awareness), revision `d1b9c3573470f50495202795c044bd72f72ee6e5`. The selected grading examples originate in [Dolci-Instruct-DPO](https://huggingface.co/datasets/allenai/Dolci-Instruct-DPO), distributed under ODC-BY. The behavioral scenarios are the DailyDilemmas-derived agentic tasks released in the protected Transluce archive. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Based on [Transluce's user-awareness research](https://transluce.org/user-awareness) and [released implementation](https://github.com/TransluceAI/user-awareness), revision `d1b9c3573470f50495202795c044bd72f72ee6e5`. The live prompts derive from [OR-Bench](https://huggingface.co/datasets/bench-llm/or-bench), licensed CC BY 4.0. Historical grading examples originate in [Dolci-Instruct-DPO](https://huggingface.co/datasets/allenai/Dolci-Instruct-DPO), distributed under ODC-BY. The historical behavioral scenarios are DailyDilemmas-derived tasks released in Transluce's protected archive.
 
-The experiment measures supplied-context effects. It does not inspect Claude accounts or establish a person's permanent class.
+Transluce's MIT software notice is retained in [research/TRANSLUCE-LICENSE.txt](research/TRANSLUCE-LICENSE.txt). Source-data terms remain separate. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and distribution details, and [the agent prompt](docs/AGENT-PROMPT.md) to run a larger local comparison.
+
+This measures supplied context. It does not inspect Claude accounts or establish a person's permanent class.
