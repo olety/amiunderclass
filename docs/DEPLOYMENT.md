@@ -1,6 +1,6 @@
 # Deployment and owner setup
 
-The target is one Cloudflare Worker serving the web app and `/api` on `amiunderclass.com`. Public push, deployment, funding and provider calls await the owner's instruction. Local preparation, builds and rehearsal do not require a provider key.
+The target is one Cloudflare Worker serving the web app and `/api` on `amiunderclass.com`. Public push, deployment, funding and paid experiment runs await the owner's instruction. Local preparation, builds and rehearsal do not require a provider key.
 
 ## Verify the integrated build
 
@@ -11,13 +11,23 @@ bun install --frozen-lockfile
 bun run --cwd apps/api prepare:protocol
 bun run check:api
 bun run test:api
+bun run --cwd apps/web test
 bun run --cwd apps/web build
 bun run --cwd apps/api build
 ```
 
 The final command runs `wrangler deploy --dry-run --outdir dist`; it bundles locally and does not publish. The protected generated pack belongs in the Worker bundle, never in `apps/web/dist`. The public tree may contain the agent prompt, font notices and authored study commentary. It must not contain `task_data.zip`, generated task JSON, raw benchmark prompts, run exports, keys or capabilities.
 
-Dry-run receipt: pending the integrated web build and lane A asset configuration. Record the revision, bundle size, asset count and command result here after verification. A dry-run does not verify DNS, Turnstile, provider routing or a live funded visit.
+Verified locally on 13 September 2026 at app revision `bb3396e`:
+
+- `bun run build` passed, including the Worker dry-run. Wrangler 4.131.1 read 53 static assets. The Worker bundle is 72.28 KiB, or 20.92 KiB gzip.
+- The frontend build passed TypeScript checking. JavaScript is 69.47 kB, or 23.99 kB gzip; CSS is 38.92 kB, or 9.04 kB gzip.
+- Backend checking and all 153 backend tests passed. All 35 frontend tests passed, with 221 assertions covering identity export, paper homography and responsive projection.
+- Eight local route checks passed through the single Worker, including HTML, plate metadata, the agent prompt, API configuration and JSON errors for `/api` and unknown API paths. The served agent prompt exactly matched the canonical Markdown bytes.
+- The six protected task prompts were absent from the static build. Generated task data and build output remain ignored by Git. A credential-pattern scan of tracked text found only the explicit synthetic fixtures in the export tests.
+- The local API reported `liveEnabled: false`, `rehearsalEnabled: true` and `availability: disabled`. Rehearsal is enabled only by the local development command; deployed vars keep live runs disabled and the sponsored allowance at zero.
+
+The [browser QA report](QA-REPORT.md) records the full named and nameless rehearsals, cancellation, export and deletion, along with corrected test-harness assertions. A dry-run does not verify DNS, Turnstile, provider routing or a live funded visit. The paid v2 pilot remains unmeasured.
 
 ## Single-domain configuration
 
@@ -27,7 +37,7 @@ Lane A owns `apps/api/wrangler.jsonc`. The static asset path is relative to that
 "assets": {
   "directory": "../web/dist",
   "binding": "ASSETS",
-  "run_worker_first": ["/api/*"]
+  "run_worker_first": ["/api", "/api/*"]
 }
 ```
 

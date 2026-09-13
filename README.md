@@ -15,6 +15,7 @@ bun install --frozen-lockfile
 bun run --cwd apps/api prepare:protocol
 bun run check:api
 bun run test:api
+bun run --cwd apps/web test
 bun run --cwd apps/web build
 bun run --cwd apps/api build
 ```
