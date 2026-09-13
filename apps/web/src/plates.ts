@@ -1,5 +1,5 @@
 export type Point = [number, number];
-export interface Plate { key: string; src: string; srcSmall?: string; w: number; h: number; paper: [Point, Point, Point, Point] | null; portrait?: Omit<Plate, 'key' | 'portrait'> }
+export interface Plate { key: string; src: string; srcSmall?: string; w: number; h: number; paper: [Point, Point, Point, Point] | null; board?: [Point, Point, Point, Point]; portrait?: Omit<Plate, 'key' | 'portrait'> }
 const hall = '/reference-stills/hall.jpg';
 const ticket: Plate = { key: 'K1', src: '/reference-stills/ticket.jpg', w: 1152, h: 768, paper: [[476,288],[812,281],[806,612],[486,616]] };
 const fallbacks: Record<string, Plate> = Object.fromEntries(['K0','K2','K3','K6'].map(key => [key, {key,src:hall,w:1152,h:768,paper:null}]));
