@@ -4,5 +4,8 @@ OPENROUTER_API_KEY=
 TURNSTILE_SECRET_KEY=
 ABUSE_HASH_SECRET=
 
+# Local dev origins (production config allows only https://amiunderclass.com).
+ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+
 # Synthetic local QA only. No provider or verification requests are made.
 # REHEARSAL_RUNS=true

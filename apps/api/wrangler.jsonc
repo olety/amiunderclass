@@ -7,6 +7,12 @@
     "nodejs_compat"
   ],
   "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "amiunderclass.com",
+      "custom_domain": true
+    }
+  ],
   "durable_objects": {
     "bindings": [
       {
@@ -30,7 +36,7 @@
   ],
   "vars": {
     "LIVE_RUNS_ENABLED": "false",
-    "CAMPAIGN_ID": "hackyard-testing-v1",
+    "CAMPAIGN_ID": "amiunderclass-launch-2026-09",
     "SPONSORED_BUDGET_USD": "0",
     "RUN_BUDGET_USD": "0.30",
     "MAX_SPONSORED_RUNS": "100",
@@ -38,9 +44,9 @@
     "MAX_RUNS_PER_CLIENT_DAY": "1",
     "MAX_BYOK_RUNS_PER_CLIENT_DAY": "6",
     "BYOK_ENABLED": "true",
-    "ALLOWED_ORIGINS": "http://localhost:5173,http://127.0.0.1:5173",
+    "ALLOWED_ORIGINS": "https://amiunderclass.com",
     "TURNSTILE_SITE_KEY": "",
-    "TURNSTILE_HOSTNAME": ""
+    "TURNSTILE_HOSTNAME": "amiunderclass.com"
   },
   "observability": {
     "enabled": false
