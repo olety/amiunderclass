@@ -1,6 +1,6 @@
 # Frontend integration
 
-Types live in `packages/contracts/src/index.ts`; the browser client is `@underclass/contracts/client`. Run `bun run dev:api` on port 8787 and proxy `/api` from Vite on port 5173. Local origins are allowed explicitly. The prepared stimulus pack is server-only and must never enter the web asset directory.
+Types live in `packages/contracts/src/index.ts`; the browser client is `@underclass/contracts/client`. Run `bun run dev:api` on port 8787 and proxy `/api` from Vite on port 5173. Local origins are allowed explicitly. The prepared stimulus pack is server-only and must never enter the web asset directory. Build `apps/web` before Worker checks, tests or builds on a fresh checkout. Wrangler serves that bundle through its `ASSETS` binding; `/api` and `/api/*` always execute the API handler, including unknown endpoints.
 
 ## Endpoints and access
 

@@ -3,28 +3,54 @@
   "name": "underclass-api",
   "main": "src/index.ts",
   "compatibility_date": "2026-09-12",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "workers_dev": false,
   "durable_objects": {
     "bindings": [
-      {"name":"RUNS","class_name":"ExperimentRun"},
-      {"name":"CAMPAIGNS","class_name":"Campaign"}
+      {
+        "name": "RUNS",
+        "class_name": "ExperimentRun"
+      },
+      {
+        "name": "CAMPAIGNS",
+        "class_name": "Campaign"
+      }
     ]
   },
-  "migrations": [{"tag":"v1","new_sqlite_classes":["ExperimentRun","Campaign"]}],
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "ExperimentRun",
+        "Campaign"
+      ]
+    }
+  ],
   "vars": {
-    "LIVE_RUNS_ENABLED":"false",
-    "CAMPAIGN_ID":"hackyard-testing-v1",
-    "SPONSORED_BUDGET_USD":"0",
-    "RUN_BUDGET_USD":"0.30",
-    "MAX_SPONSORED_RUNS":"100",
-    "MAX_ACTIVE_RUNS":"4",
-    "MAX_RUNS_PER_CLIENT_DAY":"1",
-    "MAX_BYOK_RUNS_PER_CLIENT_DAY":"6",
-    "BYOK_ENABLED":"true",
-    "ALLOWED_ORIGINS":"http://localhost:5173,http://127.0.0.1:5173",
-    "TURNSTILE_SITE_KEY":"",
-    "TURNSTILE_HOSTNAME":""
+    "LIVE_RUNS_ENABLED": "false",
+    "CAMPAIGN_ID": "hackyard-testing-v1",
+    "SPONSORED_BUDGET_USD": "0",
+    "RUN_BUDGET_USD": "0.30",
+    "MAX_SPONSORED_RUNS": "100",
+    "MAX_ACTIVE_RUNS": "4",
+    "MAX_RUNS_PER_CLIENT_DAY": "1",
+    "MAX_BYOK_RUNS_PER_CLIENT_DAY": "6",
+    "BYOK_ENABLED": "true",
+    "ALLOWED_ORIGINS": "http://localhost:5173,http://127.0.0.1:5173",
+    "TURNSTILE_SITE_KEY": "",
+    "TURNSTILE_HOSTNAME": ""
   },
-  "observability": {"enabled":false}
+  "observability": {
+    "enabled": false
+  },
+  "assets": {
+    "directory": "../web/dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api",
+      "/api/*"
+    ]
+  }
 }

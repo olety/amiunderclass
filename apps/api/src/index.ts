@@ -383,6 +383,10 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get("Origin"),
       url = new URL(request.url);
+    // Public files are served by the assets binding. API paths always stay in
+    // this handler, including unknown endpoints, which must return JSON errors.
+    if (url.pathname !== "/api" && !url.pathname.startsWith("/api/") && env.ASSETS)
+      return env.ASSETS.fetch(request);
     const allowed =
       !origin ||
       origin === url.origin ||
