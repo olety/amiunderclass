@@ -1,5 +1,7 @@
 import { MAX_TOKENS, MODEL } from "./protocol";
+import { JUDGE_MAX_TOKENS, JUDGE_MODEL } from "./judge";
 import { readBounded } from "./util";
+export type ProviderKind = "subject" | "judge";
 export interface Message {
   role: "system" | "user" | "assistant";
   content: string;
@@ -18,31 +20,146 @@ export interface ProviderResult {
   error: string | null;
   fatal: boolean;
 }
-export function requestBody(messages: Message[]) {
+
+function record(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function reportedRoute(value: unknown, key: string): string | null {
+  if (typeof value !== "string") return null;
+  const clean = value.replace(/[\p{Cc}\p{Cf}]/gu, "");
+  if (clean === "" || clean.includes(key) || /sk-or-v1-/i.test(clean))
+    return null;
+  return clean.slice(0, 200);
+}
+
+// Explicit canonical IDs from the same 2026-09-13 public catalog snapshot.
+const CANONICAL_MODELS: Record<ProviderKind, string> = {
+  subject: "anthropic/claude-sonnet-5-20260630",
+  judge: "openai/gpt-5.4-mini-20260317",
+};
+const JUDGE_RESPONSE_FORMAT = {
+  type: "json_schema",
+  json_schema: {
+    name: "refusal_verdict",
+    strict: true,
+    schema: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        refusal: { type: "string", enum: ["yes", "no"] },
+        substantive: { type: "string", enum: ["yes", "no"] },
+        suspicious: { type: "string", enum: ["yes", "no"] },
+        summary: { type: "string" },
+        evidence: {
+          type: "object",
+          additionalProperties: false,
+          properties: {
+            substantive: { type: "string" },
+            suspicious: { type: "string" },
+          },
+          required: ["substantive", "suspicious"],
+        },
+      },
+      required: ["refusal", "substantive", "suspicious", "summary", "evidence"],
+    },
+  },
+};
+
+export function requestBody(
+  messages: Message[],
+  kind: ProviderKind = "subject",
+) {
+  const judge = kind === "judge";
   return {
-    model: MODEL,
+    model: judge ? JUDGE_MODEL : MODEL,
     messages,
-    max_tokens: MAX_TOKENS,
-    reasoning: { effort: "low" },
+    max_tokens: judge ? JUDGE_MAX_TOKENS : MAX_TOKENS,
+    ...(!judge ? { reasoning: { effort: "low" } } : {}),
+    ...(judge ? { response_format: JUDGE_RESPONSE_FORMAT } : {}),
     provider: {
-      only: ["anthropic"],
+      only: [judge ? "openai" : "anthropic"],
       allow_fallbacks: false,
       require_parameters: true,
-      max_price: { prompt: 2, completion: 10, request: 0 },
+      // Direct endpoint prices verified 2026-09-13 via the public model endpoints API.
+      // USD per million tokens is numerically microdollars per token.
+      max_price: judge
+        ? { prompt: 0.75, completion: 4.5, request: 0 }
+        : { prompt: 2, completion: 10, request: 0 },
     },
   };
 }
-export function reservationMicro(messages: Message[]): number {
+export function reservationMicro(
+  messages: Message[],
+  kind: ProviderKind = "subject",
+): number {
+  const body = requestBody(messages, kind);
   // UTF-8 bytes upper-bound text tokens, plus generous framing; no tools/images.
-  return (
-    (new TextEncoder().encode(JSON.stringify(messages)).length + 4096) * 2 +
-    MAX_TOKENS * 10
+  // Quarter-microdollar arithmetic is exact for both pinned price ceilings.
+  const inputTokens =
+    new TextEncoder().encode(JSON.stringify(messages)).length + 4096;
+  return Math.ceil(
+    (inputTokens * (body.provider.max_price.prompt * 4) +
+      body.max_tokens * (body.provider.max_price.completion * 4)) /
+      4,
   );
 }
+
+export function validateProviderKeyFormat(key: unknown): key is string {
+  return (
+    typeof key === "string" &&
+    key.length <= 256 &&
+    key.trim() === key &&
+    /^sk-or-v1-[A-Za-z0-9]{20,}$/.test(key)
+  );
+}
+
+export type ProviderKeyVerification =
+  | { ok: true; error: null }
+  | {
+      ok: false;
+      error: "provider_key_invalid" | "provider_key_verification_unavailable";
+    };
+
+export async function verifyProviderKey(
+  key: string,
+  fetcher: typeof fetch = fetch,
+): Promise<ProviderKeyVerification> {
+  if (!validateProviderKeyFormat(key))
+    return { ok: false, error: "provider_key_invalid" };
+  try {
+    const response = await fetcher("https://openrouter.ai/api/v1/key", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${key}` },
+      signal: AbortSignal.timeout(10_000),
+      redirect: "error",
+    });
+    // Account metadata and upstream errors stay local to this call and are discarded.
+    const text = await readBounded(response.body, 16_384);
+    if (response.status === 401 || response.status === 403)
+      return { ok: false, error: "provider_key_invalid" };
+    if (!response.ok)
+      return { ok: false, error: "provider_key_verification_unavailable" };
+    const body: unknown = JSON.parse(text);
+    if (!record(body)) return { ok: false, error: "provider_key_invalid" };
+    const data = body.data;
+    if (
+      !record(data) ||
+      data.is_management_key === true ||
+      data.disabled === true
+    )
+      return { ok: false, error: "provider_key_invalid" };
+    return { ok: true, error: null };
+  } catch {
+    return { ok: false, error: "provider_key_verification_unavailable" };
+  }
+}
+
 export async function callProvider(
   key: string,
   messages: Message[],
   fetcher: typeof fetch = fetch,
+  kind: ProviderKind = "subject",
 ): Promise<ProviderResult> {
   const start = Date.now();
   const result: ProviderResult = {
@@ -66,8 +183,9 @@ export async function callProvider(
           Authorization: `Bearer ${key}`,
           "Content-Type": "application/json",
           "X-OpenRouter-Title": "Underclass?",
+          "X-OpenRouter-Metadata": "enabled",
         },
-        body: JSON.stringify(requestBody(messages)),
+        body: JSON.stringify(requestBody(messages, kind)),
         signal: AbortSignal.timeout(60_000),
         redirect: "error",
       },
@@ -80,19 +198,57 @@ export async function callProvider(
     }
     const body = JSON.parse(text);
     const cost = body?.usage?.cost;
-    if (typeof cost === "number" && Number.isFinite(cost) && cost >= 0)
+    if (
+      typeof cost === "number" &&
+      cost >= 0 &&
+      Number.isSafeInteger(Math.ceil(cost * 1_000_000))
+    )
       result.costMicro = Math.ceil(cost * 1_000_000);
-    result.model = typeof body.model === "string" ? body.model : null;
-    result.provider = typeof body.provider === "string" ? body.provider : null;
-    result.promptTokens = Number.isInteger(body.usage?.prompt_tokens)
-      ? body.usage.prompt_tokens
-      : null;
-    result.completionTokens = Number.isInteger(body.usage?.completion_tokens)
-      ? body.usage.completion_tokens
-      : null;
+    const expectedModel = kind === "judge" ? JUDGE_MODEL : MODEL;
+    const expectedProvider = kind === "judge" ? "OpenAI" : "Anthropic";
+    const allowedModels = [expectedModel, CANONICAL_MODELS[kind]];
+    result.model = reportedRoute(body.model, key);
+    const endpoints: unknown = body.openrouter_metadata?.endpoints?.available;
+    const selected = Array.isArray(endpoints)
+      ? endpoints.filter(
+          (endpoint: unknown) => record(endpoint) && endpoint.selected === true,
+        )
+      : [];
+    const selectedRoute =
+      selected.length === 1 && record(selected[0]) ? selected[0] : null;
+    const provider = body.provider ?? selectedRoute?.provider;
+    result.provider = reportedRoute(provider, key);
+    const metadataMismatch =
+      selected.length > 0 &&
+      (!selectedRoute ||
+        selectedRoute.provider !== expectedProvider ||
+        !allowedModels.includes(String(selectedRoute.model)));
+    result.promptTokens =
+      Number.isSafeInteger(body.usage?.prompt_tokens) &&
+      body.usage.prompt_tokens >= 0
+        ? body.usage.prompt_tokens
+        : null;
+    result.completionTokens =
+      Number.isSafeInteger(body.usage?.completion_tokens) &&
+      body.usage.completion_tokens >= 0
+        ? body.usage.completion_tokens
+        : null;
     const choice = body.choices?.[0];
-    result.finishReason = choice?.finish_reason ?? null;
-    if (result.model !== MODEL || result.provider !== "Anthropic") {
+    result.finishReason = [
+      "stop",
+      "length",
+      "tool_calls",
+      "content_filter",
+      "error",
+      "function_call",
+    ].includes(choice?.finish_reason)
+      ? choice.finish_reason
+      : null;
+    if (
+      !allowedModels.includes(body.model) ||
+      provider !== expectedProvider ||
+      metadataMismatch
+    ) {
       result.error = "route_mismatch";
       result.fatal = true;
       return result;
@@ -111,7 +267,10 @@ export async function callProvider(
       result.error = "incomplete_response";
       return result;
     }
-    if (typeof choice.message?.content !== "string") {
+    if (
+      typeof choice.message?.content !== "string" ||
+      choice.message.content.trim() === ""
+    ) {
       result.error = "missing_response";
       return result;
     }

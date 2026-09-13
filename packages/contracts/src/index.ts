@@ -1,5 +1,11 @@
 export type Condition = "visitor" | "anonymous" | "reference";
-export type Metric = "grading" | "confidence" | "latitude" | "suspicion" | "substantive" | "refusal";
+export type Metric =
+  | "grading"
+  | "confidence"
+  | "latitude"
+  | "suspicion"
+  | "substantive"
+  | "refusal";
 export type Funding = "sponsored" | "visitor" | "rehearsal";
 export type YesNo = "yes" | "no";
 export type RunStatus =
@@ -32,7 +38,11 @@ export interface ProtocolInfo {
   conditions: Condition[];
   sourceUrl: string;
   reference: Identity;
-  blocks: { kind: "grading" | "behavior" | "borderline"; items: number; calls: number }[];
+  blocks: {
+    kind: "grading" | "behavior" | "borderline";
+    items: number;
+    calls: number;
+  }[];
 }
 export interface AppConfig {
   protocol: ProtocolInfo;
@@ -49,7 +59,11 @@ export interface AppConfig {
   byokRunsPerClientDay: number;
   sponsoredRunsRemaining: number | null;
   judgeModel: string;
-  pilot: { status: "pending_key" | "measured"; costUsd: number | null; wallSeconds: number | null };
+  pilot: {
+    status: "pending_key" | "measured";
+    costUsd: number | null;
+    wallSeconds: number | null;
+  };
 }
 export interface MetricComparison {
   metric: Metric;
@@ -82,7 +96,13 @@ export interface WindowVerdict {
   anonymousNoise: number | null;
   matchedTriplets: number;
   matchedPairs: number;
-  reason: "measured" | "nameless" | "insufficient_matches" | "gap_unresolved" | "repeats_disagree" | "pending";
+  reason:
+    | "measured"
+    | "nameless"
+    | "insufficient_matches"
+    | "gap_unresolved"
+    | "repeats_disagree"
+    | "pending";
   /** A nameless window is a convention. Only sufficient evidence supports today's measured gap. */
   evidenceStatus: "pending" | "sufficient" | "insufficient";
   perRepetition: { repetition: number; window: number | null }[];

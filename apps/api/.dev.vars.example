@@ -3,3 +3,6 @@
 OPENROUTER_API_KEY=
 TURNSTILE_SECRET_KEY=
 ABUSE_HASH_SECRET=
+
+# Synthetic local QA only. No provider or verification requests are made.
+# REHEARSAL_RUNS=true

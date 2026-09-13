@@ -12,3 +12,6 @@ coverage/
 apps/api/src/generated/
 research/private/
 design/round-03/manifest.json
+
+__pycache__/
+*.py[cod]

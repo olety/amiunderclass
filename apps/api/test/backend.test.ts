@@ -7,6 +7,7 @@ import {
 import { beforeEach, afterEach, describe, expect, it, vi } from "vitest";
 import {
   makeJobs,
+  NAMELESS_CONDITIONS,
   MODEL,
   protocolInfo,
   systemPrompt,
@@ -19,6 +20,7 @@ import {
   trialResults,
 } from "../src/analysis";
 import { callProvider, requestBody, reservationMicro } from "../src/provider";
+import { JUDGE_MODEL } from "../src/judge";
 import { sha256 } from "../src/util";
 import { createAccessToken } from "@underclass/contracts/client";
 import type { RunSnapshot } from "@underclass/contracts";
@@ -79,16 +81,16 @@ function mockNetwork(
     const body = JSON.parse(String(init?.body));
     requests.push(body);
     if (options.barrier) await options.barrier;
-    const last = body.messages.at(-1).content;
-    const text = last.startsWith("How confident")
-      ? "About 80%"
-      : last.includes("Answer with only")
-        ? "yes"
-        : body.messages[0].content.includes("Amanda Askell")
-          ? "4/10"
-          : "6/10";
+    const judge = body.model === JUDGE_MODEL;
+    const reference = judge
+      ? JSON.parse(body.messages[1].content).response === "Reference response."
+      : body.messages[0].content.includes("Amanda Askell");
+    const text = judge
+      ? JSON.stringify({ refusal: reference ? "no" : "yes", substantive: reference ? "yes" : "no", suspicious: reference ? "no" : "yes", summary: "Mock response classification.", evidence: { substantive: "", suspicious: "" } })
+      : reference ? "Reference response." : "Other response.";
     return Response.json(
       response(text, {
+        ...(judge ? { model: JUDGE_MODEL, provider: "OpenAI" } : {}),
         ...(options.noCost ? { usage: {} } : {}),
         ...(options.route ? { provider: options.route } : {}),
       }),
@@ -97,11 +99,11 @@ function mockNetwork(
   vi.stubGlobal("fetch", spy);
   return { requests, spy };
 }
-async function create() {
+async function create(body: Record<string, unknown> = createBody) {
   const res = await api("/api/runs", {
     method: "POST",
     headers: auth(),
-    body: JSON.stringify(createBody),
+    body: JSON.stringify(body),
   });
   expect(res.status).toBe(202);
   return (await res.json()) as { id: string };
@@ -133,14 +135,16 @@ async function drain(id: string) {
 }
 
 describe("protocol and measurements", () => {
-  it("creates fresh, interleaved three-condition trials with exactly 96 calls", async () => {
+  it("creates fresh, interleaved three-condition trials with 36 subject calls and 36 judge calls", async () => {
     const jobs = makeJobs(17);
-    expect(TASKS).toHaveLength(12);
-    expect(jobs).toHaveLength(96);
-    expect(new Set(jobs.map((j) => j.id)).size).toBe(96);
-    expect(jobs.filter((j) => j.dependency)).toHaveLength(24);
+    expect(TASKS).toHaveLength(6);
+    expect(TASKS.every((task) => task.kind === "borderline")).toBe(true);
+    expect(jobs).toHaveLength(72);
+    expect(new Set(jobs.map((j) => j.id)).size).toBe(72);
+    expect(jobs.filter((j) => j.dependency)).toHaveLength(36);
+    expect(jobs.filter((j) => j.turn === "judge")).toHaveLength(36);
     for (const condition of ["visitor", "anonymous", "reference"])
-      expect(jobs.filter((j) => j.condition === condition)).toHaveLength(32);
+      expect(jobs.filter((j) => j.condition === condition)).toHaveLength(24);
     expect(makeJobs(17)).toEqual(jobs);
     expect(makeJobs(18)).not.toEqual(jobs);
     expect(systemPrompt("anonymous", { name: "Private Name" })).not.toContain(
@@ -149,7 +153,13 @@ describe("protocol and measurements", () => {
     expect(systemPrompt("reference", { name: "Private Name" })).not.toContain(
       "Private",
     );
-    expect((await protocolInfo()).hash).toMatch(/^[a-f0-9]{64}$/);
+    const named = await protocolInfo();
+    const nameless = await protocolInfo(NAMELESS_CONDITIONS);
+    expect(named.hash).toMatch(/^[a-f0-9]{64}$/);
+    expect(named).toMatchObject({ version: "underclass-v2", plannedTrials: 36, plannedCalls: 72 });
+    expect(nameless).toMatchObject({ plannedTrials: 24, plannedCalls: 48 });
+    expect(nameless.hash).not.toBe(named.hash);
+    expect(makeJobs(17, NAMELESS_CONDITIONS).some((job) => job.condition === "visitor")).toBe(false);
   });
   it("keeps unsupported, ambiguous and out-of-range measurements missing", () => {
     expect(parseNumber("**Score: 6/10**\nReason", "grading")).toBe(6);
@@ -167,33 +177,33 @@ describe("protocol and measurements", () => {
     expect(parseAction("yes.")).toBe("yes");
     expect(parseAction("yes or no")).toBeNull();
   });
-  it("pairs only complete triplets, folds confidence, and never invents a tier", () => {
+  it("pairs only complete judge triplets and keeps missing labels out of the means", () => {
     const jobs = makeJobs(1).map((j) => ({
       ...j,
       status: "done" as const,
       result: {
-        text:
-          j.turn === "confidence"
-            ? "20%"
-            : TASKS.find((t) => t.id === j.taskId)!.kind === "behavior"
-              ? "no"
-              : j.condition === "reference"
-                ? "4"
-                : "6",
+        text: j.turn === "judge" ? JSON.stringify({
+          refusal: j.condition === "reference" ? "no" : "yes",
+          substantive: j.condition === "reference" ? "yes" : "no",
+          suspicious: j.condition === "reference" ? "no" : "yes",
+          summary: "Mock response classification.",
+          evidence: { substantive: "", suspicious: "" },
+        }) : "Mock subject response.",
       },
     })) as any;
     const trials = trialResults(jobs),
       result = comparisons(trials);
-    expect(result[0].matchedTriplets).toBe(16);
+    expect(result[0].metric).toBe("latitude");
+    expect(result[0].matchedTriplets).toBe(12);
     expect(result[0].taskClusters).toBe(6);
-    expect(result[0].visitorMinusReference).toBe(2);
-    expect(result[1].means.visitor).toBe(80);
+    expect(result[0].visitorMinusReference).toBe(-2);
+    expect(result[1].means.visitor).toBe(100);
     const missing = trials.find(
-      (t) => t.kind === "grading" && t.condition === "reference",
+      (t) => t.condition === "reference",
     )!;
     missing.status = "missing";
     missing.value = null;
-    expect(comparisons(trials)[0].matchedTriplets).toBe(15);
+    expect(comparisons(trials)[0].matchedTriplets).toBe(11);
     expect(JSON.stringify(result)).not.toMatch(/tier|percentile/);
   });
 });
@@ -225,6 +235,13 @@ describe("provider boundaries", () => {
     );
     expect(r.error).toBeNull();
     expect(r.costMicro).toBe(1000);
+    const judge = requestBody(messages.slice(0, 2), "judge");
+    expect(judge.model).toBe(JUDGE_MODEL);
+    expect(judge.provider).toMatchObject({ only: ["openai"], allow_fallbacks: false });
+    expect(judge.response_format).toMatchObject({ type: "json_schema", json_schema: { strict: true } });
+    const judged = await callProvider("fake", messages.slice(0, 2), async () =>
+      Response.json(response("{}", { model: JUDGE_MODEL, provider: "OpenAI" })), "judge");
+    expect(judged.error).toBeNull();
   });
   it.each([
     [{ provider: "Other" }, "route_mismatch"],
@@ -250,20 +267,20 @@ describe("campaign accounting", () => {
   it("atomically caps concurrent reservations and settles idempotently", async () => {
     const ledger = env.CAMPAIGNS.getByName(env.CAMPAIGN_ID);
     const reservations = await Promise.all(
-      ["one", "two", "three"].map((id) => ledger.reserve(id, id, 500000)),
+      ["one", "two", "three"].map((id) => ledger.reserve(id, id, 300000)),
     );
     expect(reservations.filter((r) => r.ok)).toHaveLength(2);
-    expect((await ledger.availability()).committed).toBe(1000000);
+    expect((await ledger.availability()).committed).toBe(600000);
     await ledger.settle("one", 100000);
     await ledger.settle("one", 100000);
     await ledger.settle("two", 100000);
     expect((await ledger.availability()).committed).toBe(200000);
-    expect((await ledger.reserve("four", "four", 500000)).ok).toBe(true);
+    expect((await ledger.reserve("four", "four", 300000)).ok).toBe(true);
   });
   it("halts the campaign after a reservation overrun", async () => {
     const ledger = env.CAMPAIGNS.getByName(env.CAMPAIGN_ID);
-    await ledger.reserve("one", "client", 500000);
-    await ledger.settle("one", 510000);
+    await ledger.reserve("one", "client", 300000);
+    await ledger.settle("one", 310000);
     expect((await ledger.availability()).reason).toBe("campaign_halted");
   });
 });
@@ -322,27 +339,47 @@ describe("HTTP and durable execution", () => {
     ).toBe(404);
     expect(createAccessToken()).toMatch(/^[a-f0-9]{64}$/);
   });
-  it("completes 96 calls with preserved follow-ups and matched results", async () => {
+  it("completes 72 pinned calls and gives the judge only the prompt and response", async () => {
     const network = mockNetwork();
     const { id } = await create();
     const done = await drain(id);
     expect(done.status).toBe("completed");
-    expect(network.requests).toHaveLength(96);
-    expect(done.progress.finishedCalls).toBe(96);
-    expect(done.trials).toHaveLength(72);
-    expect(done.comparisons[0].visitorMinusReference).toBe(2);
-    expect(done.spending.knownUsd).toBe(0.096);
+    expect(network.requests).toHaveLength(72);
+    expect(done.progress.finishedCalls).toBe(72);
+    expect(done.trials).toHaveLength(36);
+    expect(done.comparisons[0].visitorMinusReference).toBe(-2);
+    expect(done.spending.knownUsd).toBe(0.072);
     expect(done.spending.reservedUsd).toBe(0);
     expect(
-      network.requests.filter((r) => r.messages.length === 4),
-    ).toHaveLength(24);
-    for (const r of network.requests)
-      expect(r.provider.only).toEqual(["anthropic"]);
+      network.requests.filter((r) => r.model === JUDGE_MODEL),
+    ).toHaveLength(36);
+    for (const r of network.requests) {
+      expect(r.provider.only).toEqual([r.model === JUDGE_MODEL ? "openai" : "anthropic"]);
+      expect(r.messages).toHaveLength(2);
+      if (r.model === JUDGE_MODEL) {
+        expect(JSON.stringify(r.messages)).not.toContain("Test Person");
+        expect(JSON.stringify(r.messages)).not.toContain("Amanda Askell");
+        expect(Object.keys(JSON.parse(r.messages[1].content)).sort()).toEqual(["request", "response"]);
+      }
+    }
     const ledger = await env.CAMPAIGNS.getByName(
       env.CAMPAIGN_ID,
     ).availability();
     expect(ledger.active).toBe(0);
-    expect(ledger.committed).toBe(96000);
+    expect(ledger.committed).toBe(72000);
+  });
+  it("completes a nameless run with 48 calls and only anonymous/reference pairs", async () => {
+    const network = mockNetwork();
+    const { id } = await create({ ...createBody, identity: null });
+    const done = await drain(id);
+    expect(done.status).toBe("completed");
+    expect(network.requests).toHaveLength(48);
+    expect(done.identity).toBeNull();
+    expect(done.trials).toHaveLength(24);
+    expect(done.trials.some((trial) => trial.condition === "visitor")).toBe(false);
+    expect(done.comparisons[0]).toMatchObject({ matchedTriplets: 0, matchedPairs: 12, visitorMinusReference: null });
+    expect(done.comparisons[0].means.visitor).toBeNull();
+    expect(done.verdict).toMatchObject({ window: 5, reason: "nameless", t: null });
   });
   it("retains uncertain charges and stops without retrying a missing-cost response", async () => {
     const network = mockNetwork({ noCost: true });
@@ -382,13 +419,15 @@ describe("HTTP and durable execution", () => {
     await env.CAMPAIGNS.getByName(env.CAMPAIGN_ID).reserve(
       id,
       "client",
-      500000,
+      300000,
     );
     await runInDurableObject(stub, (_, state) => {
       const now = Date.now();
       const meta = {
         id,
         identity: { name: "Test Person" },
+        funding: "sponsored",
+        completed: null,
         fingerprint: "fixture",
         client: "client",
         status: "running",
@@ -397,7 +436,7 @@ describe("HTTP and durable execution", () => {
         deadline: now + 600000,
         protocol: info,
         seed: 1,
-        cap: 500000,
+        cap: 300000,
         spent: 0,
         uncertain: 0,
         reserved: 35000,

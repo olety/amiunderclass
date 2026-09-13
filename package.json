@@ -1,10 +1,15 @@
 {
   "name": "underclass",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev:api": "bun run --cwd apps/api dev",
     "test:api": "bun run --cwd apps/api test",
-    "check:api": "bun run --cwd apps/api check"
+    "check:api": "bun run --cwd apps/api check",
+    "dev:web": "bun run --cwd apps/web dev",
+    "build": "bun run --cwd apps/web build && bun run --cwd apps/api build"
   }
 }

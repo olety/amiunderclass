@@ -7,7 +7,8 @@ export default defineConfig({
       miniflare: {
         bindings: {
           LIVE_RUNS_ENABLED: "true",
-          SPONSORED_BUDGET_USD: "1.00",
+          SPONSORED_BUDGET_USD: "0.60",
+          RUN_BUDGET_USD: "0.30",
           MAX_ACTIVE_RUNS: "4",
           OPENROUTER_API_KEY: "test-key-never-live",
           TURNSTILE_SECRET_KEY: "test-secret",

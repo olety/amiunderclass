@@ -1,14 +1,22 @@
 import { DurableObject } from "cloudflare:workers";
 import type {
   CreatedRun,
+  Funding,
   Identity,
   ProtocolInfo,
   RunSnapshot,
   RunStatus,
 } from "@underclass/contracts";
-import { comparisons, parseAction, trialResults } from "./analysis";
+import {
+  comparisons,
+  parseAction,
+  trialResults,
+  windowVerdict,
+} from "./analysis";
 import {
   LIMITATIONS,
+  CONDITIONS,
+  NAMELESS_CONDITIONS,
   makeJobs,
   protocolInfo,
   systemPrompt,
@@ -16,11 +24,16 @@ import {
   type Job,
 } from "./protocol";
 import { callProvider, reservationMicro, type Message } from "./provider";
+import { judgeMessages } from "./judge";
+import { rehearsalResult } from "./rehearsal";
 import { HttpError, usd } from "./util";
 
 interface Meta {
   id: string;
-  identity: Identity;
+  identity: Identity | null;
+  funding: Funding;
+  providerKey?: string;
+  completed: number | null;
   fingerprint: string;
   client: string;
   status: RunStatus;
@@ -58,6 +71,7 @@ export class ExperimentRun extends DurableObject<Env> {
     return row ? JSON.parse(row.data) : null;
   }
   private save(meta: Meta) {
+    if (terminal(meta.status) || meta.deleted) delete meta.providerKey;
     this.ctx.storage.sql.exec(
       "INSERT OR REPLACE INTO meta(id,data) VALUES (1,?)",
       JSON.stringify(meta),
@@ -88,6 +102,7 @@ export class ExperimentRun extends DurableObject<Env> {
   async existing(fingerprint: string): Promise<CreatedRun | null> {
     const meta = this.meta();
     if (!meta) return null;
+    if (!meta.deleted && Date.now() >= meta.expires) await this.remove();
     if (meta.deleted || Date.now() >= meta.expires)
       throw new HttpError(
         410,
@@ -104,15 +119,20 @@ export class ExperimentRun extends DurableObject<Env> {
   }
   async initialize(input: {
     id: string;
-    identity: Identity;
+    identity: Identity | null;
+    funding?: Funding;
+    providerKey?: string;
     fingerprint: string;
     client: string;
     cap: number;
   }): Promise<CreatedRun> {
-    const info = await protocolInfo();
+    const conditions =
+      input.identity === null ? NAMELESS_CONDITIONS : CONDITIONS;
+    const info = await protocolInfo(conditions);
     // Recheck after the asynchronous hash: duplicate POSTs must not replace a run.
     const old = this.meta();
     if (old) {
+      if (!old.deleted && Date.now() >= old.expires) await this.remove();
       if (old.deleted || Date.now() >= old.expires)
         throw new HttpError(410, "run_expired", "This run has expired.");
       if (old.fingerprint !== input.fingerprint)
@@ -127,6 +147,8 @@ export class ExperimentRun extends DurableObject<Env> {
       seed = crypto.getRandomValues(new Uint32Array(1))[0];
     const meta: Meta = {
       ...input,
+      funding: input.funding ?? "sponsored",
+      completed: null,
       status: "queued",
       created: now,
       expires: now + 86400000,
@@ -143,7 +165,7 @@ export class ExperimentRun extends DurableObject<Env> {
     };
     this.ctx.storage.transactionSync(() => {
       this.save(meta);
-      for (const job of makeJobs(seed)) this.saveJob(job);
+      for (const job of makeJobs(seed, conditions)) this.saveJob(job);
     });
     await this.ctx.storage.setAlarm(now + 1);
     return this.ticket(meta);
@@ -151,6 +173,7 @@ export class ExperimentRun extends DurableObject<Env> {
   async snapshot(): Promise<RunSnapshot | null> {
     const meta = this.meta();
     if (!meta) return null;
+    if (!meta.deleted && Date.now() >= meta.expires) await this.remove();
     if (meta.deleted || Date.now() >= meta.expires)
       throw new HttpError(
         410,
@@ -164,6 +187,21 @@ export class ExperimentRun extends DurableObject<Env> {
       id: meta.id,
       status: meta.status,
       identity: meta.identity,
+      funding: meta.funding,
+      told: Object.fromEntries(
+        CONDITIONS.map((condition) => [
+          condition,
+          systemPrompt(condition, meta.identity),
+        ]),
+      ) as RunSnapshot["told"],
+      verdict: windowVerdict(
+        trials,
+        meta.identity === null,
+        !terminal(meta.status),
+      ),
+      seed: meta.seed,
+      completedAt:
+        meta.completed === null ? null : new Date(meta.completed).toISOString(),
       protocol: meta.protocol,
       createdAt: new Date(meta.created).toISOString(),
       expiresAt: new Date(meta.expires).toISOString(),
@@ -183,18 +221,36 @@ export class ExperimentRun extends DurableObject<Env> {
         capUsd: usd(meta.cap),
       },
       stopReason: meta.stopReason,
-      comparisons: comparisons(trials),
+      comparisons: comparisons(trials, meta.identity === null),
       trials,
-      limitations: LIMITATIONS,
+      limitations: [
+        ...LIMITATIONS,
+        ...(meta.funding === "rehearsal"
+          ? [
+              "SYNTHETIC REHEARSAL. Responses and judge labels are canned placeholders; no model was called and no treatment difference was measured.",
+            ]
+          : []),
+        ...(meta.identity === null
+          ? [
+              "You gave no name. Window 5 is a convention for a nameless visit; it is not a measured visitor result. There are no visitor trials.",
+            ]
+          : []),
+      ],
     };
   }
   async cancel(): Promise<CreatedRun | null> {
     const meta = this.meta();
     if (!meta) return null;
-    if (meta.deleted)
-      throw new HttpError(410, "run_expired", "This run has been deleted.");
+    if (!meta.deleted && Date.now() >= meta.expires) await this.remove();
+    if (meta.deleted || Date.now() >= meta.expires)
+      throw new HttpError(
+        410,
+        "run_expired",
+        "This run has been deleted or expired.",
+      );
     if (!terminal(meta.status)) {
       meta.status = "cancelled";
+      meta.completed = Date.now();
       meta.stopReason = "cancelled";
       this.save(meta);
       await this.ctx.storage.setAlarm(Date.now() + 1);
@@ -205,7 +261,9 @@ export class ExperimentRun extends DurableObject<Env> {
     const meta = this.meta();
     if (!meta) return;
     meta.deleted = true;
-    meta.identity = { name: "" };
+    meta.identity = null;
+    delete meta.providerKey;
+    meta.completed ??= Date.now();
     meta.fingerprint = "";
     meta.client = "";
     meta.status = "cancelled";
@@ -236,7 +294,9 @@ export class ExperimentRun extends DurableObject<Env> {
       await this.finish();
       return false;
     }
-    const currentProtocol = await protocolInfo();
+    const currentProtocol = await protocolInfo(
+      meta.identity === null ? NAMELESS_CONDITIONS : CONDITIONS,
+    );
     meta = this.meta();
     if (!meta) return false;
     if (terminal(meta.status) || meta.deleted) {
@@ -249,7 +309,11 @@ export class ExperimentRun extends DurableObject<Env> {
       await this.finish();
       return false;
     }
-    if (this.env.LIVE_RUNS_ENABLED !== "true") {
+    if (
+      meta.funding === "rehearsal"
+        ? this.env.REHEARSAL_RUNS !== "true"
+        : this.env.LIVE_RUNS_ENABLED !== "true"
+    ) {
       meta.stopReason = "live_disabled";
       this.save(meta);
       await this.finish();
@@ -261,10 +325,10 @@ export class ExperimentRun extends DurableObject<Env> {
       await this.finish();
       return false;
     }
-    if (!meta.admitted) {
+    if (!meta.admitted && meta.funding !== "rehearsal") {
       const booking = await this.env.CAMPAIGNS.getByName(
         this.env.CAMPAIGN_ID,
-      ).reserve(meta.id, meta.client, meta.cap);
+      ).reserve(meta.id, meta.client, meta.cap, meta.funding);
       meta = this.meta()!;
       if (!booking.ok) {
         meta.status = meta.status === "cancelled" ? "cancelled" : "failed";
@@ -280,17 +344,21 @@ export class ExperimentRun extends DurableObject<Env> {
         return false;
       }
     }
-    const campaign = await this.env.CAMPAIGNS.getByName(
-      this.env.CAMPAIGN_ID,
-    ).availability();
+    const campaign =
+      meta.funding === "sponsored"
+        ? await this.env.CAMPAIGNS.getByName(
+            this.env.CAMPAIGN_ID,
+          ).availability()
+        : null;
     meta = this.meta()!;
     if (terminal(meta.status) || meta.deleted) {
       await this.finish();
       return false;
     }
     if (
-      campaign.reason === "campaign_halted" ||
-      campaign.committed > campaign.cap
+      campaign &&
+      (campaign.reason === "campaign_halted" ||
+        campaign.committed > campaign.cap)
     ) {
       meta.stopReason = "campaign_halted";
       this.save(meta);
@@ -316,7 +384,11 @@ export class ExperimentRun extends DurableObject<Env> {
       await this.finish();
       return false;
     }
-    if (!this.env.OPENROUTER_API_KEY) {
+    const providerKey =
+      meta.funding === "visitor"
+        ? meta.providerKey
+        : this.env.OPENROUTER_API_KEY;
+    if (meta.funding !== "rehearsal" && !providerKey) {
       meta.stopReason = "provider_not_configured";
       this.save(meta);
       await this.finish();
@@ -340,21 +412,28 @@ export class ExperimentRun extends DurableObject<Env> {
           }
           continue;
         }
-        if (first && !parseAction(first.result?.text)) {
+        if (
+          first &&
+          job.turn === "confidence" &&
+          !parseAction(first.result?.text)
+        ) {
           job.status = "skipped";
           job.error = "invalid_action";
           this.saveJob(job);
           continue;
         }
         const task = TASKS.find((t) => t.id === job.taskId)!;
-        const messages: Message[] = [
-          {
-            role: "system",
-            content: systemPrompt(job.condition, meta.identity),
-          },
-          { role: "user", content: task.prompt },
-        ];
-        if (first)
+        const messages: Message[] =
+          job.turn === "judge"
+            ? judgeMessages(task.prompt, first!.result!.text!)
+            : [
+                {
+                  role: "system",
+                  content: systemPrompt(job.condition, meta.identity),
+                },
+                { role: "user", content: task.prompt },
+              ];
+        if (first && job.turn === "confidence")
           messages.push(
             {
               role: "assistant",
@@ -365,7 +444,13 @@ export class ExperimentRun extends DurableObject<Env> {
             },
             { role: "user", content: task.followup! },
           );
-        const ceiling = reservationMicro(messages);
+        const ceiling =
+          meta.funding === "rehearsal"
+            ? 0
+            : reservationMicro(
+                messages,
+                job.turn === "judge" ? "judge" : "subject",
+              );
         if (meta.spent + meta.uncertain + meta.reserved + ceiling > meta.cap) {
           // Complete the selected batch before deciding there is no budget left.
           if (!batch.length) meta.stopReason = "run_budget_exhausted";
@@ -386,10 +471,15 @@ export class ExperimentRun extends DurableObject<Env> {
     }
     await Promise.all(
       batch.map(async ({ job, messages }) => {
-        const result = await callProvider(
-          this.env.OPENROUTER_API_KEY!,
-          messages,
-        );
+        const result =
+          meta!.funding === "rehearsal"
+            ? rehearsalResult(job)
+            : await callProvider(
+                providerKey!,
+                messages,
+                fetch,
+                job.turn === "judge" ? "judge" : "subject",
+              );
         this.ctx.storage.transactionSync(() => {
           const current = this.meta();
           if (!current || current.deleted) return;
@@ -415,6 +505,13 @@ export class ExperimentRun extends DurableObject<Env> {
       !this.jobs().some((j) => j.status === "pending")
     ) {
       await this.finish();
+      return false;
+    }
+    if (meta.funding === "rehearsal") {
+      // One small batch per alarm makes the board progress over about 72 seconds.
+      await this.ctx.storage.setAlarm(
+        Date.now() + (meta.identity === null ? 6000 : 4000),
+      );
       return false;
     }
     return true;
@@ -448,6 +545,8 @@ export class ExperimentRun extends DurableObject<Env> {
               ? "partial"
               : "failed";
       }
+      meta!.completed ??= Date.now();
+      delete meta!.providerKey;
       this.save(meta!);
     });
     if (meta.admitted && !meta.settled) {

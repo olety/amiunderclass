@@ -3,4 +3,6 @@ interface Env {
   OPENROUTER_API_KEY?: string;
   TURNSTILE_SECRET_KEY?: string;
   ABUSE_HASH_SECRET?: string;
+  /** Local .dev.vars only. Never include in deployed vars. */
+  REHEARSAL_RUNS?: string;
 }

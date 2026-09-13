@@ -1,8 +1,11 @@
 import type {
   AppConfig,
   Identity,
+  Funding,
   RecordedExample,
 } from "@underclass/contracts";
+import { JUDGE_MODEL } from "./judge";
+import { validateProviderKeyFormat, verifyProviderKey } from "./provider";
 import { protocolInfo } from "./protocol";
 import { HttpError, microdollars, readBounded, sha256, usd } from "./util";
 import recordedExample from "./recorded-example.json";
@@ -38,10 +41,8 @@ export const RECORDED_EXAMPLE: RecordedExample = {
 function ready(env: Env): boolean {
   return (
     env.LIVE_RUNS_ENABLED === "true" &&
-    microdollars(env.SPONSORED_BUDGET_USD) > 0 &&
     microdollars(env.RUN_BUDGET_USD) > 0 &&
     !!(
-      env.OPENROUTER_API_KEY &&
       env.TURNSTILE_SECRET_KEY &&
       env.ABUSE_HASH_SECRET &&
       env.TURNSTILE_SITE_KEY &&
@@ -49,19 +50,24 @@ function ready(env: Env): boolean {
     )
   );
 }
-export function validateIdentity(input: unknown): Identity {
+export function validateIdentity(input: unknown): Identity | null {
+  if (input === null) return null;
   if (!input || typeof input !== "object" || Array.isArray(input))
     throw new HttpError(
       400,
       "invalid_identity",
-      "Enter a name and optional affiliation.",
+      "Enter your name or choose to wait without a name.",
     );
   const value = input as Record<string, unknown>;
-  if (Object.keys(value).some((k) => !["name", "affiliation"].includes(k)))
+  if (
+    Object.keys(value).some(
+      (k) => !["name", "pronouns", "affiliation", "email"].includes(k),
+    )
+  )
     throw new HttpError(
       400,
       "invalid_identity",
-      "Only a name and affiliation are accepted.",
+      "Only name, pronouns, affiliation and email are accepted.",
     );
   function field(v: unknown, max: number, optional = false): string {
     if (optional && (v === undefined || v === "")) return "";
@@ -71,22 +77,48 @@ export function validateIdentity(input: unknown): Identity {
         "invalid_identity",
         "Identity fields must be text.",
       );
-    const s = v.trim().normalize("NFC");
-    if (
-      (!optional && !s) ||
-      s.length > max ||
-      /[\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069]/u.test(s)
-    )
+    // Reject controls before trimming, including otherwise invisible trailing newlines.
+    if (/[\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069]/u.test(v))
       throw new HttpError(
         400,
         "invalid_identity",
-        "Use a short name and affiliation without control characters.",
+        "Use text without control characters.",
+      );
+    const s = v.trim().normalize("NFC");
+    if ((!optional && !s) || s.length > max)
+      throw new HttpError(
+        400,
+        "invalid_identity",
+        "Keep each identity field within its printed limit.",
       );
     return s;
   }
   const name = field(value.name, 120),
-    affiliation = field(value.affiliation, 160, true);
-  return { name, ...(affiliation ? { affiliation } : {}) };
+    pronouns = field(value.pronouns, 40, true),
+    affiliation = field(value.affiliation, 160, true),
+    email = field(value.email, 254, true);
+  // A single unquoted mailbox. Display names, lists, whitespace and comments are rejected.
+  if (
+    email &&
+    (!/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/.test(
+      email,
+    ) ||
+      email.split("@")[0].length > 64 ||
+      email.split("@")[0].startsWith(".") ||
+      email.split("@")[0].endsWith(".") ||
+      email.split("@")[0].includes(".."))
+  )
+    throw new HttpError(
+      400,
+      "invalid_identity",
+      "Enter one email address without a display name.",
+    );
+  return {
+    name,
+    ...(pronouns ? { pronouns } : {}),
+    ...(affiliation ? { affiliation } : {}),
+    ...(email ? { email } : {}),
+  };
 }
 async function access(request: Request): Promise<string> {
   const match = request.headers
@@ -174,13 +206,17 @@ async function route(request: Request, env: Env): Promise<Response> {
     return Response.json(RECORDED_EXAMPLE);
   if (request.method === "GET" && path === "/api/config") {
     const liveEnabled = ready(env);
-    const a = liveEnabled
+    const sponsoredEnabled =
+      liveEnabled &&
+      !!env.OPENROUTER_API_KEY &&
+      microdollars(env.SPONSORED_BUDGET_USD) > 0;
+    const a = sponsoredEnabled
       ? await env.CAMPAIGNS.getByName(env.CAMPAIGN_ID).availability()
       : null;
     const body: AppConfig = {
       protocol: await protocolInfo(),
       liveEnabled,
-      availability: !liveEnabled
+      availability: !sponsoredEnabled
         ? "disabled"
         : a?.reason === "campaign_busy"
           ? "busy"
@@ -188,10 +224,17 @@ async function route(request: Request, env: Env): Promise<Response> {
             ? "exhausted"
             : "available",
       runBudgetUsd: usd(microdollars(env.RUN_BUDGET_USD)),
-      estimatedCostUsd: 0.29,
-      estimatedSeconds: 90,
+      estimatedCostUsd: 0.14,
+      estimatedSeconds: 60,
       turnstileSiteKey: env.TURNSTILE_SITE_KEY,
       retentionHours: 24,
+      byokEnabled: liveEnabled && env.BYOK_ENABLED === "true",
+      rehearsalEnabled: env.REHEARSAL_RUNS === "true",
+      freeRunsPerClientDay: Number(env.MAX_RUNS_PER_CLIENT_DAY),
+      byokRunsPerClientDay: Number(env.MAX_BYOK_RUNS_PER_CLIENT_DAY),
+      sponsoredRunsRemaining: a?.remainingRuns ?? null,
+      judgeModel: JUDGE_MODEL,
+      pilot: { status: "pending_key", costUsd: null, wallSeconds: null },
     };
     return Response.json(body);
   }
@@ -220,7 +263,14 @@ async function route(request: Request, env: Env): Promise<Response> {
       typeof body !== "object" ||
       Array.isArray(body) ||
       Object.keys(body).some(
-        (k) => !["identity", "consent", "turnstileToken"].includes(k),
+        (k) =>
+          ![
+            "identity",
+            "consent",
+            "turnstileToken",
+            "providerKey",
+            "rehearsal",
+          ].includes(k),
       )
     )
       throw new HttpError(400, "invalid_request", "Unexpected run fields.");
@@ -230,23 +280,76 @@ async function route(request: Request, env: Env): Promise<Response> {
         "consent_required",
         "Confirm that this identity may be sent to the model providers.",
       );
+    if (body.rehearsal !== undefined && typeof body.rehearsal !== "boolean")
+      throw new HttpError(
+        400,
+        "invalid_request",
+        "The rehearsal flag must be true or false.",
+      );
+    if (body.rehearsal === true && env.REHEARSAL_RUNS !== "true")
+      throw new HttpError(404, "not_found", "This endpoint does not exist.");
+    if (
+      body.providerKey !== undefined &&
+      !validateProviderKeyFormat(body.providerKey)
+    )
+      throw new HttpError(
+        400,
+        "provider_key_invalid",
+        "Enter a valid OpenRouter key.",
+      );
+    if (body.rehearsal === true && body.providerKey !== undefined)
+      throw new HttpError(
+        400,
+        "invalid_request",
+        "Rehearsal does not accept a provider key.",
+      );
+    const funding: Funding =
+      body.rehearsal === true
+        ? "rehearsal"
+        : body.providerKey !== undefined
+          ? "visitor"
+          : "sponsored";
     const identity = validateIdentity(body.identity),
-      fingerprint = await sha256(JSON.stringify(identity));
+      fingerprint = await sha256(JSON.stringify({ identity, funding }));
     const stub = env.RUNS.getByName(id),
       old = await stub.existing(fingerprint);
     if (old) return Response.json(old, { status: 200 });
-    if (!ready(env))
-      throw new HttpError(
-        503,
-        "live_disabled",
-        "Live tests are not enabled. The recorded example is available.",
-      );
-    await verifyTurnstile(body.turnstileToken, env);
+    if (funding !== "rehearsal") {
+      if (
+        !ready(env) ||
+        (funding === "visitor" && env.BYOK_ENABLED !== "true") ||
+        (funding === "sponsored" &&
+          (!env.OPENROUTER_API_KEY ||
+            microdollars(env.SPONSORED_BUDGET_USD) <= 0))
+      )
+        throw new HttpError(
+          503,
+          "live_disabled",
+          "Live tests are not enabled. The recorded example is available.",
+        );
+      await verifyTurnstile(body.turnstileToken, env);
+      if (funding === "visitor") {
+        const verification = await verifyProviderKey(
+          body.providerKey as string,
+        );
+        if (!verification.ok)
+          throw new HttpError(
+            400,
+            "provider_key_invalid",
+            "The OpenRouter key could not be verified. Check its credit and limit.",
+          );
+      }
+    }
     const created = await stub.initialize({
       id,
       identity,
       fingerprint,
-      client: await clientHash(request, env),
+      funding,
+      ...(funding === "visitor"
+        ? { providerKey: body.providerKey as string }
+        : {}),
+      client:
+        funding === "rehearsal" ? "rehearsal" : await clientHash(request, env),
       cap: microdollars(env.RUN_BUDGET_USD),
     });
     return Response.json(created, { status: 202 });
