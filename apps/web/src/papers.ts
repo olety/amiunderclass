@@ -242,11 +242,11 @@ function liveData(run: RunSnapshot): PaperData {
   const window = measured ? verdict.window : nameless ? 5 : null;
   const material: Material = window === 1 ? "overlord" : window === 5 ? "underclass" : "comrade";
   const reasons: Record<RunSnapshot["verdict"]["reason"], string> = {
-    measured: "Your window records the latitude comparison in this run. The numbers are printed below.",
+    measured: "Your window comes from comparing your answers with nobody’s and Amanda’s. The numbers are below.",
     nameless: "YOU GAVE NO NAME. NOBODY IS WINDOW 5.",
-    insufficient_matches: "There were too few complete matched responses to assign a window. Take another ticket tomorrow.",
-    gap_unresolved: "The Amanda-to-nobody difference did not clear the anonymous repeat noise. Take another ticket tomorrow.",
-    repeats_disagree: "The two repetitions placed this visit more than one window apart. Take another ticket tomorrow.",
+    insufficient_matches: "Too many answers were missing to assign a window. Take another ticket tomorrow.",
+    gap_unresolved: "Amanda and nobody were too close to tell apart today, so no window. Take another ticket tomorrow.",
+    repeats_disagree: "The two rounds disagreed by more than one window. Take another ticket tomorrow.",
     pending: "Your comparison is not yet complete. No window has been assigned.",
   };
   const end = run.completedAt ? new Date(run.completedAt).getTime() : null;
@@ -262,9 +262,9 @@ function liveData(run: RunSnapshot): PaperData {
     ["Elapsed time at completion", seconds === null ? "Not complete" : `${number(seconds, 1)} seconds`],
     ["Recorded cost", `$${number(run.spending.knownUsd, 4)}`],
     ["Uncertain / reserved cost", `$${number(run.spending.uncertainUsd, 4)} / $${number(run.spending.reservedUsd, 4)}`],
-    ["Latitude complete matches", `${verdict.matchedTriplets} triplets · ${verdict.matchedPairs} pairs`],
+    ["Complete matches", `${verdict.matchedTriplets} triplets · ${verdict.matchedPairs} pairs`],
     ["Latitude t · raw", number(verdict.tRaw, 3)], ["Latitude t · clipped", number(verdict.t, 3)],
-    ["Amanda minus nobody latitude", nameless && verdict.evidenceStatus !== "sufficient" ? "Insufficient evidence" : number(verdict.referenceGap, 3)],
+    ["Amanda minus nobody", nameless && verdict.evidenceStatus !== "sufficient" ? "Insufficient evidence" : number(verdict.referenceGap, 3)],
     ["Anonymous repeat noise", number(verdict.anonymousNoise, 3)],
     ["Evidence status", verdict.evidenceStatus],
   ];
@@ -273,18 +273,18 @@ function liveData(run: RunSnapshot): PaperData {
   if (run.stopReason) rows.push(["Run stopped", run.stopReason.replace(/_/g, " ")]);
   const extraLimits = [
     "Latitude is substantive help minus suspicion, using the judge's yes/no labels. It describes supplied identity contexts on this prompt pack, not your account or social position.",
-    "The six requests were selected for a large published Amanda-versus-nobody split. This small edge pack is a quick check, not a representative sample of requests.",
-    "Only complete matches enter comparisons. A missing value is not zero. The window is a coarse convention for this run; it is not a personal rank.",
+    "We picked the six requests with the biggest published gap between Amanda and nobody. A quick check on the sharp edge, not an average day.",
+    "Only requests with all three answers count. Missing is not zero. The window is a rough bucket for this visit, not a rank of you.",
   ];
-  if (nameless) extraLimits.push("Window 5 is the nameless-visit convention. No visitor condition was sent and no visitor latitude was measured. Today's Amanda-versus-nobody gap is reported only when the matched evidence is sufficient.");
+  if (nameless) extraLimits.push("Window five is what nobody gets. Nothing about you was sent, so nothing about you was measured. Today's Amanda-versus-nobody gap is reported only when the matched evidence is sufficient.");
   if (run.funding === "rehearsal") extraLimits.unshift("This is a rehearsal using synthetic responses. Its figures and window demonstrate the interface and do not report a live model measurement.");
   return {
     material, window, title: window === null ? "Comparison notice" : window === 1 ? "Overlord" : window === 5 ? "Underclass" : "Placement notice",
     stamp: window === null ? "Unresolved" : "Comrade", name: run.identity?.name || "No name supplied", pronouns: run.identity?.pronouns || "", affiliation: run.identity?.affiliation || "", email: run.identity?.email || "",
     date: dateLabel(run.completedAt || run.createdAt), model: run.protocol.model, statusLine: funding, introduction: reasons[verdict.reason],
     position: measured ? verdict.t : null,
-    positionLabel: run.funding === "rehearsal" ? "Synthetic rehearsal position" : measured ? "Measured latitude position in this run" : nameless ? "Nameless convention. No visitor position measured." : "NO WINDOW ASSIGNED. TAKE ANOTHER TICKET TOMORROW.",
-    told: run.told.visitor, toldNote: nameless ? "No visitor requests were sent. This is the exact returned visitor-context sentence; the run used only nobody and Amanda." : null,
+    positionLabel: run.funding === "rehearsal" ? "Synthetic rehearsal position" : measured ? "Your measured position in this visit" : nameless ? "Nobody’s window. No position of yours was measured." : "NO WINDOW ASSIGNED. TAKE ANOTHER TICKET TOMORROW.",
+    told: run.told.visitor, toldNote: nameless ? "No request was sent as you. This is the sentence the office would have used. The visit ran only as nobody and as Amanda." : null,
     rows, limitations: [...new Set([...run.limitations, ...extraLimits])], evidence: transcriptExcerpt(run), sourceUrl: run.protocol.sourceUrl, sourceText: "Protocol source · Transluce user-awareness study",
   };
 }
