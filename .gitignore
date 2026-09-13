@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+.wrangler/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+!.env.example
+dist/
+coverage/
+apps/api/src/generated/
+research/private/
+design/round-03/manifest.json

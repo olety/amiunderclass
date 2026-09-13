@@ -1,0 +1,10 @@
+{
+  "name": "underclass",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:api": "bun run --cwd apps/api dev",
+    "test:api": "bun run --cwd apps/api test",
+    "check:api": "bun run --cwd apps/api check"
+  }
+}

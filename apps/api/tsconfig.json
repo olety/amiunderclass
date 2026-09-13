@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target":"ES2022","module":"ESNext","moduleResolution":"Bundler",
+    "strict":true,"noEmit":true,"resolveJsonModule":true,
+    "esModuleInterop":true,"skipLibCheck":true,"lib":["ES2022"],
+    "types":["@cloudflare/vitest-plugin/types"]
+  },
+  "include":["src/**/*.ts","test/**/*.ts","worker-configuration.d.ts","../../packages/contracts/src/**/*.ts"],
+  "exclude":["node_modules"]
+}

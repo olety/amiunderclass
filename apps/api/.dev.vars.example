@@ -1,0 +1,5 @@
+# Live runs are disabled in wrangler.jsonc.
+# Set these via wrangler secret put for deployment; never commit values.
+OPENROUTER_API_KEY=
+TURNSTILE_SECRET_KEY=
+ABUSE_HASH_SECRET=

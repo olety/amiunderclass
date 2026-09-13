@@ -1,0 +1,22 @@
+{
+  "name": "@underclass/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "test": "vitest run",
+    "types": "wrangler types --strict-vars=false",
+    "check": "wrangler types --strict-vars=false && tsc --noEmit",
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "prepare:protocol": "python3 scripts/prepare_protocol.py"
+  },
+  "dependencies": {
+    "@underclass/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.1.8",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.0",
+    "wrangler": "^4.131.1"
+  }
+}
