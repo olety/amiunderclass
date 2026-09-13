@@ -1,0 +1,826 @@
+{
+  "startedAt": "2026-09-13T06:04:54.284Z",
+  "finishedAt": "2026-09-13T06:05:14.024Z",
+  "origin": "http://localhost:5173",
+  "browser": "Playwright headless Chrome",
+  "config": {
+    "protocol": {
+      "version": "underclass-v2",
+      "hash": "aa130e60714756d53edfe535f1d4a7404106b0cbb5269f9754e80d906e254e8b",
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Anthropic",
+      "taskCount": 6,
+      "repetitions": 2,
+      "plannedTrials": 36,
+      "plannedCalls": 72,
+      "conditions": [
+        "visitor",
+        "anonymous",
+        "reference"
+      ],
+      "sourceUrl": "https://transluce.org/user-awareness",
+      "reference": {
+        "name": "Amanda Askell",
+        "pronouns": "she/her",
+        "affiliation": "Anthropic",
+        "email": "amanda.askell@anthropic.com"
+      },
+      "blocks": [
+        {
+          "kind": "borderline",
+          "items": 6,
+          "calls": 72
+        }
+      ]
+    },
+    "liveEnabled": false,
+    "availability": "disabled",
+    "runBudgetUsd": 0.3,
+    "estimatedCostUsd": 0.14,
+    "estimatedSeconds": 60,
+    "turnstileSiteKey": "",
+    "retentionHours": 24,
+    "byokEnabled": false,
+    "rehearsalEnabled": true,
+    "freeRunsPerClientDay": 1,
+    "byokRunsPerClientDay": 6,
+    "sponsoredRunsRemaining": null,
+    "judgeModel": "openai/gpt-5.4-mini",
+    "pilot": {
+      "status": "pending_key",
+      "costUsd": null,
+      "wallSeconds": null
+    }
+  },
+  "syntheticIdentity": {
+    "name": "QA 山田 Haruto",
+    "pronouns": "xe/QA",
+    "affiliation": "QA 赤い傘研究所",
+    "email": "qa-canary@example.invalid"
+  },
+  "results": [
+    {
+      "name": "Live-disabled recorded path sends no identity",
+      "status": "PASS",
+      "detail": "Unchecked rehearsal opens /api/example without POST /api/runs.",
+      "screenshot": "docs/qa/recorded-window-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Recorded v1 attribution",
+      "status": "PASS",
+      "detail": "The pilot keeps its v1 provenance and no-visitor label.",
+      "screenshot": "docs/qa/recorded-pilot-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study askell values and paper",
+      "status": "PASS",
+      "detail": "Amanda Askell; −7.3 pp; +8.1 pp; +25 pp; 4.31 σ; Letter on gilt-edged card.",
+      "screenshot": "docs/qa/study-askell-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study askell mobile width",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"scroll\":390}",
+      "screenshot": "docs/qa/study-askell-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study askell text and stamp treatment",
+      "status": "PASS",
+      "detail": "{\"minimumTextPx\":12,\"clippedText\":[],\"signatureOverlap\":false,\"stampTransforms\":[],\"receiptTextFilter\":null,\"receiptTextMask\":null}",
+      "screenshot": "docs/qa/study-askell-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study askell switcher state",
+      "status": "PASS",
+      "detail": "Only the selected study identity is pressed.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "Study greenblatt values and paper",
+      "status": "PASS",
+      "detail": "Ryan Greenblatt; 3.98 σ; −2.29 σ; −6.94 σ; Letter on gilt-edged card.",
+      "screenshot": "docs/qa/study-greenblatt-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study greenblatt mobile width",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"scroll\":390}",
+      "screenshot": "docs/qa/study-greenblatt-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study greenblatt text and stamp treatment",
+      "status": "PASS",
+      "detail": "{\"minimumTextPx\":12,\"clippedText\":[],\"signatureOverlap\":false,\"stampTransforms\":[],\"receiptTextFilter\":null,\"receiptTextMask\":null}",
+      "screenshot": "docs/qa/study-greenblatt-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study greenblatt switcher state",
+      "status": "PASS",
+      "detail": "Only the selected study identity is pressed.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-miri values and paper",
+      "status": "PASS",
+      "detail": "Kyle Joffrion; +0.73 pp; +0.1 pp; Placement form in triplicate.",
+      "screenshot": "docs/qa/study-kyle-miri-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-miri mobile width",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"scroll\":390}",
+      "screenshot": "docs/qa/study-kyle-miri-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-miri text and stamp treatment",
+      "status": "PASS",
+      "detail": "{\"minimumTextPx\":12,\"clippedText\":[],\"signatureOverlap\":false,\"stampTransforms\":[\"none\"],\"receiptTextFilter\":null,\"receiptTextMask\":null}",
+      "screenshot": "docs/qa/study-kyle-miri-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-miri switcher state",
+      "status": "PASS",
+      "detail": "Only the selected study identity is pressed.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-gmail values and paper",
+      "status": "PASS",
+      "detail": "Kyle Joffrion; −0.27 pp; +2.1 pp; 19%; 70 personas; Thermal receipt.",
+      "screenshot": "docs/qa/study-kyle-gmail-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-gmail mobile width",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"scroll\":390}",
+      "screenshot": "docs/qa/study-kyle-gmail-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-gmail text and stamp treatment",
+      "status": "PASS",
+      "detail": "{\"minimumTextPx\":12,\"clippedText\":[],\"signatureOverlap\":false,\"stampTransforms\":[],\"receiptTextFilter\":\"none\",\"receiptTextMask\":\"none\"}",
+      "screenshot": "docs/qa/study-kyle-gmail-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study kyle-gmail switcher state",
+      "status": "PASS",
+      "detail": "Only the selected study identity is pressed.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "Study bender values and paper",
+      "status": "PASS",
+      "detail": "Emily Bender; +14 pp; −13 pp; Thermal receipt.",
+      "screenshot": "docs/qa/study-bender-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study bender mobile width",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"scroll\":390}",
+      "screenshot": "docs/qa/study-bender-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study bender text and stamp treatment",
+      "status": "PASS",
+      "detail": "{\"minimumTextPx\":12,\"clippedText\":[],\"signatureOverlap\":false,\"stampTransforms\":[],\"receiptTextFilter\":\"none\",\"receiptTextMask\":\"none\"}",
+      "screenshot": "docs/qa/study-bender-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Study bender switcher state",
+      "status": "PASS",
+      "detail": "Only the selected study identity is pressed.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "Reduced-motion board is static",
+      "status": "PASS",
+      "detail": "Identical board SVG across the 3.2-second rotation interval; no video or audio elements.",
+      "screenshot": "docs/qa/reduced-motion-arrival-1440.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Keyboard skip link",
+      "status": "PASS",
+      "detail": "First Tab focuses the room skip link.",
+      "screenshot": "docs/qa/keyboard-skip-link-1440.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Keyboard room navigation and heading focus",
+      "status": "PASS",
+      "detail": "ArrowRight opens Your ticket and focuses its heading.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "Input arrow keys preserve editing focus",
+      "status": "PASS",
+      "detail": "{\"focused\":true,\"outlineStyle\":\"none\",\"outlineWidth\":\"0px\",\"boxShadow\":\"rgb(34, 34, 34) 0px 2px 0px 0px\",\"borderBottom\":\"1px dashed rgb(119, 119, 119)\"}",
+      "screenshot": "docs/qa/keyboard-field-focus-1440.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "200 percent layout zoom reflow",
+      "status": "PASS",
+      "detail": "{\"viewport\":720,\"scroll\":720,\"text\":\"12px\"}; 720×450 layout viewport for a 1440×900 window at 200%. This verifies reflow, not browser chrome zoom.",
+      "screenshot": "docs/qa/zoom-200-reflow-comrade.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Empty name validation",
+      "status": "PASS",
+      "detail": "Empty named submission stays on the ticket without a create.",
+      "screenshot": "docs/qa/error-empty-name-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Control character validation",
+      "status": "PASS",
+      "detail": "Control-character submission stays on the ticket without a create.",
+      "screenshot": "docs/qa/error-control-name-390.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Mocked live_disabled ticket error",
+      "status": "PASS",
+      "detail": "503 live_disabled injected at the browser route; no real create forwarded.",
+      "screenshot": "docs/qa/mock-error-live_disabled-390.png",
+      "mode": "isolated browser response fixture"
+    },
+    {
+      "name": "Mocked budget_exhausted ticket error",
+      "status": "PASS",
+      "detail": "503 budget_exhausted injected at the browser route; no real create forwarded.",
+      "screenshot": "docs/qa/mock-error-budget_exhausted-390.png",
+      "mode": "isolated browser response fixture"
+    },
+    {
+      "name": "Mocked campaign_busy ticket error",
+      "status": "PASS",
+      "detail": "503 campaign_busy injected at the browser route; no real create forwarded.",
+      "screenshot": "docs/qa/mock-error-campaign_busy-390.png",
+      "mode": "isolated browser response fixture"
+    },
+    {
+      "name": "Mocked expiry removes active controls and explains state",
+      "status": "PASS",
+      "detail": "A real rehearsal was created; only its next read was mocked to 410.",
+      "screenshot": "docs/qa/mock-expired-390.png",
+      "mode": "real rehearsal followed by isolated browser response fixture"
+    },
+    {
+      "name": "recorded-390 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "recorded-390 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "a11y-1440 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "a11y-1440 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "validation-390 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "validation-390 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-live_disabled request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-live_disabled browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 1 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-budget_exhausted request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-budget_exhausted browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 1 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-campaign_busy request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-campaign_busy browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 1 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-expired-390 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-expired-390 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 1 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    }
+  ],
+  "sessions": [
+    {
+      "label": "recorded-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/example",
+        "http://localhost:5173/reference-stills/window.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/reference-stills/papers.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2",
+        "http://localhost:5173/fonts/cormorant-garamond-latin-400-600-normal.woff2",
+        "http://localhost:5173/fonts/la-belle-aurore-latin-400-normal.woff2"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [],
+      "snapshots": [],
+      "plates": [],
+      "id": null
+    },
+    {
+      "label": "a11y-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "reducedMotion": "reduce",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/example",
+        "http://localhost:5173/reference-stills/window.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/papers.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [],
+      "snapshots": [],
+      "plates": [],
+      "id": null
+    },
+    {
+      "label": "validation-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [],
+      "snapshots": [],
+      "plates": [],
+      "id": null
+    },
+    {
+      "label": "mock-live_disabled",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "pageErrors": [],
+      "httpFailures": [
+        {
+          "status": 503,
+          "path": "/api/runs"
+        }
+      ],
+      "requestFailures": [],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "synthetic QA identity",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [],
+      "plates": [],
+      "id": null
+    },
+    {
+      "label": "mock-budget_exhausted",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "pageErrors": [],
+      "httpFailures": [
+        {
+          "status": 503,
+          "path": "/api/runs"
+        }
+      ],
+      "requestFailures": [],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "synthetic QA identity",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [],
+      "plates": [],
+      "id": null
+    },
+    {
+      "label": "mock-campaign_busy",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "pageErrors": [],
+      "httpFailures": [
+        {
+          "status": 503,
+          "path": "/api/runs"
+        }
+      ],
+      "requestFailures": [],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "synthetic QA identity",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [],
+      "plates": [],
+      "id": null
+    },
+    {
+      "label": "mock-expired-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789279428739",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789279428739",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/reference-stills/ticket.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs",
+        "http://localhost:5173/api/runs/918c9a23f7f6fe1741dfe1b1aac1a7726f8aa128f952f0ba83265635ef796404",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs/918c9a23f7f6fe1741dfe1b1aac1a7726f8aa128f952f0ba83265635ef796404"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 410 (Gone)"
+      ],
+      "pageErrors": [],
+      "httpFailures": [
+        {
+          "status": 410,
+          "path": "/api/runs/918c9a23f7f6fe1741dfe1b1aac1a7726f8aa128f952f0ba83265635ef796404"
+        }
+      ],
+      "requestFailures": [],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "synthetic QA identity",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [
+        {
+          "at": "2026-09-13T06:05:11.302Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 72,
+            "finishedCalls": 4,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": null,
+            "label": null,
+            "t": null,
+            "tRaw": null,
+            "referenceGap": null,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "pending",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "visitor",
+            "anonymous",
+            "reference"
+          ]
+        }
+      ],
+      "plates": [],
+      "id": "918c9a23f7f6fe1741dfe1b1aac1a7726f8aa128f952f0ba83265635ef796404",
+      "cleanupStatus": 204
+    }
+  ]
+}

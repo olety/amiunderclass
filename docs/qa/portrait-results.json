@@ -1,0 +1,379 @@
+{
+  "startedAt": "2026-09-13T06:38:06.113Z",
+  "finishedAt": "2026-09-13T06:38:11.966Z",
+  "origin": "http://localhost:5173",
+  "browser": "Playwright headless Chrome",
+  "browserVersion": "152.0.7977.84",
+  "appRevision": "bb3396e",
+  "config": {
+    "protocol": {
+      "version": "underclass-v2",
+      "hash": "aa130e60714756d53edfe535f1d4a7404106b0cbb5269f9754e80d906e254e8b",
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Anthropic",
+      "taskCount": 6,
+      "repetitions": 2,
+      "plannedTrials": 36,
+      "plannedCalls": 72,
+      "conditions": [
+        "visitor",
+        "anonymous",
+        "reference"
+      ],
+      "sourceUrl": "https://transluce.org/user-awareness",
+      "reference": {
+        "name": "Amanda Askell",
+        "pronouns": "she/her",
+        "affiliation": "Anthropic",
+        "email": "amanda.askell@anthropic.com"
+      },
+      "blocks": [
+        {
+          "kind": "borderline",
+          "items": 6,
+          "calls": 72
+        }
+      ]
+    },
+    "liveEnabled": false,
+    "availability": "disabled",
+    "runBudgetUsd": 0.3,
+    "estimatedCostUsd": 0.14,
+    "estimatedSeconds": 60,
+    "turnstileSiteKey": "",
+    "retentionHours": 24,
+    "byokEnabled": false,
+    "rehearsalEnabled": true,
+    "freeRunsPerClientDay": 1,
+    "byokRunsPerClientDay": 6,
+    "sponsoredRunsRemaining": null,
+    "judgeModel": "openai/gpt-5.4-mini",
+    "pilot": {
+      "status": "pending_key",
+      "costUsd": null,
+      "wallSeconds": null
+    }
+  },
+  "syntheticIdentity": {
+    "name": "QA 山田 Haruto",
+    "pronouns": "xe/QA",
+    "affiliation": "QA 赤い傘研究所",
+    "email": "qa-canary@example.invalid"
+  },
+  "results": [
+    {
+      "name": "Portrait K0 selected and contained",
+      "status": "PASS",
+      "detail": "Loaded /plates/K0-portrait-small.webp; {\"viewport\":390,\"scroll\":390}.",
+      "screenshot": "docs/qa/portrait-390-arrival.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait K1 selected and contained",
+      "status": "PASS",
+      "detail": "Loaded /plates/K1-portrait-small.webp; {\"viewport\":390,\"scroll\":390}.",
+      "screenshot": "docs/qa/portrait-390-ticket.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait ticket pickup target",
+      "status": "PASS",
+      "detail": "{\"left\":39.5,\"top\":567.5,\"right\":203.734375,\"bottom\":612,\"width\":164.234375,\"height\":44.5,\"withinRoom\":true}",
+      "screenshot": "docs/qa/portrait-390-ticket.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait K4-5 selected and contained",
+      "status": "PASS",
+      "detail": "Loaded /plates/K4-5-portrait-small.webp; {\"viewport\":390,\"scroll\":390}.",
+      "screenshot": "docs/qa/portrait-390-window.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Recorded duration display",
+      "status": "PASS",
+      "detail": "The recorded window prints 89.1 s while stored evidence retains its original precision.",
+      "screenshot": "docs/qa/portrait-390-window.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait K5 selected and contained",
+      "status": "PASS",
+      "detail": "Loaded /plates/K5-portrait-small.webp; {\"viewport\":390,\"scroll\":390}.",
+      "screenshot": "docs/qa/portrait-390-papers.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait paper lift target",
+      "status": "PASS",
+      "detail": "After desktop→mobile resize and two animation frames: {\"left\":99.93080139160156,\"top\":392.99346923828125,\"right\":287.531005859375,\"bottom\":578.9014892578125,\"width\":187.60020446777344,\"height\":185.90802001953125,\"withinRoom\":true}",
+      "screenshot": "docs/qa/portrait-390-papers-settled.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait actual paper lifts",
+      "status": "PASS",
+      "detail": "The physical paper button opens the recorded pilot paper.",
+      "screenshot": "docs/qa/portrait-390-papers-lifted.png",
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Portrait checks create no run",
+      "status": "PASS",
+      "detail": "Only config, plates and the recorded example were read.",
+      "screenshot": null,
+      "mode": "recorded visit and image selection check"
+    },
+    {
+      "name": "Settled desktop arrival",
+      "status": "PASS",
+      "detail": "{\"viewport\":1440,\"scroll\":1440}; current static room or recorded pilot, no active run.",
+      "screenshot": "docs/qa/settled-1440-arrival.png",
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "Settled desktop ticket",
+      "status": "PASS",
+      "detail": "{\"viewport\":1440,\"scroll\":1440}; current static room or recorded pilot, no active run.",
+      "screenshot": "docs/qa/settled-1440-ticket.png",
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "Settled desktop waiting-no-active-run",
+      "status": "PASS",
+      "detail": "{\"viewport\":1440,\"scroll\":1440}; current static room or recorded pilot, no active run.",
+      "screenshot": "docs/qa/settled-1440-waiting-no-active-run.png",
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "Settled desktop window-recorded",
+      "status": "PASS",
+      "detail": "{\"viewport\":1440,\"scroll\":1440}; current static room or recorded pilot, no active run.",
+      "screenshot": "docs/qa/settled-1440-window-recorded.png",
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "Settled desktop papers-recorded",
+      "status": "PASS",
+      "detail": "{\"viewport\":1440,\"scroll\":1440}; current static room or recorded pilot, no active run.",
+      "screenshot": "docs/qa/settled-1440-papers-recorded.png",
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "Settled desktop outside-recorded",
+      "status": "PASS",
+      "detail": "{\"viewport\":1440,\"scroll\":1440}; current static room or recorded pilot, no active run.",
+      "screenshot": "docs/qa/settled-1440-outside-recorded.png",
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "Desktop retakes create no run",
+      "status": "PASS",
+      "detail": "No POST /api/runs request occurred.",
+      "screenshot": null,
+      "mode": "static room or recorded pilot visual retake"
+    },
+    {
+      "name": "portrait-390 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "portrait-390 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "settled-1440 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "settled-1440 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    }
+  ],
+  "sessions": [
+    {
+      "label": "portrait-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789281375551",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789280731554",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts?t=1789280731552",
+        "http://localhost:5173/src/plate-projection.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/plates/K0-portrait-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K1-portrait-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/example",
+        "http://localhost:5173/plates/K4-5-portrait-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/plates/K5-portrait-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K5.webp",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [],
+      "snapshots": [],
+      "plates": [
+        {
+          "room": "arrival",
+          "images": [
+            "http://localhost:5173/plates/K0-portrait-small.webp"
+          ]
+        },
+        {
+          "room": "ticket",
+          "images": [
+            "http://localhost:5173/plates/K1-portrait-small.webp"
+          ]
+        },
+        {
+          "room": "window",
+          "images": [
+            "http://localhost:5173/plates/K4-5-portrait-small.webp"
+          ]
+        },
+        {
+          "room": "papers",
+          "images": [
+            "http://localhost:5173/plates/K5-portrait-small.webp"
+          ]
+        }
+      ],
+      "id": null
+    },
+    {
+      "label": "settled-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789281375551",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789280731554",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts?t=1789280731552",
+        "http://localhost:5173/src/plate-projection.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/plates/K0.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K1.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K2.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/example",
+        "http://localhost:5173/plates/K4-5.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/plates/K5.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2",
+        "http://localhost:5173/plates/K6.webp",
+        "http://localhost:5173/favicon.svg"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [],
+      "snapshots": [],
+      "plates": [
+        {
+          "room": "arrival",
+          "images": [
+            "http://localhost:5173/plates/K0.webp"
+          ]
+        },
+        {
+          "room": "ticket",
+          "images": [
+            "http://localhost:5173/plates/K1.webp"
+          ]
+        },
+        {
+          "room": "waiting-no-active-run",
+          "images": [
+            "http://localhost:5173/plates/K2.webp"
+          ]
+        },
+        {
+          "room": "window-recorded",
+          "images": [
+            "http://localhost:5173/plates/K4-5.webp"
+          ]
+        },
+        {
+          "room": "papers-recorded",
+          "images": [
+            "http://localhost:5173/plates/K5.webp"
+          ]
+        },
+        {
+          "room": "outside-recorded",
+          "images": [
+            "http://localhost:5173/plates/K6.webp"
+          ]
+        }
+      ],
+      "id": null
+    }
+  ]
+}

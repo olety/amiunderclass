@@ -1,0 +1,337 @@
+{
+  "startedAt": "2026-09-13T06:26:08.208Z",
+  "finishedAt": "2026-09-13T06:26:12.427Z",
+  "origin": "http://localhost:5173",
+  "browser": "Playwright headless Chrome",
+  "browserVersion": "152.0.7977.84",
+  "appRevision": "c1cf2e0",
+  "config": {
+    "protocol": {
+      "version": "underclass-v2",
+      "hash": "aa130e60714756d53edfe535f1d4a7404106b0cbb5269f9754e80d906e254e8b",
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Anthropic",
+      "taskCount": 6,
+      "repetitions": 2,
+      "plannedTrials": 36,
+      "plannedCalls": 72,
+      "conditions": [
+        "visitor",
+        "anonymous",
+        "reference"
+      ],
+      "sourceUrl": "https://transluce.org/user-awareness",
+      "reference": {
+        "name": "Amanda Askell",
+        "pronouns": "she/her",
+        "affiliation": "Anthropic",
+        "email": "amanda.askell@anthropic.com"
+      },
+      "blocks": [
+        {
+          "kind": "borderline",
+          "items": 6,
+          "calls": 72
+        }
+      ]
+    },
+    "liveEnabled": false,
+    "availability": "disabled",
+    "runBudgetUsd": 0.3,
+    "estimatedCostUsd": 0.14,
+    "estimatedSeconds": 60,
+    "turnstileSiteKey": "",
+    "retentionHours": 24,
+    "byokEnabled": false,
+    "rehearsalEnabled": true,
+    "freeRunsPerClientDay": 1,
+    "byokRunsPerClientDay": 6,
+    "sponsoredRunsRemaining": null,
+    "judgeModel": "openai/gpt-5.4-mini",
+    "pilot": {
+      "status": "pending_key",
+      "costUsd": null,
+      "wallSeconds": null
+    }
+  },
+  "syntheticIdentity": {
+    "name": "QA 山田 Haruto",
+    "pronouns": "xe/QA",
+    "affiliation": "QA 赤い傘研究所",
+    "email": "qa-canary@example.invalid"
+  },
+  "results": [
+    {
+      "name": "Mocked window 2 sign and meta at 390",
+      "status": "PASS",
+      "detail": "Placard 2; window 2 · 13 Sept 2026 · anthropic/claude-sonnet-5 · 0 calls · 0 s; no real create was forwarded.",
+      "screenshot": "docs/qa/mock-window-2-390.png",
+      "mode": "isolated completed visual fixture"
+    },
+    {
+      "name": "Mocked window 2 sign and meta at 1440",
+      "status": "PASS",
+      "detail": "Placard 2; window 2 · 13 Sept 2026 · anthropic/claude-sonnet-5 · 0 calls · 0 s; no real create was forwarded.",
+      "screenshot": "docs/qa/mock-window-2-1440.png",
+      "mode": "isolated completed visual fixture"
+    },
+    {
+      "name": "Mocked window 2 paper agrees",
+      "status": "PASS",
+      "detail": "The paper checkbox and stamp both name window 2.",
+      "screenshot": "docs/qa/mock-window-2-paper-390.png",
+      "mode": "isolated completed visual fixture"
+    },
+    {
+      "name": "Mocked window 4 sign and meta at 390",
+      "status": "PASS",
+      "detail": "Placard 4; window 4 · 13 Sept 2026 · anthropic/claude-sonnet-5 · 0 calls · 0 s; no real create was forwarded.",
+      "screenshot": "docs/qa/mock-window-4-390.png",
+      "mode": "isolated completed visual fixture"
+    },
+    {
+      "name": "Mocked window 4 sign and meta at 1440",
+      "status": "PASS",
+      "detail": "Placard 4; window 4 · 13 Sept 2026 · anthropic/claude-sonnet-5 · 0 calls · 0 s; no real create was forwarded.",
+      "screenshot": "docs/qa/mock-window-4-1440.png",
+      "mode": "isolated completed visual fixture"
+    },
+    {
+      "name": "Mocked window 4 paper agrees",
+      "status": "PASS",
+      "detail": "The paper checkbox and stamp both name window 4.",
+      "screenshot": "docs/qa/mock-window-4-paper-390.png",
+      "mode": "isolated completed visual fixture"
+    },
+    {
+      "name": "mock-window-2 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-window-2 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-window-4 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "mock-window-4 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    }
+  ],
+  "sessions": [
+    {
+      "label": "mock-window-2",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789280731554",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789280731554",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts?t=1789280731552",
+        "http://localhost:5173/src/plate-projection.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K1-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs",
+        "http://localhost:5173/api/runs/2222222222222222222222222222222222222222222222222222222222222222",
+        "http://localhost:5173/plates/K2-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K4-3-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K4-3.webp",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/plates/K5-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "synthetic QA identity",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [
+        {
+          "at": "2026-09-13T06:26:09.831Z",
+          "status": "completed",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 72,
+            "finishedCalls": 0,
+            "failedCalls": 0,
+            "skippedCalls": 72,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 2,
+            "label": "COMRADE",
+            "t": 0.7,
+            "tRaw": 0.7,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "measured",
+            "evidenceStatus": "sufficient",
+            "perRepetition": []
+          },
+          "conditions": [
+            "visitor",
+            "anonymous",
+            "reference"
+          ]
+        }
+      ],
+      "plates": [],
+      "id": "2222222222222222222222222222222222222222222222222222222222222222",
+      "mocked": true
+    },
+    {
+      "label": "mock-window-4",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789280731554",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789280731554",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts?t=1789280731552",
+        "http://localhost:5173/src/plate-projection.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K1-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/api/runs",
+        "http://localhost:5173/api/runs/4444444444444444444444444444444444444444444444444444444444444444",
+        "http://localhost:5173/plates/K2-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K4-3-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K4-3.webp",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/plates/K5-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "synthetic QA identity",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [
+        {
+          "at": "2026-09-13T06:26:11.651Z",
+          "status": "completed",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 72,
+            "finishedCalls": 0,
+            "failedCalls": 0,
+            "skippedCalls": 72,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 4,
+            "label": "COMRADE",
+            "t": 0.3,
+            "tRaw": 0.3,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "measured",
+            "evidenceStatus": "sufficient",
+            "perRepetition": []
+          },
+          "conditions": [
+            "visitor",
+            "anonymous",
+            "reference"
+          ]
+        }
+      ],
+      "plates": [],
+      "id": "4444444444444444444444444444444444444444444444444444444444444444",
+      "mocked": true
+    }
+  ]
+}

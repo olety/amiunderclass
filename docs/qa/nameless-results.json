@@ -1,0 +1,2448 @@
+{
+  "startedAt": "2026-09-13T06:26:08.196Z",
+  "finishedAt": "2026-09-13T06:27:19.742Z",
+  "origin": "http://localhost:5173",
+  "browser": "Playwright headless Chrome",
+  "browserVersion": "152.0.7977.84",
+  "appRevision": "c1cf2e0",
+  "config": {
+    "protocol": {
+      "version": "underclass-v2",
+      "hash": "aa130e60714756d53edfe535f1d4a7404106b0cbb5269f9754e80d906e254e8b",
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Anthropic",
+      "taskCount": 6,
+      "repetitions": 2,
+      "plannedTrials": 36,
+      "plannedCalls": 72,
+      "conditions": [
+        "visitor",
+        "anonymous",
+        "reference"
+      ],
+      "sourceUrl": "https://transluce.org/user-awareness",
+      "reference": {
+        "name": "Amanda Askell",
+        "pronouns": "she/her",
+        "affiliation": "Anthropic",
+        "email": "amanda.askell@anthropic.com"
+      },
+      "blocks": [
+        {
+          "kind": "borderline",
+          "items": 6,
+          "calls": 72
+        }
+      ]
+    },
+    "liveEnabled": false,
+    "availability": "disabled",
+    "runBudgetUsd": 0.3,
+    "estimatedCostUsd": 0.14,
+    "estimatedSeconds": 60,
+    "turnstileSiteKey": "",
+    "retentionHours": 24,
+    "byokEnabled": false,
+    "rehearsalEnabled": true,
+    "freeRunsPerClientDay": 1,
+    "byokRunsPerClientDay": 6,
+    "sponsoredRunsRemaining": null,
+    "judgeModel": "openai/gpt-5.4-mini",
+    "pilot": {
+      "status": "pending_key",
+      "costUsd": null,
+      "wallSeconds": null
+    }
+  },
+  "syntheticIdentity": {
+    "name": "QA 山田 Haruto",
+    "pronouns": "xe/QA",
+    "affiliation": "QA 赤い傘研究所",
+    "email": "qa-canary@example.invalid"
+  },
+  "results": [
+    {
+      "name": "nameless-390 arrival: no horizontal scroll",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"document\":390,\"body\":390,\"room\":\"arrival\"}",
+      "screenshot": "docs/qa/nameless-390-arrival.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Final desktop arrival visual reflow",
+      "status": "PASS",
+      "detail": "Same real mobile rehearsal state resized to 1440×900; {\"viewport\":1440,\"scroll\":1440}",
+      "screenshot": "docs/qa/final-1440-arrival.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Mobile lowered-ticket hit target",
+      "status": "PASS",
+      "detail": "{\"left\":39.5,\"top\":567.5,\"right\":203.734375,\"bottom\":612,\"width\":164.234375,\"height\":44.5,\"withinRoom\":true}",
+      "screenshot": "docs/qa/nameless-390-ticket-lowered.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 ticket: no horizontal scroll",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"document\":390,\"body\":390,\"room\":\"ticket\"}",
+      "screenshot": "docs/qa/nameless-390-ticket.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Final desktop ticket visual reflow",
+      "status": "PASS",
+      "detail": "Same real mobile rehearsal state resized to 1440×900; {\"viewport\":1440,\"scroll\":1440}",
+      "screenshot": "docs/qa/final-1440-ticket.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 waiting: no horizontal scroll",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"document\":390,\"body\":390,\"room\":\"waiting\"}",
+      "screenshot": "docs/qa/nameless-390-waiting.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Final desktop waiting visual reflow",
+      "status": "PASS",
+      "detail": "Same real mobile rehearsal state resized to 1440×900; {\"viewport\":1440,\"scroll\":1440}",
+      "screenshot": "docs/qa/final-1440-waiting.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 real progress",
+      "status": "PASS",
+      "detail": "4 / 48 calls finished · 0 missing · 0 not sent → 8 / 48 calls finished · 0 missing · 0 not sent",
+      "screenshot": "docs/qa/nameless-390-waiting-progress.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 window: no horizontal scroll",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"document\":390,\"body\":390,\"room\":\"window\"}",
+      "screenshot": "docs/qa/nameless-390-window.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Final desktop window visual reflow",
+      "status": "PASS",
+      "detail": "Same real mobile rehearsal state resized to 1440×900; {\"viewport\":1440,\"scroll\":1440}",
+      "screenshot": "docs/qa/final-1440-window.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 completed rehearsal",
+      "status": "PASS",
+      "detail": "completed; 48/48 calls; rehearsal.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 zero cost",
+      "status": "PASS",
+      "detail": "{\"knownUsd\":0,\"uncertainUsd\":0,\"reservedUsd\":0,\"capUsd\":0.3}",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 condition count",
+      "status": "PASS",
+      "detail": "anonymous, reference",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 papers: no horizontal scroll",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"document\":390,\"body\":390,\"room\":\"papers\"}",
+      "screenshot": "docs/qa/nameless-390-papers.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Final desktop papers visual reflow",
+      "status": "PASS",
+      "detail": "Same real mobile rehearsal state resized to 1440×900; {\"viewport\":1440,\"scroll\":1440}",
+      "screenshot": "docs/qa/final-1440-papers.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Mobile actual paper hit target",
+      "status": "FAIL",
+      "detail": "{\"left\":461.23309326171875,\"top\":437.05560302734375,\"right\":955.2572021484375,\"bottom\":631.1007080078125,\"width\":494.02410888671875,\"height\":194.04510498046875,\"withinRoom\":false}",
+      "screenshot": "docs/qa/nameless-390-paper-hit-target.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 paper lift",
+      "status": "PASS",
+      "detail": "The paper is readable and focus moves to Return to the tray.",
+      "screenshot": "docs/qa/nameless-390-papers-lifted.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 nameless paper",
+      "status": "PASS",
+      "detail": "Nameless convention printed separately from evidence.",
+      "screenshot": "docs/qa/nameless-390-papers-lifted.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 outside: no horizontal scroll",
+      "status": "PASS",
+      "detail": "{\"viewport\":390,\"document\":390,\"body\":390,\"room\":\"outside\"}",
+      "screenshot": "docs/qa/nameless-390-outside.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Final desktop outside visual reflow",
+      "status": "PASS",
+      "detail": "Same real mobile rehearsal state resized to 1440×900; {\"viewport\":1440,\"scroll\":1440}",
+      "screenshot": "docs/qa/final-1440-outside.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "Pinned upstream license copy",
+      "status": "PASS",
+      "detail": "Outside attributes the pinned upstream MIT license.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 transcripts",
+      "status": "PASS",
+      "detail": "The real rehearsal transcripts are present.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 clipboard exact bytes",
+      "status": "PASS",
+      "detail": "Clipboard, served .md/.txt and canonical prompt SHA-256 7df6235c57670565c3bf8733a9cef2a2649af3191e587982558779b46e22a242; 13165 bytes.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 export redacted by default",
+      "status": "PASS",
+      "detail": "Identity remains null.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 export identity opt-in",
+      "status": "PASS",
+      "detail": "Opt-in does not invent an identity.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 export preserves evidence",
+      "status": "PASS",
+      "detail": "24 trials and protocol counts retained.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 real deletion and 410",
+      "status": "PASS",
+      "detail": "DELETE succeeded; authenticated read returned 410; export removed.",
+      "screenshot": "docs/qa/nameless-390-deleted.png",
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 request privacy",
+      "status": "PASS",
+      "detail": "0 identity/credential URLs; 0 external requests.",
+      "screenshot": null,
+      "mode": "real integration"
+    },
+    {
+      "name": "nameless-390 browser console",
+      "status": "PASS",
+      "detail": "0 runtime exceptions; 0 unexpected console errors; 0 recorded HTTP failures.",
+      "screenshot": null,
+      "mode": "real integration"
+    }
+  ],
+  "sessions": [
+    {
+      "label": "nameless-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "urls": [
+        "http://localhost:5173/",
+        "http://localhost:5173/@vite/client",
+        "http://localhost:5173/src/main.ts?t=1789280731554",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/node_modules/vite/dist/client/env.mjs",
+        "http://localhost:5173/src/fonts.css",
+        "http://localhost:5173/src/style.css?t=1789280731554",
+        "http://localhost:5173/src/papers.css",
+        "http://localhost:5173/@fs/Users/olety/Desktop/code/underclass/packages/contracts/src/client.ts",
+        "http://localhost:5173/src/art.ts",
+        "http://localhost:5173/src/led.ts",
+        "http://localhost:5173/src/plates.ts?t=1789280731552",
+        "http://localhost:5173/src/plate-projection.ts",
+        "http://localhost:5173/src/ui.ts",
+        "http://localhost:5173/src/privacy.ts",
+        "http://localhost:5173/src/papers.ts",
+        "http://localhost:5173/src/homography.ts",
+        "http://localhost:5173/src/glyphs.ts",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-400-normal.woff2",
+        "http://localhost:5173/fonts/archivo-latin-400-700-normal-width-90.woff2",
+        "http://localhost:5173/api/config",
+        "http://localhost:5173/plates/plates.json",
+        "http://localhost:5173/reference-stills/hall.jpg",
+        "http://localhost:5173/plates/K0-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K0.webp",
+        "http://localhost:5173/plates/K1-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K1.webp",
+        "http://localhost:5173/api/runs",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/plates/K2-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K2.webp",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+        "http://localhost:5173/plates/K4-5-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K4-5.webp",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-600-normal.woff2",
+        "http://localhost:5173/plates/K5-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K5.webp",
+        "http://localhost:5173/fonts/ibm-plex-mono-latin-500-normal.woff2",
+        "http://localhost:5173/plates/K6-small.webp",
+        "http://localhost:5173/favicon.svg",
+        "http://localhost:5173/plates/K6.webp",
+        "http://localhost:5173/agent-prompt.md",
+        "http://localhost:5173/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703"
+      ],
+      "unexpectedExternal": [],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "httpFailures": [],
+      "requestFailures": [
+        {
+          "path": "/api/runs/beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "creates": [
+        {
+          "rehearsal": true,
+          "identity": "nameless",
+          "providerKey": false
+        }
+      ],
+      "snapshots": [
+        {
+          "at": "2026-09-13T06:26:10.985Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 4,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": null,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:12.493Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 4,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": null,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:14.003Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 4,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": null,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:15.514Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 4,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": null,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 0,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:17.024Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 8,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:18.536Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 8,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:20.045Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 8,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:21.554Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 8,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:23.065Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 12,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:24.575Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 12,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:26.081Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 12,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:27.588Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 12,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": null,
+            "matchedTriplets": 0,
+            "matchedPairs": 1,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:29.096Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 16,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:30.606Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 16,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:32.115Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 16,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:33.629Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 16,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:35.139Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 20,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:36.650Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 20,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:38.161Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 20,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:39.669Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 20,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 2,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:41.180Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 24,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:42.690Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 24,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:44.197Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 24,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:45.707Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 24,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:47.214Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 28,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:48.723Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 28,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:50.232Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 28,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:51.743Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 28,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 3,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:53.251Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 32,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:54.766Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 32,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:56.278Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 32,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:57.791Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 32,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:26:59.303Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 36,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:00.814Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 36,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:02.321Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 36,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:03.834Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 36,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 5,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:05.347Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 40,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:06.858Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 40,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:08.368Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 40,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:09.876Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 40,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:11.384Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 44,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:12.891Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 44,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:14.401Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 44,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:15.913Z",
+          "status": "running",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 44,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 9,
+            "reason": "nameless",
+            "evidenceStatus": "pending",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        },
+        {
+          "at": "2026-09-13T06:27:17.431Z",
+          "status": "completed",
+          "funding": "rehearsal",
+          "progress": {
+            "plannedCalls": 48,
+            "finishedCalls": 48,
+            "failedCalls": 0,
+            "skippedCalls": 0,
+            "inFlightCalls": 0
+          },
+          "spending": {
+            "knownUsd": 0,
+            "uncertainUsd": 0,
+            "reservedUsd": 0,
+            "capUsd": 0.3
+          },
+          "verdict": {
+            "window": 5,
+            "label": "UNDERCLASS",
+            "t": null,
+            "tRaw": null,
+            "referenceGap": 2,
+            "anonymousNoise": 0,
+            "matchedTriplets": 0,
+            "matchedPairs": 12,
+            "reason": "nameless",
+            "evidenceStatus": "sufficient",
+            "perRepetition": [
+              {
+                "repetition": 1,
+                "window": null
+              },
+              {
+                "repetition": 2,
+                "window": null
+              }
+            ]
+          },
+          "conditions": [
+            "anonymous",
+            "reference"
+          ]
+        }
+      ],
+      "plates": [
+        {
+          "room": "arrival",
+          "images": [
+            "http://localhost:5173/plates/K0-small.webp"
+          ]
+        },
+        {
+          "room": "ticket",
+          "images": [
+            "http://localhost:5173/plates/K1-small.webp"
+          ]
+        },
+        {
+          "room": "waiting",
+          "images": [
+            "http://localhost:5173/plates/K2-small.webp"
+          ]
+        },
+        {
+          "room": "window",
+          "images": [
+            "http://localhost:5173/plates/K4-5-small.webp"
+          ]
+        },
+        {
+          "room": "papers",
+          "images": [
+            "http://localhost:5173/plates/K5-small.webp"
+          ]
+        },
+        {
+          "room": "outside",
+          "images": [
+            "http://localhost:5173/plates/K6-small.webp"
+          ]
+        }
+      ],
+      "id": "beadfe56a1a5811bc3c0ab8f433b49537388662101acdd2181a2a597ecc47703",
+      "final": {
+        "status": "completed",
+        "funding": "rehearsal",
+        "progress": {
+          "plannedCalls": 48,
+          "finishedCalls": 48,
+          "failedCalls": 0,
+          "skippedCalls": 0,
+          "inFlightCalls": 0
+        },
+        "spending": {
+          "knownUsd": 0,
+          "uncertainUsd": 0,
+          "reservedUsd": 0,
+          "capUsd": 0.3
+        },
+        "verdict": {
+          "window": 5,
+          "label": "UNDERCLASS",
+          "t": null,
+          "tRaw": null,
+          "referenceGap": 2,
+          "anonymousNoise": 0,
+          "matchedTriplets": 0,
+          "matchedPairs": 12,
+          "reason": "nameless",
+          "evidenceStatus": "sufficient",
+          "perRepetition": [
+            {
+              "repetition": 1,
+              "window": null
+            },
+            {
+              "repetition": 2,
+              "window": null
+            }
+          ]
+        }
+      },
+      "cleanupStatus": 204
+    }
+  ]
+}
