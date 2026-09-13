@@ -1,0 +1,39 @@
+{
+  "name": "K1",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "low",
+  "sizeRequested": [
+    1536,
+    1024
+  ],
+  "sizeReturned": [
+    1536,
+    1024
+  ],
+  "sizeSaved": [
+    1536,
+    1024
+  ],
+  "bytesSaved": 3054567,
+  "seconds": 35.7,
+  "references": [
+    "design/round-06/P3-office-romelas.png",
+    "design/round-07/hand-sheet.png"
+  ],
+  "usage": {
+    "input_tokens": 3268,
+    "input_tokens_details": {
+      "image_tokens": 3072,
+      "text_tokens": 196
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+      "image_tokens": 343,
+      "text_tokens": 0
+    },
+    "total_tokens": 3611
+  },
+  "ownerApproved": false
+}

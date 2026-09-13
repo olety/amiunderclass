@@ -1,0 +1,56 @@
+{
+  "name": "K1",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "medium",
+  "sizeRequested": [
+    1536,
+    1024
+  ],
+  "sizeReturned": [
+    1536,
+    1024
+  ],
+  "sizeSaved": [
+    1536,
+    1024
+  ],
+  "bytesSaved": 2949219,
+  "seconds": 40.6,
+  "references": [
+    "design/round-06/P3-office-romelas.png",
+    "design/round-07/references/P3-dispenser-detail.png",
+    "design/round-07/references/hand-identity-detail.png"
+  ],
+  "usage": {
+    "input_tokens": 4827,
+    "input_tokens_details": {
+      "image_tokens": 4608,
+      "text_tokens": 219
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+      "image_tokens": 1372,
+      "text_tokens": 0
+    },
+    "total_tokens": 6199
+  },
+  "ownerApproved": false,
+  "exports": [
+    {
+      "path": "apps/web/public/plates/K1.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 337430,
+      "quality": 84
+    },
+    {
+      "path": "apps/web/public/plates/K1-small.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 129024,
+      "quality": 90
+    }
+  ]
+}

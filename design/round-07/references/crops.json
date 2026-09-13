@@ -1,0 +1,32 @@
+[
+  {
+    "file": "P3-dispenser-detail.png",
+    "source": "design/round-06/P3-office-romelas.png",
+    "cropPixels": [
+      134,
+      330,
+      209,
+      479
+    ],
+    "canvas": [
+      1536,
+      1024
+    ],
+    "operation": "crop, contain, matte pad; no new generation"
+  },
+  {
+    "file": "hand-identity-detail.png",
+    "source": "design/round-07/hand-sheet.png",
+    "cropPixels": [
+      680,
+      530,
+      960,
+      989
+    ],
+    "canvas": [
+      1536,
+      1024
+    ],
+    "operation": "crop, contain, matte pad; no new generation"
+  }
+]

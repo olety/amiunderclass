@@ -1,0 +1,1 @@
+Rejected during visual QA: the requested longer exposed paper and edge-only grip did not appear. The image added a baked A37 ticket number despite the blank-paper prompt. Final K1 keeps the preceding blank round-dispenser image.

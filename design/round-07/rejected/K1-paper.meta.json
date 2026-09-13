@@ -1,0 +1,38 @@
+{
+  "name": "K1-paper",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "medium",
+  "sizeRequested": [
+    1536,
+    1024
+  ],
+  "sizeReturned": [
+    1536,
+    1024
+  ],
+  "sizeSaved": [
+    1536,
+    1024
+  ],
+  "bytesSaved": 2658270,
+  "seconds": 40.8,
+  "references": [
+    "design/round-07/K1.png"
+  ],
+  "usage": {
+    "input_tokens": 1701,
+    "input_tokens_details": {
+      "image_tokens": 1536,
+      "text_tokens": 165
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+      "image_tokens": 1372,
+      "text_tokens": 0
+    },
+    "total_tokens": 3073
+  },
+  "ownerApproved": false
+}

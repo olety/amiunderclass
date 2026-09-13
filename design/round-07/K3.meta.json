@@ -1,0 +1,55 @@
+{
+  "name": "K3",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "high",
+  "sizeRequested": [
+    1536,
+    1024
+  ],
+  "sizeReturned": [
+    1536,
+    1024
+  ],
+  "sizeSaved": [
+    1536,
+    1024
+  ],
+  "bytesSaved": 3126728,
+  "seconds": 104.3,
+  "references": [
+    "design/round-06/P3-office-romelas.png",
+    "design/round-07/clerk-sheet-male.png"
+  ],
+  "usage": {
+    "input_tokens": 3286,
+    "input_tokens_details": {
+      "image_tokens": 3072,
+      "text_tokens": 214
+    },
+    "output_tokens": 5488,
+    "output_tokens_details": {
+      "image_tokens": 5488,
+      "text_tokens": 0
+    },
+    "total_tokens": 8774
+  },
+  "ownerApproved": false,
+  "exports": [
+    {
+      "path": "apps/web/public/plates/K3.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 365060,
+      "quality": 81
+    },
+    {
+      "path": "apps/web/public/plates/K3-small.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 158810,
+      "quality": 90
+    }
+  ]
+}

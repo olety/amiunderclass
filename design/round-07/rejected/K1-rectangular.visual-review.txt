@@ -1,0 +1,1 @@
+Rejected during visual QA: the dispenser copied the rectangular prop from the hand sheet instead of the locked round dispenser in P3. Medium quality was requested but the service reported low. The next attempt uses a close P3 dispenser reference and a hand-only crop. Not exported.

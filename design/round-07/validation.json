@@ -1,0 +1,233 @@
+{
+  "stage": [
+    1152,
+    768
+  ],
+  "plates": [
+    {
+      "key": "K0",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K0.webp",
+          "bytes": 369830,
+          "sha256": "725b54691fbd430c09283f52ee6b2be9ba722cc7c85ce7ba4301d9a0e91d5716"
+        },
+        {
+          "path": "/plates/K0-small.webp",
+          "bytes": 139230,
+          "sha256": "791d437415175d66050ed6448dab5d93892c32ba52e8e6e2777a9b03ce607945"
+        }
+      ]
+    },
+    {
+      "key": "K1",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": [
+        [
+          328.5,
+          465
+        ],
+        [
+          367.5,
+          462.75
+        ],
+        [
+          379.5,
+          481.5
+        ],
+        [
+          339,
+          484.5
+        ]
+      ],
+      "exports": [
+        {
+          "path": "/plates/K1.webp",
+          "bytes": 337430,
+          "sha256": "a05c51a408bff078bc08bb55eacc7573cd0e6a7fbaf4fdabc07f920d5e11a29b"
+        },
+        {
+          "path": "/plates/K1-small.webp",
+          "bytes": 129024,
+          "sha256": "f76ca967303aa1366ff58079e655f1b6418f66503930150396ca2fb9b82b4695"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
+      "key": "K2",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K2.webp",
+          "bytes": 395838,
+          "sha256": "36d1e25fd1abb3b9a857cfb37f3ff247c7d0c159699cf2dc3983e8a3a9ac76a4"
+        },
+        {
+          "path": "/plates/K2-small.webp",
+          "bytes": 183528,
+          "sha256": "ab6dde5026c69097f7748fe1fe5b0e02461789a9595d5251e3d3e9dd2fcca133"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
+      "key": "K3",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K3.webp",
+          "bytes": 365060,
+          "sha256": "54b4429b98ee830b17628ce0fd8799fce8a0fd9d94ad461f268bcd16add74856"
+        },
+        {
+          "path": "/plates/K3-small.webp",
+          "bytes": 158810,
+          "sha256": "c0ad81f41a68e9263ca1bdcdf8ef55f14734fe899d6a2b5a0d66bf6bc00b472e"
+        }
+      ],
+      "qualityReturned": "high"
+    },
+    {
+      "key": "K4-5",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K4-5.webp",
+          "bytes": 390026,
+          "sha256": "eda645695f9d8868e940ac504cc208fa533270af9a6fe0ad48d20ddaeedb87a4"
+        },
+        {
+          "path": "/plates/K4-5-small.webp",
+          "bytes": 141932,
+          "sha256": "c32849435f65cfcac55a37901c309b7c5c352092205185584e7e5a569c05064d"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
+      "key": "K4-3",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K4-3.webp",
+          "bytes": 384450,
+          "sha256": "0a7f2aad3c29565b482272c0a78b7330695411b300564a238fa5115c81e295cc"
+        },
+        {
+          "path": "/plates/K4-3-small.webp",
+          "bytes": 144180,
+          "sha256": "ea60215c6f6502e9f75d8678b0c15ae021dbe349c69b7bab7f9d0c6aaa83e720"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
+      "key": "K4-1",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K4-1.webp",
+          "bytes": 372974,
+          "sha256": "b0e34a550ca5c366b998e3d1b53a5e7fd42115a92fdbd15529e68fa31c757923"
+        },
+        {
+          "path": "/plates/K4-1-small.webp",
+          "bytes": 158706,
+          "sha256": "9f5f5ef041218bb82ede4c7e87d13e1f5e61ac67e94762563b8b14dfee471454"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
+      "key": "K5",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": [
+        [
+          432.75,
+          372.75
+        ],
+        [
+          713.25,
+          371.25
+        ],
+        [
+          764.25,
+          525
+        ],
+        [
+          369,
+          526.5
+        ]
+      ],
+      "exports": [
+        {
+          "path": "/plates/K5.webp",
+          "bytes": 393652,
+          "sha256": "c28b204b907b7dc266ea8286b54cecc5b745e8a966a8958299693e93fdd9dba6"
+        },
+        {
+          "path": "/plates/K5-small.webp",
+          "bytes": 153202,
+          "sha256": "2a5bca27f39b621c07c72b80ba877fbb204175c8492f6e8671f2b235f84f4871"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
+      "key": "K6",
+      "size": [
+        1536,
+        1024
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K6.webp",
+          "bytes": 364886,
+          "sha256": "d2da1035014daddaecb0043f016fabb4dbb8291ab4da3b2cb59d7f022a16d96f"
+        },
+        {
+          "path": "/plates/K6-small.webp",
+          "bytes": 162612,
+          "sha256": "4f0f74719f9602c4bdf11bcfa81958e1f7ae36fff783a25f7d0879a1d73cfd94"
+        }
+      ],
+      "qualityReturned": "medium"
+    }
+  ],
+  "status": "asset checks passed",
+  "newKeyframeOwnerApprovals": [],
+  "totalWebpBytes": 4745370
+}

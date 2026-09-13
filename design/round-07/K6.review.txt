@@ -1,0 +1,5 @@
+{
+  "blockingGeometry": false,
+  "notes": "The scene is physically coherent. Specify that the glass door stands open to align its position with the clear view inside. Omit the unseen comparison to the hall’s lettering and the abstract description of the office as calm.",
+  "prompt": "A single landscape photograph shows the entrance to the public office from the sunlit street. A brushed-metal-framed glass door stands open in a plain cream civic facade, revealing orange waiting chairs, a wooden counter and fluorescent ceiling lights inside the hall. Above the doorway, a sign reads \"PUBLIC OFFICE\" in civic lettering and carries a gold sun mark with gently curling tentacle-shaped rays. Bright daylight falls across the threshold and clean pavement. The image presents the same 1976 colour photograph reproduced as coarse CMYK halftone with slight registration drift, daylight and fluorescent light."
+}

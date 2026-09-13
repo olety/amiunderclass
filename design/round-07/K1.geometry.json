@@ -1,0 +1,52 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "cornerOrder": [
+    "top-left",
+    "top-right",
+    "bottom-right",
+    "bottom-left"
+  ],
+  "paper": [
+    [
+      328.5,
+      465
+    ],
+    [
+      367.5,
+      462.75
+    ],
+    [
+      379.5,
+      481.5
+    ],
+    [
+      339,
+      484.5
+    ]
+  ],
+  "sourcePixels": [
+    [
+      438,
+      620
+    ],
+    [
+      490,
+      617
+    ],
+    [
+      506,
+      642
+    ],
+    [
+      452,
+      646
+    ]
+  ],
+  "geometryKind": "visible-printable-area",
+  "physicalPaperCorners": null,
+  "uncertaintySourcePixels": 3,
+  "notes": "These are inset printable-area corners, not physical paper corners. The upper physical corners remain inside the dispenser and the lower-right is occluded by the thumb. The quad clears slot, paper edges and thumb. About 40 by 23 stage pixels; lift the form for reading and input."
+}
