@@ -1,13 +1,19 @@
 export type Condition = "visitor" | "anonymous" | "reference";
-export type Metric = "grading" | "confidence";
+export type Metric = "grading" | "confidence" | "latitude" | "suspicion" | "substantive" | "refusal";
+export type Funding = "sponsored" | "visitor" | "rehearsal";
+export type YesNo = "yes" | "no";
 export type RunStatus =
   "queued" | "running" | "completed" | "partial" | "failed" | "cancelled";
 export interface Identity {
   name: string;
+  pronouns?: string;
   affiliation?: string;
+  email?: string;
 }
 export interface CreateRunRequest {
-  identity: Identity;
+  identity: Identity | null;
+  providerKey?: string;
+  rehearsal?: boolean;
   consent: true;
   turnstileToken: string;
 }
@@ -26,6 +32,7 @@ export interface ProtocolInfo {
   conditions: Condition[];
   sourceUrl: string;
   reference: Identity;
+  blocks: { kind: "grading" | "behavior" | "borderline"; items: number; calls: number }[];
 }
 export interface AppConfig {
   protocol: ProtocolInfo;
@@ -36,11 +43,20 @@ export interface AppConfig {
   estimatedSeconds: number;
   turnstileSiteKey: string;
   retentionHours: number;
+  byokEnabled: boolean;
+  rehearsalEnabled: boolean;
+  freeRunsPerClientDay: number;
+  byokRunsPerClientDay: number;
+  sponsoredRunsRemaining: number | null;
+  judgeModel: string;
+  pilot: { status: "pending_key" | "measured"; costUsd: number | null; wallSeconds: number | null };
 }
 export interface MetricComparison {
   metric: Metric;
-  unit: "grade_points" | "percentage_points";
+  unit: "grade_points" | "percentage_points" | "latitude_points";
   matchedTriplets: number;
+  /** Nameless runs use matched anonymous/reference pairs; visitor means stay null. */
+  matchedPairs: number;
   taskClusters: number;
   means: Record<Condition, number | null>;
   visitorMinusAnonymous: number | null;
@@ -48,10 +64,45 @@ export interface MetricComparison {
   visitorMinusReference: number | null;
   perRepetition: { repetition: number; visitorMinusReference: number | null }[];
 }
+export interface JudgeVerdict {
+  refusal: YesNo | null;
+  substantive: YesNo | null;
+  suspicious: YesNo | null;
+  summary: string | null;
+  evidence: { substantive: string; suspicious: string } | null;
+  model: string;
+  error: string | null;
+}
+export interface WindowVerdict {
+  window: 1 | 2 | 3 | 4 | 5 | null;
+  label: "OVERLORD" | "COMRADE" | "UNDERCLASS" | null;
+  t: number | null;
+  tRaw: number | null;
+  referenceGap: number | null;
+  anonymousNoise: number | null;
+  matchedTriplets: number;
+  matchedPairs: number;
+  reason: "measured" | "nameless" | "insufficient_matches" | "gap_unresolved" | "repeats_disagree" | "pending";
+  /** A nameless window is a convention. Only sufficient evidence supports today's measured gap. */
+  evidenceStatus: "pending" | "sufficient" | "insufficient";
+  perRepetition: { repetition: number; window: number | null }[];
+}
+export interface TrialCall {
+  turn: "first" | "confidence" | "judge";
+  status: "pending" | "inflight" | "done" | "failed" | "skipped";
+  requestedModel: string;
+  reportedModel: string | null;
+  reportedProvider: string | null;
+  costUsd: number | null;
+  inputTokens: number | null;
+  outputTokens: number | null;
+  latencyMs: number | null;
+  error: string | null;
+}
 export interface TrialResult {
   taskId: string;
   cluster: string;
-  kind: "grading" | "behavior";
+  kind: "grading" | "behavior" | "borderline";
   condition: Condition;
   repetition: number;
   status: "pending" | "complete" | "missing";
@@ -63,12 +114,20 @@ export interface TrialResult {
   rawConfidence: number | null;
   action: "yes" | "no" | null;
   error: string | null;
+  judge: JudgeVerdict | null;
+  latitude: -1 | 0 | 1 | null;
+  calls: TrialCall[];
 }
 export interface RunSnapshot {
   kind: "live";
   id: string;
   status: RunStatus;
-  identity: Identity;
+  identity: Identity | null;
+  funding: Funding;
+  told: Record<Condition, string>;
+  verdict: WindowVerdict;
+  seed: number;
+  completedAt: string | null;
   protocol: ProtocolInfo;
   createdAt: string;
   expiresAt: string;
