@@ -1,0 +1,55 @@
+{
+  "name": "K4-5-portrait",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "medium",
+  "sizeRequested": [
+    1024,
+    1536
+  ],
+  "sizeReturned": [
+    1024,
+    1536
+  ],
+  "sizeSaved": [
+    1024,
+    1536
+  ],
+  "bytesSaved": 3000715,
+  "seconds": 46.1,
+  "references": [
+    "design/round-07/K4-5.png",
+    "design/round-07/clerk-sheet-male.png"
+  ],
+  "usage": {
+    "input_tokens": 3284,
+    "input_tokens_details": {
+      "image_tokens": 3072,
+      "text_tokens": 212
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+      "image_tokens": 1372,
+      "text_tokens": 0
+    },
+    "total_tokens": 4656
+  },
+  "ownerApproved": false,
+  "exports": [
+    {
+      "path": "apps/web/public/plates/K4-5-portrait.webp",
+      "width": 1536,
+      "height": 2304,
+      "bytes": 395836,
+      "quality": 75
+    },
+    {
+      "path": "apps/web/public/plates/K4-5-portrait-small.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 320094,
+      "quality": 90
+    }
+  ]
+}

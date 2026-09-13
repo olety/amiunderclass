@@ -1,0 +1,17 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "coordinateBasis": "normalized full image; x/imageWidth*1152, y/imageHeight*768",
+  "sourceImageSize": [
+    1024,
+    1536
+  ],
+  "approximateHeadBounds": {
+    "x": 461.25,
+    "y": 172.5,
+    "width": 245.25,
+    "height": 136
+  }
+}

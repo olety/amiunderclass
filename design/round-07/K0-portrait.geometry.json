@@ -1,0 +1,54 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "coordinateBasis": "normalized full image; x/imageWidth*1152, y/imageHeight*768",
+  "sourceImageSize": [
+    1024,
+    1536
+  ],
+  "board": [
+    [
+      479.25,
+      143.5
+    ],
+    [
+      883.125,
+      141
+    ],
+    [
+      883.125,
+      211.5
+    ],
+    [
+      479.25,
+      213
+    ]
+  ],
+  "sourcePixels": [
+    [
+      426,
+      287
+    ],
+    [
+      785,
+      282
+    ],
+    [
+      785,
+      423
+    ],
+    [
+      426,
+      426
+    ]
+  ],
+  "dotCoverRect": {
+    "x": 501.75,
+    "y": 149,
+    "width": 367.875,
+    "height": 59
+  },
+  "uncertaintySourcePixels": 3
+}

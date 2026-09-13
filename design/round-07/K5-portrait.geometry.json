@@ -1,0 +1,50 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "coordinateBasis": "normalized full image; x/imageWidth*1152, y/imageHeight*768",
+  "sourceImageSize": [
+    1024,
+    1536
+  ],
+  "sourcePixels": [
+    [
+      349,
+      710
+    ],
+    [
+      674,
+      710
+    ],
+    [
+      731,
+      1150
+    ],
+    [
+      287,
+      1150
+    ]
+  ],
+  "paper": [
+    [
+      392.625,
+      355.0
+    ],
+    [
+      758.25,
+      355.0
+    ],
+    [
+      822.375,
+      575.0
+    ],
+    [
+      322.875,
+      575.0
+    ]
+  ],
+  "geometryKind": "physical-paper-corners",
+  "uncertaintySourcePixels": 3,
+  "notes": "All four sheet corners are visible, paper is flat, bottom edge clears tray rim and hand is separate."
+}

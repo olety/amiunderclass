@@ -16,4 +16,6 @@ K1 preserves the round P3 dispenser. The original hand sheet's rectangular dispe
 
 K2 is cropped from its full generated view to enlarge the board while retaining all five window signs. Its manifest `board` quad and `K2.geometry.json` describe the final crop. The geometry record also gives a padded rectangle that covers every baked amber dot. Keep HTML text opaque over that field.
 
-Portrait variants are deferred. The frontend currently needs a separate paper-coordinate adaptation for portrait sources. The complete landscape set is ready for integration and responsive QA.
+Four portrait variants are exported for K0, K1, K4-5 and K5. Their original PNGs are 1024 × 1536. To provide the same export widths as the landscape set, the WebPs are 1536 × 2304 and 768 × 1152, each below 400,000 bytes. The larger export is an upscale of the original PNG. K5 portrait was requested at medium quality and returned low; its paper geometry and clerk continuity passed visual inspection.
+
+Portrait geometry uses the same normalized image basis of 1152 × 768, with independent axes. For a 1024 × 1536 source PNG, multiply x by 1.125 and y by 0.5. The frontend uses the selected image dimensions and its CSS cover position to map that normalized basis onto the viewport. Each portrait lives inside its landscape entry's `portrait` object. K0 portrait includes its own `board` quad; K1 uses a printable inset; K5 uses all four actual paper corners. The portrait images remain pending owner frame review.

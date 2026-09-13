@@ -1,0 +1,50 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "coordinateBasis": "normalized full image; x/imageWidth*1152, y/imageHeight*768",
+  "sourceImageSize": [
+    1024,
+    1536
+  ],
+  "sourcePixels": [
+    [
+      380,
+      827
+    ],
+    [
+      433,
+      819
+    ],
+    [
+      449,
+      868
+    ],
+    [
+      396,
+      876
+    ]
+  ],
+  "paper": [
+    [
+      427.5,
+      413.5
+    ],
+    [
+      487.125,
+      409.5
+    ],
+    [
+      505.125,
+      434.0
+    ],
+    [
+      445.5,
+      438.0
+    ]
+  ],
+  "geometryKind": "visible-printable-area",
+  "uncertaintySourcePixels": 3,
+  "notes": "Inset patch clears slot, thumb and edges. Hidden physical paper corners are not measured. Use a short ticket mark and lift the form."
+}

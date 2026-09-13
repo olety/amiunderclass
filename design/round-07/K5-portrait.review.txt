@@ -1,0 +1,5 @@
+{
+  "blockingGeometry": false,
+  "notes": "The geometry is feasible: the tray accommodates the A4 sheet with all four corners visible, and the withdrawing hand remains beside the tray. Redundant wording is trimmed. Matching the tray, counter and clerk depends on the attached reference.",
+  "prompt": "A portrait-oriented first-person photograph, framed tall and viewed steeply from above, shows the steel document tray and wooden service counter from the attached image. A blank white A4 sheet lies flat inside the tray, its long axis pointing away from the viewer and all four corners clearly visible within the rim. The clear glass service partition and document slot stand behind the tray, with the same male clerk visible beyond the glass. The visitor’s right hand withdraws at the lower-right edge beside the tray, retaining the grey-green wool sleeve, white cuff and steel wristwatch. Daylight and ceiling fluorescents illuminate the paper evenly. The image presents the same 1976 colour photograph reproduced as coarse CMYK halftone with slight registration drift, daylight and fluorescent light."
+}

@@ -30,10 +30,19 @@ for key in sys.argv[1:]:
         if target.stat().st_size > 400_000:
             raise ValueError(f"{key}: WebP exceeds 400,000 bytes")
         exports.append({"path": str(target.relative_to(ROOT)), "width": resized.width, "height": resized.height, "bytes": target.stat().st_size, "quality": quality})
-    entry = {"key": key, "src": f"/plates/{key}.webp", "srcSmall": f"/plates/{key}-small.webp", "w": image.width, "h": image.height, "paper": geometry.get("paper")}
+    entry = {"src": f"/plates/{key}.webp", "srcSmall": f"/plates/{key}-small.webp", "w": exports[0]["width"], "h": exports[0]["height"], "paper": geometry.get("paper")}
     if geometry.get("board"):
         entry["board"] = geometry["board"]
-    by_key[key] = entry
+    if key.endswith("-portrait"):
+        base_key = key.removesuffix("-portrait")
+        if base_key not in by_key:
+            raise ValueError(f"{key}: export the landscape plate first")
+        by_key[base_key]["portrait"] = entry
+    else:
+        entry["key"] = key
+        if by_key.get(key, {}).get("portrait"):
+            entry["portrait"] = by_key[key]["portrait"]
+        by_key[key] = entry
     metadata_path = HERE / f"{key}.meta.json"
     metadata = json.loads(metadata_path.read_text()) if metadata_path.exists() else {}
     metadata["exports"] = exports

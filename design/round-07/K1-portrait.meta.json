@@ -1,0 +1,54 @@
+{
+  "name": "K1-portrait",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "medium",
+  "sizeRequested": [
+    1024,
+    1536
+  ],
+  "sizeReturned": [
+    1024,
+    1536
+  ],
+  "sizeSaved": [
+    1024,
+    1536
+  ],
+  "bytesSaved": 2877716,
+  "seconds": 45.2,
+  "references": [
+    "design/round-07/K1.png"
+  ],
+  "usage": {
+    "input_tokens": 1734,
+    "input_tokens_details": {
+      "image_tokens": 1536,
+      "text_tokens": 198
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+      "image_tokens": 1372,
+      "text_tokens": 0
+    },
+    "total_tokens": 3106
+  },
+  "ownerApproved": false,
+  "exports": [
+    {
+      "path": "apps/web/public/plates/K1-portrait.webp",
+      "width": 1536,
+      "height": 2304,
+      "bytes": 382796,
+      "quality": 78
+    },
+    {
+      "path": "apps/web/public/plates/K1-portrait-small.webp",
+      "width": 768,
+      "height": 1152,
+      "bytes": 278070,
+      "quality": 90
+    }
+  ]
+}

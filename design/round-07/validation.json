@@ -1,12 +1,21 @@
 {
-  "stage": [
+  "normalizedImageBasis": [
     1152,
     768
   ],
+  "landscapeCount": 9,
+  "portraitCount": 4,
+  "status": "asset checks passed",
+  "newKeyframeOwnerApprovals": [],
+  "totalWebpBytes": 7583792,
   "plates": [
     {
       "key": "K0",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -25,8 +34,37 @@
       ]
     },
     {
+      "key": "K0-portrait",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "exportSize": [
+        1536,
+        2304
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K0-portrait.webp",
+          "bytes": 391436,
+          "sha256": "e0d2b88b28343c450e70bc1d3da3c0c68d8ffb2ae0bd430ee3e715090c6decc2"
+        },
+        {
+          "path": "/plates/K0-portrait-small.webp",
+          "bytes": 384260,
+          "sha256": "901ad392d166d3c831d694781161a4bb50d9beb10d32fafd6fb60ef8bca16710"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
       "key": "K1",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -63,8 +101,54 @@
       "qualityReturned": "medium"
     },
     {
+      "key": "K1-portrait",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "exportSize": [
+        1536,
+        2304
+      ],
+      "paper": [
+        [
+          427.5,
+          413.5
+        ],
+        [
+          487.125,
+          409.5
+        ],
+        [
+          505.125,
+          434.0
+        ],
+        [
+          445.5,
+          438.0
+        ]
+      ],
+      "exports": [
+        {
+          "path": "/plates/K1-portrait.webp",
+          "bytes": 382796,
+          "sha256": "89b6a34d3febd89dad24f814931e4619691c092b743393cea985356346d2fe5f"
+        },
+        {
+          "path": "/plates/K1-portrait-small.webp",
+          "bytes": 278070,
+          "sha256": "4e3eaeab06934dae79c6ce9119c265cdc65bd0279e112baf5a556c9a1be4c3dd"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
       "key": "K2",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -85,7 +169,11 @@
     },
     {
       "key": "K3",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -106,7 +194,11 @@
     },
     {
       "key": "K4-5",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -126,8 +218,37 @@
       "qualityReturned": "medium"
     },
     {
+      "key": "K4-5-portrait",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "exportSize": [
+        1536,
+        2304
+      ],
+      "paper": null,
+      "exports": [
+        {
+          "path": "/plates/K4-5-portrait.webp",
+          "bytes": 395836,
+          "sha256": "1d811cb7671e76578569a2b46c067ca3229d7149b6a8cbaa6ba40162f3708667"
+        },
+        {
+          "path": "/plates/K4-5-portrait-small.webp",
+          "bytes": 320094,
+          "sha256": "47c5ce9e71b83c9463d5590572672b5e6f56364ebb9a6ccedf7212fef0c2a547"
+        }
+      ],
+      "qualityReturned": "medium"
+    },
+    {
       "key": "K4-3",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -148,7 +269,11 @@
     },
     {
       "key": "K4-1",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -169,7 +294,11 @@
     },
     {
       "key": "K5",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -206,8 +335,54 @@
       "qualityReturned": "medium"
     },
     {
+      "key": "K5-portrait",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "exportSize": [
+        1536,
+        2304
+      ],
+      "paper": [
+        [
+          392.625,
+          355.0
+        ],
+        [
+          758.25,
+          355.0
+        ],
+        [
+          822.375,
+          575.0
+        ],
+        [
+          322.875,
+          575.0
+        ]
+      ],
+      "exports": [
+        {
+          "path": "/plates/K5-portrait.webp",
+          "bytes": 394328,
+          "sha256": "4437ce22c5e1265bfa1f0b6fa98f13895f043190c76b9be5d746df2f5de893a6"
+        },
+        {
+          "path": "/plates/K5-portrait-small.webp",
+          "bytes": 291602,
+          "sha256": "3fc4532d7058e972c36e603902a9f5ddc48b31aae6228deee9e158ecb9860970"
+        }
+      ],
+      "qualityReturned": "low"
+    },
+    {
       "key": "K6",
-      "size": [
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "exportSize": [
         1536,
         1024
       ],
@@ -226,8 +401,5 @@
       ],
       "qualityReturned": "medium"
     }
-  ],
-  "status": "asset checks passed",
-  "newKeyframeOwnerApprovals": [],
-  "totalWebpBytes": 4745370
+  ]
 }

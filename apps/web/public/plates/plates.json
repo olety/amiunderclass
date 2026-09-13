@@ -5,7 +5,32 @@
     "srcSmall": "/plates/K0-small.webp",
     "w": 1536,
     "h": 1024,
-    "paper": null
+    "paper": null,
+    "portrait": {
+      "src": "/plates/K0-portrait.webp",
+      "srcSmall": "/plates/K0-portrait-small.webp",
+      "w": 1536,
+      "h": 2304,
+      "paper": null,
+      "board": [
+        [
+          479.25,
+          143.5
+        ],
+        [
+          883.125,
+          141
+        ],
+        [
+          883.125,
+          211.5
+        ],
+        [
+          479.25,
+          213
+        ]
+      ]
+    }
   },
   {
     "key": "K1",
@@ -30,7 +55,31 @@
         339,
         484.5
       ]
-    ]
+    ],
+    "portrait": {
+      "src": "/plates/K1-portrait.webp",
+      "srcSmall": "/plates/K1-portrait-small.webp",
+      "w": 1536,
+      "h": 2304,
+      "paper": [
+        [
+          427.5,
+          413.5
+        ],
+        [
+          487.125,
+          409.5
+        ],
+        [
+          505.125,
+          434.0
+        ],
+        [
+          445.5,
+          438.0
+        ]
+      ]
+    }
   },
   {
     "key": "K2",
@@ -72,7 +121,14 @@
     "srcSmall": "/plates/K4-5-small.webp",
     "w": 1536,
     "h": 1024,
-    "paper": null
+    "paper": null,
+    "portrait": {
+      "src": "/plates/K4-5-portrait.webp",
+      "srcSmall": "/plates/K4-5-portrait-small.webp",
+      "w": 1536,
+      "h": 2304,
+      "paper": null
+    }
   },
   {
     "key": "K4-3",
@@ -113,7 +169,31 @@
         369,
         526.5
       ]
-    ]
+    ],
+    "portrait": {
+      "src": "/plates/K5-portrait.webp",
+      "srcSmall": "/plates/K5-portrait-small.webp",
+      "w": 1536,
+      "h": 2304,
+      "paper": [
+        [
+          392.625,
+          355.0
+        ],
+        [
+          758.25,
+          355.0
+        ],
+        [
+          822.375,
+          575.0
+        ],
+        [
+          322.875,
+          575.0
+        ]
+      ]
+    }
   },
   {
     "key": "K6",
