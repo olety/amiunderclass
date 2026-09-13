@@ -28,6 +28,7 @@ let boardTimer: ReturnType<typeof setInterval> | undefined;
 let polling = false;
 let generation = 0;
 let busy = false;
+let cancellationConfirmedFor: string | null = null;
 let error = '';
 let notice = '';
 let studyId = '';
@@ -58,6 +59,16 @@ function navigate(next: Room, replace = false) {
   document.querySelector<HTMLElement>('#room-heading')?.focus({preventScroll:true});
 }
 function statusLabel() { if (room==='papers'&&studyId) return 'PUBLISHED STUDY EXAMPLE · PAPER FORMAT ILLUSTRATION'; return source?.kind === 'recorded-pilot' ? 'RECORDED PILOT · NO VISITOR' : currentRun()?.funding === 'rehearsal' ? 'REHEARSAL · SYNTHETIC RESPONSES' : ''; }
+function syncActionControls() {
+  document.querySelectorAll<HTMLButtonElement>('.ticket-actions button').forEach(button => { button.disabled = busy; });
+  const cancelButton = document.querySelector<HTMLButtonElement>('#cancel');
+  if (cancelButton) cancelButton.disabled = busy || !runId || cancellationConfirmedFor === runId || terminal(currentRun()?.status ?? '');
+  const recordedButton = document.querySelector<HTMLButtonElement>('#recorded');
+  if (recordedButton) recordedButton.disabled = busy;
+  const deleteButton = document.querySelector<HTMLButtonElement>('#delete');
+  if (deleteButton) deleteButton.disabled = busy || !runId;
+}
+function setBusy(value: boolean) { busy = value; syncActionControls(); }
 function message() { return `${error ? `<p class="printed-error" role="alert">${e(error)}</p>` : ''}${notice ? `<p class="printed-notice" role="status">${e(notice)}</p>` : ''}`; }
 function smallNav() {
   return `<nav class="room-nav" aria-label="Office rooms">${rooms.map((r,i)=>`<button data-room="${r}" ${r===room?'aria-current="step"':''}>${i+1}<span>${roomNames[i]}</span></button>`).join('')}</nav>`;
@@ -68,6 +79,7 @@ function render() {
   const index = rooms.indexOf(room);
   app.innerHTML = `${officeSymbols}<a class="skip-link" href="#room-heading">Skip to this room</a><header class="office-header"><a href="?room=arrival" data-room="arrival">${sun(26)}<span>Underclass?</span></a><p>PUBLIC OFFICE <span>· EVERYONE IS HELPED</span></p><button class="text-button" data-room="outside">About your visit</button></header><main id="main"><h1 id="room-heading" class="sr-only" tabindex="-1">${roomNames[index]}</h1>${statusLabel()?`<div class="mode-strip">${statusLabel()}</div>`:''}${renderRoom()}</main><footer class="office-footer">${smallNav()}<p>Take another ticket tomorrow. Everyone improves.</p></footer>`;
   bind();
+  syncActionControls();
   startBoard();
   fitPaper();
   if (room==='ticket') { updateSentence(); void mountTurnstile(); }
@@ -167,11 +179,12 @@ function showError(text: string) {
   else render();
 }
 async function recorded() {
+  if (busy) return;
   if(activeRun()) {notice='Your visit is still running. Finish it or leave the queue before opening another file.';navigate('waiting');return;}
-  busy=true;
+  setBusy(true);
   try { const example=await api.example();generation++;clearTimeout(pollTimer);source=example;runId=null;capability=null;pendingBody=null;submittedIdentity=null;identity={name:''};studyId='';notice='This is the recorded pilot. Your details have not been sent.';lifted=false;navigate('window'); }
   catch {showError('The recorded file could not be collected. Please try again.');}
-  finally {busy=false;}
+  finally {setBusy(false);}
 }
 async function start(nameless: boolean) {
   if(busy) return;
@@ -194,11 +207,10 @@ async function start(nameless: boolean) {
     if(!intended.providerKey&&pendingBody.providerKey) intended.providerKey=pendingBody.providerKey;
   }
   capability??=createAccessToken();pendingBody=intended;submittedIdentity=supplied;
-  busy=true;error='';
-  document.querySelectorAll<HTMLButtonElement>('.ticket-actions button').forEach(b=>b.disabled=true);
+  setBusy(true);error='';
   try {
     const created=await api.create(intended,capability);
-    runId=created.id;pollAfter=Math.max(250,created.pollAfterMs);source=null;studyId='';pendingBody=null;
+    runId=created.id;if(cancellationConfirmedFor!==runId)cancellationConfirmedFor=null;pollAfter=Math.max(250,created.pollAfterMs);source=null;studyId='';pendingBody=null;
     if(keyInput)keyInput.value='';turnstileToken='';notice=rehearsing?'This visit is a rehearsal with synthetic answers. No provider calls are made.':'';
     generation++;navigate('waiting');void poll(generation);
   } catch(cause) {
@@ -207,7 +219,7 @@ async function start(nameless: boolean) {
       showError(errorCopy(cause.code));
       if(cause.code==='verification_failed'||cause.code==='verification_required') {turnstileToken='';window.turnstile?.reset(turnstileWidget);}
     } else showError('The ticket may have reached the office. Please try again with these details. The same private ticket will be used.');
-  } finally {busy=false;document.querySelectorAll<HTMLButtonElement>('.ticket-actions button').forEach(b=>b.disabled=false);}
+  } finally {setBusy(false);}
 }
 async function poll(epoch:number) {
   if(polling||!runId||!capability||epoch!==generation) return;
@@ -228,9 +240,10 @@ async function poll(epoch:number) {
     if(cause instanceof ApiFailure&&(cause.status===410||cause.status===404)) {
       generation++;source=null;runId=null;capability=null;pendingBody=null;identity={name:''};submittedIdentity=null;notice=errorCopy(cause.code);render();
     } else {notice='The board is waiting for an update. Your place in the queue is kept.';if(room==='waiting')updateWaiting();pollTimer=setTimeout(()=>void poll(epoch),Math.max(3000,pollAfter));}
-  } finally {polling=false;}
+  } finally {polling=false;syncActionControls();}
 }
 function updateWaiting() {
+  syncActionControls();
   const run=currentRun();if(!run)return;
   const display=document.querySelector('#board-progress');if(display) display.innerHTML=`${progressDots(run.progress.finishedCalls,run.progress.failedCalls,run.progress.plannedCalls)}<span>${run.progress.finishedCalls} / ${run.progress.plannedCalls} FINISHED · ${run.progress.failedCalls} MISSING</span>`;
   const count=document.querySelector('#progress-copy');if(count) count.textContent=`${run.progress.finishedCalls} / ${run.progress.plannedCalls} calls finished · ${run.progress.failedCalls} missing · ${run.progress.skippedCalls} not sent`;
@@ -238,18 +251,29 @@ function updateWaiting() {
   const msg=document.querySelector('#waiting-message');if(msg)msg.innerHTML=message();
 }
 async function cancel() {
-  if(busy||!runId||!capability)return;
-  busy=true;
-  try {const response=await api.cancel(runId,capability);pollAfter=response.pollAfterMs;notice='You have left the queue. Requests already sent may still finish. Your completed answers are kept.';clearTimeout(pollTimer);void poll(generation);}
-  catch(cause) {showError(cause instanceof ApiFailure?errorCopy(cause.code):'The office could not confirm that you left the queue. Please try again.');}
-  finally {busy=false;}
+  if (busy || !runId || !capability || cancellationConfirmedFor === runId || terminal(currentRun()?.status ?? '')) return;
+  const cancellingId = runId, epoch = generation;
+  setBusy(true);
+  try {
+    const response = await api.cancel(cancellingId, capability);
+    if (epoch !== generation || cancellingId !== runId) return;
+    cancellationConfirmedFor = cancellingId;
+    pollAfter = response.pollAfterMs;
+    notice = 'You have left the queue. Requests already sent may still finish. Your completed answers are kept.';
+    if (room === 'waiting') updateWaiting();
+    clearTimeout(pollTimer);
+    void poll(epoch);
+  } catch (cause) {
+    if (epoch !== generation || cancellingId !== runId) return;
+    showError(cause instanceof ApiFailure ? errorCopy(cause.code) : 'The office could not confirm that you left the queue. Please try again.');
+  } finally { setBusy(false); }
 }
 async function remove() {
   if(busy||!runId||!capability)return;
-  busy=true;error='';
+  setBusy(true);error='';
   try {await api.remove(runId,capability);generation++;clearTimeout(pollTimer);source=null;runId=null;capability=null;pendingBody=null;identity={name:''};submittedIdentity=null;consent=false;includeIdentity=false;notice='Your identity and answers have been deleted from live application storage. This ticket can no longer be read. Requests already sent cannot be retracted.';render();}
   catch(cause) {showError(cause instanceof ApiFailure?errorCopy(cause.code):'Deletion has not been confirmed. Please try again.');}
-  finally {busy=false;}
+  finally {setBusy(false);}
 }
 async function copyPrompt() {
   try {if(agentPrompt===null){const response=await fetch('/agent-prompt.md',{cache:'no-store'});if(!response.ok)throw new Error();agentPrompt=await response.text();}await navigator.clipboard.writeText(agentPrompt);promptCopied=true;const button=document.querySelector('#copy-prompt');if(button)button.textContent='AGENT PROMPT COPIED';}
