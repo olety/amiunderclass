@@ -1,0 +1,1 @@
+Existing locked hall plate reused directly. No new image generation or prompt review call. Visual check: red dispenser on the left, five numbered windows, blank amber dot board and wet-floor cone present. Material and framing retained from P3.

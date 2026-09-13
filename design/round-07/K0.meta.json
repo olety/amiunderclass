@@ -1,0 +1,21 @@
+{
+  "source": "design/round-06/P3-office-romelas.png",
+  "generated": false,
+  "ownerApproval": "existing plate named by design lock",
+  "exports": [
+    {
+      "path": "apps/web/public/plates/K0.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 369830,
+      "quality": 81
+    },
+    {
+      "path": "apps/web/public/plates/K0-small.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 139230,
+      "quality": 90
+    }
+  ]
+}

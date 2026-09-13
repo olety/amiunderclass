@@ -1,0 +1,38 @@
+{
+  "name": "clerk-sheet",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "medium",
+  "sizeRequested": [
+    1536,
+    1024
+  ],
+  "sizeReturned": [
+    1536,
+    1024
+  ],
+  "sizeSaved": [
+    1536,
+    1024
+  ],
+  "bytesSaved": 3049467,
+  "seconds": 48.3,
+  "references": [
+    "design/round-06/P4-window5-close.png"
+  ],
+  "usage": {
+    "input_tokens": 1711,
+    "input_tokens_details": {
+      "image_tokens": 1536,
+      "text_tokens": 175
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+      "image_tokens": 1372,
+      "text_tokens": 0
+    },
+    "total_tokens": 3083
+  },
+  "ownerApproved": false
+}
