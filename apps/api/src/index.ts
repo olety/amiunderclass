@@ -173,7 +173,7 @@ async function verifyTurnstile(token: unknown, env: Env): Promise<void> {
           response: token,
         }),
         signal: AbortSignal.timeout(10000),
-        redirect: "error",
+        redirect: "manual",
       },
     );
     const result = JSON.parse(await readBounded(response.body, 16384));
@@ -190,6 +190,7 @@ async function verifyTurnstile(token: unknown, env: Env): Promise<void> {
       );
   } catch (error) {
     if (error instanceof HttpError) throw error;
+    console.error("turnstile_verify_error", String(error));
     throw new HttpError(
       503,
       "verification_unavailable",

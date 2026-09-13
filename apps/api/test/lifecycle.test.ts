@@ -140,7 +140,7 @@ describe("provider key lifecycle", () => {
     expect((await settled(id)).status).toBe("completed");
     expect(mock.calls()).toHaveLength(72);
     const keyCheck = mock.requests.find((request) => request.url.endsWith("/key"))!;
-    expect(keyCheck.init).toMatchObject({ method: "GET", redirect: "error" });
+    expect(keyCheck.init).toMatchObject({ method: "GET", redirect: "manual" });
     expect(keyCheck.init?.signal).toBeInstanceOf(AbortSignal);
     for (const request of mock.requests) {
       expect(request.url).not.toContain(providerKey);

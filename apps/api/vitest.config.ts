@@ -15,6 +15,7 @@ export default defineConfig({
           ABUSE_HASH_SECRET: "test-hmac-secret",
           TURNSTILE_SITE_KEY: "test-site",
           TURNSTILE_HOSTNAME: "underclass.test",
+          ALLOWED_ORIGINS: "http://localhost:5173,http://127.0.0.1:5173",
         },
       },
     }),

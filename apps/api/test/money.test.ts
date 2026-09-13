@@ -360,7 +360,7 @@ describe("provider reservations and routes", () => {
           "evidence",
         ]);
         expect(schema.properties.evidence.additionalProperties).toBe(false);
-        expect(init?.redirect).toBe("error");
+        expect(init?.redirect).toBe("manual");
         return Response.json(completion("judge"));
       },
     );
@@ -578,7 +578,7 @@ describe("read-only provider key verification", () => {
         expect(String(input)).toBe("https://openrouter.ai/api/v1/key");
         expect(init?.method).toBe("GET");
         expect(init?.body).toBeUndefined();
-        expect(init?.redirect).toBe("error");
+        expect(init?.redirect).toBe("manual");
         expect(new Headers(init?.headers).get("Authorization")).toBe(
           "Bearer " + fixtureKey,
         );

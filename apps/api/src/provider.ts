@@ -132,7 +132,7 @@ export async function verifyProviderKey(
       method: "GET",
       headers: { Authorization: `Bearer ${key}` },
       signal: AbortSignal.timeout(10_000),
-      redirect: "error",
+      redirect: "manual",
     });
     // Account metadata and upstream errors stay local to this call and are discarded.
     const text = await readBounded(response.body, 16_384);
@@ -187,7 +187,7 @@ export async function callProvider(
         },
         body: JSON.stringify(requestBody(messages, kind)),
         signal: AbortSignal.timeout(60_000),
-        redirect: "error",
+        redirect: "manual",
       },
     );
     const text = await readBounded(response.body, 262144);
