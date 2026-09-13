@@ -39,9 +39,9 @@
     }
   ],
   "vars": {
-    "LIVE_RUNS_ENABLED": "false",
+    "LIVE_RUNS_ENABLED": "true",
     "CAMPAIGN_ID": "amiunderclass-launch-2026-09",
-    "SPONSORED_BUDGET_USD": "0",
+    "SPONSORED_BUDGET_USD": "50",
     "RUN_BUDGET_USD": "0.30",
     "MAX_SPONSORED_RUNS": "100",
     "MAX_ACTIVE_RUNS": "4",
@@ -49,7 +49,7 @@
     "MAX_BYOK_RUNS_PER_CLIENT_DAY": "6",
     "BYOK_ENABLED": "true",
     "ALLOWED_ORIGINS": "https://amiunderclass.com,https://www.amiunderclass.com",
-    "TURNSTILE_SITE_KEY": "",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAEyySG5TaD5-ZE79",
     "TURNSTILE_HOSTNAME": "amiunderclass.com"
   },
   "observability": {
