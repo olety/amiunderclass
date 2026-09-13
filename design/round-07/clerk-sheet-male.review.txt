@@ -1,0 +1,5 @@
+{
+  "blockingGeometry": false,
+  "notes": "The three panels are separate views of one man, so the arrangement is physically coherent. Repeated reference-matching instructions are consolidated. Exact likeness and office details depend on the supplied reference photograph.",
+  "prompt": "A landscape character reference sheet presents three separate views of the same man from the attached window-five photograph, arranged left to right as front view, three-quarter view and profile view. Each panel matches his reference face, facial proportions, short side-parted brown hair, black rectangular glasses, brown suit, white shirt and patterned tie. He sits behind the clear public-office service-window glass and looks calmly at papers he holds near the wooden counter; each angle clearly frames his head, shoulders, torso and hands. The cream office walls, shallow steel tray, glass slot and fluorescent ceiling fixtures match the reference photograph. The sheet uses this material treatment: the same 1976 colour photograph reproduced as coarse CMYK halftone with slight registration drift, daylight and fluorescent light."
+}
