@@ -53,14 +53,14 @@ Start `bun run dev:api` and `bun run --cwd apps/web dev` in separate terminals. 
 
 ## Owner checklist
 
-- [ ] Choose the public GitHub repository and authorize its creation and push. Review tracked files for credentials, private exports and protected task data first.
-- [ ] Configure the Cloudflare zone for `amiunderclass.com`, authorize the Worker custom domain and deployment, and confirm the intended Cloudflare account.
+- [x] Public repository: https://github.com/olety/amiunderclass (MIT), pushed 14 Sep 2026 00:45 JST. Choose the public GitHub repository and authorize its creation and push. Review tracked files for credentials, private exports and protected task data first.
+- [x] Zone active on the Oneiron account; Worker deployed with custom domains `amiunderclass.com` and `www.amiunderclass.com` (14 Sep 2026). Configure the Cloudflare zone for `amiunderclass.com`, authorize the Worker custom domain and deployment, and confirm the intended Cloudflare account.
 - [ ] Create a Turnstile widget for `amiunderclass.com`. Set `TURNSTILE_SITE_KEY` and `TURNSTILE_HOSTNAME=amiunderclass.com`; the widget action is `underclass`.
-- [ ] Store `TURNSTILE_SECRET_KEY` and a random `ABUSE_HASH_SECRET` as Worker secrets. Sponsored visits also need a dedicated capped `OPENROUTER_API_KEY`. Keep secrets out of Wrangler vars and repository files.
+- [x] `ABUSE_HASH_SECRET` and `OPENROUTER_API_KEY` set as Worker secrets (14 Sep 2026); `TURNSTILE_SECRET_KEY` pending the widget. Store `TURNSTILE_SECRET_KEY` and a random `ABUSE_HASH_SECRET` as Worker secrets. Sponsored visits also need a dedicated capped `OPENROUTER_API_KEY`. Keep secrets out of Wrangler vars and repository files.
 - [ ] Choose a sponsored allowance and maximum visit count. The proposed $50 and 100 visits are unapproved limits, not a purchase or a v2 cost measurement. Choose a new `CAMPAIGN_ID` only when intentionally starting a new allowance.
 - [ ] Set `SPONSORED_BUDGET_USD`, `MAX_SPONSORED_RUNS`, `RUN_BUDGET_USD`, `MAX_ACTIVE_RUNS` and `MAX_RUNS_PER_CLIENT_DAY`. The v2 defaults are a $0.30 per-run cap, four active runs and one sponsored visit per client per day. A client limit is not proof of one human per day.
 - [ ] Decide whether visitor-funded visits are offered with `BYOK_ENABLED`. They still require `LIVE_RUNS_ENABLED=true`, Turnstile, the abuse secret, a per-run cap and `MAX_BYOK_RUNS_PER_CLIENT_DAY`, initially six. They do not require a sponsored key or allowance. Explain that the server holds the key during the visit and sends requests to OpenRouter.
-- [ ] Set `ALLOWED_ORIGINS=https://amiunderclass.com`. Keep `LIVE_RUNS_ENABLED=false` and the sponsored allowance at zero for an initial recorded-only deployment. Turn live runs on only after authorizing spending and checking the funded route.
+- [x] `ALLOWED_ORIGINS` set to the two production origins; live runs stay off until Turnstile exists. Set `ALLOWED_ORIGINS=https://amiunderclass.com`. Keep `LIVE_RUNS_ENABLED=false` and the sponsored allowance at zero for an initial recorded-only deployment. Turn live runs on only after authorizing spending and checking the funded route.
 - [ ] Authorize a capped v2 pilot. Record measured cost, wall time, requested and reported subject and judge routes, failures, and the protocol hash. The v1 pilot's cost and duration do not validate v2 estimates.
 - [ ] Review the demo, public source links, privacy text and submission. Submit only the deployment state and measurements actually verified.
 
