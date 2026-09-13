@@ -1,0 +1,40 @@
+# Locally rendered review and delivery files.
+/*.mp4
+
+# Copyrighted audio stays local; retain edit code and canonical source metadata.
+/source-assets/audio/*.wav
+/source-assets/audio/*.mp3
+/source-assets/audio/*.m4a
+/source-assets/audio/*.webm
+/source-assets/audio/*.info.json
+/edit/assets/audio/
+
+# Raw screen recordings and aborted takes are not the final approved capture.
+/source-assets/product/*.webm
+/source-assets/product/live/
+
+# Rebuildable frame caches, tool diagnostics and inspection outputs.
+/edit/.hyperframes/
+/edit/.media/
+/edit/snapshots/
+/edit/renders/
+/edit/check-*.json
+/edit/check-*.log
+/edit/*.stderr.log
+/edit/product-validation.json
+/source-assets/product/check-*.png
+/source-assets/product/clip-validation.json
+/source-assets/archive/temporal-check.jpg
+
+/source-assets/product/.trimwork/
+/source-assets/product/.livework/
+
+# Diagnostic generation responses and rejected takes stay local.
+/source-assets/generated/flora-*.json
+/source-assets/generated/REJECTED-*
+/source-assets/generated/raw-generated-*
+/source-assets/generated/*-contact.jpg
+
+/edit/.thumbnails/
+/work-*/
+/edit/.waveform-cache/

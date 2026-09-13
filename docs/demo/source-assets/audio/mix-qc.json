@@ -1,0 +1,32 @@
+{
+  "duration_seconds": 72.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "sample_peak": 0.8359999656677246,
+  "samples_clipped": 0,
+  "rms_0_10": 0.16365775356491077,
+  "rms_10_60": 0.05252521806298539,
+  "rms_60_72": 0.19427178557508168,
+  "loudness_measurement": {
+    "input_i": "-16.06",
+    "input_tp": "-1.23",
+    "input_lra": "15.90",
+    "input_thresh": "-26.76",
+    "output_i": "-16.68",
+    "output_tp": "-1.00",
+    "output_lra": "11.70",
+    "output_thresh": "-26.80",
+    "normalization_type": "dynamic",
+    "target_offset": "0.68"
+  },
+  "files": [
+    {
+      "name": "underclass-tatu-mix-72s.mp3",
+      "bytes": 2881965
+    },
+    {
+      "name": "underclass-tatu-mix-72s.wav",
+      "bytes": 20736102
+    }
+  ]
+}

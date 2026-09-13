@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "source": "underclass-demo.mp4",
+  "output": "underclass-teaser.mp4",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "audio_sample_rate": 48000,
+  "duration_frames": 450,
+  "duration_seconds": 15,
+  "audio_splice_fade_seconds": 0.008,
+  "segments": [
+    {
+      "id": "welcoming-office",
+      "source_start_frame": 0,
+      "source_end_frame_exclusive": 120,
+      "output_start_frame": 0,
+      "output_end_frame_exclusive": 120,
+      "purpose": "Welcoming opening."
+    },
+    {
+      "id": "premise",
+      "source_start_frame": 450,
+      "source_end_frame_exclusive": 540,
+      "output_start_frame": 120,
+      "output_end_frame_exclusive": 210,
+      "purpose": "The product premise."
+    },
+    {
+      "id": "absurd-release",
+      "source_start_frame": 1410,
+      "source_end_frame_exclusive": 1560,
+      "output_start_frame": 210,
+      "output_end_frame_exclusive": 360,
+      "purpose": "Bright musical release with the product copy."
+    },
+    {
+      "id": "final-welcome",
+      "source_start_frame": 1710,
+      "source_end_frame_exclusive": 1800,
+      "output_start_frame": 360,
+      "output_end_frame_exclusive": 450,
+      "purpose": "Quiet final welcome and URL."
+    }
+  ],
+  "video": {
+    "codec": "libx264",
+    "crf": 18,
+    "preset": "medium",
+    "pixel_format": "yuv420p",
+    "faststart": true
+  },
+  "audio": {
+    "codec": "aac",
+    "bitrate": "320k",
+    "channels": 2,
+    "treatment": "Retain master mix, apply 8 ms fade-in to each excerpt and 8 ms fade-out before each splice. Preserve the last excerpt's existing fade."
+  },
+  "editorial": "All picture, captions and sound come from the revised 60-second rendered master. No new lyrics, output numbers, labels or quotes are added. Source endpoints are exclusive. t.A.T.u. is optional in this revision."
+}

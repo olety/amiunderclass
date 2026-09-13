@@ -1,0 +1,279 @@
+{
+  "duration_seconds": 72,
+  "master_gain": 0.88,
+  "sample_rate": 48000,
+  "channels": 2,
+  "copyright": "Both songs are copyrighted. No synchronization/reuse licence obtained. Owner explicitly requested this edit and accepted possible Content ID claims on 2026-09-14.",
+  "sources": {
+    "tatu-all-the-things-she-said.wav": {
+      "title": "All The Things She Said",
+      "artist": "t.A.T.u.",
+      "url": "https://www.youtube.com/watch?v=8mGBaXPlri8",
+      "provider": "tatu official artist channel",
+      "copyright": "(C) 2002 Universal Music Russia",
+      "nominal_bpm": 90,
+      "playback_rate": 1.0,
+      "pitch_shift_semitones": 0
+    },
+    "tatu-nas-ne-dogonyat.wav": {
+      "title": "Нас не догонят",
+      "artist": "t.A.T.u.",
+      "url": "https://www.youtube.com/watch?v=KA3Jb6eA0uo",
+      "provider": "tatu official artist channel, label-provided album upload",
+      "copyright": "℗ 2026 Fenix Music under exclusive license Neformat",
+      "nominal_bpm": 130,
+      "playback_rate": 1.0,
+      "pitch_shift_semitones": 0
+    }
+  },
+  "segments": [
+    {
+      "id": "cold-air",
+      "source": "tatu-all-the-things-she-said.wav",
+      "source_in": 0,
+      "source_out": 3.333333,
+      "timeline_in": 0,
+      "timeline_out": 3.333333,
+      "fade_in": 0.08,
+      "fade_out": 0.02,
+      "gain": 1.0
+    },
+    {
+      "id": "english-hook-and-verse",
+      "source": "tatu-all-the-things-she-said.wav",
+      "source_in": 21.347,
+      "source_out": 65.0,
+      "timeline_in": 3.333333,
+      "timeline_out": 46.986333,
+      "fade_in": 0.008,
+      "fade_out": 0.6,
+      "gain": 1.0
+    },
+    {
+      "id": "russian-break",
+      "source": "tatu-nas-ne-dogonyat.wav",
+      "source_in": 31.8,
+      "source_out": 35.155,
+      "timeline_in": 46.47,
+      "timeline_out": 49.825,
+      "fade_in": 0.12,
+      "fade_out": 0.008,
+      "gain": 1.0
+    },
+    {
+      "id": "russian-drive",
+      "source": "tatu-nas-ne-dogonyat.wav",
+      "source_in": 35.155,
+      "source_out": 49.938,
+      "timeline_in": 49.825,
+      "timeline_out": 64.608,
+      "fade_in": 0.008,
+      "fade_out": 0.008,
+      "gain": 1.0
+    },
+    {
+      "id": "russian-reprise",
+      "source": "tatu-nas-ne-dogonyat.wav",
+      "source_in": 42.546,
+      "source_out": 49.938,
+      "timeline_in": 64.608,
+      "timeline_out": 72.0,
+      "fade_in": 0.008,
+      "fade_out": 0.02,
+      "gain": 1.0
+    }
+  ],
+  "volume_envelope": [
+    {
+      "start": 0,
+      "end": 3.333333,
+      "gain": 0.8
+    },
+    {
+      "start": 3.333333,
+      "end": 9.35,
+      "gain": 0.85
+    },
+    {
+      "start": 9.35,
+      "end": 10.1,
+      "from": 0.85,
+      "to": 0.28
+    },
+    {
+      "start": 10.1,
+      "end": 59.7,
+      "gain": 0.28
+    },
+    {
+      "start": 59.7,
+      "end": 62,
+      "from": 0.28,
+      "to": 0.95
+    },
+    {
+      "start": 62,
+      "end": 70.5,
+      "gain": 0.95
+    },
+    {
+      "start": 70.5,
+      "end": 72,
+      "from": 0.95,
+      "to": 0
+    }
+  ],
+  "editorial": "An opening chorus is followed continuously into its verse. A quiet percussion/riser break hands off to the Russian song at original pitch and tempo. Its final eight-second drive is reprised. No simultaneous vocal layering across the differing keys.",
+  "nominal_beat_grid": {
+    "english": [
+      3.333333,
+      4.0,
+      4.666666,
+      5.333333,
+      6.0,
+      6.666666,
+      7.333333,
+      8.0,
+      8.666666,
+      9.333333,
+      10.0,
+      10.666666,
+      11.333333,
+      12.0,
+      12.666666,
+      13.333333,
+      14.0,
+      14.666666,
+      15.333333,
+      16.0,
+      16.666666,
+      17.333333,
+      18.0,
+      18.666666,
+      19.333333,
+      20.0,
+      20.666666,
+      21.333333,
+      22.0,
+      22.666666,
+      23.333333,
+      24.0,
+      24.666666,
+      25.333333,
+      26.0,
+      26.666666,
+      27.333333,
+      28.0,
+      28.666666,
+      29.333333,
+      30.0,
+      30.666666,
+      31.333333,
+      32.0,
+      32.666666,
+      33.333333,
+      34.0,
+      34.666666,
+      35.333333,
+      36.0,
+      36.666666,
+      37.333333,
+      38.0,
+      38.666666,
+      39.333333,
+      40.0,
+      40.666666,
+      41.333333,
+      42.0,
+      42.666666,
+      43.333333,
+      44.0,
+      44.666666,
+      45.333333,
+      46.0,
+      46.666666
+    ],
+    "russian": [
+      49.825,
+      50.286538,
+      50.748077,
+      51.209615,
+      51.671154,
+      52.132692,
+      52.594231,
+      53.055769,
+      53.517308,
+      53.978846,
+      54.440385,
+      54.901923,
+      55.363462,
+      55.825,
+      56.286538,
+      56.748077,
+      57.209615,
+      57.671154,
+      58.132692,
+      58.594231,
+      59.055769,
+      59.517308,
+      59.978846,
+      60.440385,
+      60.901923,
+      61.363462,
+      61.825,
+      62.286538,
+      62.748077,
+      63.209615,
+      63.671154,
+      64.132692,
+      64.594231,
+      65.055769,
+      65.517308,
+      65.978846,
+      66.440385,
+      66.901923,
+      67.363462,
+      67.825,
+      68.286538,
+      68.748077,
+      69.209615,
+      69.671154,
+      70.132692,
+      70.594231,
+      71.055769,
+      71.517308,
+      71.978846
+    ]
+  },
+  "cold_open_cut_suggestions": [
+    3.333333,
+    4,
+    4.666667,
+    5.333333,
+    6,
+    6.666667,
+    7.333333
+  ],
+  "main_source_ranges_seconds": {
+    "tatu-all-the-things-she-said.wav": [
+      [
+        0,
+        3.333333
+      ],
+      [
+        21.347,
+        65
+      ]
+    ],
+    "tatu-nas-ne-dogonyat.wav": [
+      [
+        31.8,
+        49.938
+      ],
+      [
+        42.546,
+        49.938
+      ]
+    ]
+  }
+}

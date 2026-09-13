@@ -1,0 +1,107 @@
+{
+  "generated_on": "2026-09-14 Asia/Tokyo",
+  "provider": "FLORA",
+  "model": "Seedance 1.5 Pro (i2v-seedance-1.5-pro)",
+  "canvas_url": "https://app.flora.ai/projects/ns7dg61s8mfcm26sx2xabmjm5s8e80n4",
+  "cost_usd": 0.624,
+  "purpose": "Generated atmospheric B-roll only. These clips depict the fictional office and never model experiment results.",
+  "licence_note": "Generated through the owner account on explicit user request; no independent licence determination.",
+  "clips": [
+    {
+      "file": "REJECTED-generated-exterior.mp4",
+      "run_id": "run_m17e8h3ekgtawzterdkbejv4h18ea6w8",
+      "reference_path": "apps/web/public/plates/K0.webp",
+      "reference_sha256": "725b54691fbd430c09283f52ee6b2be9ba722cc7c85ce7ba4301d9a0e91d5716",
+      "prompt": "Use the provided image as the exact first-frame reference. A slow, almost imperceptible cinematic dolly forward into this welcoming 1976 public office. Warm late afternoon sunlight through the left windows, orange plastic chairs, cream walls. The seated visitors make tiny natural breathing and posture movements; the newspaper edge softly settles once. The clerks continue ordinary quiet paperwork. Everyone remains seated. Preserve the exact furniture, people, architecture, lettering and period photographic print grain from the reference. The dot matrix board stays blank and unlit. Calm, tender, reassuring institutional atmosphere. One continuous shot, no cut, no added people, no closeups, no new text, no flicker, no glitch, no dramatic expression, no ominous lighting. No music or speech.",
+      "parameters": {
+        "duration": "5",
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "camera_fixed": "false",
+        "seed": 1976
+      },
+      "charged_usd": 0.312,
+      "status": "completed",
+      "output_url": "https://media.flora.ai/node-inputs/2026/9/13/anonymous/ab457ec0-2c14-4d37-9bdb-85d0feb0d134.mp4?tr=orig",
+      "asset_id": "asset_jd76xf99frdm2v31w9as2nzv258eaf7b",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1112,
+            "height": 834,
+            "r_frame_rate": "24/1"
+          },
+          {
+            "codec_name": "aac",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "5.050000",
+          "size": "9406678"
+        }
+      },
+      "sha256": "1a85de8a90d2588d05f080b970d7d167878623626d8214cc732ee1e452bc2399",
+      "qa_status": "rejected",
+      "qa_reason": "Output unexpectedly depicts K6 exterior despite K0 reference request, and invents red LED board digits. Do not use."
+    },
+    {
+      "file": "raw-generated-hall.mp4",
+      "run_id": "run_m17fqdc111e9bck1p3dh4w4nr58ebgvr",
+      "reference_path": "apps/web/public/plates/K6.webp",
+      "reference_sha256": "d2da1035014daddaecb0043f016fabb4dbb8291ab4da3b2cb59d7f022a16d96f",
+      "prompt": "Use the provided image as the exact first-frame reference. One continuous cinematic shot slowly drifting backward away from the open entrance to this welcoming 1976 public office, as if a visitor is departing. The doorway remains open and the same office stays visible inside. Warm late afternoon sunlight, bright cream facade, orange chairs beyond the glass. A slight summer breeze gently stirs the plants beside the doorway; people inside remain seated with imperceptible ordinary movement. Preserve exact architecture, people, signs, clothing, and period print grain from the reference. The dot matrix board remains blank and unlit. Tender, tranquil, sincerely welcoming atmosphere. No added objects or people, no added text, no camera turn, no face closeup, no darkness, no flicker or glitch. No music or speech.",
+      "parameters": {
+        "duration": "5",
+        "resolution": "720p",
+        "aspect_ratio": "16:9",
+        "camera_fixed": "false",
+        "seed": 1976
+      },
+      "charged_usd": 0.312,
+      "status": "completed",
+      "output_url": "https://media.flora.ai/node-inputs/2026/9/13/anonymous/1b162e22-2196-4f40-8825-574eadeab780.mp4?tr=orig",
+      "asset_id": "asset_jd75xmn1k2f5en836ebg3mta598ebqpk",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1112,
+            "height": 834,
+            "r_frame_rate": "24/1"
+          },
+          {
+            "codec_name": "aac",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "5.050000",
+          "size": "7895322"
+        }
+      },
+      "sha256": "09248952486aff10c5084723fb9e06f84c666514aa27dce1d0619182cf9eb745",
+      "qa_status": "accepted_as_hall_broll",
+      "qa_reason": "Output unexpectedly depicts K0 hall despite K6 reference request. Temporal review at 0,1,2,3,4 seconds shows a coherent warm hall push; board stays blank, seated people and clerk identities remain plausible. Use as hall atmosphere only."
+    }
+  ],
+  "accepted_edit_asset": {
+    "file": "hall-reviewed.mp4",
+    "source_run_id": "run_m17fqdc111e9bck1p3dh4w4nr58ebgvr",
+    "duration_seconds": 5,
+    "video_only": true,
+    "fps": 30,
+    "dimensions": [
+      1112,
+      834
+    ],
+    "encoding": "H.264, CRF 17, 1-second GOP",
+    "sha256": "22182a2143091afb04c2597c2e74e2be98fec05bc70bfed17fcc187d608dcd62"
+  },
+  "qa_note": "Two configured runs completed and charged $0.312 each. Reference routing or node-parameter application appears mismatched: requested hall returned exterior and vice versa; requested 16:9 returned 4:3. No further generations were submitted."
+}

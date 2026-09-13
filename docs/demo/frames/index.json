@@ -1,0 +1,37 @@
+[
+  {
+    "section": "01-cold-open",
+    "timeSeconds": 4,
+    "file": "01-cold-open.png"
+  },
+  {
+    "section": "02-question",
+    "timeSeconds": 16,
+    "file": "02-question.png"
+  },
+  {
+    "section": "03-ticket",
+    "timeSeconds": 21,
+    "file": "03-ticket.png"
+  },
+  {
+    "section": "04-waiting",
+    "timeSeconds": 32.8,
+    "file": "04-waiting.png"
+  },
+  {
+    "section": "05-window",
+    "timeSeconds": 36.5,
+    "file": "05-window.png"
+  },
+  {
+    "section": "06-paper",
+    "timeSeconds": 42,
+    "file": "06-paper.png"
+  },
+  {
+    "section": "07-exit",
+    "timeSeconds": 58,
+    "file": "07-exit.png"
+  }
+]

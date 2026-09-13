@@ -1,0 +1,6 @@
+[0:a]atrim=start=0:end=3.333333,asetpts=PTS-STARTPTS,afade=t=in:d=0.08,afade=t=out:st=3.313333:d=0.02,adelay=0S:all=1[s0];
+[0:a]atrim=start=21.347:end=65.0,asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st=43.053:d=0.6,adelay=160000S:all=1[s1];
+[1:a]atrim=start=31.8:end=35.155,asetpts=PTS-STARTPTS,afade=t=in:d=0.12,afade=t=out:st=3.3470000000000004:d=0.008,adelay=2230560S:all=1[s2];
+[1:a]atrim=start=35.155:end=49.938,asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st=14.775000000000002:d=0.008,adelay=2391600S:all=1[s3];
+[1:a]atrim=start=42.546:end=49.938,asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st=7.372000000000003:d=0.02,adelay=3101184S:all=1[s4];
+[s0][s1][s2][s3][s4]amix=inputs=5:normalize=0:dropout_transition=0,atrim=duration=72,volume='if(lt(t,3.333333),0.8,if(lt(t,9.35),0.85,if(lt(t,10.1),0.85-(t-9.35)/0.75*0.57,if(lt(t,59.7),0.28,if(lt(t,62),0.28+(t-59.7)/2.3*0.67,if(lt(t,70.5),0.95,0.95*(72-t)/1.5))))))':eval=frame,alimiter=limit=0.95:level=false:latency=true,volume=0.88[out]

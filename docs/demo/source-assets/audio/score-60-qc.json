@@ -1,0 +1,27 @@
+{
+  "duration_seconds": 60.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "loudness": {
+    "input_i": "-16.00",
+    "input_tp": "-1.20",
+    "input_lra": "11.10",
+    "input_thresh": "-27.63",
+    "output_i": "-15.28",
+    "output_tp": "-1.00",
+    "output_lra": "10.30",
+    "output_thresh": "-26.75",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.72"
+  },
+  "bytes": 17280196,
+  "sample_peak": 0.8709948062896729,
+  "clipped_samples": 0,
+  "rms_dbfs_by_section": {
+    "welcome": -18.44,
+    "loop": -25.71,
+    "evidence": -60.83,
+    "release": -13.77,
+    "bell_and_welcome": -32.76
+  }
+}

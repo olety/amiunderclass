@@ -1,0 +1,151 @@
+{
+  "files": [
+    {
+      "file": "archivo-latin-400-700-normal-width-90.woff2",
+      "family": "Archivo",
+      "rawFamily": "Archivo SemiBold",
+      "subfamily": "Regular",
+      "postscript": "Archivo-SemiBold",
+      "weight": 600,
+      "style": "normal",
+      "variationAxes": [
+        "wght",
+        "wdth"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "cormorant-garamond-latin-400-600-italic.woff2",
+      "family": "Cormorant Garamond",
+      "rawFamily": "Cormorant Garamond Light",
+      "subfamily": "Italic",
+      "postscript": "CormorantGaramond-LightItalic",
+      "weight": 300,
+      "style": "italic",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "cormorant-garamond-latin-400-600-normal.woff2",
+      "family": "Cormorant Garamond",
+      "rawFamily": "Cormorant Garamond Light",
+      "subfamily": "Regular",
+      "postscript": "CormorantGaramond-Light",
+      "weight": 300,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "ibm-plex-mono-latin-400-normal.woff2",
+      "family": "IBM Plex Mono",
+      "rawFamily": "IBM Plex Mono",
+      "subfamily": "Regular",
+      "postscript": "IBMPlexMono-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "ibm-plex-mono-latin-500-normal.woff2",
+      "family": "IBM Plex Mono",
+      "rawFamily": "IBM Plex Mono Medium",
+      "subfamily": "Regular",
+      "postscript": "IBMPlexMono-Medium",
+      "weight": 500,
+      "style": "normal",
+      "variationAxes": [],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "ibm-plex-mono-latin-600-normal.woff2",
+      "family": "IBM Plex Mono",
+      "rawFamily": "IBM Plex Mono SemiBold",
+      "subfamily": "Regular",
+      "postscript": "IBMPlexMono-SemiBold",
+      "weight": 600,
+      "style": "normal",
+      "variationAxes": [],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "la-belle-aurore-latin-400-normal.woff2",
+      "family": "La Belle Aurore",
+      "rawFamily": "La Belle Aurore",
+      "subfamily": "Regular",
+      "postscript": "LaBelleAurore",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [],
+      "identified": true,
+      "isIcon": false
+    }
+  ],
+  "families": [
+    {
+      "family": "Archivo",
+      "weights": [
+        600
+      ],
+      "variable": true,
+      "fileCount": 1,
+      "files": [
+        "archivo-latin-400-700-normal-width-90.woff2"
+      ]
+    },
+    {
+      "family": "Cormorant Garamond",
+      "weights": [
+        300
+      ],
+      "variable": true,
+      "fileCount": 2,
+      "files": [
+        "cormorant-garamond-latin-400-600-italic.woff2",
+        "cormorant-garamond-latin-400-600-normal.woff2"
+      ]
+    },
+    {
+      "family": "IBM Plex Mono",
+      "weights": [
+        400,
+        500,
+        600
+      ],
+      "variable": false,
+      "fileCount": 3,
+      "files": [
+        "ibm-plex-mono-latin-400-normal.woff2",
+        "ibm-plex-mono-latin-500-normal.woff2",
+        "ibm-plex-mono-latin-600-normal.woff2"
+      ]
+    },
+    {
+      "family": "La Belle Aurore",
+      "weights": [
+        400
+      ],
+      "variable": false,
+      "fileCount": 1,
+      "files": [
+        "la-belle-aurore-latin-400-normal.woff2"
+      ]
+    }
+  ],
+  "unidentified": [],
+  "meta": {
+    "generatedAt": "2026-09-13T16:55:01.469Z",
+    "tool": "fontkit"
+  }
+}

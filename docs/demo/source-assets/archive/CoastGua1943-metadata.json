@@ -1,0 +1,5813 @@
+{
+  "alternate_locations": {
+    "servers": [
+      {
+        "server": "dn790000.ca.archive.org",
+        "dir": "/0/items/CoastGua1943"
+      }
+    ],
+    "workable": [
+      {
+        "server": "dn790000.ca.archive.org",
+        "dir": "/0/items/CoastGua1943"
+      }
+    ]
+  },
+  "created": 1789309392,
+  "d1": "dn600206.us.archive.org",
+  "dir": "/0/items/CoastGua1943",
+  "files": [
+    {
+      "name": "CoastGua1943.asr.js",
+      "source": "original",
+      "format": "Unknown",
+      "mtime": "1472354977",
+      "size": "38311",
+      "md5": "b60299ee017e8c2dc439999929d07ec5",
+      "crc32": "ac890629",
+      "sha1": "f91de152ced138d8baf9ba8287461536c6ea09ca"
+    },
+    {
+      "name": "CoastGua1943.asr.srt",
+      "source": "original",
+      "format": "SubRip",
+      "mtime": "1472354977",
+      "size": "4565",
+      "md5": "d0fb878aee0ba7c3370eb0021c2e1c73",
+      "crc32": "88b9013f",
+      "sha1": "f323137093cd6110b97f9c3d25db24cf8df878eb"
+    },
+    {
+      "name": "CoastGua1943.asr.vtt",
+      "source": "derivative",
+      "format": "Web Video Text Tracks",
+      "original": "CoastGua1943_intermediate_asr.json",
+      "mtime": "1691228103",
+      "size": "4451",
+      "md5": "371eceb363a79176d85f4586c2620683",
+      "crc32": "c528314b",
+      "sha1": "9d3162a90dbf1e03af1cafc1dc908eb8366e0003"
+    },
+    {
+      "name": "CoastGua1943.avi",
+      "source": "original",
+      "format": "Cinepack",
+      "md5": "18236d69c90d96f88bb5490e3fe2d723",
+      "mtime": "1046154827",
+      "size": "19176246",
+      "crc32": "bb960b8e",
+      "sha1": "da39e376fb6631097952e67effc4647e176e0ff8",
+      "length": "343.74",
+      "height": "240",
+      "width": "320"
+    },
+    {
+      "name": "CoastGua1943.gif",
+      "source": "derivative",
+      "format": "Animated GIF",
+      "original": "CoastGua1943.mpeg",
+      "md5": "061e37cd2de1469113c6e9cdc28093c2",
+      "mtime": "1227481561",
+      "size": "142839",
+      "crc32": "3dfd0a0c",
+      "sha1": "45eec8094e54201221c1ed27a8ab33d548b68878"
+    },
+    {
+      "name": "CoastGua1943.mp3",
+      "source": "derivative",
+      "bitrate": "64",
+      "length": "05:42",
+      "format": "MP3",
+      "original": "CoastGua1943.mpeg",
+      "mtime": "1472141712",
+      "size": "2744320",
+      "md5": "1770f4217e0bc5a11ea05ffbe9fca5be",
+      "crc32": "1f4a0e70",
+      "sha1": "963a4c4454a355980f0cc1eb1026a11723dbc463",
+      "height": "0",
+      "width": "0"
+    },
+    {
+      "name": "CoastGua1943.mp4",
+      "source": "derivative",
+      "format": "h.264",
+      "original": "CoastGua1943.mpeg",
+      "mtime": "1472142632",
+      "size": "35679440",
+      "md5": "7b90f90b725192141c78480d94610880",
+      "crc32": "a2cc6a9f",
+      "sha1": "d53c0dbc1a12deb6134e4974fd406a39dd59088b",
+      "length": "343.44",
+      "height": "480",
+      "width": "640"
+    },
+    {
+      "name": "CoastGua1943.mpeg",
+      "source": "original",
+      "format": "MPEG2",
+      "md5": "c495f3ffbebc934ed0abe206dafbbf97",
+      "mtime": "1046154901",
+      "size": "136607507",
+      "crc32": "633e1b74",
+      "sha1": "369e13adb807faab06da69b1cd5aa4efd4860cfd",
+      "length": "343.41",
+      "height": "480",
+      "width": "640"
+    },
+    {
+      "name": "CoastGua1943.ogv",
+      "source": "derivative",
+      "format": "Ogg Video",
+      "original": "CoastGua1943.mpeg",
+      "md5": "b3dae6599d88e690bd3a457c94ca7e74",
+      "mtime": "1227481536",
+      "size": "24226514",
+      "crc32": "4297f833",
+      "sha1": "52774edd009928ca8e73845f9caec6ddc7b98893",
+      "length": "343.51",
+      "height": "304",
+      "width": "400"
+    },
+    {
+      "name": "CoastGua1943.png",
+      "source": "derivative",
+      "format": "PNG",
+      "original": "CoastGua1943.mp3",
+      "mtime": "1472142663",
+      "size": "10795",
+      "md5": "b37108a868cd99c318b307da4401e73f",
+      "crc32": "6a37413d",
+      "sha1": "8e9441bba663a2cec34ce852bdfaee135884ed60"
+    },
+    {
+      "name": "CoastGua1943.storj-store.log",
+      "source": "derivative",
+      "storj_toolchain": "rclone,uplink",
+      "storj_store_module_version": "1.0.0",
+      "rclone_version": "rclone v1.57.0\n- os/version: alpine 3.14.2 (64 bit)\n- os/kernel: 5.4.0-42-generic (x86_64)\n- os/type: linux\n- os/arch: amd64\n- go/version: go1.17.2\n- go/linking: static\n- go/tags: none",
+      "uplink_version": "Release build\nVersion: v1.44.1\nBuild timestamp: 29 Nov 21 15:31 UTC\nGit commit: 492d0276d6b4e5bfbcac98872cf5abfd5cab3d11",
+      "remote_path": "storj-native:archive.org/CoastGua1943",
+      "format": "Storj Upload Log",
+      "original": "CoastGua1943.storj-store.trigger",
+      "mtime": "1643043999",
+      "size": "0",
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "crc32": "00000000",
+      "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    },
+    {
+      "name": "CoastGua1943.storj-store.trigger",
+      "source": "original",
+      "mtime": "1643043814",
+      "size": "0",
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "crc32": "00000000",
+      "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "format": "Storj Upload Trigger"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000001.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "1254053731f4529f968ac4722f8c367c",
+      "mtime": "1227481562",
+      "size": "992",
+      "crc32": "f97b296c",
+      "sha1": "ef92e64e9e68e54be98b0c9db6737c18a0122880"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000030.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "4669845081227d61b711066eb8ed952e",
+      "mtime": "1227481565",
+      "size": "5526",
+      "crc32": "e07b9186",
+      "sha1": "bd9d42a88a9ab93d0c9f79a730dc3343dd70575f"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000060.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "c9a26dd6e73733330741d413912f949a",
+      "mtime": "1227481568",
+      "size": "6485",
+      "crc32": "6273cde0",
+      "sha1": "edfce04d6d49733b4bffba8b873241e8761f4406"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000090.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "6b16cd99e356cd0cc60ed6b09f100b4e",
+      "mtime": "1227481571",
+      "size": "5210",
+      "crc32": "252683b0",
+      "sha1": "9db11cf9f8432a48d5a0dc97eaf8814654960855"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000120.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "19692180e8fa51aa928384f1400d556f",
+      "mtime": "1227481574",
+      "size": "6678",
+      "crc32": "e2c90907",
+      "sha1": "c0029969c67ca2a75b1aedffd43210d0c4d39412"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000150.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "f7f295bdcbd9c5ffbae57bf1f5dd87b3",
+      "mtime": "1227481577",
+      "size": "7904",
+      "crc32": "83e1538b",
+      "sha1": "f996d1c883048178012a9364d9df81ee35752a74"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000180.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "daae809c63c3174410e34ddb5828e58a",
+      "mtime": "1227481578",
+      "size": "5778",
+      "crc32": "288be7c9",
+      "sha1": "3c7fe50d1faaef7ccd9533d5eaba53385671fad4"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000210.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "7ee001d3f5d4d1c6c6697d7ea2ceb5f4",
+      "mtime": "1227481580",
+      "size": "5868",
+      "crc32": "4aac87b5",
+      "sha1": "be193feb1cdffadcc3af773307cad195cfcf7fd9"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000240.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "4632611d10ba48554c88dbaba021a311",
+      "mtime": "1227481581",
+      "size": "6423",
+      "crc32": "8c5d4022",
+      "sha1": "294dc8130eece9aa0fe023b7bab2f47cfc0a83a5"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000270.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "2b0e12c9692b9d2edb23579adfbe9ff3",
+      "mtime": "1227481583",
+      "size": "5791",
+      "crc32": "3a294ef2",
+      "sha1": "80ee8ee682c68b0ebcbb9f5012d06a42e4be8e8b"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000300.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "c43f33abd73b1f9a2dd7c85f4be7a5a6",
+      "mtime": "1227481584",
+      "size": "8026",
+      "crc32": "847884af",
+      "sha1": "2057dfa1f31b12715669548b891e2a8b0d1479ca"
+    },
+    {
+      "name": "CoastGua1943.thumbs/CoastGua1943_000330.jpg",
+      "source": "derivative",
+      "format": "Thumbnail",
+      "original": "CoastGua1943.mpeg",
+      "md5": "21919d2ee6133f461a9fcd37fedc2409",
+      "mtime": "1227481585",
+      "size": "1271",
+      "crc32": "a8479692",
+      "sha1": "6b87f83e60117642ab9e3f4824173c99d4eda8c3"
+    },
+    {
+      "name": "CoastGua1943_256kb.rm",
+      "source": "original",
+      "format": "256Kb Real Media",
+      "md5": "22faa430cd5b5ef3b783b60890cc09b4",
+      "mtime": "1046154821",
+      "size": "60036483",
+      "crc32": "ec5220bf",
+      "sha1": "9ffb86057689bd144c4f58e02df93218f8ea686e",
+      "length": "343.67",
+      "height": "240",
+      "width": "320"
+    },
+    {
+      "name": "CoastGua1943_512kb.mp4",
+      "source": "derivative",
+      "format": "512Kb MPEG4",
+      "original": "CoastGua1943.mpeg",
+      "md5": "1dcf8ffdeb266466fd00139f27fbf403",
+      "mtime": "1227482127",
+      "size": "24156639",
+      "crc32": "b00ad014",
+      "sha1": "3bfb3e2e74418c8ad6df9a7af5c2f79120e5655f",
+      "length": "343.51",
+      "height": "240",
+      "width": "320"
+    },
+    {
+      "name": "CoastGua1943_64kb.rm",
+      "source": "original",
+      "format": "64Kb Real Media",
+      "md5": "fa337d594d9bc094f56a01abfbab55e5",
+      "mtime": "1046154824",
+      "size": "25193603",
+      "crc32": "2669c5fb",
+      "sha1": "f43f5005f71fb709f7c76620bbc9c000ef1ebd6b",
+      "length": "344.81",
+      "height": "120",
+      "width": "160"
+    },
+    {
+      "name": "CoastGua1943_archive.torrent",
+      "source": "metadata",
+      "btih": "72f8e89816223ec38f41676e966c393c34efef3e",
+      "mtime": "1691228172",
+      "size": "21477",
+      "md5": "87034b025ff559a0acfae19edac716a8",
+      "crc32": "3d6f8e18",
+      "sha1": "7fd7e5a9b11ac48ac426923cf2174e561e274ed8",
+      "format": "Archive BitTorrent"
+    },
+    {
+      "name": "CoastGua1943_edit.mp4",
+      "source": "original",
+      "format": "HiRes MPEG4",
+      "md5": "c523e721d9818b54a9eecadf00a6b595",
+      "mtime": "1057709899",
+      "size": "108771412",
+      "crc32": "dfebf03f",
+      "sha1": "504b4a3bea741a1440112f125fee606d95b5f187",
+      "length": "343.3",
+      "height": "240",
+      "width": "320"
+    },
+    {
+      "name": "CoastGua1943_files.xml",
+      "source": "metadata",
+      "format": "Metadata",
+      "md5": "36b781fe3ba9f9648438e2bcba3a08c5",
+      "summation": "md5"
+    },
+    {
+      "name": "CoastGua1943_intermediate_asr.json",
+      "source": "derivative",
+      "format": "Intermediate ASR JSON",
+      "original": "CoastGua1943_whisper_asr.json",
+      "mtime": "1691228026",
+      "size": "5626",
+      "md5": "410a5b07a7892aafbd2586a28e7f38f3",
+      "crc32": "523bb44c",
+      "sha1": "92213939d959a0f240855b849499449c7af15abd"
+    },
+    {
+      "name": "CoastGua1943_meta.sqlite",
+      "source": "original",
+      "mtime": "1643043833",
+      "size": "20480",
+      "md5": "b93940cd4306518e1625766a25b361ca",
+      "crc32": "506ae6e5",
+      "sha1": "8366465b978b4fa70e1ac36de8fe448f6bd4c6e6",
+      "format": "Metadata"
+    },
+    {
+      "name": "CoastGua1943_meta.xml",
+      "source": "metadata",
+      "format": "Metadata",
+      "mtime": "1691228144",
+      "size": "1250",
+      "md5": "7c3786ccc45b374cab8c49d7f386be2c",
+      "crc32": "cf6d005d",
+      "sha1": "8c71496d60f9e12394f7b295e9a7cdeff7cde486"
+    },
+    {
+      "name": "CoastGua1943_reviews.xml",
+      "source": "metadata",
+      "format": "Metadata",
+      "mtime": "1288560810",
+      "size": "2529",
+      "md5": "36da773f30a0e93d7aa331a7b6ea5abb",
+      "crc32": "b9914af0",
+      "sha1": "4f81442a33417d6f174ca7b4d088c6c12286fbf3"
+    },
+    {
+      "name": "CoastGua1943_whisper_asr.json",
+      "source": "derivative",
+      "whisper_asr_module_version": "20230731.02",
+      "whisper_version": "20230314",
+      "whisper_model_name": "small.en",
+      "whisper_model_hash": "sha256:f953ad0fd29cacd07d5a9eda5624af0f6bcf2258be67c92b79389873d91e0872",
+      "asr_detected_lang": "en",
+      "asr_detected_lang_conf": "0.99070835113525",
+      "asr_transcribed_lang": "en",
+      "format": "Whisper ASR JSON",
+      "original": "CoastGua1943.mp4",
+      "mtime": "1691227928",
+      "size": "68564",
+      "md5": "a1e54ff52372c266a1733dd579767d55",
+      "crc32": "d3a30f14",
+      "sha1": "92fe42bd0d026543fbdbe13b98e591540db74fc1"
+    },
+    {
+      "name": "__ia_thumb.jpg",
+      "source": "original",
+      "mtime": "1643043865",
+      "size": "6513",
+      "md5": "f6561a085d39af56cf86d33a42137068",
+      "crc32": "0945de3f",
+      "sha1": "7b17b77df144ef490e0e9ff2a47f1fa9bbd75c3b",
+      "format": "Item Tile",
+      "rotation": "0"
+    }
+  ],
+  "files_count": 36,
+  "intermediate_asr": {
+    "language": "en",
+    "segments": [
+      {
+        "text": " One of the oldest of our fighting forces, with the tradition of courage second to",
+        "start": 23.14,
+        "stop": 29.02,
+        "id": 0
+      },
+      {
+        "text": " none, the United States Coast Guard carries the war to the Axis",
+        "start": 29.02,
+        "stop": 33.46,
+        "id": 1
+      },
+      {
+        "text": " on the seven seas.",
+        "start": 33.46,
+        "stop": 35.54,
+        "id": 2
+      },
+      {
+        "text": " But nowhere do men of the Coast Guard wage more bitter and effective warfare than",
+        "start": 36.72,
+        "stop": 41.86,
+        "id": 3
+      },
+      {
+        "text": " in the sub-infested waters of the Atlantic sea lanes.",
+        "start": 41.86,
+        "stop": 44.48,
+        "id": 4
+      },
+      {
+        "text": " The U-boats must be battled to the death. The stuff of",
+        "start": 45.88,
+        "stop": 49.5,
+        "id": 5
+      },
+      {
+        "text": " production must go through.",
+        "start": 49.5,
+        "stop": 51.1,
+        "id": 6
+      },
+      {
+        "text": " For upon the battle of the Atlantic depends the success of assaults in the",
+        "start": 51.84,
+        "stop": 56.0,
+        "id": 7
+      },
+      {
+        "text": " making, the success of invasions to come. The men of the Coast Guard do their job",
+        "start": 56.0,
+        "stop": 62.68,
+        "id": 8
+      },
+      {
+        "text": " and do it well.",
+        "start": 62.68,
+        "stop": 64.84,
+        "id": 9
+      },
+      {
+        "text": " Yes, the Sparrs have a job to do too. Perhaps our jobs are not, for the moment,",
+        "start": 70.14,
+        "stop": 84.94,
+        "id": 10
+      },
+      {
+        "text": " so exciting as sending a death charge over a cutter side or seeing a tell-tale",
+        "start": 85.0,
+        "stop": 89.92,
+        "id": 11
+      },
+      {
+        "text": " oil slick rise from a blasted sub. But they are vital jobs which must be done.",
+        "start": 89.92,
+        "stop": 95.56,
+        "id": 12
+      },
+      {
+        "text": " Vital jobs done by women so that men may fight. That's why you join the Sparrs.",
+        "start": 96.58,
+        "stop": 103.04,
+        "id": 13
+      },
+      {
+        "text": " Basic training doesn't take long, only a month, and your pay begins at once. You",
+        "start": 103.78,
+        "stop": 109.46,
+        "id": 14
+      },
+      {
+        "text": " learn to take orders and to carry them out.",
+        "start": 109.46,
+        "stop": 111.14,
+        "id": 15
+      },
+      {
+        "text": " You acquire new vigor, new confidence. You learn to march",
+        "start": 111.66,
+        "stop": 115.86,
+        "id": 16
+      },
+      {
+        "text": " with others and to work with others.",
+        "start": 115.86,
+        "stop": 117.36,
+        "id": 17
+      },
+      {
+        "text": " And you learn too that to do your best is the proud tradition of the Coast Guard.",
+        "start": 118.0,
+        "stop": 123.52,
+        "id": 18
+      },
+      {
+        "text": " You get good food, plenty of it, and boy how you stow it away.",
+        "start": 124.88,
+        "stop": 130.64,
+        "id": 19
+      },
+      {
+        "text": " In school, you learn the lore of ships and aircraft, the language",
+        "start": 133.3,
+        "stop": 140.2,
+        "id": 20
+      },
+      {
+        "text": " of the sea, then almost before you know it, you pass in final review,",
+        "start": 140.2,
+        "stop": 147.18,
+        "id": 21
+      },
+      {
+        "text": " no longer boot a full-fledged Spar.",
+        "start": 148.0,
+        "stop": 151.48,
+        "id": 22
+      },
+      {
+        "text": " Now a man can go to sea. You take over his job",
+        "start": 152.7,
+        "stop": 159.32,
+        "id": 23
+      },
+      {
+        "text": " with the same rating, same pay, the same privileges, and the",
+        "start": 159.32,
+        "stop": 165.98,
+        "id": 24
+      },
+      {
+        "text": " same responsibilities. These are the jobs which must be done by",
+        "start": 165.98,
+        "stop": 172.6,
+        "id": 25
+      },
+      {
+        "text": " Sparrs. Movement of ships and men entrusted to paper is",
+        "start": 172.6,
+        "stop": 178.48,
+        "id": 26
+      },
+      {
+        "text": " also entrusted to you.",
+        "start": 178.48,
+        "stop": 180.18,
+        "id": 27
+      },
+      {
+        "text": " There are many jobs the Coast Guard needs you for. Each one helps to win this",
+        "start": 181.86,
+        "stop": 186.96,
+        "id": 28
+      },
+      {
+        "text": " war. And then too, the skills learned today will mean better jobs tomorrow.",
+        "start": 186.96,
+        "stop": 192.9,
+        "id": 29
+      },
+      {
+        "text": " You won't get to be an admiral, but you may be the admiral secretary.",
+        "start": 194.74,
+        "stop": 199.22,
+        "id": 30
+      },
+      {
+        "text": " If you are a laboratory technician, dental hygienist, a dietician, an",
+        "start": 201.5,
+        "stop": 208.36,
+        "id": 31
+      },
+      {
+        "text": " engineer or a draftsman, the Spars need your knowledge, your skill.",
+        "start": 208.36,
+        "stop": 213.8,
+        "id": 32
+      },
+      {
+        "text": " This chemistry major found her birth all right.",
+        "start": 214.3,
+        "stop": 218.0,
+        "id": 33
+      },
+      {
+        "text": " Here too, a Spar takes over, and one more pharmacist mate can go to sea.",
+        "start": 229.28,
+        "stop": 235.08,
+        "id": 34
+      },
+      {
+        "text": " You may be assigned a duty at one of many busy ports or stations. It may be",
+        "start": 240.28,
+        "stop": 245.8,
+        "id": 35
+      },
+      {
+        "text": " Boston or New York, Miami or New Orleans, San Francisco",
+        "start": 245.8,
+        "stop": 252.8,
+        "id": 36
+      },
+      {
+        "text": " or Seattle, or even at Coast Guard headquarters in Washington.",
+        "start": 252.8,
+        "stop": 257.7,
+        "id": 37
+      },
+      {
+        "text": " As men go to battle, Spars take increasingly important assignments. Radio",
+        "start": 270.0,
+        "stop": 275.84,
+        "id": 38
+      },
+      {
+        "text": " technicians are being trained to maintain the Coast Guard's contact between ship",
+        "start": 275.84,
+        "stop": 279.64,
+        "id": 39
+      },
+      {
+        "text": " and shore. If you want to hear history in the making, you couldn't pick a better",
+        "start": 279.64,
+        "stop": 285.5,
+        "id": 40
+      },
+      {
+        "text": " spot. Out of this room go the commands",
+        "start": 285.5,
+        "stop": 292.28,
+        "id": 41
+      },
+      {
+        "text": " to the men on the ships, to the men on the planes, who carry out the missions",
+        "start": 292.28,
+        "stop": 296.3,
+        "id": 42
+      },
+      {
+        "text": " which help defeat our enemies.",
+        "start": 296.3,
+        "stop": 297.82,
+        "id": 43
+      },
+      {
+        "text": " The mission will be accomplished because the Coast Guard is always ready.",
+        "start": 300.3,
+        "stop": 305.78,
+        "id": 44
+      },
+      {
+        "text": " More Spars mean more men on ships. More men on ships mean more",
+        "start": 307.52,
+        "stop": 314.5,
+        "id": 45
+      },
+      {
+        "text": " missions accomplished. Join the Spars and release a",
+        "start": 314.5,
+        "stop": 320.58,
+        "id": 46
+      },
+      {
+        "text": " man for sea.",
+        "start": 320.58,
+        "stop": 322.08,
+        "id": 47
+      }
+    ]
+  },
+  "item_last_updated": 1691228174,
+  "item_size": 436985516,
+  "metadata": {
+    "mediatype": "movies",
+    "identifier": "CoastGua1943",
+    "publicdate": "2002-07-16 00:00:00",
+    "creator": "Unknown",
+    "description": "Women in the wartime Coast Guard.",
+    "date": "ca. 1943",
+    "licenseurl": "http://creativecommons.org/licenses/publicdomain/",
+    "color": "B&W",
+    "sound": "Sd",
+    "collection": "prelinger",
+    "title": "Coast Guard SPARS",
+    "addeddate": "2002-07-16 00:00:00",
+    "sponsor": "U.S. Coast Guard",
+    "pick": "0",
+    "runtime": "5:42",
+    "shotlist": "<BR>",
+    "updatedate": "2005-01-13 09:36:44",
+    "country": "United States",
+    "subject": "World War II: Coast Guard",
+    "numeric_id": "284",
+    "type": "MovingImage",
+    "proddate": "ca. 1943",
+    "collectionid": "18970",
+    "backup_location": "ia903600_3",
+    "closed_captioning": "no",
+    "external-identifier": "urn:storj:bucket:jvrrslrv7u4ubxymktudgzt3hnpq:CoastGua1943",
+    "whisper_asr_module_version": "20230731.02",
+    "ccnum": "asr"
+  },
+  "reviews": [
+    {
+      "review_id": "1805",
+      "reviewbody": "In this curious recruitment film, we're led to believe that doing SPARS work is as exciting as being out at sea with the Coast Guard. Yes, filing, stockroom work, answering phones and typing is just as glamourous as being a gunner! You may even get to work in the Coast Guard Hedquarters! As we see a car pull up, we get excited to see a SPARS rep entering, but WAIT! we see two men get out! The person 'working at the headquarters' is actually the driver! LOL! An interesting film to say the least.",
+      "reviewtitle": "No no.. thats SPARS! Not SARS!",
+      "reviewer": "Spuzz",
+      "reviewdate": "2003-06-01 17:43:02",
+      "createdate": "2003-04-02 23:41:11",
+      "stars": "4"
+    },
+    {
+      "review_id": "8488",
+      "reviewbody": "This WWII recruitment film for the Coast Guard SPARS program (the Guards womens auxiliary) is full of sexist stereotypes and thus is quite campy. The film tells us that by becoming a SPAR, you take over a mans job so he can go to sea and blast Axis submarines. The vast majority of the jobs shown take place in offices and involve typewriters, filing cabinets, and huge rolodexes. If you dont care to work in an office, though, you could dress minor wounds in the dispensary or work in the storeroom! No, you wont become an admiral, but you could be the admirals secretary, is an actual quote from the film. I bet that really packed em in to the recruitment offices. Lots of fun and ripe for msting.\nRatings: Camp/Humor Value: ****. Weirdness: ***. Historical Interest: ****. Overall Rating: ****.",
+      "reviewtitle": "Help Smash the Axis by Being a File Clerk!",
+      "reviewer": "Christine Hennig",
+      "reviewdate": "2004-01-07 14:57:46",
+      "createdate": "2004-01-07 14:57:46",
+      "stars": "4"
+    },
+    {
+      "reviewbody": "The narrator promises us gals that we will \"learn the language of the sea...\"  Maybe this is why so many gals can cuss like sailors!  Their mamas were SPARS!",
+      "reviewtitle": "Funny lines!",
+      "reviewer": "bestpbx",
+      "reviewdate": "2008-05-30 01:51:54",
+      "createdate": "2008-05-30 01:51:54",
+      "stars": "0"
+    }
+  ],
+  "server": "dn600206.us.archive.org",
+  "simplelists": {
+    "solo_manifest": {
+      "solo_manifest_dn600206": {
+        "sys_changed_by": {
+          "source": "task",
+          "task_id": "5418470139"
+        },
+        "sys_last_changed": "2026-06-05 11:18:06.58309"
+      }
+    }
+  },
+  "solo": true,
+  "uniq": 658749132,
+  "whisper_asr": {
+    "module-version": "20230731.02",
+    "data-type": "default whisper output",
+    "whisper-version": "20230314",
+    "source-file": "CoastGua1943.mp4",
+    "detected-languages": {
+      "model": {
+        "name": "small",
+        "hash": "sha256:9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794"
+      },
+      "data": [
+        [
+          "en",
+          0.9907083511352539
+        ],
+        [
+          "la",
+          0.0024907791521400213
+        ],
+        [
+          "nn",
+          0.0006298655061982572
+        ],
+        [
+          "ja",
+          0.0005899796960875392
+        ],
+        [
+          "ko",
+          0.00045529266935773194
+        ],
+        [
+          "vi",
+          0.000358850258635357
+        ],
+        [
+          "cy",
+          0.0003486514906398952
+        ],
+        [
+          "pt",
+          0.0003312021435704082
+        ],
+        [
+          "it",
+          0.00028281117556616664
+        ],
+        [
+          "hi",
+          0.0002744026714935899
+        ],
+        [
+          "es",
+          0.00027000345289707184
+        ],
+        [
+          "ur",
+          0.00025463724159635603
+        ],
+        [
+          "th",
+          0.0002464505669195205
+        ],
+        [
+          "ru",
+          0.00024103856412693858
+        ],
+        [
+          "br",
+          0.00019397919822949916
+        ],
+        [
+          "fr",
+          0.00018778422963805497
+        ],
+        [
+          "bn",
+          0.00018284108955413103
+        ],
+        [
+          "ml",
+          0.00016251247143372893
+        ],
+        [
+          "tr",
+          0.00015860729035921395
+        ],
+        [
+          "te",
+          0.00014982619904913008
+        ],
+        [
+          "ar",
+          0.0001416137529304251
+        ],
+        [
+          "zh",
+          0.00012660758511628956
+        ],
+        [
+          "de",
+          0.00012265237455721945
+        ],
+        [
+          "km",
+          0.0001008124090731144
+        ],
+        [
+          "el",
+          7.89982732385397e-05
+        ],
+        [
+          "id",
+          7.211433694465086e-05
+        ],
+        [
+          "ta",
+          7.126636046450585e-05
+        ],
+        [
+          "haw",
+          6.242594099603593e-05
+        ],
+        [
+          "jw",
+          5.9360605519032106e-05
+        ],
+        [
+          "bg",
+          5.3510542784351856e-05
+        ],
+        [
+          "tl",
+          5.2653715101769194e-05
+        ],
+        [
+          "fa",
+          5.055561268818565e-05
+        ],
+        [
+          "sn",
+          5.004259219276719e-05
+        ],
+        [
+          "mi",
+          4.33878340118099e-05
+        ],
+        [
+          "ms",
+          3.7293801142368466e-05
+        ],
+        [
+          "cs",
+          3.4384946047794074e-05
+        ],
+        [
+          "nl",
+          3.211075090803206e-05
+        ],
+        [
+          "hu",
+          3.1224481062963605e-05
+        ],
+        [
+          "pl",
+          2.8391359592205845e-05
+        ],
+        [
+          "he",
+          2.7944848625338636e-05
+        ],
+        [
+          "sa",
+          2.6961475668940693e-05
+        ],
+        [
+          "gl",
+          2.0179275452392176e-05
+        ],
+        [
+          "fi",
+          1.3933748050476424e-05
+        ],
+        [
+          "si",
+          1.3460395166475791e-05
+        ],
+        [
+          "ro",
+          1.1625063052633777e-05
+        ],
+        [
+          "sw",
+          1.108190554077737e-05
+        ],
+        [
+          "da",
+          9.75254260993097e-06
+        ],
+        [
+          "yo",
+          8.948540198616683e-06
+        ],
+        [
+          "sv",
+          8.264500138466246e-06
+        ],
+        [
+          "hr",
+          7.116295819287188e-06
+        ],
+        [
+          "my",
+          7.108054887794424e-06
+        ],
+        [
+          "bo",
+          5.706424417439848e-06
+        ],
+        [
+          "sl",
+          5.603608769888524e-06
+        ],
+        [
+          "no",
+          5.060995590611128e-06
+        ],
+        [
+          "uk",
+          4.6877808017598e-06
+        ],
+        [
+          "sd",
+          3.755206307687331e-06
+        ],
+        [
+          "yi",
+          3.378656174390926e-06
+        ],
+        [
+          "bs",
+          2.8570148060680367e-06
+        ],
+        [
+          "sr",
+          2.5037670638994314e-06
+        ],
+        [
+          "hy",
+          2.2998744952928973e-06
+        ],
+        [
+          "sk",
+          2.2449037260230398e-06
+        ],
+        [
+          "sq",
+          2.1956943783152383e-06
+        ],
+        [
+          "mn",
+          2.1799708065373125e-06
+        ],
+        [
+          "af",
+          2.0785125798283843e-06
+        ],
+        [
+          "as",
+          1.842169695009943e-06
+        ],
+        [
+          "lv",
+          1.7051962686309707e-06
+        ],
+        [
+          "ne",
+          1.5549267118331045e-06
+        ],
+        [
+          "is",
+          1.5372525012935512e-06
+        ],
+        [
+          "ps",
+          1.4587708392355125e-06
+        ],
+        [
+          "ca",
+          1.4487568478216417e-06
+        ],
+        [
+          "eu",
+          1.425836330781749e-06
+        ],
+        [
+          "mr",
+          1.4111466271060635e-06
+        ],
+        [
+          "lo",
+          1.3923685173722333e-06
+        ],
+        [
+          "pa",
+          1.3095506119498168e-06
+        ],
+        [
+          "ht",
+          1.1878591976710595e-06
+        ],
+        [
+          "mk",
+          1.1714904530890635e-06
+        ],
+        [
+          "gu",
+          8.602316938777221e-07
+        ],
+        [
+          "lt",
+          7.314218919418636e-07
+        ],
+        [
+          "kn",
+          5.694472520190175e-07
+        ],
+        [
+          "oc",
+          5.391680701904988e-07
+        ],
+        [
+          "az",
+          3.6085771171201486e-07
+        ],
+        [
+          "et",
+          3.462004372067895e-07
+        ],
+        [
+          "be",
+          2.59957431580915e-07
+        ],
+        [
+          "ka",
+          2.1101985225868702e-07
+        ],
+        [
+          "fo",
+          2.0746576012697915e-07
+        ],
+        [
+          "mt",
+          8.670832585266908e-08
+        ],
+        [
+          "so",
+          6.067700297762713e-08
+        ],
+        [
+          "kk",
+          6.060447788058809e-08
+        ],
+        [
+          "am",
+          3.429365591500755e-08
+        ],
+        [
+          "ln",
+          2.6364315175442243e-08
+        ],
+        [
+          "tg",
+          6.299510246776663e-09
+        ],
+        [
+          "su",
+          2.138702326348607e-09
+        ],
+        [
+          "tt",
+          1.3573381307807608e-09
+        ],
+        [
+          "ha",
+          1.2898608847677906e-09
+        ],
+        [
+          "tk",
+          1.209340960706129e-09
+        ],
+        [
+          "ba",
+          9.320638705290207e-10
+        ],
+        [
+          "lb",
+          8.129761308595107e-10
+        ],
+        [
+          "mg",
+          1.3422815636765506e-10
+        ],
+        [
+          "uz",
+          9.726204563964558e-11
+        ]
+      ]
+    },
+    "model": {
+      "name": "small.en",
+      "hash": "sha256:f953ad0fd29cacd07d5a9eda5624af0f6bcf2258be67c92b79389873d91e0872"
+    },
+    "data": {
+      "text": " One of the oldest of our fighting forces, with the tradition of courage second to none, the United States Coast Guard carries the war to the Axis on the seven seas. But nowhere do men of the Coast Guard wage more bitter and effective warfare than in the sub-infested waters of the Atlantic sea lanes. The U-boats must be battled to the death. The stuff of production must go through. For upon the battle of the Atlantic depends the success of assaults in the making, the success of invasions to come. The men of the Coast Guard do their job and do it well. Yes, the Sparrs have a job to do too. Perhaps our jobs are not, for the moment, so exciting as sending a death charge over a cutter side or seeing a tell-tale oil slick rise from a blasted sub. But they are vital jobs which must be done. Vital jobs done by women so that men may fight. That's why you join the Sparrs. Basic training doesn't take long, only a month, and your pay begins at once. You learn to take orders and to carry them out. You acquire new vigor, new confidence. You learn to march with others and to work with others. And you learn too that to do your best is the proud tradition of the Coast Guard. You get good food, plenty of it, and boy how you stow it away. In school, you learn the lore of ships and aircraft, the language of the sea, then almost before you know it, you pass in final review, no longer boot a full-fledged Spar. Now a man can go to sea. You take over his job with the same rating, same pay, the same privileges, and the same responsibilities. These are the jobs which must be done by Sparrs. Movement of ships and men entrusted to paper is also entrusted to you. There are many jobs the Coast Guard needs you for. Each one helps to win this war. And then too, the skills learned today will mean better jobs tomorrow. You won't get to be an admiral, but you may be the admiral secretary. If you are a laboratory technician, dental hygienist, a dietician, an engineer or a draftsman, the Spars need your knowledge, your skill. This chemistry major found her birth all right. Here too, a Spar takes over, and one more pharmacist mate can go to sea. You may be assigned a duty at one of many busy ports or stations. It may be Boston or New York, Miami or New Orleans, San Francisco or Seattle, or even at Coast Guard headquarters in Washington. As men go to battle, Spars take increasingly important assignments. Radio technicians are being trained to maintain the Coast Guard's contact between ship and shore. If you want to hear history in the making, you couldn't pick a better spot. Out of this room go the commands to the men on the ships, to the men on the planes, who carry out the missions which help defeat our enemies. The mission will be accomplished because the Coast Guard is always ready. More Spars mean more men on ships. More men on ships mean more missions accomplished. Join the Spars and release a man for sea.",
+      "segments": [
+        {
+          "id": 0,
+          "seek": 0,
+          "start": 23.14,
+          "end": 29.22,
+          "text": " One of the oldest of our fighting forces, with the tradition of courage second to none,",
+          "tokens": [
+            50363,
+            1881,
+            286,
+            262,
+            13325,
+            286,
+            674,
+            4330,
+            3386,
+            11,
+            351,
+            262,
+            6761,
+            286,
+            11917,
+            1218,
+            284,
+            4844,
+            11,
+            51827
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.3998013843189586,
+          "compression_ratio": 1.12987012987013,
+          "no_speech_prob": 0.03631792590022087,
+          "words": [
+            {
+              "word": " One",
+              "start": 23.14,
+              "end": 23.76,
+              "probability": 0.2807701826095581
+            },
+            {
+              "word": " of",
+              "start": 23.76,
+              "end": 24.3,
+              "probability": 0.9947810769081116
+            },
+            {
+              "word": " the",
+              "start": 24.3,
+              "end": 24.38,
+              "probability": 0.9953580498695374
+            },
+            {
+              "word": " oldest",
+              "start": 24.38,
+              "end": 24.84,
+              "probability": 0.9910895824432373
+            },
+            {
+              "word": " of",
+              "start": 24.84,
+              "end": 25.08,
+              "probability": 0.9811417460441589
+            },
+            {
+              "word": " our",
+              "start": 25.08,
+              "end": 25.26,
+              "probability": 0.984904408454895
+            },
+            {
+              "word": " fighting",
+              "start": 25.26,
+              "end": 25.64,
+              "probability": 0.9759082794189453
+            },
+            {
+              "word": " forces,",
+              "start": 25.64,
+              "end": 26.18,
+              "probability": 0.9981269240379333
+            },
+            {
+              "word": " with",
+              "start": 26.5,
+              "end": 27.32,
+              "probability": 0.9841156601905823
+            },
+            {
+              "word": " the",
+              "start": 27.32,
+              "end": 27.48,
+              "probability": 0.590254545211792
+            },
+            {
+              "word": " tradition",
+              "start": 27.48,
+              "end": 27.78,
+              "probability": 0.9924255609512329
+            },
+            {
+              "word": " of",
+              "start": 27.78,
+              "end": 28.08,
+              "probability": 0.9970357418060303
+            },
+            {
+              "word": " courage",
+              "start": 28.08,
+              "end": 28.38,
+              "probability": 0.9924755692481995
+            },
+            {
+              "word": " second",
+              "start": 28.38,
+              "end": 28.78,
+              "probability": 0.8281503915786743
+            },
+            {
+              "word": " to",
+              "start": 28.78,
+              "end": 29.02,
+              "probability": 0.9781545996665955
+            },
+            {
+              "word": " none,",
+              "start": 29.02,
+              "end": 29.22,
+              "probability": 0.998852014541626
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "seek": 2922,
+          "start": 29.7,
+          "end": 35.54,
+          "text": " the United States Coast Guard carries the war to the Axis on the seven seas.",
+          "tokens": [
+            50363,
+            262,
+            1578,
+            1829,
+            8545,
+            4932,
+            10732,
+            262,
+            1175,
+            284,
+            262,
+            38349,
+            319,
+            262,
+            3598,
+            21547,
+            13,
+            50673
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.21014926197764638,
+          "compression_ratio": 1.6875,
+          "no_speech_prob": 0.13583539426326752,
+          "words": [
+            {
+              "word": " the",
+              "start": 29.7,
+              "end": 30.26,
+              "probability": 0.2555616796016693
+            },
+            {
+              "word": " United",
+              "start": 30.26,
+              "end": 30.54,
+              "probability": 0.982280969619751
+            },
+            {
+              "word": " States",
+              "start": 30.54,
+              "end": 31.14,
+              "probability": 0.9909005165100098
+            },
+            {
+              "word": " Coast",
+              "start": 31.14,
+              "end": 31.44,
+              "probability": 0.8790711164474487
+            },
+            {
+              "word": " Guard",
+              "start": 31.44,
+              "end": 31.74,
+              "probability": 0.993506669998169
+            },
+            {
+              "word": " carries",
+              "start": 31.74,
+              "end": 32.2,
+              "probability": 0.984635591506958
+            },
+            {
+              "word": " the",
+              "start": 32.2,
+              "end": 32.44,
+              "probability": 0.9942082166671753
+            },
+            {
+              "word": " war",
+              "start": 32.44,
+              "end": 32.68,
+              "probability": 0.8399165868759155
+            },
+            {
+              "word": " to",
+              "start": 32.68,
+              "end": 32.92,
+              "probability": 0.9955838322639465
+            },
+            {
+              "word": " the",
+              "start": 32.92,
+              "end": 33.08,
+              "probability": 0.9961889386177063
+            },
+            {
+              "word": " Axis",
+              "start": 33.08,
+              "end": 33.46,
+              "probability": 0.5140848159790039
+            },
+            {
+              "word": " on",
+              "start": 33.46,
+              "end": 34.46,
+              "probability": 0.8568927645683289
+            },
+            {
+              "word": " the",
+              "start": 34.46,
+              "end": 34.66,
+              "probability": 0.9953696131706238
+            },
+            {
+              "word": " seven",
+              "start": 34.66,
+              "end": 35.06,
+              "probability": 0.48624324798583984
+            },
+            {
+              "word": " seas.",
+              "start": 35.06,
+              "end": 35.54,
+              "probability": 0.977554440498352
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "seek": 2922,
+          "start": 36.72,
+          "end": 40.84,
+          "text": " But nowhere do men of the Coast Guard wage more bitter and effective warfare",
+          "tokens": [
+            50673,
+            887,
+            12062,
+            466,
+            1450,
+            286,
+            262,
+            8545,
+            4932,
+            7699,
+            517,
+            12922,
+            290,
+            4050,
+            15611,
+            50943
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.21014926197764638,
+          "compression_ratio": 1.6875,
+          "no_speech_prob": 0.13583539426326752,
+          "words": [
+            {
+              "word": " But",
+              "start": 36.72,
+              "end": 37.06,
+              "probability": 0.9739282727241516
+            },
+            {
+              "word": " nowhere",
+              "start": 37.06,
+              "end": 37.52,
+              "probability": 0.9318925738334656
+            },
+            {
+              "word": " do",
+              "start": 37.52,
+              "end": 37.8,
+              "probability": 0.9751700758934021
+            },
+            {
+              "word": " men",
+              "start": 37.8,
+              "end": 37.94,
+              "probability": 0.9197797179222107
+            },
+            {
+              "word": " of",
+              "start": 37.94,
+              "end": 38.06,
+              "probability": 0.9776594042778015
+            },
+            {
+              "word": " the",
+              "start": 38.06,
+              "end": 38.18,
+              "probability": 0.9976067543029785
+            },
+            {
+              "word": " Coast",
+              "start": 38.18,
+              "end": 38.4,
+              "probability": 0.8737454414367676
+            },
+            {
+              "word": " Guard",
+              "start": 38.4,
+              "end": 38.74,
+              "probability": 0.9980783462524414
+            },
+            {
+              "word": " wage",
+              "start": 38.74,
+              "end": 39.0,
+              "probability": 0.9925133585929871
+            },
+            {
+              "word": " more",
+              "start": 39.0,
+              "end": 39.26,
+              "probability": 0.9804708957672119
+            },
+            {
+              "word": " bitter",
+              "start": 39.26,
+              "end": 39.64,
+              "probability": 0.992901086807251
+            },
+            {
+              "word": " and",
+              "start": 39.64,
+              "end": 39.8,
+              "probability": 0.9968861937522888
+            },
+            {
+              "word": " effective",
+              "start": 39.8,
+              "end": 40.22,
+              "probability": 0.9805718660354614
+            },
+            {
+              "word": " warfare",
+              "start": 40.22,
+              "end": 40.84,
+              "probability": 0.9825860261917114
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "seek": 2922,
+          "start": 40.84,
+          "end": 44.48,
+          "text": " than in the sub-infested waters of the Atlantic sea lanes.",
+          "tokens": [
+            50943,
+            621,
+            287,
+            262,
+            850,
+            12,
+            10745,
+            7287,
+            10150,
+            286,
+            262,
+            10596,
+            5417,
+            15296,
+            13,
+            51117
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.21014926197764638,
+          "compression_ratio": 1.6875,
+          "no_speech_prob": 0.13583539426326752,
+          "words": [
+            {
+              "word": " than",
+              "start": 40.84,
+              "end": 41.86,
+              "probability": 0.8880541920661926
+            },
+            {
+              "word": " in",
+              "start": 41.86,
+              "end": 41.98,
+              "probability": 0.9963167905807495
+            },
+            {
+              "word": " the",
+              "start": 41.98,
+              "end": 42.12,
+              "probability": 0.9877601265907288
+            },
+            {
+              "word": " sub",
+              "start": 42.12,
+              "end": 42.32,
+              "probability": 0.9877884984016418
+            },
+            {
+              "word": "-infested",
+              "start": 42.32,
+              "end": 42.74,
+              "probability": 0.8518607219060262
+            },
+            {
+              "word": " waters",
+              "start": 42.74,
+              "end": 43.14,
+              "probability": 0.9989081621170044
+            },
+            {
+              "word": " of",
+              "start": 43.14,
+              "end": 43.36,
+              "probability": 0.9967369437217712
+            },
+            {
+              "word": " the",
+              "start": 43.36,
+              "end": 43.44,
+              "probability": 0.9977218508720398
+            },
+            {
+              "word": " Atlantic",
+              "start": 43.44,
+              "end": 43.8,
+              "probability": 0.998964786529541
+            },
+            {
+              "word": " sea",
+              "start": 43.8,
+              "end": 44.08,
+              "probability": 0.6801136136054993
+            },
+            {
+              "word": " lanes.",
+              "start": 44.08,
+              "end": 44.48,
+              "probability": 0.9684551954269409
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "seek": 2922,
+          "start": 45.88,
+          "end": 51.1,
+          "text": " The U-boats must be battled to the death. The stuff of production must go through.",
+          "tokens": [
+            51117,
+            383,
+            471,
+            12,
+            46058,
+            1276,
+            307,
+            31472,
+            284,
+            262,
+            1918,
+            13,
+            383,
+            3404,
+            286,
+            3227,
+            1276,
+            467,
+            832,
+            13,
+            51449
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.21014926197764638,
+          "compression_ratio": 1.6875,
+          "no_speech_prob": 0.13583539426326752,
+          "words": [
+            {
+              "word": " The",
+              "start": 45.88,
+              "end": 46.04,
+              "probability": 0.9718874096870422
+            },
+            {
+              "word": " U",
+              "start": 46.04,
+              "end": 46.18,
+              "probability": 0.9428138732910156
+            },
+            {
+              "word": "-boats",
+              "start": 46.18,
+              "end": 46.44,
+              "probability": 0.9140009880065918
+            },
+            {
+              "word": " must",
+              "start": 46.44,
+              "end": 46.9,
+              "probability": 0.9983344674110413
+            },
+            {
+              "word": " be",
+              "start": 46.9,
+              "end": 47.22,
+              "probability": 0.9719424843788147
+            },
+            {
+              "word": " battled",
+              "start": 47.22,
+              "end": 47.56,
+              "probability": 0.890997052192688
+            },
+            {
+              "word": " to",
+              "start": 47.56,
+              "end": 47.8,
+              "probability": 0.998828113079071
+            },
+            {
+              "word": " the",
+              "start": 47.8,
+              "end": 47.92,
+              "probability": 0.991114616394043
+            },
+            {
+              "word": " death.",
+              "start": 47.92,
+              "end": 48.14,
+              "probability": 0.9818298816680908
+            },
+            {
+              "word": " The",
+              "start": 48.94,
+              "end": 49.06,
+              "probability": 0.920640766620636
+            },
+            {
+              "word": " stuff",
+              "start": 49.06,
+              "end": 49.32,
+              "probability": 0.9527003169059753
+            },
+            {
+              "word": " of",
+              "start": 49.32,
+              "end": 49.5,
+              "probability": 0.9942834973335266
+            },
+            {
+              "word": " production",
+              "start": 49.5,
+              "end": 50.06,
+              "probability": 0.9982774257659912
+            },
+            {
+              "word": " must",
+              "start": 50.06,
+              "end": 50.42,
+              "probability": 0.998996913433075
+            },
+            {
+              "word": " go",
+              "start": 50.42,
+              "end": 50.7,
+              "probability": 0.9985688924789429
+            },
+            {
+              "word": " through.",
+              "start": 50.7,
+              "end": 51.1,
+              "probability": 0.9949355721473694
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "seek": 2922,
+          "start": 51.84,
+          "end": 56.28,
+          "text": " For upon the battle of the Atlantic depends the success of assaults in the making,",
+          "tokens": [
+            51449,
+            1114,
+            2402,
+            262,
+            3344,
+            286,
+            262,
+            10596,
+            8338,
+            262,
+            1943,
+            286,
+            21832,
+            287,
+            262,
+            1642,
+            11,
+            51717
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.21014926197764638,
+          "compression_ratio": 1.6875,
+          "no_speech_prob": 0.13583539426326752,
+          "words": [
+            {
+              "word": " For",
+              "start": 51.84,
+              "end": 52.24,
+              "probability": 0.653055727481842
+            },
+            {
+              "word": " upon",
+              "start": 52.24,
+              "end": 52.48,
+              "probability": 0.9104923009872437
+            },
+            {
+              "word": " the",
+              "start": 52.48,
+              "end": 52.62,
+              "probability": 0.9759972095489502
+            },
+            {
+              "word": " battle",
+              "start": 52.62,
+              "end": 52.84,
+              "probability": 0.6884254217147827
+            },
+            {
+              "word": " of",
+              "start": 52.84,
+              "end": 53.0,
+              "probability": 0.9923068881034851
+            },
+            {
+              "word": " the",
+              "start": 53.0,
+              "end": 53.1,
+              "probability": 0.9979502558708191
+            },
+            {
+              "word": " Atlantic",
+              "start": 53.1,
+              "end": 53.42,
+              "probability": 0.9986163377761841
+            },
+            {
+              "word": " depends",
+              "start": 53.42,
+              "end": 53.82,
+              "probability": 0.7787505984306335
+            },
+            {
+              "word": " the",
+              "start": 53.82,
+              "end": 54.1,
+              "probability": 0.9223335385322571
+            },
+            {
+              "word": " success",
+              "start": 54.1,
+              "end": 54.52,
+              "probability": 0.9919294118881226
+            },
+            {
+              "word": " of",
+              "start": 54.52,
+              "end": 55.28,
+              "probability": 0.9940394163131714
+            },
+            {
+              "word": " assaults",
+              "start": 55.28,
+              "end": 55.68,
+              "probability": 0.9867463707923889
+            },
+            {
+              "word": " in",
+              "start": 55.68,
+              "end": 55.9,
+              "probability": 0.9982483386993408
+            },
+            {
+              "word": " the",
+              "start": 55.9,
+              "end": 56.0,
+              "probability": 0.996088981628418
+            },
+            {
+              "word": " making,",
+              "start": 56.0,
+              "end": 56.28,
+              "probability": 0.9834970235824585
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "seek": 5628,
+          "start": 56.66,
+          "end": 64.84,
+          "text": " the success of invasions to come. The men of the Coast Guard do their job and do it well.",
+          "tokens": [
+            50403,
+            262,
+            1943,
+            286,
+            800,
+            39327,
+            284,
+            1282,
+            13,
+            383,
+            1450,
+            286,
+            262,
+            8545,
+            4932,
+            466,
+            511,
+            1693,
+            290,
+            466,
+            340,
+            880,
+            13,
+            50787
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.2758667889763327,
+          "compression_ratio": 1.3203125,
+          "no_speech_prob": 0.015648644417524338,
+          "words": [
+            {
+              "word": " the",
+              "start": 56.66,
+              "end": 57.22,
+              "probability": 0.13445910811424255
+            },
+            {
+              "word": " success",
+              "start": 57.22,
+              "end": 57.58,
+              "probability": 0.8991022706031799
+            },
+            {
+              "word": " of",
+              "start": 57.58,
+              "end": 57.84,
+              "probability": 0.9973633885383606
+            },
+            {
+              "word": " invasions",
+              "start": 57.84,
+              "end": 58.42,
+              "probability": 0.9825966358184814
+            },
+            {
+              "word": " to",
+              "start": 58.42,
+              "end": 58.68,
+              "probability": 0.9941674470901489
+            },
+            {
+              "word": " come.",
+              "start": 58.68,
+              "end": 58.96,
+              "probability": 0.9964169263839722
+            },
+            {
+              "word": " The",
+              "start": 60.2,
+              "end": 60.48,
+              "probability": 0.9882857799530029
+            },
+            {
+              "word": " men",
+              "start": 60.48,
+              "end": 60.6,
+              "probability": 0.9941412806510925
+            },
+            {
+              "word": " of",
+              "start": 60.6,
+              "end": 60.74,
+              "probability": 0.9960430860519409
+            },
+            {
+              "word": " the",
+              "start": 60.74,
+              "end": 60.86,
+              "probability": 0.8471585512161255
+            },
+            {
+              "word": " Coast",
+              "start": 60.86,
+              "end": 61.1,
+              "probability": 0.7874473333358765
+            },
+            {
+              "word": " Guard",
+              "start": 61.1,
+              "end": 61.42,
+              "probability": 0.9936049580574036
+            },
+            {
+              "word": " do",
+              "start": 61.42,
+              "end": 61.88,
+              "probability": 0.9920456409454346
+            },
+            {
+              "word": " their",
+              "start": 61.88,
+              "end": 62.2,
+              "probability": 0.9988104104995728
+            },
+            {
+              "word": " job",
+              "start": 62.2,
+              "end": 62.68,
+              "probability": 0.9863446950912476
+            },
+            {
+              "word": " and",
+              "start": 62.68,
+              "end": 63.78,
+              "probability": 0.7237271070480347
+            },
+            {
+              "word": " do",
+              "start": 63.78,
+              "end": 64.24,
+              "probability": 0.9978467226028442
+            },
+            {
+              "word": " it",
+              "start": 64.24,
+              "end": 64.46,
+              "probability": 0.9994627833366394
+            },
+            {
+              "word": " well.",
+              "start": 64.46,
+              "end": 64.84,
+              "probability": 0.998751163482666
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "seek": 5628,
+          "start": 70.14,
+          "end": 84.94,
+          "text": " Yes, the Sparrs have a job to do too. Perhaps our jobs are not, for the moment,",
+          "tokens": [
+            51487,
+            3363,
+            11,
+            262,
+            1338,
+            283,
+            3808,
+            423,
+            257,
+            1693,
+            284,
+            466,
+            1165,
+            13,
+            8673,
+            674,
+            3946,
+            389,
+            407,
+            11,
+            329,
+            262,
+            2589,
+            11,
+            51815
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.2758667889763327,
+          "compression_ratio": 1.3203125,
+          "no_speech_prob": 0.015648644417524338,
+          "words": [
+            {
+              "word": " Yes,",
+              "start": 70.14,
+              "end": 79.06,
+              "probability": 0.255689799785614
+            },
+            {
+              "word": " the",
+              "start": 79.76,
+              "end": 79.92,
+              "probability": 0.988932728767395
+            },
+            {
+              "word": " Sparrs",
+              "start": 79.92,
+              "end": 80.44,
+              "probability": 0.5023341079552969
+            },
+            {
+              "word": " have",
+              "start": 80.44,
+              "end": 80.62,
+              "probability": 0.9961298704147339
+            },
+            {
+              "word": " a",
+              "start": 80.62,
+              "end": 80.76,
+              "probability": 0.9970296621322632
+            },
+            {
+              "word": " job",
+              "start": 80.76,
+              "end": 81.02,
+              "probability": 0.999270498752594
+            },
+            {
+              "word": " to",
+              "start": 81.02,
+              "end": 81.26,
+              "probability": 0.9993385672569275
+            },
+            {
+              "word": " do",
+              "start": 81.26,
+              "end": 81.48,
+              "probability": 0.9994331002235413
+            },
+            {
+              "word": " too.",
+              "start": 81.48,
+              "end": 81.76,
+              "probability": 0.5898879766464233
+            },
+            {
+              "word": " Perhaps",
+              "start": 82.8,
+              "end": 83.04,
+              "probability": 0.9942564368247986
+            },
+            {
+              "word": " our",
+              "start": 83.04,
+              "end": 83.34,
+              "probability": 0.9834185242652893
+            },
+            {
+              "word": " jobs",
+              "start": 83.34,
+              "end": 83.74,
+              "probability": 0.9977704286575317
+            },
+            {
+              "word": " are",
+              "start": 83.74,
+              "end": 84.0,
+              "probability": 0.9968045949935913
+            },
+            {
+              "word": " not,",
+              "start": 84.0,
+              "end": 84.24,
+              "probability": 0.999422550201416
+            },
+            {
+              "word": " for",
+              "start": 84.28,
+              "end": 84.6,
+              "probability": 0.9978774785995483
+            },
+            {
+              "word": " the",
+              "start": 84.6,
+              "end": 84.7,
+              "probability": 0.9518573880195618
+            },
+            {
+              "word": " moment,",
+              "start": 84.7,
+              "end": 84.94,
+              "probability": 0.9993209838867188
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "seek": 8494,
+          "start": 85.0,
+          "end": 90.58,
+          "text": " so exciting as sending a death charge over a cutter side or seeing a tell-tale oil slick",
+          "tokens": [
+            50371,
+            523,
+            7895,
+            355,
+            7216,
+            257,
+            1918,
+            3877,
+            625,
+            257,
+            38121,
+            1735,
+            393,
+            4379,
+            257,
+            1560,
+            12,
+            29429,
+            3056,
+            29395,
+            50647
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16032759013928866,
+          "compression_ratio": 1.547008547008547,
+          "no_speech_prob": 0.020989367738366127,
+          "words": [
+            {
+              "word": " so",
+              "start": 85.0,
+              "end": 85.56,
+              "probability": 0.36761900782585144
+            },
+            {
+              "word": " exciting",
+              "start": 85.56,
+              "end": 86.02,
+              "probability": 0.9785892367362976
+            },
+            {
+              "word": " as",
+              "start": 86.02,
+              "end": 86.24,
+              "probability": 0.8797481656074524
+            },
+            {
+              "word": " sending",
+              "start": 86.24,
+              "end": 86.5,
+              "probability": 0.9956692457199097
+            },
+            {
+              "word": " a",
+              "start": 86.5,
+              "end": 86.68,
+              "probability": 0.9943713545799255
+            },
+            {
+              "word": " death",
+              "start": 86.68,
+              "end": 86.9,
+              "probability": 0.5980684161186218
+            },
+            {
+              "word": " charge",
+              "start": 86.9,
+              "end": 87.26,
+              "probability": 0.976905107498169
+            },
+            {
+              "word": " over",
+              "start": 87.26,
+              "end": 87.6,
+              "probability": 0.9968859553337097
+            },
+            {
+              "word": " a",
+              "start": 87.6,
+              "end": 87.78,
+              "probability": 0.9742799401283264
+            },
+            {
+              "word": " cutter",
+              "start": 87.78,
+              "end": 87.92,
+              "probability": 0.6143667697906494
+            },
+            {
+              "word": " side",
+              "start": 87.92,
+              "end": 88.36,
+              "probability": 0.8134551048278809
+            },
+            {
+              "word": " or",
+              "start": 88.36,
+              "end": 89.02,
+              "probability": 0.43600571155548096
+            },
+            {
+              "word": " seeing",
+              "start": 89.02,
+              "end": 89.3,
+              "probability": 0.9953853487968445
+            },
+            {
+              "word": " a",
+              "start": 89.3,
+              "end": 89.46,
+              "probability": 0.9755444526672363
+            },
+            {
+              "word": " tell",
+              "start": 89.46,
+              "end": 89.66,
+              "probability": 0.984065592288971
+            },
+            {
+              "word": "-tale",
+              "start": 89.66,
+              "end": 89.92,
+              "probability": 0.6672873795032501
+            },
+            {
+              "word": " oil",
+              "start": 89.92,
+              "end": 90.3,
+              "probability": 0.9972787499427795
+            },
+            {
+              "word": " slick",
+              "start": 90.3,
+              "end": 90.58,
+              "probability": 0.9799873232841492
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "seek": 8494,
+          "start": 90.58,
+          "end": 99.06,
+          "text": " rise from a blasted sub. But they are vital jobs which must be done. Vital jobs done by women so",
+          "tokens": [
+            50647,
+            4485,
+            422,
+            257,
+            26044,
+            850,
+            13,
+            887,
+            484,
+            389,
+            9204,
+            3946,
+            543,
+            1276,
+            307,
+            1760,
+            13,
+            28476,
+            3946,
+            1760,
+            416,
+            1466,
+            523,
+            51069
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16032759013928866,
+          "compression_ratio": 1.547008547008547,
+          "no_speech_prob": 0.020989367738366127,
+          "words": [
+            {
+              "word": " rise",
+              "start": 90.58,
+              "end": 90.9,
+              "probability": 0.9763779640197754
+            },
+            {
+              "word": " from",
+              "start": 90.9,
+              "end": 91.18,
+              "probability": 0.9982994198799133
+            },
+            {
+              "word": " a",
+              "start": 91.18,
+              "end": 91.3,
+              "probability": 0.9973738193511963
+            },
+            {
+              "word": " blasted",
+              "start": 91.3,
+              "end": 91.64,
+              "probability": 0.9965351819992065
+            },
+            {
+              "word": " sub.",
+              "start": 91.64,
+              "end": 92.06,
+              "probability": 0.9775261878967285
+            },
+            {
+              "word": " But",
+              "start": 92.7,
+              "end": 92.9,
+              "probability": 0.9865060448646545
+            },
+            {
+              "word": " they",
+              "start": 92.9,
+              "end": 93.06,
+              "probability": 0.9586411714553833
+            },
+            {
+              "word": " are",
+              "start": 93.06,
+              "end": 93.36,
+              "probability": 0.9933063387870789
+            },
+            {
+              "word": " vital",
+              "start": 93.36,
+              "end": 93.7,
+              "probability": 0.9990870952606201
+            },
+            {
+              "word": " jobs",
+              "start": 93.7,
+              "end": 94.2,
+              "probability": 0.997766375541687
+            },
+            {
+              "word": " which",
+              "start": 94.2,
+              "end": 94.64,
+              "probability": 0.5727586150169373
+            },
+            {
+              "word": " must",
+              "start": 94.64,
+              "end": 94.88,
+              "probability": 0.999058187007904
+            },
+            {
+              "word": " be",
+              "start": 94.88,
+              "end": 95.14,
+              "probability": 0.9993423819541931
+            },
+            {
+              "word": " done.",
+              "start": 95.14,
+              "end": 95.56,
+              "probability": 0.9995381832122803
+            },
+            {
+              "word": " Vital",
+              "start": 96.58,
+              "end": 96.58,
+              "probability": 0.954064130783081
+            },
+            {
+              "word": " jobs",
+              "start": 96.58,
+              "end": 97.12,
+              "probability": 0.991415798664093
+            },
+            {
+              "word": " done",
+              "start": 97.12,
+              "end": 97.84,
+              "probability": 0.6665937900543213
+            },
+            {
+              "word": " by",
+              "start": 97.84,
+              "end": 98.12,
+              "probability": 0.9995158910751343
+            },
+            {
+              "word": " women",
+              "start": 98.12,
+              "end": 98.48,
+              "probability": 0.9955642223358154
+            },
+            {
+              "word": " so",
+              "start": 98.48,
+              "end": 99.06,
+              "probability": 0.8942726254463196
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "seek": 8494,
+          "start": 99.06,
+          "end": 105.42,
+          "text": " that men may fight. That's why you join the Sparrs. Basic training doesn't take long,",
+          "tokens": [
+            51069,
+            326,
+            1450,
+            743,
+            1907,
+            13,
+            1320,
+            338,
+            1521,
+            345,
+            4654,
+            262,
+            1338,
+            283,
+            3808,
+            13,
+            14392,
+            3047,
+            1595,
+            470,
+            1011,
+            890,
+            11,
+            51381
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16032759013928866,
+          "compression_ratio": 1.547008547008547,
+          "no_speech_prob": 0.020989367738366127,
+          "words": [
+            {
+              "word": " that",
+              "start": 99.06,
+              "end": 99.24,
+              "probability": 0.9977505803108215
+            },
+            {
+              "word": " men",
+              "start": 99.24,
+              "end": 99.46,
+              "probability": 0.9987320303916931
+            },
+            {
+              "word": " may",
+              "start": 99.46,
+              "end": 99.86,
+              "probability": 0.9659122824668884
+            },
+            {
+              "word": " fight.",
+              "start": 99.86,
+              "end": 100.16,
+              "probability": 0.9996331930160522
+            },
+            {
+              "word": " That's",
+              "start": 100.82,
+              "end": 101.32,
+              "probability": 0.7914621531963348
+            },
+            {
+              "word": " why",
+              "start": 101.32,
+              "end": 101.58,
+              "probability": 0.9991284012794495
+            },
+            {
+              "word": " you",
+              "start": 101.58,
+              "end": 101.78,
+              "probability": 0.9981415271759033
+            },
+            {
+              "word": " join",
+              "start": 101.78,
+              "end": 102.14,
+              "probability": 0.7297158241271973
+            },
+            {
+              "word": " the",
+              "start": 102.14,
+              "end": 102.4,
+              "probability": 0.9192968010902405
+            },
+            {
+              "word": " Sparrs.",
+              "start": 102.4,
+              "end": 103.04,
+              "probability": 0.1809904023539275
+            },
+            {
+              "word": " Basic",
+              "start": 103.78,
+              "end": 104.16,
+              "probability": 0.9914718270301819
+            },
+            {
+              "word": " training",
+              "start": 104.16,
+              "end": 104.48,
+              "probability": 0.9798351526260376
+            },
+            {
+              "word": " doesn't",
+              "start": 104.48,
+              "end": 104.84,
+              "probability": 0.9961700737476349
+            },
+            {
+              "word": " take",
+              "start": 104.84,
+              "end": 105.04,
+              "probability": 0.9981594681739807
+            },
+            {
+              "word": " long,",
+              "start": 105.04,
+              "end": 105.42,
+              "probability": 0.9978373646736145
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "seek": 8494,
+          "start": 105.74,
+          "end": 111.14,
+          "text": " only a month, and your pay begins at once. You learn to take orders and to carry them out.",
+          "tokens": [
+            51381,
+            691,
+            257,
+            1227,
+            11,
+            290,
+            534,
+            1414,
+            6140,
+            379,
+            1752,
+            13,
+            921,
+            2193,
+            284,
+            1011,
+            6266,
+            290,
+            284,
+            3283,
+            606,
+            503,
+            13,
+            51673
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16032759013928866,
+          "compression_ratio": 1.547008547008547,
+          "no_speech_prob": 0.020989367738366127,
+          "words": [
+            {
+              "word": " only",
+              "start": 105.74,
+              "end": 106.1,
+              "probability": 0.9970557689666748
+            },
+            {
+              "word": " a",
+              "start": 106.1,
+              "end": 106.26,
+              "probability": 0.9967593550682068
+            },
+            {
+              "word": " month,",
+              "start": 106.26,
+              "end": 106.46,
+              "probability": 0.999395489692688
+            },
+            {
+              "word": " and",
+              "start": 106.9,
+              "end": 107.24,
+              "probability": 0.9978389143943787
+            },
+            {
+              "word": " your",
+              "start": 107.24,
+              "end": 107.36,
+              "probability": 0.9831941723823547
+            },
+            {
+              "word": " pay",
+              "start": 107.36,
+              "end": 107.64,
+              "probability": 0.9917329549789429
+            },
+            {
+              "word": " begins",
+              "start": 107.64,
+              "end": 107.9,
+              "probability": 0.9967086315155029
+            },
+            {
+              "word": " at",
+              "start": 107.9,
+              "end": 108.08,
+              "probability": 0.9977868795394897
+            },
+            {
+              "word": " once.",
+              "start": 108.08,
+              "end": 108.32,
+              "probability": 0.9631854295730591
+            },
+            {
+              "word": " You",
+              "start": 109.38,
+              "end": 109.46,
+              "probability": 0.9698377847671509
+            },
+            {
+              "word": " learn",
+              "start": 109.46,
+              "end": 109.62,
+              "probability": 0.9176196455955505
+            },
+            {
+              "word": " to",
+              "start": 109.62,
+              "end": 109.76,
+              "probability": 0.9972793459892273
+            },
+            {
+              "word": " take",
+              "start": 109.76,
+              "end": 110.0,
+              "probability": 0.9991036057472229
+            },
+            {
+              "word": " orders",
+              "start": 110.0,
+              "end": 110.26,
+              "probability": 0.9988866448402405
+            },
+            {
+              "word": " and",
+              "start": 110.26,
+              "end": 110.46,
+              "probability": 0.9826081395149231
+            },
+            {
+              "word": " to",
+              "start": 110.46,
+              "end": 110.6,
+              "probability": 0.9427593946456909
+            },
+            {
+              "word": " carry",
+              "start": 110.6,
+              "end": 110.8,
+              "probability": 0.9993287324905396
+            },
+            {
+              "word": " them",
+              "start": 110.8,
+              "end": 110.98,
+              "probability": 0.9957295060157776
+            },
+            {
+              "word": " out.",
+              "start": 110.98,
+              "end": 111.14,
+              "probability": 0.9671908617019653
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "seek": 11114,
+          "start": 111.66,
+          "end": 117.36,
+          "text": " You acquire new vigor, new confidence. You learn to march with others and to work with others.",
+          "tokens": [
+            50389,
+            921,
+            12831,
+            649,
+            10539,
+            273,
+            11,
+            649,
+            6628,
+            13,
+            921,
+            2193,
+            284,
+            9960,
+            351,
+            1854,
+            290,
+            284,
+            670,
+            351,
+            1854,
+            13,
+            50671
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.1896683188045726,
+          "compression_ratio": 1.6091370558375635,
+          "no_speech_prob": 0.0090250875800848,
+          "words": [
+            {
+              "word": " You",
+              "start": 111.66,
+              "end": 112.22,
+              "probability": 0.5464456081390381
+            },
+            {
+              "word": " acquire",
+              "start": 112.22,
+              "end": 112.56,
+              "probability": 0.9210178256034851
+            },
+            {
+              "word": " new",
+              "start": 112.56,
+              "end": 112.9,
+              "probability": 0.8676887154579163
+            },
+            {
+              "word": " vigor,",
+              "start": 112.9,
+              "end": 113.28,
+              "probability": 0.9380279779434204
+            },
+            {
+              "word": " new",
+              "start": 113.7,
+              "end": 113.88,
+              "probability": 0.9836657643318176
+            },
+            {
+              "word": " confidence.",
+              "start": 113.88,
+              "end": 114.38,
+              "probability": 0.9955637454986572
+            },
+            {
+              "word": " You",
+              "start": 115.18,
+              "end": 115.26,
+              "probability": 0.9930946826934814
+            },
+            {
+              "word": " learn",
+              "start": 115.26,
+              "end": 115.44,
+              "probability": 0.9849286675453186
+            },
+            {
+              "word": " to",
+              "start": 115.44,
+              "end": 115.6,
+              "probability": 0.9982661604881287
+            },
+            {
+              "word": " march",
+              "start": 115.6,
+              "end": 115.86,
+              "probability": 0.9822577834129333
+            },
+            {
+              "word": " with",
+              "start": 115.86,
+              "end": 116.08,
+              "probability": 0.9970715045928955
+            },
+            {
+              "word": " others",
+              "start": 116.08,
+              "end": 116.3,
+              "probability": 0.9969556331634521
+            },
+            {
+              "word": " and",
+              "start": 116.3,
+              "end": 116.5,
+              "probability": 0.8541430234909058
+            },
+            {
+              "word": " to",
+              "start": 116.5,
+              "end": 116.62,
+              "probability": 0.9688348174095154
+            },
+            {
+              "word": " work",
+              "start": 116.62,
+              "end": 116.84,
+              "probability": 0.9986956715583801
+            },
+            {
+              "word": " with",
+              "start": 116.84,
+              "end": 117.02,
+              "probability": 0.9992355108261108
+            },
+            {
+              "word": " others.",
+              "start": 117.02,
+              "end": 117.36,
+              "probability": 0.9960615038871765
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "seek": 11114,
+          "start": 118.0,
+          "end": 123.52,
+          "text": " And you learn too that to do your best is the proud tradition of the Coast Guard.",
+          "tokens": [
+            50671,
+            843,
+            345,
+            2193,
+            1165,
+            326,
+            284,
+            466,
+            534,
+            1266,
+            318,
+            262,
+            6613,
+            6761,
+            286,
+            262,
+            8545,
+            4932,
+            13,
+            50981
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.1896683188045726,
+          "compression_ratio": 1.6091370558375635,
+          "no_speech_prob": 0.0090250875800848,
+          "words": [
+            {
+              "word": " And",
+              "start": 118.0,
+              "end": 118.12,
+              "probability": 0.9721357226371765
+            },
+            {
+              "word": " you",
+              "start": 118.12,
+              "end": 118.22,
+              "probability": 0.9902486205101013
+            },
+            {
+              "word": " learn",
+              "start": 118.22,
+              "end": 118.44,
+              "probability": 0.9786455631256104
+            },
+            {
+              "word": " too",
+              "start": 118.44,
+              "end": 118.8,
+              "probability": 0.5362228751182556
+            },
+            {
+              "word": " that",
+              "start": 118.8,
+              "end": 119.6,
+              "probability": 0.5376699566841125
+            },
+            {
+              "word": " to",
+              "start": 119.6,
+              "end": 119.74,
+              "probability": 0.9857829809188843
+            },
+            {
+              "word": " do",
+              "start": 119.74,
+              "end": 120.02,
+              "probability": 0.9969916343688965
+            },
+            {
+              "word": " your",
+              "start": 120.02,
+              "end": 120.24,
+              "probability": 0.9957138299942017
+            },
+            {
+              "word": " best",
+              "start": 120.24,
+              "end": 120.76,
+              "probability": 0.9996367692947388
+            },
+            {
+              "word": " is",
+              "start": 120.76,
+              "end": 121.58,
+              "probability": 0.9061022996902466
+            },
+            {
+              "word": " the",
+              "start": 121.58,
+              "end": 121.74,
+              "probability": 0.9862717390060425
+            },
+            {
+              "word": " proud",
+              "start": 121.74,
+              "end": 122.12,
+              "probability": 0.9989084005355835
+            },
+            {
+              "word": " tradition",
+              "start": 122.12,
+              "end": 122.54,
+              "probability": 0.998380184173584
+            },
+            {
+              "word": " of",
+              "start": 122.54,
+              "end": 122.78,
+              "probability": 0.9989426732063293
+            },
+            {
+              "word": " the",
+              "start": 122.78,
+              "end": 122.96,
+              "probability": 0.35351064801216125
+            },
+            {
+              "word": " Coast",
+              "start": 122.96,
+              "end": 123.18,
+              "probability": 0.7686198353767395
+            },
+            {
+              "word": " Guard.",
+              "start": 123.18,
+              "end": 123.52,
+              "probability": 0.9949280023574829
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "seek": 11114,
+          "start": 124.88,
+          "end": 130.64,
+          "text": " You get good food, plenty of it, and boy how you stow it away.",
+          "tokens": [
+            50981,
+            921,
+            651,
+            922,
+            2057,
+            11,
+            6088,
+            286,
+            340,
+            11,
+            290,
+            2933,
+            703,
+            345,
+            336,
+            322,
+            340,
+            1497,
+            13,
+            51327
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.1896683188045726,
+          "compression_ratio": 1.6091370558375635,
+          "no_speech_prob": 0.0090250875800848,
+          "words": [
+            {
+              "word": " You",
+              "start": 124.88,
+              "end": 125.78,
+              "probability": 0.9916818737983704
+            },
+            {
+              "word": " get",
+              "start": 125.78,
+              "end": 125.98,
+              "probability": 0.9988059997558594
+            },
+            {
+              "word": " good",
+              "start": 125.98,
+              "end": 126.24,
+              "probability": 0.998747706413269
+            },
+            {
+              "word": " food,",
+              "start": 126.24,
+              "end": 126.68,
+              "probability": 0.9989433884620667
+            },
+            {
+              "word": " plenty",
+              "start": 127.22,
+              "end": 127.48,
+              "probability": 0.9982421398162842
+            },
+            {
+              "word": " of",
+              "start": 127.48,
+              "end": 127.74,
+              "probability": 0.9963233470916748
+            },
+            {
+              "word": " it,",
+              "start": 127.74,
+              "end": 128.18,
+              "probability": 0.991340696811676
+            },
+            {
+              "word": " and",
+              "start": 128.52,
+              "end": 128.84,
+              "probability": 0.9962664246559143
+            },
+            {
+              "word": " boy",
+              "start": 128.84,
+              "end": 129.36,
+              "probability": 0.8620164394378662
+            },
+            {
+              "word": " how",
+              "start": 129.36,
+              "end": 129.64,
+              "probability": 0.5137903094291687
+            },
+            {
+              "word": " you",
+              "start": 129.64,
+              "end": 129.82,
+              "probability": 0.9968228340148926
+            },
+            {
+              "word": " stow",
+              "start": 129.82,
+              "end": 130.22,
+              "probability": 0.9321044087409973
+            },
+            {
+              "word": " it",
+              "start": 130.22,
+              "end": 130.3,
+              "probability": 0.9992401599884033
+            },
+            {
+              "word": " away.",
+              "start": 130.3,
+              "end": 130.64,
+              "probability": 0.9991399049758911
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "seek": 11114,
+          "start": 133.3,
+          "end": 140.86,
+          "text": " In school, you learn the lore of ships and aircraft, the language of the sea,",
+          "tokens": [
+            51327,
+            554,
+            1524,
+            11,
+            345,
+            2193,
+            262,
+            24044,
+            286,
+            7937,
+            290,
+            6215,
+            11,
+            262,
+            3303,
+            286,
+            262,
+            5417,
+            11,
+            51847
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.1896683188045726,
+          "compression_ratio": 1.6091370558375635,
+          "no_speech_prob": 0.0090250875800848,
+          "words": [
+            {
+              "word": " In",
+              "start": 133.3,
+              "end": 135.4,
+              "probability": 0.9136872291564941
+            },
+            {
+              "word": " school,",
+              "start": 135.4,
+              "end": 135.8,
+              "probability": 0.9983386993408203
+            },
+            {
+              "word": " you",
+              "start": 136.44,
+              "end": 136.7,
+              "probability": 0.9987969398498535
+            },
+            {
+              "word": " learn",
+              "start": 136.7,
+              "end": 136.92,
+              "probability": 0.9745033979415894
+            },
+            {
+              "word": " the",
+              "start": 136.92,
+              "end": 137.14,
+              "probability": 0.9980574250221252
+            },
+            {
+              "word": " lore",
+              "start": 137.14,
+              "end": 137.4,
+              "probability": 0.6906071901321411
+            },
+            {
+              "word": " of",
+              "start": 137.4,
+              "end": 137.62,
+              "probability": 0.99680495262146
+            },
+            {
+              "word": " ships",
+              "start": 137.62,
+              "end": 137.94,
+              "probability": 0.9938957095146179
+            },
+            {
+              "word": " and",
+              "start": 137.94,
+              "end": 138.22,
+              "probability": 0.9982182383537292
+            },
+            {
+              "word": " aircraft,",
+              "start": 138.22,
+              "end": 138.7,
+              "probability": 0.9960350394248962
+            },
+            {
+              "word": " the",
+              "start": 139.9,
+              "end": 139.9,
+              "probability": 0.6941446661949158
+            },
+            {
+              "word": " language",
+              "start": 139.9,
+              "end": 140.2,
+              "probability": 0.9990412592887878
+            },
+            {
+              "word": " of",
+              "start": 140.2,
+              "end": 140.44,
+              "probability": 0.9990033507347107
+            },
+            {
+              "word": " the",
+              "start": 140.44,
+              "end": 140.62,
+              "probability": 0.9935221076011658
+            },
+            {
+              "word": " sea,",
+              "start": 140.62,
+              "end": 140.86,
+              "probability": 0.9643214344978333
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "seek": 14086,
+          "start": 142.54,
+          "end": 151.48,
+          "text": " then almost before you know it, you pass in final review, no longer boot a full-fledged Spar.",
+          "tokens": [
+            50403,
+            788,
+            2048,
+            878,
+            345,
+            760,
+            340,
+            11,
+            345,
+            1208,
+            287,
+            2457,
+            2423,
+            11,
+            645,
+            2392,
+            6297,
+            257,
+            1336,
+            12,
+            45223,
+            1338,
+            283,
+            13,
+            50887
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.2139765759731861,
+          "compression_ratio": 1.2755905511811023,
+          "no_speech_prob": 0.00391655508428812,
+          "words": [
+            {
+              "word": " then",
+              "start": 142.54,
+              "end": 143.34,
+              "probability": 0.07091803848743439
+            },
+            {
+              "word": " almost",
+              "start": 143.34,
+              "end": 143.58,
+              "probability": 0.5438035726547241
+            },
+            {
+              "word": " before",
+              "start": 143.58,
+              "end": 144.14,
+              "probability": 0.9933798313140869
+            },
+            {
+              "word": " you",
+              "start": 144.14,
+              "end": 144.32,
+              "probability": 0.9859629273414612
+            },
+            {
+              "word": " know",
+              "start": 144.32,
+              "end": 144.48,
+              "probability": 0.9806535840034485
+            },
+            {
+              "word": " it,",
+              "start": 144.48,
+              "end": 144.82,
+              "probability": 0.9276115298271179
+            },
+            {
+              "word": " you",
+              "start": 145.58,
+              "end": 145.68,
+              "probability": 0.9892075657844543
+            },
+            {
+              "word": " pass",
+              "start": 145.68,
+              "end": 146.06,
+              "probability": 0.9849867224693298
+            },
+            {
+              "word": " in",
+              "start": 146.06,
+              "end": 146.32,
+              "probability": 0.961672842502594
+            },
+            {
+              "word": " final",
+              "start": 146.32,
+              "end": 146.74,
+              "probability": 0.9925673007965088
+            },
+            {
+              "word": " review,",
+              "start": 146.74,
+              "end": 147.18,
+              "probability": 0.98842853307724
+            },
+            {
+              "word": " no",
+              "start": 148.0,
+              "end": 148.22,
+              "probability": 0.9932975172996521
+            },
+            {
+              "word": " longer",
+              "start": 148.22,
+              "end": 148.64,
+              "probability": 0.9976158142089844
+            },
+            {
+              "word": " boot",
+              "start": 148.64,
+              "end": 149.08,
+              "probability": 0.7725225687026978
+            },
+            {
+              "word": " a",
+              "start": 149.08,
+              "end": 149.98,
+              "probability": 0.6708105802536011
+            },
+            {
+              "word": " full",
+              "start": 149.98,
+              "end": 150.5,
+              "probability": 0.9964511394500732
+            },
+            {
+              "word": "-fledged",
+              "start": 150.5,
+              "end": 150.9,
+              "probability": 0.7256065011024475
+            },
+            {
+              "word": " Spar.",
+              "start": 150.9,
+              "end": 151.48,
+              "probability": 0.3838609801023267
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "seek": 14086,
+          "start": 152.7,
+          "end": 161.12,
+          "text": " Now a man can go to sea. You take over his job with the same rating,",
+          "tokens": [
+            50887,
+            2735,
+            257,
+            582,
+            460,
+            467,
+            284,
+            5417,
+            13,
+            921,
+            1011,
+            625,
+            465,
+            1693,
+            351,
+            262,
+            976,
+            7955,
+            11,
+            51369
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.2139765759731861,
+          "compression_ratio": 1.2755905511811023,
+          "no_speech_prob": 0.00391655508428812,
+          "words": [
+            {
+              "word": " Now",
+              "start": 152.7,
+              "end": 153.9,
+              "probability": 0.9616450667381287
+            },
+            {
+              "word": " a",
+              "start": 153.9,
+              "end": 155.0,
+              "probability": 0.4283215403556824
+            },
+            {
+              "word": " man",
+              "start": 155.0,
+              "end": 155.34,
+              "probability": 0.9961150884628296
+            },
+            {
+              "word": " can",
+              "start": 155.34,
+              "end": 155.72,
+              "probability": 0.9985093474388123
+            },
+            {
+              "word": " go",
+              "start": 155.72,
+              "end": 155.98,
+              "probability": 0.9984266757965088
+            },
+            {
+              "word": " to",
+              "start": 155.98,
+              "end": 156.18,
+              "probability": 0.9958710074424744
+            },
+            {
+              "word": " sea.",
+              "start": 156.18,
+              "end": 156.44,
+              "probability": 0.9150035381317139
+            },
+            {
+              "word": " You",
+              "start": 157.56,
+              "end": 157.96,
+              "probability": 0.9947770833969116
+            },
+            {
+              "word": " take",
+              "start": 157.96,
+              "end": 158.32,
+              "probability": 0.9836561679840088
+            },
+            {
+              "word": " over",
+              "start": 158.32,
+              "end": 158.62,
+              "probability": 0.998570442199707
+            },
+            {
+              "word": " his",
+              "start": 158.62,
+              "end": 158.92,
+              "probability": 0.9986811280250549
+            },
+            {
+              "word": " job",
+              "start": 158.92,
+              "end": 159.32,
+              "probability": 0.9981479644775391
+            },
+            {
+              "word": " with",
+              "start": 159.32,
+              "end": 160.26,
+              "probability": 0.9703539609909058
+            },
+            {
+              "word": " the",
+              "start": 160.26,
+              "end": 160.42,
+              "probability": 0.9981707334518433
+            },
+            {
+              "word": " same",
+              "start": 160.42,
+              "end": 160.76,
+              "probability": 0.9995219707489014
+            },
+            {
+              "word": " rating,",
+              "start": 160.76,
+              "end": 161.12,
+              "probability": 0.7797667384147644
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "seek": 16112,
+          "start": 161.54,
+          "end": 171.76,
+          "text": " same pay, the same privileges, and the same responsibilities. These are the jobs which must",
+          "tokens": [
+            50363,
+            976,
+            1414,
+            11,
+            262,
+            976,
+            18850,
+            11,
+            290,
+            262,
+            976,
+            15171,
+            13,
+            2312,
+            389,
+            262,
+            3946,
+            543,
+            1276,
+            50897
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16001721790858678,
+          "compression_ratio": 1.5359116022099448,
+          "no_speech_prob": 0.042893338948488235,
+          "words": [
+            {
+              "word": " same",
+              "start": 161.54,
+              "end": 162.18,
+              "probability": 0.09502150863409042
+            },
+            {
+              "word": " pay,",
+              "start": 162.18,
+              "end": 162.58,
+              "probability": 0.5249477028846741
+            },
+            {
+              "word": " the",
+              "start": 163.28,
+              "end": 163.48,
+              "probability": 0.8642461895942688
+            },
+            {
+              "word": " same",
+              "start": 163.48,
+              "end": 163.9,
+              "probability": 0.998964786529541
+            },
+            {
+              "word": " privileges,",
+              "start": 163.9,
+              "end": 164.44,
+              "probability": 0.9967458248138428
+            },
+            {
+              "word": " and",
+              "start": 164.66,
+              "end": 165.16,
+              "probability": 0.9949951171875
+            },
+            {
+              "word": " the",
+              "start": 165.16,
+              "end": 165.98,
+              "probability": 0.9820039868354797
+            },
+            {
+              "word": " same",
+              "start": 165.98,
+              "end": 166.5,
+              "probability": 0.9994919300079346
+            },
+            {
+              "word": " responsibilities.",
+              "start": 166.5,
+              "end": 167.4,
+              "probability": 0.9627098441123962
+            },
+            {
+              "word": " These",
+              "start": 169.46,
+              "end": 170.52,
+              "probability": 0.9775986671447754
+            },
+            {
+              "word": " are",
+              "start": 170.52,
+              "end": 170.72,
+              "probability": 0.9752139449119568
+            },
+            {
+              "word": " the",
+              "start": 170.72,
+              "end": 170.88,
+              "probability": 0.9932140111923218
+            },
+            {
+              "word": " jobs",
+              "start": 170.88,
+              "end": 171.16,
+              "probability": 0.9969814419746399
+            },
+            {
+              "word": " which",
+              "start": 171.16,
+              "end": 171.44,
+              "probability": 0.9631118774414062
+            },
+            {
+              "word": " must",
+              "start": 171.44,
+              "end": 171.76,
+              "probability": 0.9989835619926453
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "seek": 16112,
+          "start": 171.76,
+          "end": 180.18,
+          "text": " be done by Sparrs. Movement of ships and men entrusted to paper is also entrusted to you.",
+          "tokens": [
+            50897,
+            307,
+            1760,
+            416,
+            1338,
+            283,
+            3808,
+            13,
+            15477,
+            286,
+            7937,
+            290,
+            1450,
+            37984,
+            284,
+            3348,
+            318,
+            635,
+            37984,
+            284,
+            345,
+            13,
+            51313
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16001721790858678,
+          "compression_ratio": 1.5359116022099448,
+          "no_speech_prob": 0.042893338948488235,
+          "words": [
+            {
+              "word": " be",
+              "start": 171.76,
+              "end": 172.08,
+              "probability": 0.9992532134056091
+            },
+            {
+              "word": " done",
+              "start": 172.08,
+              "end": 172.28,
+              "probability": 0.9997027516365051
+            },
+            {
+              "word": " by",
+              "start": 172.28,
+              "end": 172.6,
+              "probability": 0.9982624650001526
+            },
+            {
+              "word": " Sparrs.",
+              "start": 172.6,
+              "end": 173.42,
+              "probability": 0.23653403529897332
+            },
+            {
+              "word": " Movement",
+              "start": 174.58,
+              "end": 174.94,
+              "probability": 0.9632184505462646
+            },
+            {
+              "word": " of",
+              "start": 174.94,
+              "end": 175.16,
+              "probability": 0.999082088470459
+            },
+            {
+              "word": " ships",
+              "start": 175.16,
+              "end": 175.44,
+              "probability": 0.9818496108055115
+            },
+            {
+              "word": " and",
+              "start": 175.44,
+              "end": 175.68,
+              "probability": 0.9878630638122559
+            },
+            {
+              "word": " men",
+              "start": 175.68,
+              "end": 176.04,
+              "probability": 0.9964776635169983
+            },
+            {
+              "word": " entrusted",
+              "start": 176.04,
+              "end": 176.8,
+              "probability": 0.7519323825836182
+            },
+            {
+              "word": " to",
+              "start": 176.8,
+              "end": 177.1,
+              "probability": 0.9991242289543152
+            },
+            {
+              "word": " paper",
+              "start": 177.1,
+              "end": 177.5,
+              "probability": 0.9731552600860596
+            },
+            {
+              "word": " is",
+              "start": 177.5,
+              "end": 178.48,
+              "probability": 0.9454022645950317
+            },
+            {
+              "word": " also",
+              "start": 178.48,
+              "end": 179.06,
+              "probability": 0.9994910955429077
+            },
+            {
+              "word": " entrusted",
+              "start": 179.06,
+              "end": 179.56,
+              "probability": 0.9970535039901733
+            },
+            {
+              "word": " to",
+              "start": 179.56,
+              "end": 179.92,
+              "probability": 0.9994365572929382
+            },
+            {
+              "word": " you.",
+              "start": 179.92,
+              "end": 180.18,
+              "probability": 0.9945796728134155
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "seek": 16112,
+          "start": 181.86,
+          "end": 189.3,
+          "text": " There are many jobs the Coast Guard needs you for. Each one helps to win this war. And then too,",
+          "tokens": [
+            51313,
+            1318,
+            389,
+            867,
+            3946,
+            262,
+            8545,
+            4932,
+            2476,
+            345,
+            329,
+            13,
+            5501,
+            530,
+            5419,
+            284,
+            1592,
+            428,
+            1175,
+            13,
+            843,
+            788,
+            1165,
+            11,
+            51771
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.16001721790858678,
+          "compression_ratio": 1.5359116022099448,
+          "no_speech_prob": 0.042893338948488235,
+          "words": [
+            {
+              "word": " There",
+              "start": 181.86,
+              "end": 182.48,
+              "probability": 0.9909027218818665
+            },
+            {
+              "word": " are",
+              "start": 182.48,
+              "end": 182.6,
+              "probability": 0.9970331192016602
+            },
+            {
+              "word": " many",
+              "start": 182.6,
+              "end": 182.84,
+              "probability": 0.999114453792572
+            },
+            {
+              "word": " jobs",
+              "start": 182.84,
+              "end": 183.2,
+              "probability": 0.9972996115684509
+            },
+            {
+              "word": " the",
+              "start": 183.2,
+              "end": 183.56,
+              "probability": 0.9490602612495422
+            },
+            {
+              "word": " Coast",
+              "start": 183.56,
+              "end": 183.78,
+              "probability": 0.9108787775039673
+            },
+            {
+              "word": " Guard",
+              "start": 183.78,
+              "end": 184.0,
+              "probability": 0.9950224161148071
+            },
+            {
+              "word": " needs",
+              "start": 184.0,
+              "end": 184.26,
+              "probability": 0.9741088151931763
+            },
+            {
+              "word": " you",
+              "start": 184.26,
+              "end": 184.46,
+              "probability": 0.9987087249755859
+            },
+            {
+              "word": " for.",
+              "start": 184.46,
+              "end": 184.74,
+              "probability": 0.9980131387710571
+            },
+            {
+              "word": " Each",
+              "start": 185.54,
+              "end": 185.78,
+              "probability": 0.9982869029045105
+            },
+            {
+              "word": " one",
+              "start": 185.78,
+              "end": 186.08,
+              "probability": 0.9986830353736877
+            },
+            {
+              "word": " helps",
+              "start": 186.08,
+              "end": 186.36,
+              "probability": 0.9968709349632263
+            },
+            {
+              "word": " to",
+              "start": 186.36,
+              "end": 186.6,
+              "probability": 0.9966629147529602
+            },
+            {
+              "word": " win",
+              "start": 186.6,
+              "end": 186.74,
+              "probability": 0.9994124174118042
+            },
+            {
+              "word": " this",
+              "start": 186.74,
+              "end": 186.96,
+              "probability": 0.9938716888427734
+            },
+            {
+              "word": " war.",
+              "start": 186.96,
+              "end": 187.3,
+              "probability": 0.9906678795814514
+            },
+            {
+              "word": " And",
+              "start": 188.72,
+              "end": 188.88,
+              "probability": 0.8733810782432556
+            },
+            {
+              "word": " then",
+              "start": 188.88,
+              "end": 189.02,
+              "probability": 0.959097683429718
+            },
+            {
+              "word": " too,",
+              "start": 189.02,
+              "end": 189.3,
+              "probability": 0.447624146938324
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "seek": 18930,
+          "start": 189.3,
+          "end": 196.12,
+          "text": " the skills learned today will mean better jobs tomorrow. You won't get to be an admiral,",
+          "tokens": [
+            50363,
+            262,
+            4678,
+            4499,
+            1909,
+            481,
+            1612,
+            1365,
+            3946,
+            9439,
+            13,
+            921,
+            1839,
+            470,
+            651,
+            284,
+            307,
+            281,
+            6178,
+            21093,
+            11,
+            50703
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.15479950166084397,
+          "compression_ratio": 1.5085714285714287,
+          "no_speech_prob": 0.005627318285405636,
+          "words": [
+            {
+              "word": " the",
+              "start": 189.3,
+              "end": 189.46,
+              "probability": 0.26784881949424744
+            },
+            {
+              "word": " skills",
+              "start": 189.46,
+              "end": 189.8,
+              "probability": 0.9866798520088196
+            },
+            {
+              "word": " learned",
+              "start": 189.8,
+              "end": 190.18,
+              "probability": 0.9551205635070801
+            },
+            {
+              "word": " today",
+              "start": 190.18,
+              "end": 190.7,
+              "probability": 0.998275876045227
+            },
+            {
+              "word": " will",
+              "start": 190.7,
+              "end": 191.6,
+              "probability": 0.9218193888664246
+            },
+            {
+              "word": " mean",
+              "start": 191.6,
+              "end": 191.8,
+              "probability": 0.9985858201980591
+            },
+            {
+              "word": " better",
+              "start": 191.8,
+              "end": 192.08,
+              "probability": 0.9973775148391724
+            },
+            {
+              "word": " jobs",
+              "start": 192.08,
+              "end": 192.5,
+              "probability": 0.9967723488807678
+            },
+            {
+              "word": " tomorrow.",
+              "start": 192.5,
+              "end": 192.9,
+              "probability": 0.9966141581535339
+            },
+            {
+              "word": " You",
+              "start": 194.74,
+              "end": 195.0,
+              "probability": 0.9828993082046509
+            },
+            {
+              "word": " won't",
+              "start": 195.0,
+              "end": 195.26,
+              "probability": 0.9938640892505646
+            },
+            {
+              "word": " get",
+              "start": 195.26,
+              "end": 195.4,
+              "probability": 0.9981539845466614
+            },
+            {
+              "word": " to",
+              "start": 195.4,
+              "end": 195.52,
+              "probability": 0.9988976716995239
+            },
+            {
+              "word": " be",
+              "start": 195.52,
+              "end": 195.64,
+              "probability": 0.998695433139801
+            },
+            {
+              "word": " an",
+              "start": 195.64,
+              "end": 195.86,
+              "probability": 0.9843193888664246
+            },
+            {
+              "word": " admiral,",
+              "start": 195.86,
+              "end": 196.12,
+              "probability": 0.8562007546424866
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "seek": 18930,
+          "start": 196.94,
+          "end": 206.18,
+          "text": " but you may be the admiral secretary. If you are a laboratory technician, dental hygienist,",
+          "tokens": [
+            50703,
+            475,
+            345,
+            743,
+            307,
+            262,
+            6178,
+            21093,
+            7705,
+            13,
+            1002,
+            345,
+            389,
+            257,
+            14010,
+            33024,
+            11,
+            22727,
+            2537,
+            70,
+            2013,
+            396,
+            11,
+            51205
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.15479950166084397,
+          "compression_ratio": 1.5085714285714287,
+          "no_speech_prob": 0.005627318285405636,
+          "words": [
+            {
+              "word": " but",
+              "start": 196.94,
+              "end": 197.26,
+              "probability": 0.9982498288154602
+            },
+            {
+              "word": " you",
+              "start": 197.26,
+              "end": 197.44,
+              "probability": 0.9988904595375061
+            },
+            {
+              "word": " may",
+              "start": 197.44,
+              "end": 197.76,
+              "probability": 0.9837983846664429
+            },
+            {
+              "word": " be",
+              "start": 197.76,
+              "end": 198.06,
+              "probability": 0.998075008392334
+            },
+            {
+              "word": " the",
+              "start": 198.06,
+              "end": 198.26,
+              "probability": 0.9965909719467163
+            },
+            {
+              "word": " admiral",
+              "start": 198.26,
+              "end": 198.6,
+              "probability": 0.892853319644928
+            },
+            {
+              "word": " secretary.",
+              "start": 198.6,
+              "end": 199.22,
+              "probability": 0.39620906114578247
+            },
+            {
+              "word": " If",
+              "start": 201.5,
+              "end": 203.26,
+              "probability": 0.9567325711250305
+            },
+            {
+              "word": " you",
+              "start": 203.26,
+              "end": 203.44,
+              "probability": 0.9995580315589905
+            },
+            {
+              "word": " are",
+              "start": 203.44,
+              "end": 203.58,
+              "probability": 0.510739803314209
+            },
+            {
+              "word": " a",
+              "start": 203.58,
+              "end": 203.74,
+              "probability": 0.9960892200469971
+            },
+            {
+              "word": " laboratory",
+              "start": 203.74,
+              "end": 204.1,
+              "probability": 0.9994800686836243
+            },
+            {
+              "word": " technician,",
+              "start": 204.1,
+              "end": 204.74,
+              "probability": 0.9981604218482971
+            },
+            {
+              "word": " dental",
+              "start": 205.28,
+              "end": 205.54,
+              "probability": 0.8675158619880676
+            },
+            {
+              "word": " hygienist,",
+              "start": 205.54,
+              "end": 206.18,
+              "probability": 0.9885455220937729
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "seek": 18930,
+          "start": 206.8,
+          "end": 213.8,
+          "text": " a dietician, an engineer or a draftsman, the Spars need your knowledge, your skill.",
+          "tokens": [
+            51205,
+            257,
+            5496,
+            6749,
+            11,
+            281,
+            11949,
+            393,
+            257,
+            30247,
+            805,
+            11,
+            262,
+            1338,
+            945,
+            761,
+            534,
+            3725,
+            11,
+            534,
+            5032,
+            13,
+            51589
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.15479950166084397,
+          "compression_ratio": 1.5085714285714287,
+          "no_speech_prob": 0.005627318285405636,
+          "words": [
+            {
+              "word": " a",
+              "start": 206.8,
+              "end": 206.88,
+              "probability": 0.9491870999336243
+            },
+            {
+              "word": " dietician,",
+              "start": 206.88,
+              "end": 207.46,
+              "probability": 0.815053254365921
+            },
+            {
+              "word": " an",
+              "start": 208.2,
+              "end": 208.36,
+              "probability": 0.9809578657150269
+            },
+            {
+              "word": " engineer",
+              "start": 208.36,
+              "end": 208.68,
+              "probability": 0.9993595480918884
+            },
+            {
+              "word": " or",
+              "start": 208.68,
+              "end": 209.02,
+              "probability": 0.7366307377815247
+            },
+            {
+              "word": " a",
+              "start": 209.02,
+              "end": 209.18,
+              "probability": 0.9842168092727661
+            },
+            {
+              "word": " draftsman,",
+              "start": 209.18,
+              "end": 209.68,
+              "probability": 0.9802747964859009
+            },
+            {
+              "word": " the",
+              "start": 210.42,
+              "end": 210.6,
+              "probability": 0.9933335185050964
+            },
+            {
+              "word": " Spars",
+              "start": 210.6,
+              "end": 211.0,
+              "probability": 0.30317947268486023
+            },
+            {
+              "word": " need",
+              "start": 211.0,
+              "end": 211.44,
+              "probability": 0.991356372833252
+            },
+            {
+              "word": " your",
+              "start": 211.44,
+              "end": 211.7,
+              "probability": 0.9959586262702942
+            },
+            {
+              "word": " knowledge,",
+              "start": 211.7,
+              "end": 212.08,
+              "probability": 0.9986989498138428
+            },
+            {
+              "word": " your",
+              "start": 212.92,
+              "end": 213.36,
+              "probability": 0.9933314919471741
+            },
+            {
+              "word": " skill.",
+              "start": 213.36,
+              "end": 213.8,
+              "probability": 0.8027344346046448
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "seek": 21380,
+          "start": 214.3,
+          "end": 218.0,
+          "text": " This chemistry major found her birth all right.",
+          "tokens": [
+            50389,
+            770,
+            16585,
+            1688,
+            1043,
+            607,
+            4082,
+            477,
+            826,
+            13,
+            50531
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.3013387135096959,
+          "compression_ratio": 1.188118811881188,
+          "no_speech_prob": 0.009148743934929371,
+          "words": [
+            {
+              "word": " This",
+              "start": 214.3,
+              "end": 214.94,
+              "probability": 0.5966783761978149
+            },
+            {
+              "word": " chemistry",
+              "start": 214.94,
+              "end": 215.32,
+              "probability": 0.9812458753585815
+            },
+            {
+              "word": " major",
+              "start": 215.32,
+              "end": 215.72,
+              "probability": 0.9949380159378052
+            },
+            {
+              "word": " found",
+              "start": 215.72,
+              "end": 216.1,
+              "probability": 0.9954309463500977
+            },
+            {
+              "word": " her",
+              "start": 216.1,
+              "end": 216.4,
+              "probability": 0.9610563516616821
+            },
+            {
+              "word": " birth",
+              "start": 216.4,
+              "end": 216.72,
+              "probability": 0.917270839214325
+            },
+            {
+              "word": " all",
+              "start": 216.72,
+              "end": 216.92,
+              "probability": 0.5600464344024658
+            },
+            {
+              "word": " right.",
+              "start": 216.92,
+              "end": 218.0,
+              "probability": 0.9979321956634521
+            }
+          ]
+        },
+        {
+          "id": 25,
+          "seek": 21380,
+          "start": 229.28,
+          "end": 235.08,
+          "text": " Here too, a Spar takes over, and one more pharmacist mate can go to sea.",
+          "tokens": [
+            51119,
+            3423,
+            1165,
+            11,
+            257,
+            1338,
+            283,
+            2753,
+            625,
+            11,
+            290,
+            530,
+            517,
+            10113,
+            20279,
+            16133,
+            460,
+            467,
+            284,
+            5417,
+            13,
+            51425
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.3013387135096959,
+          "compression_ratio": 1.188118811881188,
+          "no_speech_prob": 0.009148743934929371,
+          "words": [
+            {
+              "word": " Here",
+              "start": 229.28,
+              "end": 229.58,
+              "probability": 0.6967174410820007
+            },
+            {
+              "word": " too,",
+              "start": 229.58,
+              "end": 229.98,
+              "probability": 0.7098456621170044
+            },
+            {
+              "word": " a",
+              "start": 230.26,
+              "end": 230.44,
+              "probability": 0.9555754661560059
+            },
+            {
+              "word": " Spar",
+              "start": 230.44,
+              "end": 230.6,
+              "probability": 0.3205838846042752
+            },
+            {
+              "word": " takes",
+              "start": 230.6,
+              "end": 230.9,
+              "probability": 0.9914577603340149
+            },
+            {
+              "word": " over,",
+              "start": 230.9,
+              "end": 231.3,
+              "probability": 0.9922296404838562
+            },
+            {
+              "word": " and",
+              "start": 232.1,
+              "end": 232.32,
+              "probability": 0.9960607886314392
+            },
+            {
+              "word": " one",
+              "start": 232.32,
+              "end": 232.6,
+              "probability": 0.9979785084724426
+            },
+            {
+              "word": " more",
+              "start": 232.6,
+              "end": 232.9,
+              "probability": 0.9989283680915833
+            },
+            {
+              "word": " pharmacist",
+              "start": 232.9,
+              "end": 233.44,
+              "probability": 0.9874309003353119
+            },
+            {
+              "word": " mate",
+              "start": 233.44,
+              "end": 233.84,
+              "probability": 0.8763933777809143
+            },
+            {
+              "word": " can",
+              "start": 233.84,
+              "end": 234.48,
+              "probability": 0.981088399887085
+            },
+            {
+              "word": " go",
+              "start": 234.48,
+              "end": 234.7,
+              "probability": 0.9981421232223511
+            },
+            {
+              "word": " to",
+              "start": 234.7,
+              "end": 234.88,
+              "probability": 0.9952167272567749
+            },
+            {
+              "word": " sea.",
+              "start": 234.88,
+              "end": 235.08,
+              "probability": 0.29300084710121155
+            }
+          ]
+        },
+        {
+          "id": 26,
+          "seek": 23508,
+          "start": 240.28,
+          "end": 247.3,
+          "text": " You may be assigned a duty at one of many busy ports or stations. It may be Boston or New York,",
+          "tokens": [
+            50363,
+            921,
+            743,
+            307,
+            8686,
+            257,
+            7077,
+            379,
+            530,
+            286,
+            867,
+            8179,
+            14090,
+            393,
+            8985,
+            13,
+            632,
+            743,
+            307,
+            6182,
+            393,
+            968,
+            1971,
+            11,
+            50971
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.1788689836542657,
+          "compression_ratio": 1.3197278911564625,
+          "no_speech_prob": 0.005407232325524092,
+          "words": [
+            {
+              "word": " You",
+              "start": 240.28,
+              "end": 240.98,
+              "probability": 0.5903920531272888
+            },
+            {
+              "word": " may",
+              "start": 240.98,
+              "end": 241.14,
+              "probability": 0.9937454462051392
+            },
+            {
+              "word": " be",
+              "start": 241.14,
+              "end": 241.28,
+              "probability": 0.9983311295509338
+            },
+            {
+              "word": " assigned",
+              "start": 241.28,
+              "end": 241.62,
+              "probability": 0.9990845918655396
+            },
+            {
+              "word": " a",
+              "start": 241.62,
+              "end": 241.78,
+              "probability": 0.4130338132381439
+            },
+            {
+              "word": " duty",
+              "start": 241.78,
+              "end": 241.96,
+              "probability": 0.9954883456230164
+            },
+            {
+              "word": " at",
+              "start": 241.96,
+              "end": 242.14,
+              "probability": 0.9899752736091614
+            },
+            {
+              "word": " one",
+              "start": 242.14,
+              "end": 242.3,
+              "probability": 0.9972232580184937
+            },
+            {
+              "word": " of",
+              "start": 242.3,
+              "end": 242.42,
+              "probability": 0.9977625608444214
+            },
+            {
+              "word": " many",
+              "start": 242.42,
+              "end": 242.68,
+              "probability": 0.9875834584236145
+            },
+            {
+              "word": " busy",
+              "start": 242.68,
+              "end": 243.0,
+              "probability": 0.9933611154556274
+            },
+            {
+              "word": " ports",
+              "start": 243.0,
+              "end": 243.34,
+              "probability": 0.9947152733802795
+            },
+            {
+              "word": " or",
+              "start": 243.34,
+              "end": 243.58,
+              "probability": 0.9776809215545654
+            },
+            {
+              "word": " stations.",
+              "start": 243.58,
+              "end": 244.0,
+              "probability": 0.909797728061676
+            },
+            {
+              "word": " It",
+              "start": 245.22,
+              "end": 245.38,
+              "probability": 0.9912364482879639
+            },
+            {
+              "word": " may",
+              "start": 245.38,
+              "end": 245.6,
+              "probability": 0.9919071197509766
+            },
+            {
+              "word": " be",
+              "start": 245.6,
+              "end": 245.8,
+              "probability": 0.9982956051826477
+            },
+            {
+              "word": " Boston",
+              "start": 245.8,
+              "end": 246.26,
+              "probability": 0.9988000392913818
+            },
+            {
+              "word": " or",
+              "start": 246.26,
+              "end": 246.76,
+              "probability": 0.7280300259590149
+            },
+            {
+              "word": " New",
+              "start": 246.76,
+              "end": 246.94,
+              "probability": 0.999154806137085
+            },
+            {
+              "word": " York,",
+              "start": 246.94,
+              "end": 247.3,
+              "probability": 0.9989662170410156
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "seek": 23508,
+          "start": 248.22,
+          "end": 257.7,
+          "text": " Miami or New Orleans, San Francisco or Seattle, or even at Coast Guard headquarters in Washington.",
+          "tokens": [
+            50971,
+            8437,
+            393,
+            968,
+            12255,
+            11,
+            2986,
+            6033,
+            393,
+            7312,
+            11,
+            393,
+            772,
+            379,
+            8545,
+            4932,
+            10043,
+            287,
+            2669,
+            13,
+            51501
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.1788689836542657,
+          "compression_ratio": 1.3197278911564625,
+          "no_speech_prob": 0.005407232325524092,
+          "words": [
+            {
+              "word": " Miami",
+              "start": 248.22,
+              "end": 248.66,
+              "probability": 0.9983634352684021
+            },
+            {
+              "word": " or",
+              "start": 248.66,
+              "end": 249.32,
+              "probability": 0.961742103099823
+            },
+            {
+              "word": " New",
+              "start": 249.32,
+              "end": 249.52,
+              "probability": 0.9993618130683899
+            },
+            {
+              "word": " Orleans,",
+              "start": 249.52,
+              "end": 249.9,
+              "probability": 0.9996955394744873
+            },
+            {
+              "word": " San",
+              "start": 252.04,
+              "end": 252.34,
+              "probability": 0.9977207779884338
+            },
+            {
+              "word": " Francisco",
+              "start": 252.34,
+              "end": 252.8,
+              "probability": 0.992241621017456
+            },
+            {
+              "word": " or",
+              "start": 252.8,
+              "end": 253.26,
+              "probability": 0.9949029684066772
+            },
+            {
+              "word": " Seattle,",
+              "start": 253.26,
+              "end": 253.7,
+              "probability": 0.9758888483047485
+            },
+            {
+              "word": " or",
+              "start": 254.72,
+              "end": 255.06,
+              "probability": 0.9977291226387024
+            },
+            {
+              "word": " even",
+              "start": 255.06,
+              "end": 255.46,
+              "probability": 0.9990986585617065
+            },
+            {
+              "word": " at",
+              "start": 255.46,
+              "end": 255.78,
+              "probability": 0.9881662130355835
+            },
+            {
+              "word": " Coast",
+              "start": 255.78,
+              "end": 256.16,
+              "probability": 0.9325894713401794
+            },
+            {
+              "word": " Guard",
+              "start": 256.16,
+              "end": 256.46,
+              "probability": 0.9905114769935608
+            },
+            {
+              "word": " headquarters",
+              "start": 256.46,
+              "end": 256.92,
+              "probability": 0.7942326068878174
+            },
+            {
+              "word": " in",
+              "start": 256.92,
+              "end": 257.28,
+              "probability": 0.9986456036567688
+            },
+            {
+              "word": " Washington.",
+              "start": 257.28,
+              "end": 257.7,
+              "probability": 0.9994608759880066
+            }
+          ]
+        },
+        {
+          "id": 28,
+          "seek": 26508,
+          "start": 270.0,
+          "end": 276.66,
+          "text": " As men go to battle, Spars take increasingly important assignments. Radio technicians are",
+          "tokens": [
+            50363,
+            1081,
+            1450,
+            467,
+            284,
+            3344,
+            11,
+            1338,
+            945,
+            1011,
+            6481,
+            1593,
+            25815,
+            13,
+            8829,
+            33519,
+            389,
+            50943
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.10706397258874142,
+          "compression_ratio": 1.4540816326530612,
+          "no_speech_prob": 0.0042898873798549175,
+          "words": [
+            {
+              "word": " As",
+              "start": 270.0,
+              "end": 270.52,
+              "probability": 0.8957511186599731
+            },
+            {
+              "word": " men",
+              "start": 270.52,
+              "end": 270.76,
+              "probability": 0.9978265166282654
+            },
+            {
+              "word": " go",
+              "start": 270.76,
+              "end": 271.0,
+              "probability": 0.9954918026924133
+            },
+            {
+              "word": " to",
+              "start": 271.0,
+              "end": 271.14,
+              "probability": 0.9963709115982056
+            },
+            {
+              "word": " battle,",
+              "start": 271.14,
+              "end": 271.44,
+              "probability": 0.9848403334617615
+            },
+            {
+              "word": " Spars",
+              "start": 271.96,
+              "end": 272.06,
+              "probability": 0.16971587762236595
+            },
+            {
+              "word": " take",
+              "start": 272.06,
+              "end": 272.4,
+              "probability": 0.9860783815383911
+            },
+            {
+              "word": " increasingly",
+              "start": 272.4,
+              "end": 272.98,
+              "probability": 0.9776445627212524
+            },
+            {
+              "word": " important",
+              "start": 272.98,
+              "end": 273.52,
+              "probability": 0.9983564019203186
+            },
+            {
+              "word": " assignments.",
+              "start": 273.52,
+              "end": 273.98,
+              "probability": 0.9890062808990479
+            },
+            {
+              "word": " Radio",
+              "start": 275.7,
+              "end": 275.84,
+              "probability": 0.9056299924850464
+            },
+            {
+              "word": " technicians",
+              "start": 275.84,
+              "end": 276.34,
+              "probability": 0.9807703495025635
+            },
+            {
+              "word": " are",
+              "start": 276.34,
+              "end": 276.66,
+              "probability": 0.9981703758239746
+            }
+          ]
+        },
+        {
+          "id": 29,
+          "seek": 26508,
+          "start": 276.66,
+          "end": 282.4,
+          "text": " being trained to maintain the Coast Guard's contact between ship and shore. If you want to hear",
+          "tokens": [
+            50943,
+            852,
+            8776,
+            284,
+            5529,
+            262,
+            8545,
+            4932,
+            338,
+            2800,
+            1022,
+            4074,
+            290,
+            15191,
+            13,
+            1002,
+            345,
+            765,
+            284,
+            3285,
+            51231
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.10706397258874142,
+          "compression_ratio": 1.4540816326530612,
+          "no_speech_prob": 0.0042898873798549175,
+          "words": [
+            {
+              "word": " being",
+              "start": 276.66,
+              "end": 276.84,
+              "probability": 0.9943295121192932
+            },
+            {
+              "word": " trained",
+              "start": 276.84,
+              "end": 277.2,
+              "probability": 0.9980037808418274
+            },
+            {
+              "word": " to",
+              "start": 277.2,
+              "end": 277.36,
+              "probability": 0.9946920275688171
+            },
+            {
+              "word": " maintain",
+              "start": 277.36,
+              "end": 277.7,
+              "probability": 0.9967483282089233
+            },
+            {
+              "word": " the",
+              "start": 277.7,
+              "end": 277.96,
+              "probability": 0.955531895160675
+            },
+            {
+              "word": " Coast",
+              "start": 277.96,
+              "end": 278.14,
+              "probability": 0.6174960136413574
+            },
+            {
+              "word": " Guard's",
+              "start": 278.14,
+              "end": 278.54,
+              "probability": 0.9818812310695648
+            },
+            {
+              "word": " contact",
+              "start": 278.54,
+              "end": 279.0,
+              "probability": 0.9702498912811279
+            },
+            {
+              "word": " between",
+              "start": 279.0,
+              "end": 279.36,
+              "probability": 0.9986788630485535
+            },
+            {
+              "word": " ship",
+              "start": 279.36,
+              "end": 279.64,
+              "probability": 0.9853814840316772
+            },
+            {
+              "word": " and",
+              "start": 279.64,
+              "end": 279.88,
+              "probability": 0.9965290427207947
+            },
+            {
+              "word": " shore.",
+              "start": 279.88,
+              "end": 280.14,
+              "probability": 0.998542308807373
+            },
+            {
+              "word": " If",
+              "start": 281.54,
+              "end": 281.78,
+              "probability": 0.9947157502174377
+            },
+            {
+              "word": " you",
+              "start": 281.78,
+              "end": 281.96,
+              "probability": 0.9993937015533447
+            },
+            {
+              "word": " want",
+              "start": 281.96,
+              "end": 282.14,
+              "probability": 0.9670947790145874
+            },
+            {
+              "word": " to",
+              "start": 282.14,
+              "end": 282.26,
+              "probability": 0.9983367919921875
+            },
+            {
+              "word": " hear",
+              "start": 282.26,
+              "end": 282.4,
+              "probability": 0.9941907525062561
+            }
+          ]
+        },
+        {
+          "id": 30,
+          "seek": 26508,
+          "start": 282.4,
+          "end": 292.74,
+          "text": " history in the making, you couldn't pick a better spot. Out of this room go the commands to the men",
+          "tokens": [
+            51231,
+            2106,
+            287,
+            262,
+            1642,
+            11,
+            345,
+            3521,
+            470,
+            2298,
+            257,
+            1365,
+            4136,
+            13,
+            3806,
+            286,
+            428,
+            2119,
+            467,
+            262,
+            9729,
+            284,
+            262,
+            1450,
+            51749
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.10706397258874142,
+          "compression_ratio": 1.4540816326530612,
+          "no_speech_prob": 0.0042898873798549175,
+          "words": [
+            {
+              "word": " history",
+              "start": 282.4,
+              "end": 282.74,
+              "probability": 0.9961029291152954
+            },
+            {
+              "word": " in",
+              "start": 282.74,
+              "end": 283.02,
+              "probability": 0.9965676069259644
+            },
+            {
+              "word": " the",
+              "start": 283.02,
+              "end": 283.12,
+              "probability": 0.9984413981437683
+            },
+            {
+              "word": " making,",
+              "start": 283.12,
+              "end": 283.4,
+              "probability": 0.9983629584312439
+            },
+            {
+              "word": " you",
+              "start": 284.06,
+              "end": 284.32,
+              "probability": 0.996874213218689
+            },
+            {
+              "word": " couldn't",
+              "start": 284.32,
+              "end": 284.76,
+              "probability": 0.995018482208252
+            },
+            {
+              "word": " pick",
+              "start": 284.76,
+              "end": 285.02,
+              "probability": 0.9929265379905701
+            },
+            {
+              "word": " a",
+              "start": 285.02,
+              "end": 285.26,
+              "probability": 0.9399550557136536
+            },
+            {
+              "word": " better",
+              "start": 285.26,
+              "end": 285.5,
+              "probability": 0.9998118281364441
+            },
+            {
+              "word": " spot.",
+              "start": 285.5,
+              "end": 285.82,
+              "probability": 0.9987699389457703
+            },
+            {
+              "word": " Out",
+              "start": 288.74,
+              "end": 290.94,
+              "probability": 0.9793292284011841
+            },
+            {
+              "word": " of",
+              "start": 290.94,
+              "end": 291.06,
+              "probability": 0.9978391528129578
+            },
+            {
+              "word": " this",
+              "start": 291.06,
+              "end": 291.26,
+              "probability": 0.9991951584815979
+            },
+            {
+              "word": " room",
+              "start": 291.26,
+              "end": 291.58,
+              "probability": 0.9986781477928162
+            },
+            {
+              "word": " go",
+              "start": 291.58,
+              "end": 291.82,
+              "probability": 0.8904426097869873
+            },
+            {
+              "word": " the",
+              "start": 291.82,
+              "end": 291.96,
+              "probability": 0.9916093945503235
+            },
+            {
+              "word": " commands",
+              "start": 291.96,
+              "end": 292.28,
+              "probability": 0.9820575714111328
+            },
+            {
+              "word": " to",
+              "start": 292.28,
+              "end": 292.54,
+              "probability": 0.9915298223495483
+            },
+            {
+              "word": " the",
+              "start": 292.54,
+              "end": 292.64,
+              "probability": 0.9962314963340759
+            },
+            {
+              "word": " men",
+              "start": 292.64,
+              "end": 292.74,
+              "probability": 0.9876201748847961
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "seek": 29274,
+          "start": 292.74,
+          "end": 297.82,
+          "text": " on the ships, to the men on the planes, who carry out the missions which help defeat our enemies.",
+          "tokens": [
+            50363,
+            319,
+            262,
+            7937,
+            11,
+            284,
+            262,
+            1450,
+            319,
+            262,
+            13016,
+            11,
+            508,
+            3283,
+            503,
+            262,
+            10566,
+            543,
+            1037,
+            7433,
+            674,
+            5775,
+            13,
+            50615
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.14619889466658884,
+          "compression_ratio": 1.7058823529411764,
+          "no_speech_prob": 0.020639019086956978,
+          "words": [
+            {
+              "word": " on",
+              "start": 292.74,
+              "end": 292.82,
+              "probability": 0.2643727660179138
+            },
+            {
+              "word": " the",
+              "start": 292.82,
+              "end": 293.02,
+              "probability": 0.9766972064971924
+            },
+            {
+              "word": " ships,",
+              "start": 293.02,
+              "end": 293.2,
+              "probability": 0.9839228987693787
+            },
+            {
+              "word": " to",
+              "start": 293.56,
+              "end": 293.64,
+              "probability": 0.9948980212211609
+            },
+            {
+              "word": " the",
+              "start": 293.64,
+              "end": 293.72,
+              "probability": 0.9963250756263733
+            },
+            {
+              "word": " men",
+              "start": 293.72,
+              "end": 293.84,
+              "probability": 0.9970805048942566
+            },
+            {
+              "word": " on",
+              "start": 293.84,
+              "end": 293.96,
+              "probability": 0.45069608092308044
+            },
+            {
+              "word": " the",
+              "start": 293.96,
+              "end": 294.08,
+              "probability": 0.9938493371009827
+            },
+            {
+              "word": " planes,",
+              "start": 294.08,
+              "end": 294.42,
+              "probability": 0.7551019191741943
+            },
+            {
+              "word": " who",
+              "start": 294.96,
+              "end": 295.4,
+              "probability": 0.9729623794555664
+            },
+            {
+              "word": " carry",
+              "start": 295.4,
+              "end": 295.64,
+              "probability": 0.9942565560340881
+            },
+            {
+              "word": " out",
+              "start": 295.64,
+              "end": 295.86,
+              "probability": 0.9951133131980896
+            },
+            {
+              "word": " the",
+              "start": 295.86,
+              "end": 296.04,
+              "probability": 0.9957758784294128
+            },
+            {
+              "word": " missions",
+              "start": 296.04,
+              "end": 296.3,
+              "probability": 0.9932756423950195
+            },
+            {
+              "word": " which",
+              "start": 296.3,
+              "end": 296.56,
+              "probability": 0.9310870170593262
+            },
+            {
+              "word": " help",
+              "start": 296.56,
+              "end": 296.8,
+              "probability": 0.9375708103179932
+            },
+            {
+              "word": " defeat",
+              "start": 296.8,
+              "end": 297.18,
+              "probability": 0.9776321649551392
+            },
+            {
+              "word": " our",
+              "start": 297.18,
+              "end": 297.42,
+              "probability": 0.9984159469604492
+            },
+            {
+              "word": " enemies.",
+              "start": 297.42,
+              "end": 297.82,
+              "probability": 0.6194073557853699
+            }
+          ]
+        },
+        {
+          "id": 32,
+          "seek": 29274,
+          "start": 300.3,
+          "end": 309.5,
+          "text": " The mission will be accomplished because the Coast Guard is always ready. More Spars mean more men",
+          "tokens": [
+            50615,
+            383,
+            4365,
+            481,
+            307,
+            13013,
+            780,
+            262,
+            8545,
+            4932,
+            318,
+            1464,
+            3492,
+            13,
+            3125,
+            1338,
+            945,
+            1612,
+            517,
+            1450,
+            51201
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.14619889466658884,
+          "compression_ratio": 1.7058823529411764,
+          "no_speech_prob": 0.020639019086956978,
+          "words": [
+            {
+              "word": " The",
+              "start": 300.3,
+              "end": 300.3,
+              "probability": 0.8754792809486389
+            },
+            {
+              "word": " mission",
+              "start": 300.3,
+              "end": 300.64,
+              "probability": 0.7567906975746155
+            },
+            {
+              "word": " will",
+              "start": 300.64,
+              "end": 300.98,
+              "probability": 0.9958757758140564
+            },
+            {
+              "word": " be",
+              "start": 300.98,
+              "end": 301.26,
+              "probability": 0.9977988600730896
+            },
+            {
+              "word": " accomplished",
+              "start": 301.26,
+              "end": 301.68,
+              "probability": 0.9980605244636536
+            },
+            {
+              "word": " because",
+              "start": 301.68,
+              "end": 303.16,
+              "probability": 0.5457847118377686
+            },
+            {
+              "word": " the",
+              "start": 303.16,
+              "end": 303.4,
+              "probability": 0.992642343044281
+            },
+            {
+              "word": " Coast",
+              "start": 303.4,
+              "end": 303.74,
+              "probability": 0.7271539568901062
+            },
+            {
+              "word": " Guard",
+              "start": 303.74,
+              "end": 304.16,
+              "probability": 0.9950248599052429
+            },
+            {
+              "word": " is",
+              "start": 304.16,
+              "end": 304.64,
+              "probability": 0.9988320469856262
+            },
+            {
+              "word": " always",
+              "start": 304.64,
+              "end": 305.32,
+              "probability": 0.9963485598564148
+            },
+            {
+              "word": " ready.",
+              "start": 305.32,
+              "end": 305.78,
+              "probability": 0.9995357990264893
+            },
+            {
+              "word": " More",
+              "start": 307.52,
+              "end": 307.74,
+              "probability": 0.9823895692825317
+            },
+            {
+              "word": " Spars",
+              "start": 307.74,
+              "end": 308.28,
+              "probability": 0.6252685487270355
+            },
+            {
+              "word": " mean",
+              "start": 308.28,
+              "end": 308.72,
+              "probability": 0.9402883648872375
+            },
+            {
+              "word": " more",
+              "start": 308.72,
+              "end": 309.16,
+              "probability": 0.9623090624809265
+            },
+            {
+              "word": " men",
+              "start": 309.16,
+              "end": 309.5,
+              "probability": 0.9829161167144775
+            }
+          ]
+        },
+        {
+          "id": 33,
+          "seek": 29274,
+          "start": 309.5,
+          "end": 321.04,
+          "text": " on ships. More men on ships mean more missions accomplished. Join the Spars and release a man",
+          "tokens": [
+            51201,
+            319,
+            7937,
+            13,
+            3125,
+            1450,
+            319,
+            7937,
+            1612,
+            517,
+            10566,
+            13013,
+            13,
+            15251,
+            262,
+            1338,
+            945,
+            290,
+            2650,
+            257,
+            582,
+            51771
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.14619889466658884,
+          "compression_ratio": 1.7058823529411764,
+          "no_speech_prob": 0.020639019086956978,
+          "words": [
+            {
+              "word": " on",
+              "start": 309.5,
+              "end": 309.92,
+              "probability": 0.9986467957496643
+            },
+            {
+              "word": " ships.",
+              "start": 309.92,
+              "end": 310.28,
+              "probability": 0.9835616946220398
+            },
+            {
+              "word": " More",
+              "start": 311.52,
+              "end": 311.86,
+              "probability": 0.9950182437896729
+            },
+            {
+              "word": " men",
+              "start": 311.86,
+              "end": 312.18,
+              "probability": 0.9292152523994446
+            },
+            {
+              "word": " on",
+              "start": 312.18,
+              "end": 312.58,
+              "probability": 0.9975703358650208
+            },
+            {
+              "word": " ships",
+              "start": 312.58,
+              "end": 313.14,
+              "probability": 0.9919809103012085
+            },
+            {
+              "word": " mean",
+              "start": 313.14,
+              "end": 314.06,
+              "probability": 0.9630614519119263
+            },
+            {
+              "word": " more",
+              "start": 314.06,
+              "end": 314.5,
+              "probability": 0.9957938194274902
+            },
+            {
+              "word": " missions",
+              "start": 314.5,
+              "end": 315.08,
+              "probability": 0.995236337184906
+            },
+            {
+              "word": " accomplished.",
+              "start": 315.08,
+              "end": 316.0,
+              "probability": 0.993198037147522
+            },
+            {
+              "word": " Join",
+              "start": 317.62,
+              "end": 317.96,
+              "probability": 0.9972112774848938
+            },
+            {
+              "word": " the",
+              "start": 317.96,
+              "end": 318.24,
+              "probability": 0.9960731267929077
+            },
+            {
+              "word": " Spars",
+              "start": 318.24,
+              "end": 318.74,
+              "probability": 0.9808494746685028
+            },
+            {
+              "word": " and",
+              "start": 318.74,
+              "end": 319.7,
+              "probability": 0.948114812374115
+            },
+            {
+              "word": " release",
+              "start": 319.7,
+              "end": 320.18,
+              "probability": 0.9981122016906738
+            },
+            {
+              "word": " a",
+              "start": 320.18,
+              "end": 320.58,
+              "probability": 0.934458315372467
+            },
+            {
+              "word": " man",
+              "start": 320.58,
+              "end": 321.04,
+              "probability": 0.9314587116241455
+            }
+          ]
+        },
+        {
+          "id": 34,
+          "seek": 32104,
+          "start": 321.04,
+          "end": 322.08,
+          "text": " for sea.",
+          "tokens": [
+            50371,
+            329,
+            5417,
+            13,
+            50413
+          ],
+          "temperature": 0.0,
+          "avg_logprob": -0.7038440704345703,
+          "compression_ratio": 0.5,
+          "no_speech_prob": 0.03677818924188614,
+          "words": [
+            {
+              "word": " for",
+              "start": 321.04,
+              "end": 321.72,
+              "probability": 0.10505176335573196
+            },
+            {
+              "word": " sea.",
+              "start": 321.72,
+              "end": 322.08,
+              "probability": 0.03993387520313263
+            }
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  },
+  "workable_servers": [
+    "dn600206.us.archive.org"
+  ]
+}

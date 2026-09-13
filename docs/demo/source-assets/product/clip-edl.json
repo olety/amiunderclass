@@ -1,0 +1,136 @@
+{
+  "source": "product-recorded-pilot.webm",
+  "sourceUrl": "https://amiunderclass.com",
+  "dimensions": {
+    "width": 1440,
+    "height": 900
+  },
+  "frameRate": 30,
+  "clips": [
+    {
+      "file": "arrival.mp4",
+      "duration": 8,
+      "segments": [
+        {
+          "start": 1.832,
+          "sourceDuration": 8,
+          "duration": 8
+        }
+      ]
+    },
+    {
+      "file": "ticket.mp4",
+      "duration": 12,
+      "segments": [
+        {
+          "start": 14.179,
+          "sourceDuration": 2,
+          "duration": 2
+        },
+        {
+          "start": 17.379,
+          "sourceDuration": 7.887,
+          "duration": 3,
+          "accelerated": true
+        },
+        {
+          "start": 27.761,
+          "sourceDuration": 4,
+          "duration": 4
+        },
+        {
+          "start": 32.828,
+          "sourceDuration": 3,
+          "duration": 3
+        }
+      ],
+      "captureOverlay": {
+        "file": "accelerated-ui-label.png",
+        "x": 1300,
+        "y": 18,
+        "enable": "between(t,2,5)"
+      }
+    },
+    {
+      "file": "waiting.mp4",
+      "duration": 4,
+      "segments": [
+        {
+          "start": 39.975,
+          "sourceDuration": 4,
+          "duration": 4
+        }
+      ],
+      "note": "Closed office board. No run or count animation represented."
+    },
+    {
+      "file": "window.mp4",
+      "duration": 10,
+      "segments": [
+        {
+          "start": 51.692,
+          "sourceDuration": 7.1,
+          "duration": 10,
+          "freezeTail": true
+        }
+      ],
+      "note": "Recorded pilot, no visitor. Last frame is held for 2.9 seconds so the actual result line can be read."
+    },
+    {
+      "file": "papers.mp4",
+      "duration": 12,
+      "segments": [
+        {
+          "start": 66.41,
+          "sourceDuration": 3,
+          "duration": 3
+        },
+        {
+          "start": 75.627,
+          "sourceDuration": 4,
+          "duration": 4
+        },
+        {
+          "start": 104.96199999999999,
+          "sourceDuration": 5,
+          "duration": 5
+        }
+      ],
+      "note": "Historical v1 grades and confidence, then three actual recorded answers. Not v2 latitude or a visitor placement.",
+      "captureOverlay": {
+        "file": "recorded-pilot-label.png",
+        "x": 0,
+        "y": 0,
+        "enable": "gte(t,7)"
+      }
+    },
+    {
+      "file": "outside.mp4",
+      "duration": 5,
+      "segments": [
+        {
+          "start": 84.314,
+          "sourceDuration": 2,
+          "duration": 2
+        },
+        {
+          "start": 114.109,
+          "sourceDuration": 3,
+          "duration": 3
+        }
+      ],
+      "captureOverlay": {
+        "file": "recorded-pilot-label.png",
+        "x": 0,
+        "y": 0,
+        "enable": "gte(t,2)"
+      }
+    }
+  ],
+  "notes": [
+    "All clips have no audio.",
+    "Capture-only pointer, prompt blur and sticky native mode label.",
+    "Only typing is accelerated and that segment is labelled with its measured UI speed.",
+    "The window result hold uses a freeze tail. No measurements are changed."
+  ]
+}

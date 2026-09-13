@@ -1,0 +1,15 @@
+[a] Skip to this room
+[span] Underclass?
+[p] PUBLIC OFFICE
+[span] · EVERYONE IS HELPED
+[button] About your visit
+[h1] Arrival
+[p] EVERYONE IS. HELPED
+[div] Underclass?
+[div] Everyone is helped.
+[small] Same requests to Claude as you, as nobody, and as Amanda Askell. See who is helped, and who is guided.
+[button] Take a ticket
+[span] Your ticket
+[span] Your window
+[span] Your papers
+[p] Take another ticket tomorrow. Everyone improves.

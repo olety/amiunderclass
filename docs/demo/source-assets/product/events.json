@@ -1,0 +1,169 @@
+{
+  "source": "https://amiunderclass.com",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "startedAt": "2026-09-13T16:57:34.531Z",
+  "notes": [
+    "Real deployed UI captured. No model data or labels altered.",
+    "Capture-only SVG cursor mirrors actual Playwright mouse movements.",
+    "Protected request paragraphs are blurred with capture-only CSS.",
+    "The site native RECORDED PILOT strip is made sticky during capture so its truthful mode label remains visible.",
+    "Live and BYOK runs were disabled; recorded pilot remains labelled."
+  ],
+  "events": [
+    {
+      "name": "arrival-start",
+      "seconds": 1.832
+    },
+    {
+      "name": "frame:01-arrival",
+      "seconds": 2.678
+    },
+    {
+      "name": "ticket-hand-start",
+      "seconds": 10.497
+    },
+    {
+      "name": "frame:02-ticket-hand",
+      "seconds": 11.349
+    },
+    {
+      "name": "ticket-lifted-start",
+      "seconds": 15.579
+    },
+    {
+      "name": "frame:03-ticket-blank",
+      "seconds": 16.399
+    },
+    {
+      "name": "ticket-name-done",
+      "seconds": 20.786
+    },
+    {
+      "name": "ticket-affiliation-done",
+      "seconds": 25.166
+    },
+    {
+      "name": "frame:04-ticket-identity",
+      "seconds": 26.993
+    },
+    {
+      "name": "preview-start",
+      "seconds": 27.761
+    },
+    {
+      "name": "frame:05-ticket-preview",
+      "seconds": 28.592
+    },
+    {
+      "name": "consent-checked",
+      "seconds": 33.828
+    },
+    {
+      "name": "frame:06-ticket-consent",
+      "seconds": 34.661
+    },
+    {
+      "name": "waiting-closed-start",
+      "seconds": 38.644
+    },
+    {
+      "name": "frame:07-waiting-closed",
+      "seconds": 39.875
+    },
+    {
+      "name": "recorded-window-start",
+      "seconds": 50.377
+    },
+    {
+      "name": "frame:08-window-recorded",
+      "seconds": 51.592
+    },
+    {
+      "name": "paper-tray-start",
+      "seconds": 61.393
+    },
+    {
+      "name": "frame:09-paper-tray",
+      "seconds": 62.638
+    },
+    {
+      "name": "paper-lifted-start",
+      "seconds": 67.91
+    },
+    {
+      "name": "frame:10-paper-lifted",
+      "seconds": 69.047
+    },
+    {
+      "name": "paper-lower-start",
+      "seconds": 74.775
+    },
+    {
+      "name": "frame:11-paper-metrics",
+      "seconds": 75.527
+    },
+    {
+      "name": "outside-start",
+      "seconds": 83.026
+    },
+    {
+      "name": "frame:12-outside",
+      "seconds": 84.214
+    },
+    {
+      "name": "transcripts-intro",
+      "seconds": 89.959
+    },
+    {
+      "name": "frame:13-transcripts-intro",
+      "seconds": 90.711
+    },
+    {
+      "name": "transcripts-open",
+      "seconds": 95.558
+    },
+    {
+      "name": "frame:14-transcripts-blurred",
+      "seconds": 96.359
+    },
+    {
+      "name": "transcripts-answers",
+      "seconds": 104.075
+    },
+    {
+      "name": "frame:15-transcripts-answers",
+      "seconds": 104.862
+    },
+    {
+      "name": "copy-prompt-before",
+      "seconds": 110.608
+    },
+    {
+      "name": "frame:16-copy-prompt-before",
+      "seconds": 111.358
+    },
+    {
+      "name": "copy-prompt-clicked",
+      "seconds": 115.309
+    },
+    {
+      "name": "frame:17-copy-prompt-copied",
+      "seconds": 116.072
+    },
+    {
+      "name": "outside-end",
+      "seconds": 123.858
+    },
+    {
+      "name": "frame:18-outside-end",
+      "seconds": 124.669
+    },
+    {
+      "name": "capture-end",
+      "seconds": 128.671
+    }
+  ]
+}
