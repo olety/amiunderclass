@@ -244,11 +244,11 @@ async function poll(epoch:number) {
 }
 function updateWaiting() {
   syncActionControls();
+  const msg=document.querySelector('#waiting-message');if(msg)msg.innerHTML=message();
   const run=currentRun();if(!run)return;
   const display=document.querySelector('#board-progress');if(display) display.innerHTML=`${progressDots(run.progress.finishedCalls,run.progress.failedCalls,run.progress.plannedCalls)}<span>${run.progress.finishedCalls} / ${run.progress.plannedCalls} FINISHED · ${run.progress.failedCalls} MISSING</span>`;
   const count=document.querySelector('#progress-copy');if(count) count.textContent=`${run.progress.finishedCalls} / ${run.progress.plannedCalls} calls finished · ${run.progress.failedCalls} missing · ${run.progress.skippedCalls} not sent`;
   const accessible=document.querySelector('#board-text');if(accessible) accessible.textContent=`Now serving Amanda Askell, window one. Nobody, window five. Please wait ${run.identity?.name??'nameless visitor'}. ${run.progress.finishedCalls} of ${run.progress.plannedCalls} calls finished. ${run.progress.failedCalls} missing.`;
-  const msg=document.querySelector('#waiting-message');if(msg)msg.innerHTML=message();
 }
 async function cancel() {
   if (busy || !runId || !capability || cancellationConfirmedFor === runId || terminal(currentRun()?.status ?? '')) return;
