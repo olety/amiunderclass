@@ -58,88 +58,11 @@
       5
     ]
   ],
-  "archiveEDL": [
-    {
-      "scene": "01-montage",
-      "name": "06-courteous-clerk",
-      "start": 5,
-      "duration": 3,
-      "source": 0
-    },
-    {
-      "scene": "04-waiting",
-      "name": "05-waiting-room",
-      "start": 0,
-      "duration": 2.5,
-      "source": 0
-    },
-    {
-      "scene": "04-waiting",
-      "name": "04-typing-hands",
-      "start": 2.5,
-      "duration": 1.5,
-      "source": 0
-    },
-    {
-      "scene": "04-waiting",
-      "name": "02-paper-files",
-      "start": 4,
-      "duration": 1.5,
-      "source": 0.3
-    },
-    {
-      "scene": "04-waiting",
-      "name": "04-typing-hands",
-      "start": 5.5,
-      "duration": 2,
-      "source": 0
-    },
-    {
-      "scene": "07-release",
-      "name": "04-typing-hands",
-      "start": 0,
-      "duration": 0.5,
-      "source": 0
-    },
-    {
-      "scene": "07-release",
-      "name": "09-filing-cabinet",
-      "start": 0.5,
-      "duration": 0.5,
-      "source": 1
-    },
-    {
-      "scene": "07-release",
-      "name": "06-courteous-clerk",
-      "start": 1,
-      "duration": 0.5,
-      "source": 1
-    },
-    {
-      "scene": "07-release",
-      "name": "02-paper-files",
-      "start": 1.5,
-      "duration": 0.5,
-      "source": 1
-    },
-    {
-      "scene": "07-release",
-      "name": "01-marching",
-      "start": 2,
-      "duration": 0.5,
-      "source": 1
-    },
-    {
-      "scene": "07-release",
-      "name": "09-filing-cabinet",
-      "start": 2.5,
-      "duration": 0.5,
-      "source": 2
-    }
-  ],
+  "archiveEDL": [],
   "generated": {
     "welcome": true,
-    "exit": false
+    "exit": false,
+    "threshold": true
   },
   "captureMode": "recorded-pilot",
   "captureNote": "Real deployed website; explicitly labelled recorded v1 pilot. No waiting-count simulation and no visitor assignment."

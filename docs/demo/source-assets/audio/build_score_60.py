@@ -14,6 +14,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 import re
+import shutil
 import subprocess
 
 BASE = Path(__file__).resolve().parent
@@ -42,6 +43,50 @@ def source_duration(path: Path) -> float:
     return float(data["format"]["duration"])
 
 
+def continuous_score(args: argparse.Namespace) -> None:
+    """Owner correction: preserve one uninterrupted musical performance."""
+    bed = args.bed.resolve()
+    target = args.output.resolve()
+    if not bed.is_file() or source_duration(bed) < args.bed_start + DURATION:
+        raise SystemExit("The continuous source needs at least 60 seconds")
+    archive = BASE / "revision-archive"
+    archive.mkdir(exist_ok=True)
+    for path in [target, target.with_suffix(".mp3"), BASE / "score-60-edl.json", BASE / "score-60-qc.json"]:
+        if path.exists() and not (archive / path.name).exists():
+            shutil.copy2(path, archive / path.name)
+    # Linear ramps in dB: no splice, loop, pause, pitch change or added bell.
+    duck = "if(lt(t,33),0,if(lt(t,35),-2*(t-33),if(lt(t,45),-4,if(lt(t,47),-4+2*(t-45),0))))"
+    treatment = f"atrim=start={args.bed_start}:duration=60,asetpts=PTS-STARTPTS,volume='pow(10,({duck})/20)':eval=frame,afade=t=in:d=0.15,afade=t=out:st=57:d=3"
+    raw = BASE / "score-60-pre-master.wav"
+    ffmpeg("-i",str(bed),"-af",treatment,"-ar",str(SR),"-ac","2","-c:a","pcm_s24le",str(raw))
+    measured = last_json(ffmpeg("-i",str(raw),"-af","loudnorm=I=-16:TP=-1:LRA=20:print_format=json","-f","null","-"))
+    norm = (f"loudnorm=I=-16:TP=-1:LRA=20:measured_I={measured['input_i']}:measured_TP={measured['input_tp']}:"
+            f"measured_LRA={measured['input_lra']}:measured_thresh={measured['input_thresh']}:"
+            f"offset={measured['target_offset']}:linear=true:print_format=json")
+    ffmpeg("-i",str(raw),"-af",norm,"-ar",str(SR),"-ac","2","-t","60","-c:a","pcm_s24le",str(target))
+    qc = last_json(ffmpeg("-i",str(target),"-af","loudnorm=I=-16:TP=-1:LRA=20:print_format=json","-f","null","-"))
+    correction = min(-16-float(qc["input_i"]), -1-float(qc["input_tp"]))
+    if abs(correction) > 0.05:
+        corrected = target.with_name(".score-60-gain-correction.wav")
+        ffmpeg("-i",str(target),"-af",f"volume={correction}dB","-c:a","pcm_s24le",str(corrected))
+        corrected.replace(target)
+        qc = last_json(ffmpeg("-i",str(target),"-af","loudnorm=I=-16:TP=-1:LRA=20:print_format=json","-f","null","-"))
+    ffmpeg("-i",str(target),"-c:a","libmp3lame","-b:a","320k",str(target.with_suffix(".mp3")))
+    edl = {
+        "version":2,"mode":"continuous","duration_seconds":60,"sample_rate":SR,"channels":2,
+        "source_bed":str(bed),"source_credit":args.source_credit,"source_url":args.source_url,
+        "segments":[{"id":"continuous-source","timeline_in":0,"timeline_out":60,"source":str(bed),"source_in":args.bed_start,"source_out":args.bed_start+60}],
+        "volume_envelope_db":[{"start":0,"end":33,"gain_db":0},{"start":33,"end":35,"from_db":0,"to_db":-4},{"start":35,"end":45,"gain_db":-4},{"start":45,"end":47,"from_db":-4,"to_db":0},{"start":47,"end":60,"gain_db":0}],
+        "fade_in_seconds":0.15,"fade_out_start":57,"fade_out_seconds":3,
+        "splices":0,"loops":0,"added_bell":False,"music_pitch_shift_semitones":0,"music_playback_rate":1,
+        "mastering":{"target_lufs":-16,"maximum_true_peak_db":-1,"measured":qc},
+        "output_wav":str(target),"output_mp3":str(target.with_suffix(".mp3")),
+    }
+    (BASE/"score-60-edl.json").write_text(json.dumps(edl,ensure_ascii=False,indent=2)+"\n")
+    (BASE/"score-60-qc.json").write_text(json.dumps({"mode":"continuous","duration_seconds":source_duration(target),"sample_rate":SR,"channels":2,"loudness":qc,"bytes":target.stat().st_size,"splices":0,"loops":0},indent=2)+"\n")
+    print(json.dumps({"output":str(target),"mode":"continuous","duration_seconds":60,"lufs":qc["input_i"],"true_peak_db":qc["input_tp"]},indent=2))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bed", type=Path, default=BASE / "original-library-jingle.wav")
@@ -54,7 +99,11 @@ def main() -> None:
     parser.add_argument("--source-credit", default="Original procedural composition; no third-party music samples")
     parser.add_argument("--source-url", default="")
     parser.add_argument("--output", type=Path, default=BASE / "underclass-score-60s.wav")
+    parser.add_argument("--continuous", action="store_true", help="Use one uninterrupted 60-second source excerpt, with gentle fades and a smooth 4 dB evidence duck")
     args = parser.parse_args()
+    if args.continuous:
+        continuous_score(args)
+        return
     bed = args.bed.resolve()
     release = (args.release_source or args.bed).resolve()
     if not bed.is_file() or not release.is_file():

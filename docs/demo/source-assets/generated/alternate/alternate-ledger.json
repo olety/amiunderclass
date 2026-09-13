@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-14 Asia/Tokyo",
+  "purpose": "Closing view returning toward the welcoming office",
+  "image": {
+    "file": "threshold-endframe.png",
+    "model": "gpt-image-2.5-flare",
+    "reference": "apps/web/public/plates/K6.webp",
+    "qa": "Reviewed visually; office, seated visitors, chairs, daylight and printed texture remain coherent, dot-grid board is blank.",
+    "sha256": "89a6c379ecf5b7f7ad9db93d70fc5cc2c801d30f005238e46411a6e96f1b1702",
+    "cost_usd": null,
+    "cost_note": "CPA response returned token usage, not a dollar amount.",
+    "used_in": "Revision 2, 52\u201355 seconds, with a slow push"
+  },
+  "video": {
+    "model": "f2v-veo31-lite",
+    "run_id": "run_m17ajtrmxczf0zd3kybg4asjfh8eb5ew",
+    "status": "failed",
+    "submission_charge_usd": 0.481,
+    "settled_charge_usd": null,
+    "failure": [
+      {
+        "run_id": "run_m17ajtrmxczf0zd3kybg4asjfh8eb5ew",
+        "status": "failed",
+        "progress": 100,
+        "created_at": 1789320986858.278,
+        "completed_at": 1789320991832,
+        "error_code": "GENERATION_INPUT_VALIDATION",
+        "error_message": "Input should be '8s' (duration); Field required (first_frame_url); Field required"
+      }
+    ],
+    "retries": 0,
+    "provider_schema": "https://fal.ai/models/fal-ai/veo3.1/lite/first-last-frame-to-video/api"
+  }
+}

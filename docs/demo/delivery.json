@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "capture": "recorded-v1-pilot",
   "durationTargetSeconds": 60,
   "validation": {
@@ -7,14 +7,14 @@
     "hyperframesLintWarnings": 0,
     "runtimeErrors": 0,
     "layoutErrors": 0,
-    "textContrastChecksPassed": 8,
+    "textContrastChecksPassed": 5,
     "audioWavLUFS": -16.0,
-    "audioWavTruePeakDB": -1.2
+    "audioWavTruePeakDB": -3.19
   },
   "deliverables": [
     {
       "file": "underclass-demo.mp4",
-      "sha256": "b9134f4b9f7c879ea05e81e14a71e0f23081daf1090391a6c9ec70f86e1b99bf",
+      "sha256": "d58f1997a7c9a68e18c47ec3a927ec02a4affbd2c339c681db4d6c3a4af5131e",
       "probe": {
         "programs": [],
         "stream_groups": [],
@@ -36,13 +36,14 @@
         ],
         "format": {
           "duration": "60.000000",
-          "size": "46033182"
+          "size": "65297931"
         }
-      }
+      },
+      "versionedFile": "underclass-demo-v2.mp4"
     },
     {
       "file": "underclass-teaser.mp4",
-      "sha256": "937d0a0d5a4fcac147c964baa0f0472675dd4c01dddcaec81ead72097df907e4",
+      "sha256": "19a7f43e21d74a08564f26777153df65c7abbad75d666897d51a953896f45e3d",
       "probe": {
         "programs": [],
         "stream_groups": [],
@@ -64,9 +65,15 @@
         ],
         "format": {
           "duration": "15.000000",
-          "size": "5482939"
+          "size": "5335671"
         }
-      }
+      },
+      "versionedFile": "underclass-teaser-v2.mp4"
     }
-  ]
+  ],
+  "revision": {
+    "editorialSubtitles": false,
+    "music": "One continuous source passage with gradual level changes and fades",
+    "picture": "Longer connected office shots with 0.35-second dissolves"
+  }
 }

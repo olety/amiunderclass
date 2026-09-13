@@ -83,28 +83,24 @@ def main() -> None:
         raise ValueError("Master is shorter than the final EDL source interval")
 
     count = len(segments)
-    filters = [
-        f"[0:v]split={count}" + "".join(f"[v{i}]" for i in range(count)),
-        f"[0:a]aresample={sample_rate},asplit={count}" + "".join(f"[a{i}]" for i in range(count)),
-    ]
-    fade = float(edl["audio_splice_fade_seconds"])
+    filters = [f"[0:v]split={count}" + "".join(f"[v{i}]" for i in range(count))]
     for index, segment in enumerate(segments):
         start = segment["source_start_frame"]
         end = segment["source_end_frame_exclusive"]
-        duration = (end - start) / fps
         filters.append(f"[v{index}]trim=start_frame={start}:end_frame={end},setpts=PTS-STARTPTS[cut{index}v]")
-        audio = (
-            f"[a{index}]atrim=start_sample={start * samples_per_frame}:end_sample={end * samples_per_frame},"
-            f"asetpts=PTS-STARTPTS,afade=t=in:d={fade}"
-        )
-        if index < count - 1:
-            audio += f",afade=t=out:st={duration - fade:.9f}:d={fade}"
-        filters.append(audio + f"[cut{index}a]")
     filters.append(
-        "".join(f"[cut{i}v][cut{i}a]" for i in range(count))
-        + f"concat=n={count}:v=1:a=1[outv][joined-audio]"
+        "".join(f"[cut{i}v]" for i in range(count))
+        + f"concat=n={count}:v=1:a=0[outv]"
     )
-    filters.append(f"[joined-audio]atrim=end_sample={frames * samples_per_frame}[outa]")
+    # Picture can cut; music stays one uninterrupted master interval.
+    audio_start_frame = int(edl["audio"]["source_start_frame"])
+    audio_end_frame = audio_start_frame + frames
+    fade_out = float(edl["audio"]["fade_out_seconds"])
+    filters.append(
+        f"[0:a]aresample={sample_rate},atrim=start_sample={audio_start_frame * samples_per_frame}:"
+        f"end_sample={audio_end_frame * samples_per_frame},asetpts=PTS-STARTPTS,"
+        f"afade=t=out:st={frames / fps - fade_out}:d={fade_out}[outa]"
+    )
 
     target.parent.mkdir(parents=True, exist_ok=True)
     temporary = target.with_name(f".{target.stem}.rendering.mp4")

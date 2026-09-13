@@ -37,5 +37,15 @@ for name, duration in durations.items():
         '-of', 'json', str(target),
     ], capture_output=True, text=True, check=True)
     report.append({'clip': name, 'expectedDuration': duration, **json.loads(probe.stdout)})
+for name, frames in [('waiting', 191), ('outside', 161)]:
+    subprocess.run([
+        'ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+        '-i', str(destination / f'{name}.mp4'),
+        '-vf', 'fps=30,tpad=stop_mode=clone:stop_duration=3',
+        '-frames:v', str(frames), '-an', '-c:v', 'libx264',
+        '-preset', 'fast', '-crf', '16', '-g', '30',
+        '-keyint_min', '30', '-sc_threshold', '0', '-pix_fmt', 'yuv420p',
+        '-movflags', '+faststart', str(destination / f'{name}-hold.mp4'),
+    ], check=True)
 (project / 'product-validation.json').write_text(json.dumps(report, indent=2) + '\n')
-print('Staged six approved captures with one-second keyframes.')
+print('Staged six approved captures and two outgoing holds with one-second keyframes.')

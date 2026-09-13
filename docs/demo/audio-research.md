@@ -2,6 +2,12 @@
 
 ## Final 60-second revision
 
+**Current correction:** the final WAV now uses one uninterrupted source interval, Suno **0–60 seconds**. The owner rejected the prior chopped treatment. There are **no loops, jumps, added bell or hard stop**. It has a 150 ms fade-in, a three-second fade-out from 57 seconds, and a smooth 4 dB duck with two-second ramps around the evidence section. `score-60-edl.json` now has `mode: continuous`; previous audio and metadata are retained in `source-assets/audio/revision-archive/`.
+
+Rebuild the current version with `build_score_60.py --continuous --bed suno-everyone-is-helped-v6.wav`, using the source credit and URL below. The structured-cut description below is retained as revision history and does not describe the current output.
+
+The corrected teaser retains its four picture excerpts but uses one continuous master audio interval, 0–15 seconds, with a 1.5-second fade-out. Picture edits introduce no music cuts.
+
 The final score is `source-assets/audio/underclass-score-60s.wav`, with an MP3 audition copy beside it. It uses **Everyone Is Helped**, generated in Suno v6 through the owner's Pro account on 14 September 2026. Canonical source: https://suno.com/song/7c0664a6-c0ec-48d4-80b5-c498f341636e. The downloaded WAV is the source; the M4A was used only for initial structure analysis. No t.A.T.u. recording is used in this revision.
 
 The source is an instrumental public-service library cue: vibraphone, pizzicato strings, flute, typewriter-like percussion and a late breakbeat release. Generation instructions requested a 92 BPM warm civic-office sound. Analysis measured approximately 92.3 BPM and identified a sparse passage around 124–139 seconds and a distinct release around 140–149 seconds. The edit uses those actual passages, rather than assuming that the generated audio followed the requested timeline.

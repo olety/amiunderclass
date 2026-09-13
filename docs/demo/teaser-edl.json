@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "source": "underclass-demo.mp4",
   "output": "underclass-teaser.mp4",
   "fps": 30,
@@ -8,7 +8,6 @@
   "audio_sample_rate": 48000,
   "duration_frames": 450,
   "duration_seconds": 15,
-  "audio_splice_fade_seconds": 0.008,
   "segments": [
     {
       "id": "welcoming-office",
@@ -54,7 +53,11 @@
     "codec": "aac",
     "bitrate": "320k",
     "channels": 2,
-    "treatment": "Retain master mix, apply 8 ms fade-in to each excerpt and 8 ms fade-out before each splice. Preserve the last excerpt's existing fade."
+    "mode": "continuous",
+    "source_start_frame": 0,
+    "source_end_frame_exclusive": 450,
+    "fade_out_seconds": 1.5,
+    "treatment": "One uninterrupted master audio interval, 0–15 seconds. No audio cuts at picture edits. Preserve its opening and apply a 1.5-second fade-out."
   },
   "editorial": "All picture, captions and sound come from the revised 60-second rendered master. No new lyrics, output numbers, labels or quotes are added. Source endpoints are exclusive. t.A.T.u. is optional in this revision."
 }

@@ -39,3 +39,9 @@
 /edit/.thumbnails/
 /work-*/
 /edit/.waveform-cache/
+
+/source-assets/audio/revision-archive/
+/source-assets/generated/alternate/veo-*.json
+/source-assets/generated/alternate/threshold-generation.json
+/source-assets/generated/alternate/threshold-prompt-review.json
+/source-assets/generated/alternate/threshold-flora-asset.json
