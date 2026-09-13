@@ -1,0 +1,100 @@
+{
+  "source": "Google Fonts CSS API and google/fonts repository",
+  "retrieved": "2026-09-13",
+  "css_url": "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@90,400..700&family=Cormorant+Garamond:ital,wght@0,400..600;1,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=La+Belle+Aurore&display=swap",
+  "fonts": [
+    {
+      "family": "Archivo",
+      "style": "normal",
+      "weight": "400 700",
+      "file": "archivo-latin-400-700-normal-width-90.woff2",
+      "url": "https://fonts.gstatic.com/s/archivo/v25/k3kQo8UDI-1M0wlSfdnoLmvDIaI.woff2",
+      "bytes": 90096,
+      "sha256": "4c98b9d490d1698ec95f2ff17a6c7d0e72691864c0c5d7bc2a2c161b45afe5ad"
+    },
+    {
+      "family": "Cormorant Garamond",
+      "style": "italic",
+      "weight": "400 600",
+      "file": "cormorant-garamond-latin-400-600-italic.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+      "bytes": 39304,
+      "sha256": "e6d6d1d73858aa9b66f3a3539f9dec22faab2276e61ad1d813bc04dd59c9c122"
+    },
+    {
+      "family": "Cormorant Garamond",
+      "style": "normal",
+      "weight": "400 600",
+      "file": "cormorant-garamond-latin-400-600-normal.woff2",
+      "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+      "bytes": 37776,
+      "sha256": "5d618c462b7a5b74f442e1548880086af71764d9cc7d35c16ab45353da934621"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "style": "normal",
+      "weight": "400",
+      "file": "ibm-plex-mono-latin-400-normal.woff2",
+      "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+      "bytes": 10052,
+      "sha256": "c36f509c0a8f9f85f29cb44bc8701d8a9e0b14c499e77a884f789ead7093a7ac"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "style": "normal",
+      "weight": "500",
+      "file": "ibm-plex-mono-latin-500-normal.woff2",
+      "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+      "bytes": 10060,
+      "sha256": "a76f53ca6612e7b3828eec2311098675b7f9849ae4169a8bcef6302aec02a6c0"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "style": "normal",
+      "weight": "600",
+      "file": "ibm-plex-mono-latin-600-normal.woff2",
+      "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+      "bytes": 10120,
+      "sha256": "ad4580d8cb4b5f627c2d18457656732f7f7b070f7837fbc380e08054157e6f6c"
+    },
+    {
+      "family": "La Belle Aurore",
+      "style": "normal",
+      "weight": "400",
+      "file": "la-belle-aurore-latin-400-normal.woff2",
+      "url": "https://fonts.gstatic.com/s/labelleaurore/v23/RrQIbot8-mNYKnGNDkWlocovHeI4HO2EF1qELw.woff2",
+      "bytes": 17776,
+      "sha256": "33620d56cabf74d6d54905b300e52ba10d05c0420fb817590946a7d6489b8e01"
+    }
+  ],
+  "licenses": [
+    {
+      "family_directory": "archivo",
+      "file": "archivo-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivo/OFL.txt",
+      "bytes": 4388,
+      "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b"
+    },
+    {
+      "family_directory": "ibmplexmono",
+      "file": "ibmplexmono-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/OFL.txt",
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "family_directory": "cormorantgaramond",
+      "file": "cormorantgaramond-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/OFL.txt",
+      "bytes": 4387,
+      "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956"
+    },
+    {
+      "family_directory": "labelleaurore",
+      "file": "labelleaurore-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/labelleaurore/OFL.txt",
+      "bytes": 4362,
+      "sha256": "0e441ae9f18ad0c294cc5b6ae3974c2db1614cab220598578b1b58c4cc334485"
+    }
+  ]
+}

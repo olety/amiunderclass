@@ -1,0 +1,6 @@
+{
+  "name": "@underclass/web", "version": "0.1.0", "private": true, "type": "module",
+  "scripts": {"dev": "bun run sync:prompt && vite --host 127.0.0.1 --port 5173", "sync:prompt": "bun scripts/sync-agent-prompt.ts", "build": "bun run sync:prompt && tsc --noEmit && vite build", "test": "bun test src test", "preview": "vite preview --host 127.0.0.1"},
+  "dependencies": {"@underclass/contracts": "workspace:*"},
+  "devDependencies": {"@types/bun": "latest", "typescript": "^5.9.2", "vite": "^7.1.5"}
+}
