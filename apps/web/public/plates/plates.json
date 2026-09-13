@@ -6,5 +6,64 @@
     "w": 1536,
     "h": 1024,
     "paper": null
+  },
+  {
+    "key": "K2",
+    "src": "/plates/K2.webp",
+    "srcSmall": "/plates/K2-small.webp",
+    "w": 1536,
+    "h": 1024,
+    "paper": null,
+    "board": [
+      [
+        294,
+        30.75
+      ],
+      [
+        793.5,
+        30
+      ],
+      [
+        793.5,
+        156.75
+      ],
+      [
+        294,
+        157.5
+      ]
+    ]
+  },
+  {
+    "key": "K4-5",
+    "src": "/plates/K4-5.webp",
+    "srcSmall": "/plates/K4-5-small.webp",
+    "w": 1536,
+    "h": 1024,
+    "paper": null
+  },
+  {
+    "key": "K5",
+    "src": "/plates/K5.webp",
+    "srcSmall": "/plates/K5-small.webp",
+    "w": 1536,
+    "h": 1024,
+    "paper": [
+      [
+        432.75,
+        372.75
+      ],
+      [
+        713.25,
+        371.25
+      ],
+      [
+        764.25,
+        525
+      ],
+      [
+        369,
+        526.5
+      ]
+    ]
   }
 ]

@@ -1,0 +1,62 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "cornerOrder": [
+    "top-left",
+    "top-right",
+    "bottom-right",
+    "bottom-left"
+  ],
+  "board": [
+    [
+      294,
+      30.75
+    ],
+    [
+      793.5,
+      30
+    ],
+    [
+      793.5,
+      156.75
+    ],
+    [
+      294,
+      157.5
+    ]
+  ],
+  "sourcePixels": [
+    [
+      392,
+      41
+    ],
+    [
+      1058,
+      40
+    ],
+    [
+      1058,
+      209
+    ],
+    [
+      392,
+      210
+    ]
+  ],
+  "dotFieldBounds": [
+    348,
+    47.25,
+    757.5,
+    144.75
+  ],
+  "dotCoverRect": {
+    "x": 343.5,
+    "y": 42.75,
+    "width": 420,
+    "height": 108
+  },
+  "uncertaintySourcePixels": 3,
+  "notes": "Final cropped K2.png. Board is nearly frontal and unobstructed."
+}

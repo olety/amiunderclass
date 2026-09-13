@@ -1,0 +1,5 @@
+{
+  "blockingGeometry": false,
+  "notes": "The tray, flat A4 sheet, service glass, and withdrawing hand are geometrically compatible. Condensed redundant lighting language and retained the hall and hand references.",
+  "prompt": "A landscape first-person close view looks steeply down at a shallow steel document tray on the wooden counter in the attached public-office hall. A single blank white A4 sheet lies flat inside the tray, its long axis pointing away from the viewer and all four corners visible within the rim. Clear service-window glass with a document slot stands just behind the tray, and the entire sheet rests on the visitor’s side. The visitor’s right hand withdraws toward the lower-right edge beside the tray, separated from the paper, wearing the grey-green wool sleeve, white cuff and plain steel wristwatch shown in the attached hand sheet. Daylight from the left and ceiling fluorescents illuminate the paper evenly. The image presents the same 1976 colour photograph reproduced as coarse CMYK halftone with slight registration drift, daylight and fluorescent light."
+}

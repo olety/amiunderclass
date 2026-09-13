@@ -1,0 +1,51 @@
+{
+  "coordinateStage": [
+    1152,
+    768
+  ],
+  "cornerOrder": [
+    "top-left",
+    "top-right",
+    "bottom-right",
+    "bottom-left"
+  ],
+  "paper": [
+    [
+      432.75,
+      372.75
+    ],
+    [
+      713.25,
+      371.25
+    ],
+    [
+      764.25,
+      525
+    ],
+    [
+      369,
+      526.5
+    ]
+  ],
+  "sourcePixels": [
+    [
+      577,
+      497
+    ],
+    [
+      951,
+      495
+    ],
+    [
+      1019,
+      700
+    ],
+    [
+      492,
+      702
+    ]
+  ],
+  "uncertaintyStagePixels": 2.25,
+  "bottomCornerUncertaintyStagePixels": 3,
+  "notes": "Flat sheet. Hand clear of paper. Tray front rim may conceal lowest 1 to 3 source pixels; inset printed content slightly."
+}

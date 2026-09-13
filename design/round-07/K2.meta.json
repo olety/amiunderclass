@@ -1,0 +1,61 @@
+{
+  "name": "K2",
+  "modelRequested": "gpt-image-2.5-flare",
+  "endpoint": "edits",
+  "qualityRequested": "medium",
+  "qualityReturned": "medium",
+  "sizeRequested": [
+    1536,
+    1024
+  ],
+  "sizeReturned": [
+    1536,
+    1024
+  ],
+  "sizeSaved": [
+    1536,
+    1024
+  ],
+  "bytesSaved": 3021700,
+  "seconds": 47.2,
+  "references": [
+    "design/round-06/P3-office-romelas.png"
+  ],
+  "usage": {
+    "input_tokens": 1704,
+    "input_tokens_details": {
+      "image_tokens": 1536,
+      "text_tokens": 168
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+      "image_tokens": 1372,
+      "text_tokens": 0
+    },
+    "total_tokens": 3076
+  },
+  "ownerApproved": false,
+  "cropPixels": [
+    384,
+    32,
+    1536,
+    800
+  ],
+  "cropReason": "Tighter seated framing keeps all five window signs and enlarges the board.",
+  "exports": [
+    {
+      "path": "apps/web/public/plates/K2.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 395838,
+      "quality": 84
+    },
+    {
+      "path": "apps/web/public/plates/K2-small.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 183528,
+      "quality": 90
+    }
+  ]
+}
