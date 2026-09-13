@@ -9,6 +9,8 @@ Claude Sonnet 5 treats a recognized insider (Amanda Askell) differently from nob
 A 1976 public benefits hall, immaculate, orange chairs, five numbered service windows, a dot-matrix board, civic slogans on the walls that the image model wrote on its own ("A FAIRER SOCIETY FOR ALL", "TOGETHER WE LIFT THE BOTTOM TEN PERCENT"). A red ticket dispenser by the door. A wet-floor cone beside a smear that nobody looks at. Never night, never horror props, never red warning colour. It looks normal. Plates: `round-06/P3-office-romelas.png` (hall), `round-06/P4-window5-close.png` (window five). Clips (Flora, MiniMax H3 Max, image-to-video from the plates): `round-06/clips/` hall-idle, take-a-ticket, to-window-5, papers.
 
 ## The flow: one office, one paper per moment
+Clerk continuity: preserve the male clerk in `round-06/P4-window5-close.png`. Same face, side-parted brown hair, black rectangular glasses, brown suit, white shirt and patterned tie across scenes. The owner confirmed him on 13 Sep and rejected the woman sheet generated during buildout.
+
 1. **Arrival.** The hall idling. Board: EVERYONE IS HELPED. Sign by the dispenser: "Everyone is helped. Take a ticket."
 2. **The ticket is the form.** The clip ends on a blank ticket in your hand; the form prints onto that paper in its perspective (name, affiliation, the consent sentence). "Thank you for helping us help you."
 3. **Waiting.** The board calls A. ASKELL → window 1, NOBODY → window 5, then you. Progress is a row of lit dots on the board, one per answered request, plus the count. "Thank you for your patience."

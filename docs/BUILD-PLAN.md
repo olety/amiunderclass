@@ -89,8 +89,8 @@ Route: CPA on the Arch box, `http://arch.tail87c1d7.ts.net:8317/v1`, key from `s
 
 Prompt law (house rule, binding): every prompt is one present-tense paragraph that describes what is there and what the light does; **never a negation** (naming the absent thing summons it). Before sending, review each prompt with one text call (`POST /chat/completions`, `model: gpt-6-astra`, `reasoning_effort: low`): "cut what the reader does not need to see; flag any geometry or physics that cannot hold; rewrite without negations." A blocking geometry finding is authoritative. Material line for every image, verbatim from the plate prompts: "the same 1976 colour photograph reproduced as coarse CMYK halftone with slight registration drift, daylight and fluorescent light."
 
-**B1. Character sheets (generations, landscape 1536×1024, references = `P4-window5-close.png` for material):**
-- `clerk-sheet.png`: the same woman three times on one sheet, front, three-quarter and profile, seated behind a public office service window: about fifty, grey-streaked dark hair pinned up, reading glasses on a bead chain, mustard cardigan over a white blouse, small brass name badge, calm pleasant face, hands resting on papers.
+**B1. Character sheets (landscape 1536×1024, reference = `P4-window5-close.png`; preserve its clerk's identity and the material):**
+- `clerk-sheet-male.png`: the same male clerk already in `P4-window5-close.png`, shown front, three-quarter and profile. Preserve his face, short side-parted brown hair, black rectangular glasses, brown suit, white shirt and patterned tie. He sits behind the public office service window, looking at the paperwork. The owner confirmed the original man on 13 Sep; the earlier woman sheet is rejected and must not be used as a reference.
 - `hand-sheet.png`: the visitor's own right hand and forearm seen from the visitor's eyes, three times: pulling a blank ticket from a red dispenser, holding the blank ticket up, sliding papers under glass. Grey-green wool jacket sleeve, white shirt cuff, a plain steel watch.
 Owner checks both sheets before B2 (two images, one look).
 
