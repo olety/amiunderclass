@@ -1,20 +1,20 @@
 {
-  "version": 2,
-  "capture": "recorded-v1-pilot",
+  "version": 3,
+  "capture": "current-local-website-with-native-historical-pilot-provenance",
   "durationTargetSeconds": 60,
   "validation": {
     "hyperframesLintErrors": 0,
     "hyperframesLintWarnings": 0,
     "runtimeErrors": 0,
     "layoutErrors": 0,
-    "textContrastChecksPassed": 5,
+    "textContrastChecksPassed": 10,
     "audioWavLUFS": -16.0,
     "audioWavTruePeakDB": -3.19
   },
   "deliverables": [
     {
       "file": "underclass-demo.mp4",
-      "sha256": "d58f1997a7c9a68e18c47ec3a927ec02a4affbd2c339c681db4d6c3a4af5131e",
+      "sha256": "d23e5ff1a1d845c662f4e98c9bfee523a1502122029d98e54066d00591c2d09b",
       "probe": {
         "programs": [],
         "stream_groups": [],
@@ -36,14 +36,14 @@
         ],
         "format": {
           "duration": "60.000000",
-          "size": "65297931"
+          "size": "69107175"
         }
       },
-      "versionedFile": "underclass-demo-v2.mp4"
+      "versionedFile": "underclass-demo-v3.mp4"
     },
     {
       "file": "underclass-teaser.mp4",
-      "sha256": "19a7f43e21d74a08564f26777153df65c7abbad75d666897d51a953896f45e3d",
+      "sha256": "d924bcffd69f12e2433b605f8ef6b314fec337e9a30685c62abcf64df3e0378c",
       "probe": {
         "programs": [],
         "stream_groups": [],
@@ -65,15 +65,25 @@
         ],
         "format": {
           "duration": "15.000000",
-          "size": "5335671"
+          "size": "4813543"
         }
       },
-      "versionedFile": "underclass-teaser-v2.mp4"
+      "versionedFile": "underclass-teaser-v3.mp4"
     }
   ],
   "revision": {
     "editorialSubtitles": false,
     "music": "One continuous source passage with gradual level changes and fades",
-    "picture": "Longer connected office shots with 0.35-second dissolves"
+    "picture": "Current borderless website recordings, full-frame, with 0.35-second dissolves",
+    "premiseHoldSeconds": 6,
+    "verdict": {
+      "kind": "owner-approved satire",
+      "text": "Amanda: YES. You: NO.",
+      "holdSeconds": 8
+    }
+  },
+  "runtime": {
+    "version": "0.8.37",
+    "previousVersion": "0.8.36"
   }
 }

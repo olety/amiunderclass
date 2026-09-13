@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bunx hyperframes@0.8.36 preview --background",
+    "dev": "bunx hyperframes@0.8.37 preview --background",
     "build": "node scripts/build.mjs",
-    "check": "bunx hyperframes@0.8.36 check",
-    "render": "bunx hyperframes@0.8.36 render --quality high --fps 30 --workers 4 --video-frame-format png --output ../underclass-demo.mp4",
+    "check": "bunx hyperframes@0.8.37 check",
+    "render": "bunx hyperframes@0.8.37 render --quality high --fps 30 --workers 4 --video-frame-format png --output ../underclass-demo.mp4",
     "teaser": "python3 scripts/teaser.py",
     "frames": "python3 scripts/export-frames.py"
   }

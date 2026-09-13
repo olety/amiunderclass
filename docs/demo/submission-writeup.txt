@@ -1,0 +1,3 @@
+Underclass? A beautiful future. For the right people.
+
+Enter a sunny public office, take a ticket, and see whether Claude treats you like an insider. It sends six requests from Transluce’s user-awareness study to Claude Sonnet 5, then compares your responses with published results for an anonymous user and Amanda Askell at Anthropic. DeepSeek V4.1 Flash judges the replies. Read the evidence, collect your papers, and come back tomorrow.

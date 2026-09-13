@@ -45,3 +45,8 @@
 /source-assets/generated/alternate/threshold-generation.json
 /source-assets/generated/alternate/threshold-prompt-review.json
 /source-assets/generated/alternate/threshold-flora-asset.json
+
+/source-assets/product/current-v3/*.webm
+/source-assets/product/current-v3/.trimwork/
+
+/source-assets/product/current-v3/capture-error.png

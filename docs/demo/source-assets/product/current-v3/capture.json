@@ -1,0 +1,70 @@
+{
+  "source": "http://127.0.0.1:5173",
+  "capturedAt": "2026-09-13T17:50:03.508Z",
+  "viewport": {
+    "width": 1440,
+    "height": 810
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "identity": {
+    "name": "Citizen 041",
+    "affiliation": "Independent developer"
+  },
+  "config": {
+    "liveEnabled": false,
+    "availability": "disabled"
+  },
+  "notes": [
+    "Current local website. No CSS, DOM content, model data or counters altered.",
+    "No live run was submitted. Identity fields were typed but not sent.",
+    "Recorded-pilot shots retain the native visible provenance.",
+    "1440x810 native viewport scaled to1920x1080; this uses the current intended room layout without the obsolete navigation chrome.",
+    "The first window attempt was discarded; its source state was lost during a development reload. Only arrival, ticket and waiting are used from this session."
+  ],
+  "events": [
+    {
+      "name": "arrival",
+      "seconds": 1.569
+    },
+    {
+      "name": "ticket",
+      "seconds": 11.406
+    },
+    {
+      "name": "waiting",
+      "seconds": 25.143
+    },
+    {
+      "name": "window",
+      "seconds": 35.931
+    }
+  ],
+  "clips": [
+    {
+      "name": "arrival",
+      "start": 1.569,
+      "duration": 8.6
+    },
+    {
+      "name": "ticket",
+      "start": 11.406,
+      "duration": 12.6
+    },
+    {
+      "name": "waiting",
+      "start": 25.143,
+      "duration": 7.6
+    },
+    {
+      "name": "window",
+      "start": 35.931,
+      "duration": 10.6,
+      "valid": false,
+      "discardReason": "Vite development reload cleared pilot state. Superseded by capture-tail.json."
+    }
+  ]
+}

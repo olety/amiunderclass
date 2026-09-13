@@ -64,6 +64,13 @@
     "exit": false,
     "threshold": true
   },
+  "verdict": {
+    "kind": "satire",
+    "ownerApproved": true,
+    "start": 39,
+    "duration": 8,
+    "text": "Amanda: YES. You: NO."
+  },
   "captureMode": "recorded-pilot",
-  "captureNote": "Real deployed website; explicitly labelled recorded v1 pilot. No waiting-count simulation and no visitor assignment."
+  "captureNote": "Current local website at 127.0.0.1:5173, without the old borders; native recorded-pilot provenance is preserved. Yes/no is owner-approved satire, not measured answers. No paid visitor run."
 }

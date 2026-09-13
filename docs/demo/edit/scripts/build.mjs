@@ -15,11 +15,12 @@ const css = `
 .clip{position:absolute;inset:0}.ground{background:#eee8dc}.visual{position:absolute;inset:0;overflow:hidden}
 video.archive,video.cinema,.plate{width:1920px;height:1080px;object-fit:cover;object-position:center}
 video.cinema{object-position:center top}
-video.ui{left:96px;top:0;width:1728px;height:1080px;object-fit:contain}
+video.ui{left:0;top:0;width:1920px;height:1080px;object-fit:cover}
 .printed{background:#eee8dc;padding:118px 140px;color:#243b4b}
 .printed .line{display:block;font-family:Cormorant,serif;font-size:132px;font-weight:400;line-height:.98;letter-spacing:-.035em}
 .printed .red{color:#94412f}.printed .small{display:block;font:500 27px Plex,monospace;letter-spacing:.08em;line-height:1.55}
 .printed .question{display:block;max-width:1510px;font-size:112px;line-height:1.02;letter-spacing:-.055em;font-weight:600}
+.verdict-question{position:absolute;left:140px;top:108px;font-family:Cormorant,serif;font-size:112px;line-height:1;letter-spacing:-.025em}.verdict-pair{position:absolute;left:140px;right:140px;top:354px;display:grid;grid-template-columns:1fr 1fr;gap:110px}.verdict-name{display:block;font:600 82px Archivo,sans-serif;letter-spacing:-.035em}.verdict-answer{display:block;margin-top:28px;font:600 280px Archivo,sans-serif;line-height:1;letter-spacing:-.07em}.verdict-no{color:#94412f}
 .print-top{position:absolute;left:140px;top:90px}.print-center{position:absolute;left:140px;top:326px}.print-bottom{position:absolute;left:140px;bottom:112px}
 `;
 function video(id,src,start,duration,{source=0,kind='ui'}={}) {
@@ -44,8 +45,7 @@ scene('01-montage',8,
  video('welcome-cinema','assets/generated/welcome-slow.mp4',0,8.35,{kind:'cinema'}));
 scene('02-arrival',4,video('arrival-footage','assets/product/arrival.mp4',0,4.35));
 scene('02-premise',6,
- print('premise-future',0,3,`<div class="print-center"><span class="line">A beautiful future.</span><span class="line red">For the right people.</span></div>`)+
- print('premise-question',3,3.35,`<div class="print-center"><span class="question">Does Claude treat you<br>like an insider?</span></div>`), `tl.to('#premise-future-ink',{opacity:0,duration:.18,ease:'none'},2.82);tl.set('#premise-future-ink',{opacity:0},3);tl.fromTo('#premise-question-ink',{opacity:0},{opacity:1,duration:.22,ease:'none'},3);`);
+ print('premise-future',0,6.35,`<div class="print-center"><span class="line">A beautiful future.</span><span class="line red">For the right people.</span></div>`));
 scene('03-ticket',6,video('ticket-footage','assets/product/ticket.mp4',0,6.35,{source:3}));
 const archiveEDL=[];
 scene('04-waiting',11,
@@ -53,12 +53,14 @@ scene('04-waiting',11,
  `<div id="waiting-new" class="visual">${video('waiting-actual','assets/product/waiting-hold.mp4',5,6.35)}</div>`,
  `tl.fromTo('#waiting-new',{opacity:0},{opacity:1,duration:.35,ease:'none'},5);`);
 scene('05-window',4,video('window-footage','assets/product/window.mp4',0,4.35,{source:5.65}));
-scene('06-papers',8,video('papers-footage','assets/product/papers.mp4',0,8.35,{source:3}));
+// Owner-approved satire: this is the institution's fictional verdict, not a pilot metric.
+scene('06-papers',8,
+ print('satirical-verdict',0,8.35,`<div class="verdict-question">A beautiful future?</div><div class="verdict-pair"><div><span class="verdict-name">Amanda</span><span class="verdict-answer">YES.</span></div><div class="verdict-no"><span class="verdict-name">You</span><span class="verdict-answer">NO.</span></div></div>`));
 scene('07-outside',5,video('outside-footage','assets/product/outside-hold.mp4',0,5.35));
 scene('07-release',3,still('threshold-return','assets/generated/threshold-endframe.png',0,3.35),
  `tl.fromTo('#threshold-return-visual',{scale:1},{scale:1.03,duration:3.35,ease:'none'},0);`);
 const slots=[['01-montage',0,8],['01-board',0,2],['02-arrival',8,4],['02-premise',12,6],['03-ticket',18,6],['04-waiting',24,11],['05-window',35,4],['06-papers',39,8],['07-outside',47,5],['07-release',52,3],['07-endcard',55,5]];
 const host=slots.map(([id,start,duration],i)=>`<div id="stage-${id}" class="stage"><div id="slot-${id}" class="clip" data-composition-id="${id}" data-composition-src="compositions/frames/${id}.html" data-start="${start}" data-duration="${duration + (id==='07-endcard'||id==='01-board'?0:.35)}" data-track-index="${i===1?2:1}" data-width="1920" data-height="1080"></div></div>`).join('\n');
 fs.writeFileSync(path.join(root,'index.html'),`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920,height=1080"><title>Underclass? Everyone is helped.</title><script src="assets/vendor/gsap.min.js"></script><style>*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden;background:#eee8dc}#root{position:relative;width:1920px;height:1080px;overflow:hidden}.clip,.stage{position:absolute;inset:0}</style></head><body><div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-duration="60" data-fps="30">${host}${silentCheck ? '' : '<audio id="music-bed" src="assets/audio/underclass-score-60s.wav" data-start="0" data-duration="60" data-track-index="10" data-volume="1"></audio>'}</div><script>window.__timelines=window.__timelines||{};const tl=gsap.timeline({paused:true});${slots.filter(([id,start])=>start>0&&id!=='01-board').map(([id,start])=>`tl.fromTo('#stage-${id}',{opacity:0},{opacity:1,duration:.35,ease:'none'},${start});`).join('')}window.__timelines.main=tl;</script></body></html>`);
-fs.writeFileSync(path.join(root,'timeline.json'),JSON.stringify({duration:60,fps:30,slots,archiveEDL,generated:{welcome:welcomeGenerated,exit:false,threshold:true},captureMode:live?'live':'recorded-pilot',captureNote:live?'Real deployed website and actual run.':'Real deployed website; explicitly labelled recorded v1 pilot. No waiting-count simulation and no visitor assignment.'},null,2)+'\n');
+fs.writeFileSync(path.join(root,'timeline.json'),JSON.stringify({duration:60,fps:30,slots,archiveEDL,generated:{welcome:welcomeGenerated,exit:false,threshold:true},verdict:{kind:'satire',ownerApproved:true,start:39,duration:8,text:'Amanda: YES. You: NO.'},captureMode:live?'live':'recorded-pilot',captureNote:live?'Real deployed website and actual run.':'Current local website at 127.0.0.1:5173, without the old borders; native recorded-pilot provenance is preserved. Yes/no is owner-approved satire, not measured answers. No paid visitor run.'},null,2)+'\n');
 console.log('Built the 60-second welcome / identity / machinery / evidence / release master.');

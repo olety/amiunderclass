@@ -1,0 +1,12 @@
+{
+  "source": "http://127.0.0.1:5173/?room=ticket",
+  "capturedAt": "2026-09-13T17:52:19.809Z",
+  "start": 2.207,
+  "duration": 12.6,
+  "notes": [
+    "Rehearsal checkbox unchecked through actual UI before recording. No submission or provider calls.",
+    "No capture-only CSS or content changes.",
+    "HMR websocket blocked for this browser session only.",
+    "Actual typed identity: Citizen041, Independent developer."
+  ]
+}

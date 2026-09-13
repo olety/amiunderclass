@@ -1,0 +1,22 @@
+{
+  "source": "http://127.0.0.1:5173",
+  "capturedAt": "2026-09-13T17:51:11.910Z",
+  "notes": [
+    "No UI styles, text, data or counters changed.",
+    "Vite HMR websocket blocked in this browser session to preserve the recorded-pilot state while other agents edit the live source.",
+    "Historical recorded pilot loaded from actual /api/example. No paid call.",
+    "The film replaces papers with an editorial card; no papers clip requested."
+  ],
+  "clips": [
+    {
+      "name": "window",
+      "start": 4.004,
+      "duration": 10.6
+    },
+    {
+      "name": "outside",
+      "start": 16.843,
+      "duration": 6.6
+    }
+  ]
+}

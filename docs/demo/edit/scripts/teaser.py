@@ -78,7 +78,8 @@ def main() -> None:
         raise ValueError("Master must be 1920×1080; finish the master export first")
     if Fraction(video["avg_frame_rate"]) != fps:
         raise ValueError(f"Master must have the EDL's {fps} fps frame rate")
-    required_frames = max(segment["source_end_frame_exclusive"] for segment in segments)
+    dissolve_frames = int(edl["video"].get("dissolve_frames", 0))
+    required_frames = max(segment["source_end_frame_exclusive"] + (dissolve_frames if index < len(segments) - 1 else 0) for index, segment in enumerate(segments))
     if video.get("nb_frames") and int(video["nb_frames"]) < required_frames:
         raise ValueError("Master is shorter than the final EDL source interval")
 
@@ -86,13 +87,21 @@ def main() -> None:
     filters = [f"[0:v]split={count}" + "".join(f"[v{i}]" for i in range(count))]
     for index, segment in enumerate(segments):
         start = segment["source_start_frame"]
-        end = segment["source_end_frame_exclusive"]
+        end = segment["source_end_frame_exclusive"] + (dissolve_frames if index < count - 1 else 0)
         filters.append(f"[v{index}]trim=start_frame={start}:end_frame={end},setpts=PTS-STARTPTS[cut{index}v]")
-    filters.append(
-        "".join(f"[cut{i}v]" for i in range(count))
-        + f"concat=n={count}:v=1:a=0[outv]"
-    )
-    # Picture can cut; music stays one uninterrupted master interval.
+    if dissolve_frames:
+        previous = "cut0v"
+        for index in range(1, count):
+            output = "outv" if index == count - 1 else f"blend{index}"
+            offset = segments[index]["output_start_frame"] / fps
+            filters.append(f"[{previous}][cut{index}v]xfade=transition=fade:duration={dissolve_frames / fps}:offset={offset}[{output}]")
+            previous = output
+    else:
+        filters.append(
+            "".join(f"[cut{i}v]" for i in range(count))
+            + f"concat=n={count}:v=1:a=0[outv]"
+        )
+    # Picture transitions leave the continuous music untouched.
     audio_start_frame = int(edl["audio"]["source_start_frame"])
     audio_end_frame = audio_start_frame + frames
     fade_out = float(edl["audio"]["fade_out_seconds"])

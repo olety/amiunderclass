@@ -37,3 +37,9 @@ The approved office art belongs to the project. The male clerk's appearance is p
 `underclass-demo.mp4`: 60 seconds, 1920×1080, 30 fps, H.264 and stereo AAC. `underclass-teaser.mp4`: 15 seconds drawn from master ranges 0–4, 15–18, 47–52 and 57–60. The teaser contains 450 frames, with one continuous soundtrack passage and a gentle closing fade. Seven full-resolution proof frames are in `frames`.
 
 The composition is authored in HyperFrames 0.8.36 with local GSAP 3.14.2 and FFmpeg. `edit/scripts/build.mjs` and `edit/timeline.json` hold picture timing. `source-assets/audio/build_score_60.py` rebuilds the music edit. `edit/README.md` has staging, verification and rendering commands. No upload or publication is part of this export.
+
+## Revision 3
+
+The owner requested the current borderless website, slower text and a satirical Amanda YES / You NO verdict. New website captures are in `source-assets/product/current-v3/`, from the current local site at `http://127.0.0.1:5173`. Their native 1440×810 viewport is scaled to 1920×1080; the compositor adds no border. Capture notes record the exact session and provenance.
+
+The premise is held for six seconds. The former eight-second metrics section is replaced with the owner-approved fictional verdict, displayed as one card under “A beautiful future?”. It is not a measured pair of model answers or a personal result. The original continuous score and the surrounding scene timings remain.

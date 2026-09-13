@@ -1,8 +1,7 @@
 """Stage approved capture clips with frame-exact durations and seekable GOPs.
 
 Usage: python3 scripts/stage-product.py /path/to/approved/room-clips
-Input names: arrival.mp4, ticket.mp4, waiting.mp4, window.mp4, papers.mp4,
-outside.mp4. Keep source evidence and capture notes alongside the originals.
+Input names: arrival.mp4, ticket.mp4, waiting.mp4, window.mp4, outside.mp4. Keep source evidence and capture notes alongside the originals.
 """
 from pathlib import Path
 import argparse
@@ -16,7 +15,7 @@ project = Path(__file__).resolve().parents[1]
 destination = project / 'assets' / 'product'
 destination.mkdir(parents=True, exist_ok=True)
 # Preserve sufficient source handles for the 60-second edit.
-durations = dict(arrival=8, ticket=12, waiting=4, window=10, papers=12, outside=5)
+durations = dict(arrival=8, ticket=12, waiting=7, window=10, outside=6)
 for name in durations:
     if not (args.source / f'{name}.mp4').is_file():
         raise SystemExit(f'Missing approved capture: {name}.mp4')
@@ -48,4 +47,4 @@ for name, frames in [('waiting', 191), ('outside', 161)]:
         '-movflags', '+faststart', str(destination / f'{name}-hold.mp4'),
     ], check=True)
 (project / 'product-validation.json').write_text(json.dumps(report, indent=2) + '\n')
-print('Staged six approved captures and two outgoing holds with one-second keyframes.')
+print('Staged five current captures and two outgoing holds with one-second keyframes.')

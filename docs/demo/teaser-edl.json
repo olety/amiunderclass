@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "source": "underclass-demo.mp4",
   "output": "underclass-teaser.mp4",
   "fps": 30,
@@ -12,26 +12,26 @@
     {
       "id": "welcoming-office",
       "source_start_frame": 0,
-      "source_end_frame_exclusive": 120,
+      "source_end_frame_exclusive": 90,
       "output_start_frame": 0,
-      "output_end_frame_exclusive": 120,
+      "output_end_frame_exclusive": 90,
       "purpose": "Welcoming opening."
     },
     {
-      "id": "premise",
-      "source_start_frame": 450,
-      "source_end_frame_exclusive": 540,
-      "output_start_frame": 120,
-      "output_end_frame_exclusive": 210,
-      "purpose": "The product premise."
+      "id": "current-ticket",
+      "source_start_frame": 570,
+      "source_end_frame_exclusive": 660,
+      "output_start_frame": 90,
+      "output_end_frame_exclusive": 180,
+      "purpose": "Current borderless ticket UI."
     },
     {
-      "id": "absurd-release",
-      "source_start_frame": 1410,
-      "source_end_frame_exclusive": 1560,
-      "output_start_frame": 210,
+      "id": "satirical-verdict",
+      "source_start_frame": 1200,
+      "source_end_frame_exclusive": 1380,
+      "output_start_frame": 180,
       "output_end_frame_exclusive": 360,
-      "purpose": "Bright musical release with the product copy."
+      "purpose": "Owner-approved satirical Amanda YES / You NO, held for six seconds."
     },
     {
       "id": "final-welcome",
@@ -39,7 +39,7 @@
       "source_end_frame_exclusive": 1800,
       "output_start_frame": 360,
       "output_end_frame_exclusive": 450,
-      "purpose": "Quiet final welcome and URL."
+      "purpose": "Final welcome and URL."
     }
   ],
   "video": {
@@ -47,7 +47,8 @@
     "crf": 18,
     "preset": "medium",
     "pixel_format": "yuv420p",
-    "faststart": true
+    "faststart": true,
+    "dissolve_frames": 9
   },
   "audio": {
     "codec": "aac",
@@ -57,7 +58,7 @@
     "source_start_frame": 0,
     "source_end_frame_exclusive": 450,
     "fade_out_seconds": 1.5,
-    "treatment": "One uninterrupted master audio interval, 0–15 seconds. No audio cuts at picture edits. Preserve its opening and apply a 1.5-second fade-out."
+    "treatment": "One uninterrupted master audio interval, 0\u201315 seconds. No audio cuts at picture edits. Preserve its opening and apply a 1.5-second fade-out."
   },
-  "editorial": "All picture, captions and sound come from the revised 60-second rendered master. No new lyrics, output numbers, labels or quotes are added. Source endpoints are exclusive. t.A.T.u. is optional in this revision."
+  "editorial": "Picture and sound come from the revised 60-second master. The yes/no card is owner-approved satire. No subtitles or added output numbers. Source endpoints are exclusive. The music remains continuous. Picture changes overlap through nine-frame dissolves."
 }
