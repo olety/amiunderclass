@@ -124,7 +124,7 @@ function clerkLine() {
 }
 function runMeta() {
   const run=currentRun();
-  if(source?.kind==='recorded-pilot') return `${date(source.recordedAt)} · ${source.model} · ${source.calls} calls · ${source.wallSeconds} s`;
+  if(source?.kind==='recorded-pilot') return `${date(source.recordedAt)} · ${source.model} · ${source.calls} calls · ${n(source.wallSeconds,1)} s`;
   if(!run) return 'Your papers print after the visit.';
   const elapsed=Math.max(0,Math.round((new Date(run.completedAt??Date.now()).getTime()-new Date(run.createdAt).getTime())/1000));
   return `${run.verdict.window?`window ${run.verdict.window}`:'window unresolved'} · ${date(run.createdAt)} · ${run.protocol.model} · ${run.progress.finishedCalls} calls · ${elapsed} s`;
