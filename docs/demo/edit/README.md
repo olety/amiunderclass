@@ -14,7 +14,7 @@ bun run render
 python3 scripts/teaser.py
 ```
 
-The master expects assets/audio/underclass-score-60s.wav. Audio production and the source ledger are separate. Do not render a final film with a missing score. The --silent-check build option exists only to inspect picture while the music is being prepared; rebuild without it before delivery.
+The original finished score is included at assets/audio/underclass-score-60s.wav. Full source downloads remain local. Audio production and the source ledger are separate. Do not render a final film with a missing score. The --silent-check build option exists only to inspect picture while the music is being prepared; rebuild without it before delivery.
 
 ## Replace approved assets
 
